@@ -2,11 +2,6 @@
 
 This project will explore the relationship between mendelian randomization and logic programming.
 
-See an example of logic programming for Mendelian inheritance here: http://cplint.eu/e/mendel.pl
-
-See a description of Mendelian randomization with various biases here: https://www.biorxiv.org/content/10.1101/602516v2 (Note that this will be updated in the next few days. Figure 1 is relevant).
-
-
 ## Potential activities
 
 **Task 1.** Write a probabilistic logic programme that simulates the biological structure underlying Mendelian randomization (MR)
@@ -75,5 +70,7 @@ Of these assumptions, (i) can be proven just be observing if the association bet
 
 
 ## Background on ILP
+
+See an example of logic programming for Mendelian inheritance here: http://cplint.eu/e/mendel.pl
 
 ...

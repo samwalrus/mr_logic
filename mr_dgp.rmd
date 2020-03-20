@@ -10,7 +10,7 @@ output: pdf_document
 
 Causal inference between two traits, the exposure's ($x$) effect on the outcome ($y$) can be made using associations of genetic variants $g$ on $x$ and $y$. This method is known as Mendelian randomization (MR), a special case of instrumental variable (IV) analysis where the instrument is a genetic variant. Assume the following causal structure:
 
-![Diagram of instrumental variable assumptions for Mendelian randomization. The three assumptions (i, ii, iii) are illustrated by the presence of an arrow, indicating the effect of one variable on the other (assumption i), or by a dashed line with a cross, indicating that there is no direct effect of one variable on the other (assumptions ii and iii)](https://www.researchgate.net/profile/Stephen_Burgess7/publication/295859579/figure/fig1/AS:332972533272586@1456398246787/Diagram-of-instrumental-variable-assumptions-for-Mendelian-randomization-The-three.png)
+![Diagram of instrumental variable assumptions for Mendelian randomization. The three assumptions (i, ii, iii) are illustrated by the presence of an arrow, indicating the effect of one variable on the other (assumption i), or by a dashed line with a cross, indicating that there is no direct effect of one variable on the other (assumptions ii and iii)](Diagram-of-instrumental-variable-assumptions-for-Mendelian-randomization-The-three.png)
 
 Our objective is to estimate $\beta_1$ the causal effect of the exposure on the outcome.
 
@@ -96,20 +96,3 @@ beta_iv <- gamma_1_hat / b_1_hat
 round(beta_iv, 2)
 beta_1
 ```
-
-
-## Learning rules
-
-Can ILP learn:
-
-1. Variance of a variable?
-2. Covariance of two variables?
-3. Linear regression of two variables (2) / (1)?
-4. Causal effect estimate from knowledge of variant-exposure and variant-outcome associations?
-
-
-## Extensions to the data generating process
-
-1. Combining information from multiple variants that influence $x$
-2. Instances of assumption violations (e.g. $g$ influencex $y$ via a path not through $x$; $g$ associating with $u$)
-

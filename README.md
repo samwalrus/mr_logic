@@ -35,4 +35,45 @@ See a description of Mendelian randomization with various biases here: https://w
 - Potential secondary (pleiotropic) effects of the allele on the outcome
 
 
+## Background on Mendelian randomisation
 
+In epidemiology, one of the most common types of data is 'observational data' - where characteristics are measured in samples drawn from a population. If we wanted to estimate the causal effect of higher body mass index (BMI) on risk of coronary heart disease (CHD), these data could be used to do that - by regressing BMI against CHD. But there are potentially big problems because confounders could have biased our estimate.
+
+https://en.wikipedia.org/wiki/Observational_study
+
+Ideally we would instead perform a randomised controlled trial, where we randomly split a sample into two, give half the sample higher BMI and the other half is kept as a control. Measuring the difference in risk of CHD between these two halves is a more reliable indicator of the causal effect of BMI on CHD.
+
+https://en.wikipedia.org/wiki/Randomized_controlled_trial
+
+Observational data is very easily available, but unreliable. Randomised controlled trials are expensive and sometimes impossible, but have a reliable design. What instrumental variable analysis aims to achieve is finding a way to implement the principles of randomized controlled trials but using easily available observational data.
+
+Some reflections on epidemiology (written 20 years ago but still relevant!): https://academic.oup.com/ije/article/30/1/1/619015
+
+The original paper describing Mendelian randomisation: https://www.ncbi.nlm.nih.gov/pubmed/12689998
+
+More recent paper describing Mendelian randomisation: https://www.ncbi.nlm.nih.gov/pubmed/25064373
+
+The data used in Mendelian randomisation: https://elifesciences.org/articles/34408
+
+A review article that Sam thought might be helpful: https://www.ncbi.nlm.nih.gov/pubmed/29876899
+
+Simple explanation of the data generating model and how to perform MR: [mr_dgp.pdf](https://github.com/samwalrus/mr_logic/blob/master/mr_dgp.pdf)
+
+
+### Problems - what can go wrong with MR
+
+The rules of MR are outlined here:
+
+![dag](Diagram-of-instrumental-variable-assumptions-for-Mendelian-randomization-The-three.png)
+
+Diagram of instrumental variable assumptions for Mendelian randomization. The three assumptions are illustrated - (i) the variant associates with the exposure; (ii) the variant does not associate with confounders; (iii) the variant is only associated with the outcome via the exposure
+
+Of these assumptions, (i) can be proven just be observing if the association between variant and exposure exists. (ii) and (iii) are hard or impossible to prove. 
+
+- Violation of (ii): Population and family structure - https://www.biorxiv.org/content/10.1101/602516v2 (note that this will be updated soon)
+- Violation of (iii): Pleiotropy - https://www.ncbi.nlm.nih.gov/pubmed/12689998
+
+
+## Background on ILP
+
+...

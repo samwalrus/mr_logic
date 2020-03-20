@@ -1,0 +1,64 @@
+* Background
+Recent Survey Paper:
+From Statistical Relational to Neuro-Symbolic Artificial Intelligence
+https://arxiv.org/pdf/2003.08316.pdf
+
+Identify a 7 dimensional space of Learning Combined with reasoning for
+AI.
+
+1. Directed vs undirected graphs
+2. Grounding vs proof
+3. Integrating Logic with Probability
+4. Logical semantics
+5. Learning Parameters vs structure
+6. Representing entities with symbols or sub-symbols
+7. The type of Logic used.
+
+My initial thoughts are that the important areas to think about in the
+context of thinking about MR from an AI perspective is that dimensions
+1,3 and 5 are clearly relevant to the topic at hand.
+
+** MR as a directed graph (1).
+
+MR is often explained using directed acyclic graphs.
+The types of Statistical and relational artificial intelligence (STAR-AI) that generalizes directed graphs, include  plate notation
+, probabilistic relational models (PRMs), probabilistic logic programs (PLPs), and Bayesian
+logic programs. The most typical and popular are probabilistic
+logic programs. (Refs in the survey paper). Undirected graphs on the
+other hand have been explored with Markov
+networks and random fields. 
+
+A difference (between directed vs undirected) from a logical
+perspective is the difference between using definite clauses i.e. prolog
+or full horn logic. (Multiple disjunctive heads to a clause).
+
+First type of rule (definite), shows what can be inferred from
+what. (The implication sign being a kind of cause). The second type of
+rule are a form of soft constraints. (Maybe relevant to Katsumis work
+on disjunctive abduction
+https://link.springer.com/article/10.1007%2Fs00354-019-00059-x)
+
+In the context of refining MR methodology, potentially both types of
+rule might be useful, i.e. General inferences on implication but also
+inference of constraints on parameters and structures.
+
+** Logic and probability (3)
+Semantics of boolean logic vs continues values.
+Fuzzy logic to deal with vagueness.
+
+MR parameters are probabilities.
+
+** Learning Parameters vs structure (5)
+
+
+* Abduction vs induction.
+
+The life sciences unlike physics are often concerned with learning
+explanations rather than general rules. So abduction is often a good
+way to think about problems rather than induction. 
+
+But learning MR might be considered induction as we are trying to
+learn general rules.
+
+Meta abduction
+

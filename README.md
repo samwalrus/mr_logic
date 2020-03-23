@@ -69,8 +69,41 @@ Of these assumptions, (i) can be proven just be observing if the association bet
 - Violation of (iii): Pleiotropy - https://www.ncbi.nlm.nih.gov/pubmed/12689998
 
 
-## Background on ILP
+## Background on Artifical Intelligence (AI)
+
+In this project we are interested in using AI techniques to automatically
+reason around a formalized version of Mendilian Randomisation. We will be interested in both
+non-amplicative and ampliative reasoning. Non-amplicative reasoning is
+deduction where the premise necessarily implies the conclusion, in contrast
+ampliative reasoning introduces new knowledge. There are different
+types of amplicative reasoning including Abductive reasoning, where we
+reason backwards from a conclusion to hypothesise what needed to be
+true to explain our observation and inductive reasoning where we
+generalize observations to write write new rules which can be used in
+future predictions. Further due to noisiness of epidemiological data
+we will also be interested in reasoning under uncertainty. For this
+reason probabilistic and fuzzy logics will likely be needed.
+
+A number of tools and techniques have been developed to aid logical
+reasoning and inference. These include automated reasoning using logic
+programming in Prolog and more recently Answer Set Programming
+(ASP). Many different algorithms and software have been developed that
+use either Prolog or ASP to perform abduction and induction. In
+addition many different techniques have been developed for reasoning
+under uncertainty including probablisitic and fuzzy versions of Prolog.
+
+Introductory Reading:
+
+- Logic Programming in Prolog - https://book.simply-logical.space/ 
+- ASP https://www.cs.utexas.edu/users/vl/papers/wiasp.pdf 
+- Abductive Logic Programming: https://book.simply-logical.space/ Chapters 8
+- Inductive Logic Programming: https://book.simply-logical.space/
+  Chapters 9
+- Probabilistic Logic Programming - https://edu.swi-prolog.org/course/view.php?id=4A
+
 
 See an example of logic programming for Mendelian inheritance here: http://cplint.eu/e/mendel.pl
+
+
 
 ...

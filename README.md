@@ -94,7 +94,7 @@ under uncertainty including probablisitic and fuzzy versions of Prolog.
 
 Introductory Reading:
 
-- Logic Programming in Prolog - https://book.simply-logical.space/ 
+- Logic Programming in Prolog - https://book.simply-logical.space/ or https://www.metalevel.at/prolog
 - ASP https://www.cs.utexas.edu/users/vl/papers/wiasp.pdf 
 - Abductive Logic Programming: https://book.simply-logical.space/ Chapters 8
 - Inductive Logic Programming: https://book.simply-logical.space/

@@ -50,6 +50,11 @@ MR parameters are probabilities.
 
 ** Learning Parameters vs structure (5)
 
+I think learning paramters is like estimating beta values.
+
+Learning structure ..
+
+Abduction of non-measured confounding elements.
 
 * Abduction vs induction.
 

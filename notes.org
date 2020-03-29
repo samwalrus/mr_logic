@@ -50,7 +50,7 @@ MR parameters are probabilities.
 
 ** Learning Parameters vs structure (5)
 
-I think learning paramters is like estimating beta values.
+I think learning parameters is like estimating beta values.
 
 Learning structure ..
 
@@ -65,7 +65,7 @@ way to think about problems rather than induction.
 But learning MR might be considered induction as we are trying to
 learn general rules.
 
-Meta abduction is abduction at the meta level i.e. imperials work.
+Meta abduction is abduction at the meta level i.e. imperial work.
 
 * Kant
 
@@ -79,31 +79,31 @@ Richard Evans work makes kantian assumptions:
 
 A genetic algorithm can be thought of as a reinforcement learning
 algorithm, there is an exploration and exploitation trade off. 
-Genetic algorithim is a randomised beam search.
+Genetic algorithm is a randomized beam search.
 Random search is useful when the space is large.
-Evolution is a randomised beam search.
+Evolution is a randomized beam search.
 The search is to build a replicating agent.
 All genes are under selection.
 An assumption of MR is that there is random mating and that they are
 not under selection.
 
-Studies have shown that the distribution of gentic variants is uniform
-across the population (european)[ Davey Smith, 2011 - Use of genetic
+Studies have shown that the distribution of genetic variants is uniform
+across the population (European)[ Davey Smith, 2011 - Use of genetic
 markers and gene-diet interactions for interrogating population level
 causal influences of diet on health ]
 
-The gentic book of the dead. Reading the genome tells you about the
-enivorments that the ancesotors of the organism lived in.
+The genetic book of the dead. Reading the genome tells you about the
+enviorments that the ancestors of the organism lived in.
 
-How does evoultion work with out sex. Is the search only local? 
+How does evolution work with out sex. Is the search only local? 
 
-Evoultion is MR - Gib.
+Evolution is MR - Gib.
 
 The genome causes the phenome. (Both are structured objects)
 
 A phenotype is a manifestation of the genome that can be selected
 upon.
 
-The genome interacts witht the enviorment to create the phenotype.
+The genome interacts with the enviorment to create the phenotype.
 
 Selection is non-random.

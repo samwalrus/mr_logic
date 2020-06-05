@@ -94,3 +94,9 @@ Linus
 XHAIL (Oliver Ray)
 1-BC (Peter Flach)
 
+New stuff:
+
+Evans, Richard, et al. "Making sense of sensory input." arXiv preprint
+arXiv:1910.02227 (2019).
+
+Evans, Richard, and Edward Grefenstette. "Learning explanatory rules from noisy data." Journal of Artificial Intelligence Research 61 (2018): 1-64.

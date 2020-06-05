@@ -76,4 +76,21 @@ inference with a web browser." Intelligenza Artificiale 11.1 (2017):
 
 Cp-Logic:
 
-Vennekens, Joost, Marc Denecker, and Maurice Bruynooghe. "CP-logic: A language of causal probabilistic events and its relation to logic programming." Theory and practice of logic programming 9.3 (2009): 245-30
+Vennekens, Joost, Marc Denecker, and Maurice Bruynooghe. "CP-logic: A
+language of causal probabilistic events and its relation to logic
+programming." Theory and practice of logic programming 9.3 (2009):
+245-30
+
+Non-probablistic ILP:
+Cropper, Andrew, and Stephen H. Muggleton. "Metagol system." (2016).
+
+Over List of Systems:
+
+Progol
+FOIL
+ACE, including, TILDE and WARMR
+Aleph
+Linus
+XHAIL (Oliver Ray)
+1-BC (Peter Flach)
+

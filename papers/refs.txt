@@ -1,0 +1,79 @@
+Books:
+
+
+Riguzzi, Fabrizio. Foundations of Probabilistic Logic
+Programming. River Publishers, 2018.
+
+Raedt, Luc De, et al. "Statistical relational artificial intelligence:
+Logic, probability, and computation." Synthesis Lectures on Artificial
+Intelligence and Machine Learning 10.2 (2016): 1-189.
+
+Bratko, Ivan. Prolog programming for artificial intelligence. Pearson
+education, 2001.
+
+
+De Raedt, Luc. Logical and relational learning. Springer Science &
+Business Media, 2008.
+
+Koller, Daphne, et al. Introduction to statistical relational
+learning. MIT press, 2007.
+
+
+
+Flach, Peter A. "Simply logical intelligent reasoning by example."
+(1994).
+
+
+
+
+
+Papers:
+
+One of the first papers:
+
+Sato, Taisuke, and Yoshitaka Kameya. "PRISM: a language for
+symbolic-statistical modeling." IJCAI. Vol. 97. 1997.
+
+A useful overview:
+
+De Raedt, Luc, and Angelika Kimmig. "Probabilistic (logic) programming concepts." Machine Learning 100.1 (2015): 5-47.
+
+
+
+Problog:
+
+De Raedt, Luc, Angelika Kimmig, and Hannu Toivonen. "ProbLog: A
+Probabilistic Prolog and Its Application in Link Discovery."
+IJCAI. Vol. 7. 2007.
+
+Problog2:
+Dries, Anton, et al. "Problog2: Probabilistic logic programming."
+Joint european conference on machine learning and knowledge discovery
+in databases. Springer, Cham, 2015.
+
+Deepproblog:
+Manhaeve, Robin, et al. "Deepproblog: Neural probabilistic logic programming." Advances in Neural Information Processing Systems. 2018.
+
+P-log
+
+BARAL, C., GELFOND, M., & RUSHTON, N. (2009). Probabilistic reasoning
+with answer sets. Theory and Practice of Logic Programming, 9(1),
+57-144. doi:10.1017/S1471068408003645
+
+Cplint:
+
+Bellodi, E., Lamma, E., Zese, R., Cota, G., & Riguzzi, F. The cplint Probabilistic Logic Programming System.
+
+Causal inference in CPlint:
+
+Riguzzi, Fabrizio, et al. "Causal inference in cplint." International Journal of Approximate Reasoning 91 (2017): 216-232.
+
+Cplint on Swish:
+
+Alberti, Marco, et al. "cplint on SWISH: Probabilistic logical
+inference with a web browser." Intelligenza Artificiale 11.1 (2017):
+47-64.
+
+Cp-Logic:
+
+Vennekens, Joost, Marc Denecker, and Maurice Bruynooghe. "CP-logic: A language of causal probabilistic events and its relation to logic programming." Theory and practice of logic programming 9.3 (2009): 245-30

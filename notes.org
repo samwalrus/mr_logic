@@ -107,3 +107,26 @@ upon.
 The genome interacts with the enviorment to create the phenotype.
 
 Selection is non-random.
+* Exceptional Model Mining and RSD
+** Linear regression 
+Phenotype = a + beta_Snp +e
+
+If we look at a subgroup of people:
+
+Phenotype = a_group + beta_group_snp + e
+
+Is the beta value differnt?
+
+The phenotype and SNP are fixed and we search for the subgroup. Where
+beta and beta complement are differnt.
+
+Thresholds on principle components.
+*** Causal models stratified analysis.
+Maybe stratify on frequent queries?
+
+Think about: https://advances.sciencemag.org/content/6/16/eaay0328
+
+* Kernel PCA for population structures (Masters project?)
+** Use a structure kernel to calculate distance between pairs of haplotypes then do kernel PCA compare to non kernel pca.
+** Also WARMR type approach to find population sub structures on structured data.
+*** Could this do something with family structures and things like assortivitve mating?

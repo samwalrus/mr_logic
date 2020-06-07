@@ -141,6 +141,9 @@ upon.
 The genome interacts with the enviorment to create the phenotype.
 
 Selection is non-random.
+
+fitness is function of the genome and enviroment
+f(G,E)
 * Exceptional Model Mining and RSD
 ** Linear regression 
 Phenotype = a + beta_Snp +e

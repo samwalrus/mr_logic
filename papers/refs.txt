@@ -96,7 +96,11 @@ XHAIL (Oliver Ray)
 
 New stuff:
 
+
 Evans, Richard, et al. "Making sense of sensory input." arXiv preprint
 arXiv:1910.02227 (2019).
 
 Evans, Richard, and Edward Grefenstette. "Learning explanatory rules from noisy data." Journal of Artificial Intelligence Research 61 (2018): 1-64.
+
+State of ILP:
+Andrew Cropper, Sebastijan Dumanˇci´c2, and Stephen H. Muggleton3 Turning 30: New Ideas in Inductive Logic Programming

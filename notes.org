@@ -50,22 +50,56 @@ MR parameters are probabilities.
 
 ** Learning Parameters vs structure (5)
 
-I think learning parameters is like estimating beta values.
+I think learning parameters is like estimating beta values. 
 
 Learning structure ..
 
-Abduction of non-measured confounding elements.
+Abduction of non-measured confounding elements.. 
+* Abduction vs induction and deduction.
 
-* Abduction vs induction.
+** Peirces syllogistic theory:
+- Deduction
+  1. All beans from this bag are white.
+  2. These beans are from this bag.
+  3. Therfore these beans are white.
+- Induction
+  1. These beans are from this bag.
+  2. These beans are white.
+  3. All beans from this bag are white.
+- Abduction
+  1. All beans from this bag are white
+  2. These beans are white.
+  3. These beans are from this bag.
 
-The life sciences unlike physics are often concerned with learning
+
+The life sciences unlike physics are often concerned with finding
 explanations rather than general rules. So abduction is often a good
 way to think about problems rather than induction. 
+
+Peirce also uses the term of finding a "hypothesis" for the third
+syllogism.
+ 
+Statitiscal inference could be abuductive reasoning because we:
+1. Make an observation
+2. Infer the best explanation of the observation interms of
+   statistical distribution and parameters of the distribution.
+
+It is differnt from doing prediction and inductive learning. But if
+abuduction is to causes, then causes allow us to make predictions that
+are roburst to differnt contexts.
+Worth thinking about abuductive reasonging Abductive reasoning is
+"inference to the best explanation and its relationship to Occams
+Razor but also note:
+Pedro Domingos paper on "The Role of Occam’s Razor in Knowledge Discovery"
+
 
 But learning MR might be considered induction as we are trying to
 learn general rules.
 
 Meta abduction is abduction at the meta level i.e. imperial work.
+
+
+
 
 * Kant
 

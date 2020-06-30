@@ -104,3 +104,6 @@ Evans, Richard, and Edward Grefenstette. "Learning explanatory rules from noisy 
 
 State of ILP:
 Andrew Cropper, Sebastijan Dumanˇci´c2, and Stephen H. Muggleton3 Turning 30: New Ideas in Inductive Logic Programming
+
+Probabilistic abductive logic programming using Dirichlet
+priors - Turlius et al

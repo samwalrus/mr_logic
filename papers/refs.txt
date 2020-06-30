@@ -110,3 +110,7 @@ priors - Turlius et al
 
 Probabilistic Abductive Logic Programming using
 Possible Worlds- Rotella and Ferilli
+
+
+Henning Christiansen. Implementing probabilistic abductive logic programming
+with Constraint Handling Rules. pages 85–118. 2008.

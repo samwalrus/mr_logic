@@ -122,3 +122,9 @@ abductive reasoning. In Toby Walsh, editor, IJCAI, pages 2840–2841,
 Taisuke Sato. Em learning for symbolic-statistical models in statistical abduction.
 In Progress in Discovery Science, Final Report of the Japanese Discovery Science
 Project, pages 189–200, London, UK, UK, 2002. Springer-Verlag
+
+MR and constraints:
+Constrained instruments and their application to Mendelian
+randomization with pleiotropy
+Lai Jiang  Karim Oualkacha  Vanessa Didelez  Antonio Ciampi  Pedro Rosa‐Neto  Andrea L. Benedet  Sulantha Mathotaarachchi  John Brent Richards  Celia M. T. Greenwood  and for the Alzheimer’s Disease Neuroimaging Initiative
+https://doi.org/10.1002/gepi.22184

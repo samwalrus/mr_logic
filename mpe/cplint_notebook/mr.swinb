@@ -1,7 +1,7 @@
 <div class="notebook">
 
 <div class="nb-cell markdown" name="md1">
-This notebook loads mcintyre
+This interactive notebook demostrates MR in PLP
 </div>
 
 <div class="nb-cell program" data-background="true" data-singleline="true" name="p1">

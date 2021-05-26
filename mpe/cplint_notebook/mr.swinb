@@ -1,4 +1,4 @@
-<div class="notebook">
+<div class="notebook hide-navbar open-fullscreen">
 
 <div class="nb-cell markdown" name="md1">
 This interactive notebook demostrates MR in PLP

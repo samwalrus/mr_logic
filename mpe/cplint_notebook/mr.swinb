@@ -2,6 +2,7 @@
 
 <div class="nb-cell markdown" name="md1">
 This interactive notebook demostrates Mendlian Randomisation as a Probablistic Logic Program. We aim to demonstrates some examples of what can be acived using this formalism first, and then give some background information on the formalism later. 
+
 The following causal theory made from X causal laws describes a set causal relationships between a SNP a meotobilte and BMI.
 </div>
 
@@ -15,10 +16,27 @@ The following causal theory made from X causal laws describes a set causal relat
 
 <div class="nb-cell program" name="p2">
 
+%Either these two laws or the 'intervention' of the next law.
+%metabolite(X,e):0.7 ; metabolite(X,l):0.3 :- aa(X).
+%metabolite(X,e):0.2 ; metabolite(X,l):0.8 :- ab(X).
+
+metabolite(X,e):0.5 ; metabolite(X,l):0.5.
+
+bmi_high(X):0.6 :- metabolite(X,e).
+bmi_high(X):0.3 :- metabolite(X,l).
+
+aa(bob).
+ab(bobbie).
+
+
 </div>
 
 <div class="nb-cell html" name="htm1">
-You can make an intervative query of this causal theory. For example in the next box clikcing the run query button will ask what the prob of z is .
+You can make an interactive query of this causal theory. For example in the next box clikcing the run query button will ask what the prob of z is .
+</div>
+
+<div class="nb-cell query" name="q4">
+
 </div>
 
 <div class="nb-cell query" name="q1">
@@ -41,8 +59,31 @@ The next box gives a differnt causal theory. However asking the same question we
 In the first theory there is no causal law with the alleles. It therefore is compatible with MR and IV. To determine the causal effect of the allele on the prob of x. We can calculate q.
 </div>
 
+<div class="nb-cell query" name="q3">
+
+</div>
+
+<div class="nb-cell html" name="htm4">
+This is as expeted giving us an estimate that is compatible with what was specified on causal theory 1.
+The same query on causal theory 2 however gives a differnt probability.
+</div>
+
+<div class="nb-cell query" name="q5">
+
+</div>
+
+<div class="nb-cell html" name="htm5">
+We can reason about causality with our theory to calculate probabilties of interventions. This is analgous to pearls do operator. We remove the first two laws and replace with a law. If we do this to both causal theories then we can now see how the probs are now differnt in the tow modified theories.
+</div>
+
 <div class="nb-cell program" data-background="true" data-singleline="true" name="p3">
 :- end_lpad.
+</div>
+
+<div class="nb-cell html" name="htm6">
+CP-Logic is a differnt formalism to Causal Baysain Networks which are often used in MR. Some of the differnces are: 1.2.3.4.
+
+The full details of this formalism its capabilties and limitations are to detailed to fit in this poster and we refer the reader to the litrature. The aim of this paper is bring this formalism to the attention of MR researchers and to show that this alternative formalism brings differnt capabilites and expressivness to knowledge represention required of MR. This can be explored in further work.
 </div>
 
 </div>

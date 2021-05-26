@@ -6,11 +6,13 @@ This interactive notebook demostrates Mendlian Randomisation as a Probablistic L
 The following causal theory made from X causal laws describes a set causal relationships between a SNP a meotobilte and BMI.
 </div>
 
-<div class="nb-cell program" data-background="true" data-singleline="true" name="p1">
+<div class="nb-cell program" data-background="true" name="p1">
 :- use_module(library(mcintyre)).
 
 :- mc.
 
+aa(sam).
+ab(bob).
 :- begin_lpad.
 </div>
 
@@ -24,8 +26,6 @@ metabolite(X,e):0.2 ; metabolite(X,l):0.8 :- ab(X).
 bmi_high(X):0.6 :- metabolite(X,e).
 bmi_high(X):0.3 :- metabolite(X,l).
 
-aa(sam).
-ab(bob).
 </div>
 
 <div class="nb-cell html" name="htm1">
@@ -33,7 +33,7 @@ You can make an interactive query of this causal theory. For example in the next
 </div>
 
 <div class="nb-cell query" name="q4">
-mc_prob(bmi_high(bob),P).
+mc_prob(bmi_high(sam),P).
 </div>
 
 <div class="nb-cell html" name="htm2">
@@ -51,11 +51,27 @@ bmi_high_v2(X):0.5 :- metabolite_v2(X,l),aa(X).
 </div>
 
 <div class="nb-cell query" name="q2">
-
+mc_prob(bmi_high_v2(sam),P).
 </div>
 
 <div class="nb-cell html" name="htm3">
 In the first theory there is no causal law with the alleles. It therefore is compatible with MR and IV. To determine the causal effect of the allele on the prob of x. We can calculate q.
+
+We can verify that the value of the metabolite is accoiated with the value of genotype.
+
+The risk difference.
+Pr [metobolite = e|genotype = aa] − Pr [metabolite =l|genotype = ab] &gt;0.
+
+
+next section holds, then the average causal effect of treatment on the additive
+scale E[Y do(X=1)] - E[Y do(X=0)]
+
+is identified and equals
+<p>
+E [Y |Z= 1] − E [Y |Z = 0]
+</p>
+<hr>
+<p>E [A|Z = 1] − E [A|Z = 0]</p>
 </div>
 
 <div class="nb-cell query" name="q3">

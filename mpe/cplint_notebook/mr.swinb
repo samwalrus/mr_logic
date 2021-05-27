@@ -3,7 +3,7 @@
 <div class="nb-cell markdown" name="md1">
 This interactive notebook demostrates Mendlian Randomisation as a Probablistic Logic Program. We aim to demonstrates some examples of what can be acived using this formalism first, and then give some background information on the formalism later. 
 
-The following causal theory made from X causal laws describes a set causal relationships between a SNP a meotobilte and BMI.
+The following causal theory is made from four causal laws. It describes a set causal relationships between a SNP a meotobilte (that can take on values e or l) and Body Mass Index (BMI).
 </div>
 
 <div class="nb-cell program" data-background="true" name="p1">

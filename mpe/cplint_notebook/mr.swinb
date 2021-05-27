@@ -11,12 +11,13 @@ The following causal theory made from X causal laws describes a set causal relat
 
 :- mc.
 
-aa(sam).
-ab(bob).
 :- begin_lpad.
 </div>
 
 <div class="nb-cell program" name="p2">
+aa(sam).
+ab(bob).
+
 %If a person has the aa genotype, 
 %they will have verson 1 of a metabolite with prob 0.7
 %or version 2 with prob 0.3.
@@ -29,11 +30,27 @@ bmi_high(X):0.3 :- metabolite(X,l).
 </div>
 
 <div class="nb-cell html" name="htm1">
-You can make an interactive query of this causal theory. For example in the next box clikcing the run query button will ask what the prob of z is .
+You can make an interactive query of this causal theory. For example in the next box clikcing the run query button will ask what the prob of someone having a high bmi is .
 </div>
 
 <div class="nb-cell query" name="q4">
-mc_prob(bmi_high(sam),P).
+mc_prob(bmi_high(X),P).
+</div>
+
+<div class="nb-cell html" name="htm7">
+The next query uses the same causal theory and asks what is the probabilty of a person having high bmi given they have metabolite e.
+</div>
+
+<div class="nb-cell query" name="q1">
+mc_rejection_sample(bmi_high(X),metabolite(X,e),1000,P,[]).
+</div>
+
+<div class="nb-cell html" name="htm8">
+And the next query asks the alternative
+</div>
+
+<div class="nb-cell query" name="q6">
+mc_rejection_sample(bmi_high(X),metabolite(X,l),1000,P,[]).
 </div>
 
 <div class="nb-cell html" name="htm2">
@@ -51,7 +68,7 @@ bmi_high_v2(X):0.5 :- metabolite_v2(X,l),aa(X).
 </div>
 
 <div class="nb-cell query" name="q2">
-mc_prob(bmi_high_v2(sam),P).
+prob(bmi_high_v2(X),P).
 </div>
 
 <div class="nb-cell html" name="htm3">

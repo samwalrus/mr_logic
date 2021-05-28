@@ -137,6 +137,8 @@ mc_rejection_sample(bmi_high_v3(X),metabolite_v3(X,l),1000,P,[]).
 
 <div class="nb-cell html" name="htm11">
 But we can calcualte the MR estimate.
+
+A non zero association is indicitive of a a causal relationship. (hernan and robins 2006)
 </div>
 
 <div class="nb-cell program" data-background="true" data-singleline="true" name="p3">

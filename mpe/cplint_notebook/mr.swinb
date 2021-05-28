@@ -82,18 +82,15 @@ In the first theory there is no causal law with the alleles. It therefore is com
 We can verify that the value of the metabolite is accoiated with the value of genotype.
 
 The risk difference.
-Pr [metobolite = e|genotype = aa] − Pr [metabolite =l|genotype = ab] &gt;0.
+\[Pr [metobolite = e|genotype = aa] − Pr [metabolite =l|genotype = ab] &gt;0.\]
 
 
 next section holds, then the average causal effect of treatment on the additive
-scale E[Y do(X=1)] - E[Y do(X=0)]
+scale \[E[Y|do(X=1)] - E[Y|do(X=0)] \]
 
 is identified and equals
-<p>
-E [Y |Z= 1] − E [Y |Z = 0]
-</p>
-<hr>
-<p>E [A|Z = 1] − E [A|Z = 0]</p>
+
+\[\frac{E [Y |Z= 1] − E [Y |Z = 0]}{E [A|Z = 1] − E [A|Z = 0]}\]
 </div>
 
 <div class="nb-cell query" name="q3">

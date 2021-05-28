@@ -16,8 +16,6 @@ ab(bob).
 </div>
 
 <div class="nb-cell program" name="p2">
-
-
 %If a person has the aa genotype, 
 %they will have verson 1 of a metabolite with prob 0.7
 %or version 2 with prob 0.3.
@@ -125,16 +123,16 @@ eats_cheese.
 metabolite_v3(X,e):0.6 ; metabolite_v3(X,l):0.3 :- aa(X).
 metabolite_v3(X,e):0.4 ; metabolite_v3(X,l):0.6 :- ab(X).
 
-high_bmi_v3(X):0.5 :- eats_cheese.
-metabolite_v2(X,e):0.5 :- eats_cheese.
+bmi_high_v3(X):0.7 :- eats_cheese.
+metabolite_v3(X,l):0.5 :- eats_cheese.
 </div>
 
 <div class="nb-cell html" name="htm10">
-However if we query for the association between metabolites and bmi we get a positive value.
+However if we query for the association between metabolites and bmi we get a positive value. This is because they are both caused by eating cheese.  Making an intervention on the metabolite does not change a probabilty of getting high bmi.
 </div>
 
 <div class="nb-cell query" name="q7">
-
+mc_rejection_sample(bmi_high_v3(X),metabolite_v3(X,l),1000,P,[]).
 </div>
 
 <div class="nb-cell html" name="htm11">

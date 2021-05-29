@@ -22,10 +22,9 @@ ab(bob).
 
 <div class="nb-cell html" name="htm12">
 The following causal theory is made from four causal laws.
-It describes a set causal relationships between a SNP, a metabolite (that can take on values e or l) and having a high Body Mass Index (BMI).
-If a person has the aa genotype, 
-they will have version 1 of a metabolite with probability 0.7
-or version 2 with probability 0.3.
+It describes a set causal relationships between the SNP, the metabolite and having a high Body Mass Index (BMI).
+It states if a person has the aa genotype, this will cause them to have the metabolite with value e with probabilty 0.7 or the value of the metabolite of l with probabilty 0.3.
+If they have the alternative genotype ab, this will instead cause them to have metabolite with value e with probabilty 0.2 or the value of the metabolite of l with probabilty 0.8.
 </div>
 
 <div class="nb-cell program" name="p2">
@@ -61,7 +60,7 @@ mc_rejection_sample(bmi_high(X),metabolite(X,l),1000,P,[]).
 </div>
 
 <div class="nb-cell html" name="htm2">
-The next box gives a different causal theory. However asking the same question we get the same probability.
+The next box gives an alternative causal theory. However asking the same question we get the same probability.
 </div>
 
 <div class="nb-cell program" name="p4">

@@ -35,8 +35,8 @@ Regardless of the value of the genotype, if a person has metabolite version <i>e
 metabolite(X,e):0.7 ; metabolite(X,l):0.3 :- aa(X).
 metabolite(X,e):0.2 ; metabolite(X,l):0.8 :- ab(X).
 
-bmi_high(X):0.6 :- metabolite(X,e).
-bmi_high(X):0.3 :- metabolite(X,l).
+person_bmi(X,1):0.6 ; person_bmi(X,0):0.4 :- metabolite(X,e).
+person_bmi(X,1):0.3 ; person_bmi(X,0):0.7 :- metabolite(X,l).
 </div>
 
 <div class="nb-cell html" name="htm1">
@@ -44,7 +44,7 @@ You can make an interactive query of this causal theory. For example in the next
 </div>
 
 <div class="nb-cell query" name="q4">
-mc_prob(bmi_high(X),P).
+mc_prob(person_bmi(X,1),P).
 </div>
 
 <div class="nb-cell html" name="htm7">
@@ -52,7 +52,7 @@ The next query uses the same causal theory and asks what is the probability of a
 </div>
 
 <div class="nb-cell query" name="q1">
-mc_rejection_sample(bmi_high(X),metabolite(X,e),1000,P,[]).
+mc_rejection_sample(person_bmi(X,1),metabolite(X,e),1000,P,[]).
 </div>
 
 <div class="nb-cell html" name="htm8">
@@ -60,7 +60,7 @@ And the next query asks the alternative:
 </div>
 
 <div class="nb-cell query" name="q6">
-mc_rejection_sample(bmi_high(X),metabolite(X,l),1000,P,[]).
+mc_rejection_sample(person_bmi(X,1),metabolite(X,l),1000,P,[]).
 </div>
 
 <div class="nb-cell html" name="htm2">
@@ -79,10 +79,10 @@ Lastly, line 7 states that with <i>l</i> and <i>aa</i>, this will cause high bmi
 metabolite_v2(X,e):0.6 ; metabolite_v2(X,l):0.3 :- aa(X).
 metabolite_v2(X,e):0.4 ; metabolite_v2(X,l):0.6 :- ab(X).
 
-bmi_high_v2(X):0.3 :-metabolite_v2(X,e),ab(X).
-bmi_high_v2(X):0.6 :-metabolite_v2(X,e),aa(X).
-bmi_high_v2(X):0.4 :-metabolite_v2(X,l),ab(X).
-bmi_high_v2(X):0.5 :-metabolite_v2(X,l),aa(X).
+person_bmi_v2(X,1):0.3 :-metabolite_v2(X,e),ab(X).
+person_bmi_v2(X,1):0.6 :-metabolite_v2(X,e),aa(X).
+person_bmi_v2(X,1):0.4 :-metabolite_v2(X,l),ab(X).
+person_bmi_v2(X,1):0.5 :-metabolite_v2(X,l),aa(X).
 </div>
 
 <div class="nb-cell html" name="htm17">
@@ -90,7 +90,7 @@ However asking the same question "what is the probabilty of someone having a hig
 </div>
 
 <div class="nb-cell query" name="q2">
-mc_prob(bmi_high_v2(X),P).
+mc_prob(person_bmi_v2(X,1),P).
 </div>
 
 <div class="nb-cell html" name="htm14">
@@ -98,11 +98,11 @@ And then the conditional probabilites questions
 </div>
 
 <div class="nb-cell query" name="q8">
-mc_rejection_sample(bmi_high_v2(X),metabolite_v2(X,e),1000,P,[]).
+mc_rejection_sample(person_bmi_v2(X,1),metabolite_v2(X,e),1000,P,[]).
 </div>
 
 <div class="nb-cell query" name="q9">
-mc_rejection_sample(bmi_high_v2(X),metabolite_v2(X,l),1000,P,[]).
+mc_rejection_sample(person_bmi_v2(X,1),metabolite_v2(X,l),1000,P,[]).
 </div>
 
 <div class="nb-cell html" name="htm9">
@@ -117,7 +117,7 @@ eats_cheese(_X).
 metabolite_v3(X,e):0.6 ; metabolite_v3(X,l):0.3 :- aa(X).
 metabolite_v3(X,e):0.4 ; metabolite_v3(X,l):0.6 :- ab(X).
 
-bmi_high_v3(X):0.7 :- eats_cheese(X).
+person_bmi_v2_v3(X,1):0.7 :- eats_cheese(X).
 metabolite_v3(X,l):0.8 :- eats_cheese(X).
 </div>
 
@@ -126,7 +126,7 @@ However if we query for the association between metabolites and bmi we get a pos
 </div>
 
 <div class="nb-cell query" name="q7">
-mc_rejection_sample(bmi_high_v3(X),metabolite_v3(X,e),1000,P1,[]), mc_rejection_sample(bmi_high_v3(X),metabolite_v3(X,l),1000,P2,[]), Risk is P1-P2.
+mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,e),1000,P1,[]), mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,l),1000,P2,[]), Risk is P1-P2.
 </div>
 
 <div class="nb-cell html" name="htm3">

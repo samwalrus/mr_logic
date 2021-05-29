@@ -1,7 +1,7 @@
 <div class="notebook">
 
-<div class="nb-cell markdown" name="md1">
-&lt;h1&gt;Mendelian Randomization as a Probabilistic Logic Program &lt;/h1&gt;
+<div class="nb-cell html" name="htm13">
+<h1>Mendelian Randomization as a Probabilistic Logic Program </h1>
 This interactive notebook demonstrates Mendelian Randomization as a Probabilistic Logic Program. We aim to demonstrate some examples of what can be achieved using this formalism first, and then give some background information on the formalism later. 
 
 Through out this note book we will use a number of artificial running examples. In the first example we will define the relationships between a SNP, a metabolite (that can take on values e or l) and having a high Body Mass Index (BMI).

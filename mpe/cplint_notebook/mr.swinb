@@ -1,7 +1,7 @@
 <div class="notebook">
 
 <div class="nb-cell markdown" name="md1">
-This interactive notebook demostrates Mendlian Randomisation as a Probablistic Logic Program. We aim to demonstrates some examples of what can be acived using this formalism first, and then give some background information on the formalism later. 
+This interactive notebook demostrates Mendlian Randomisation as a Probablistic Logic Program. We aim to demonstrate some examples of what can be achived using this formalism first, and then give some background information on the formalism later. 
 
 The following causal theory is made from four causal laws. It describes a set causal relationships between a SNP a meotobilte (that can take on values e or l) and Body Mass Index (BMI).
 </div>
@@ -73,9 +73,6 @@ mc_prob(bmi_high_v2(X),P).
 $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
              "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
 </script>
-
-test:
-\[P(E|C)&gt;P(E|\neg C)\]
 
 In the first theory there is no causal law with the alleles. It therefore is compatible with MR and IV. To determine the causal effect of the allele on the prob of x. We can calculate q.
 

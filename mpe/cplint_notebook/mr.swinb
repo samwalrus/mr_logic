@@ -3,22 +3,31 @@
 <div class="nb-cell markdown" name="md1">
 This interactive notebook demonstrates Mendelian Randomization as a Probabilistic Logic Program. We aim to demonstrate some examples of what can be achieved using this formalism first, and then give some background information on the formalism later. 
 
-The following causal theory is made from four causal laws. It describes a set causal relationships between a SNP a metabolites (that can take on values e or l) and Body Mass Index (BMI).
+Through out this note book we will use a number of artificial running examples. In the first example we will define the relationships between a SNP, a metabolite (that can take on values e or l) and having a high Body Mass Index (BMI).
+
+We first set up our program by importing the required libray and initialsing it (line 1 and 2). 
+We then state that the SNP can have value aa or ab (line 3 and 4).
+
+We then state that our probalistic program will begin (line 5).
 </div>
 
 <div class="nb-cell program" data-background="true" name="p1">
 :- use_module(library(mcintyre)).
-
 :- mc.
 aa(sam).
 ab(bob).
 :- begin_lpad.
 </div>
 
+<div class="nb-cell html" name="htm12">
+The following causal theory is made from four causal laws.
+It describes a set causal relationships between a SNP, a metabolite (that can take on values e or l) and having a high Body Mass Index (BMI).
+If a person has the aa genotype, 
+they will have version 1 of a metabolite with probability 0.7
+or version 2 with probability 0.3.
+</div>
+
 <div class="nb-cell program" name="p2">
-%If a person has the aa genotype, 
-%they will have version 1 of a metabolite with probability 0.7
-%or version 2 with probability 0.3.
 metabolite(X,e):0.7 ; metabolite(X,l):0.3 :- aa(X).
 metabolite(X,e):0.2 ; metabolite(X,l):0.8 :- ab(X).
 

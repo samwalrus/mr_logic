@@ -1,9 +1,9 @@
 <div class="notebook">
 
 <div class="nb-cell markdown" name="md1">
-This interactive notebook demostrates Mendlian Randomisation as a Probablistic Logic Program. We aim to demonstrate some examples of what can be achived using this formalism first, and then give some background information on the formalism later. 
+This interactive notebook demonstrates Mendelian Randomization as a Probabilistic Logic Program. We aim to demonstrate some examples of what can be achieved using this formalism first, and then give some background information on the formalism later. 
 
-The following causal theory is made from four causal laws. It describes a set causal relationships between a SNP a meotobilte (that can take on values e or l) and Body Mass Index (BMI).
+The following causal theory is made from four causal laws. It describes a set causal relationships between a SNP a metabolites (that can take on values e or l) and Body Mass Index (BMI).
 </div>
 
 <div class="nb-cell program" data-background="true" name="p1">
@@ -17,8 +17,8 @@ ab(bob).
 
 <div class="nb-cell program" name="p2">
 %If a person has the aa genotype, 
-%they will have verson 1 of a metabolite with prob 0.7
-%or version 2 with prob 0.3.
+%they will have version 1 of a metabolite with probability 0.7
+%or version 2 with probability 0.3.
 metabolite(X,e):0.7 ; metabolite(X,l):0.3 :- aa(X).
 metabolite(X,e):0.2 ; metabolite(X,l):0.8 :- ab(X).
 
@@ -27,7 +27,7 @@ bmi_high(X):0.3 :- metabolite(X,l).
 </div>
 
 <div class="nb-cell html" name="htm1">
-You can make an interactive query of this causal theory. For example in the next box clikcing the run query button will ask what the prob of someone having a high bmi is .
+You can make an interactive query of this causal theory. For example in the next box clicking the run query button will ask what the probability of someone having a high bmi is .
 </div>
 
 <div class="nb-cell query" name="q4">
@@ -35,7 +35,7 @@ mc_prob(bmi_high(X),P).
 </div>
 
 <div class="nb-cell html" name="htm7">
-The next query uses the same causal theory and asks what is the probabilty of a person having high bmi given they have metabolite e.
+The next query uses the same causal theory and asks what is the probability of a person having high bmi given they have metabolite e.
 </div>
 
 <div class="nb-cell query" name="q1">
@@ -51,7 +51,7 @@ mc_rejection_sample(bmi_high(X),metabolite(X,l),1000,P,[]).
 </div>
 
 <div class="nb-cell html" name="htm2">
-The next box gives a differnt causal theory. However asking the same question we get the same probability.
+The next box gives a different causal theory. However asking the same question we get the same probability.
 </div>
 
 <div class="nb-cell program" name="p4">
@@ -76,10 +76,10 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
 
 In the first theory there is no causal law with the alleles. It therefore is compatible with MR and IV. To determine the causal effect of the allele on the prob of x. We can calculate q.
 
-We can verify that the value of the metabolite is accoiated with the value of genotype.
+We can verify that the value of the metabolite is associated with the value of genotype.
 
 The risk difference.
-\[Pr [metobolite = e|genotype = aa] − Pr [metabolite =l|genotype = ab] &gt;0.\]
+\[Pr [metabolite = e|genotype = aa] − Pr [metabolite =l|genotype = ab] &gt;0.\]
 
 
 next section holds, then the average causal effect of treatment on the additive
@@ -95,8 +95,8 @@ is identified and equals
 </div>
 
 <div class="nb-cell html" name="htm4">
-This is as expeted giving us an estimate that is compatible with what was specified on causal theory 1.
-The same query on causal theory 2 however gives a differnt probability.
+This is as expected giving us an estimate that is compatible with what was specified on causal theory 1.
+The same query on causal theory 2 however gives a different probability.
 </div>
 
 <div class="nb-cell query" name="q5">
@@ -104,7 +104,7 @@ The same query on causal theory 2 however gives a differnt probability.
 </div>
 
 <div class="nb-cell html" name="htm5">
-We can reason about causality with our theory to calculate probabilties of interventions. This is analgous to pearls do operator. We remove the first two laws and replace with a law. If we do this to both causal theories then we can now see how the probs are now differnt in the tow modified theories.
+We can reason about causality with our theory to calculate probabilities of interventions. This is analogous to pearls do operator. We remove the first two laws and replace with a law. If we do this to both causal theories then we can now see how the probabilities are now differnt in the tow modified theories.
 </div>
 
 <div class="nb-cell html" name="htm9">

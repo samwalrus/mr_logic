@@ -7,7 +7,7 @@ This interactive notebook demonstrates Mendelian Randomization as a Probabilisti
 Throughout this note book we will use a number of artificial running examples. In the first example we will define the relationships between a SNP, a metabolite (that can take on values e or l) and having a high Body Mass Index (BMI).
 <p>
 We first set up our program by importing the required libray and initialsing it (line 1 and 2). 
-We then state that the SNP can have value aa or ab (line 3 and 4).
+We then state that wally has the genotype value aa and tulip has the genotype value ab (line 3 and 4).
 
 We then state that our probalistic program will begin (line 5).
 </p>
@@ -16,18 +16,18 @@ We then state that our probalistic program will begin (line 5).
 <div class="nb-cell program" data-background="true" name="p1">
 :- use_module(library(mcintyre)).
 :- mc.
-aa(sam).
-ab(bob).
+aa(wally).
+ab(tulip).
 :- begin_lpad.
 </div>
 
 <div class="nb-cell html" name="htm12">
 The following causal theory is made from four causal laws (on lines 1,2, 4 &amp; 5).
 It describes a set causal relationships between the SNP, the metabolite and having a high Body Mass Index (BMI).
-It states if a person has the aa genotype, this will cause them to have the metabolite with value e with probabilty 0.7 or the value of the metabolite of l with probabilty 0.3.
-If they have the alternative genotype ab, this will instead cause them to have metabolite with value e with probabilty 0.2 or the value of the metabolite of l with probabilty 0.8.
+It states if a person has the aa genotype, this will cause them to have the metabolite with value e with probabilty 0.7 or the value of the metabolite of l with probabilty 0.3 (line 1).
+If they have the alternative genotype ab, this will instead cause them to have metabolite with value e with probabilty 0.2 or the value of the metabolite of l with probabilty 0.8 (line 2).
 
-Regardless of the value of the genotype, if a person has metabolite version e, then this will cause them to have a high bmi with a probabilty of 0.6. Alternativly if they have the l version of the metabolite, this will cause them to have a high bmi with probabilty of 0.3.
+Regardless of the value of the genotype, if a person has metabolite version e, then this will cause them to have a high bmi with a probabilty of 0.6 (line 4). Alternativly if they have the l version of the metabolite, this will cause them to have a high bmi with probabilty of 0.3 (line5).
 </div>
 
 <div class="nb-cell program" name="p2">
@@ -128,13 +128,13 @@ In the next box we give a third causal theory. In this theory it can be clearly 
 </div>
 
 <div class="nb-cell program" name="p5">
-eats_cheese.
+eats_cheese(X).
 
 metabolite_v3(X,e):0.6 ; metabolite_v3(X,l):0.3 :- aa(X).
 metabolite_v3(X,e):0.4 ; metabolite_v3(X,l):0.6 :- ab(X).
 
-bmi_high_v3(X):0.7 :- eats_cheese.
-metabolite_v3(X,l):0.5 :- eats_cheese.
+bmi_high_v3(X):0.7 :- eats_cheese(X).
+metabolite_v3(X,l):0.5 :- eats_cheese(X).
 </div>
 
 <div class="nb-cell html" name="htm10">

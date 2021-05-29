@@ -7,18 +7,18 @@ This interactive notebook demonstrates Mendelian Randomization as a Probabilisti
 Throughout this note book we will use a number of artificial running examples. In the first example we will define the relationships between a SNP, a metabolite (that can take on values e or l) and having a high Body Mass Index (BMI).
 <p>
 We first set up our program by importing the required libray and initialsing it (line 1 and 2). 
-We then state that wally has the genotype value aa and tulip has the genotype value ab (line 3 and 4).
+We then state that our probalistic program will begin (line 3).
+We then state that someone has either the genotype value aa or ab with equal probabilty. (line 4).
 
-We then state that our probalistic program will begin (line 5).
+
 </p>
 </div>
 
 <div class="nb-cell program" data-background="true" name="p1">
 :- use_module(library(mcintyre)).
 :- mc.
-aa(wally).
-ab(tulip).
 :- begin_lpad.
+aa(X):0.5 ; ab(X):0.5.
 </div>
 
 <div class="nb-cell html" name="htm12">
@@ -30,7 +30,7 @@ If they have the alternative genotype ab, this will instead cause them to have m
 Regardless of the value of the genotype, if a person has metabolite version e, then this will cause them to have a high bmi with a probabilty of 0.6 (line 4). Alternativly if they have the l version of the metabolite, this will cause them to have a high bmi with probabilty of 0.3 (line5).
 </div>
 
-<div class="nb-cell program" name="p2">
+<div class="nb-cell program" data-background="true" name="p2">
 metabolite(X,e):0.7 ; metabolite(X,l):0.3 :- aa(X).
 metabolite(X,e):0.2 ; metabolite(X,l):0.8 :- ab(X).
 
@@ -55,7 +55,7 @@ mc_rejection_sample(bmi_high(X),metabolite(X,e),1000,P,[]).
 </div>
 
 <div class="nb-cell html" name="htm8">
-And the next query asks the alternative
+And the next query asks the alternative:
 </div>
 
 <div class="nb-cell query" name="q6">
@@ -64,16 +64,16 @@ mc_rejection_sample(bmi_high(X),metabolite(X,l),1000,P,[]).
 
 <div class="nb-cell html" name="htm2">
 The next box gives an alternative causal theory. Which has a differnt set of causal releanthips between the SNP, the metabolite and the state of having high bmi.
-In this theroy having the aa genotype causes a person to have the metabolite e with prob 0.6 or l with proabilty 0.3. However if they have the ab genotype this will cause them to have met value e with probabilty 0.4 or met value l with prob 0.6.
+In this theroy having the aa genotype causes a person to have the metabolite e with probabilty 0.6 or l with probabilty 0.3. However if they have the ab genotype this will cause them to have metabolite value e with probabilty 0.4 or metabolite value l with probabilty 0.6.
 
-in contrast to the first causal theory, in this theory the state of having a high bmi is causaly effected by the relationship between the genotype and the value of the metabolite.
+In contrast to the first causal theory, in this theory the state of having a high bmi is causaly effected by the relationship between the genotype and the value of the metabolite.
 Line 4, states that when a person has a metabolite e and genotype ab they will a high bmi with prob 0.
 Line 5, states that when a person has metabolite version e but the genotype aa this will cause them to have a high bmi with prob 0.6.
 Line 6, states that when a person has metabolite version l and the ab genotype this will cause them to have a high bmi with prob 0.4.
 Lastly, line 7 states that with l and aa, this will cause high bmi with prob 0.5
 
 <p>
-However asking the same question we get the same probability.
+However asking the same question "what is the probabilty of someone having a high bmi?" we get the same probability.
 </p>
 </div>
 
@@ -91,30 +91,43 @@ bmi_high_v2(X):0.5 :- metabolite_v2(X,l),aa(X).
 mc_prob(bmi_high_v2(X),P).
 </div>
 
+<div class="nb-cell html" name="htm14">
+And then the conditional probabilites questions
+</div>
+
+<div class="nb-cell query" name="q8">
+mc_rejection_sample(bmi_high_v2(X),metabolite_v2(X,e),1000,P,[]).
+</div>
+
+<div class="nb-cell query" name="q9">
+mc_rejection_sample(bmi_high_v2(X),metabolite_v2(X,l),1000,P,[]).
+</div>
+
 <div class="nb-cell html" name="htm3">
 <script type="text/javascript">
 $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
              "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
 </script>
 
-In the first theory there is no causal law with the alleles. It therefore is compatible with MR and IV. To determine the causal effect of the allele on the prob of x. We can calculate q.
+In the first theory there is no causal law where the genotype directly causes the. It therefore is compatible with MR and IV. To determine the causal effect of the allele on the prob of x. We can calculate q.
 
 We can verify that the value of the metabolite is associated with the value of genotype.
 
 The risk difference.
-\[Pr [metabolite = e|genotype = aa] − Pr [metabolite =l|genotype = ab] &gt;0.\]
+\[Pr [metabolite = e|genotype = aa] − Pr [metabolite =e|genotype = ab] &gt;0.\]
+</div>
 
+<div class="nb-cell query" name="q3">
+mc_rejection_sample(metabolite(X,e),aa(X),1000,P1,[]), mc_rejection_sample(metabolite(X,e),ab(X),1000,P2,[]), Risk_differnce is P1 - P2.
+</div>
 
+<div class="nb-cell html" name="htm15">
 next section holds, then the average causal effect of treatment on the additive
 scale \[E[Y|do(X=1)] - E[Y|do(X=0)] \]
 
 is identified and equals
 
 \[\frac{E [Y |Z= 1] − E [Y |Z = 0]}{E [A|Z = 1] − E [A|Z = 0]}\]
-</div>
-
-<div class="nb-cell query" name="q3">
-
 </div>
 
 <div class="nb-cell html" name="htm4">
@@ -135,7 +148,7 @@ In the next box we give a third causal theory. In this theory it can be clearly 
 </div>
 
 <div class="nb-cell program" name="p5">
-eats_cheese(X).
+eats_cheese(_X).
 
 metabolite_v3(X,e):0.6 ; metabolite_v3(X,l):0.3 :- aa(X).
 metabolite_v3(X,e):0.4 ; metabolite_v3(X,l):0.6 :- ab(X).

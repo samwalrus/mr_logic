@@ -2,13 +2,14 @@
 
 <div class="nb-cell html" name="htm13">
 <h1>Mendelian Randomization as a Probabilistic Logic Program </h1>
-This interactive notebook demonstrates Mendelian Randomization as a Probabilistic Logic Program. We aim to demonstrate some examples of what can be achieved using this formalism first, and then give some background information on the formalism later. 
+This interactive notebook demonstrates Mendelian Randomization as a Probabilistic Logic Program. 
+We aim to demonstrate some examples of using this formalism first, and then give some background information on the formalism later. 
 
 Throughout this note book we will use a number of artificial running examples. In the first example we will define the relationships between a SNP, a metabolite (that can take on values e or l) and having a high Body Mass Index (BMI).
 <p>
 We first set up our program by importing the required libray and initialsing it (line 1 and 2). 
 We then state that our probalistic program will begin (line 3).
-We then state that someone has either the genotype value aa or ab with equal probabilty. (line 4).
+We then state that someone has either the genotype value aa or ab with equal probabilty (line 4).
 
 
 </p>
@@ -18,16 +19,16 @@ We then state that someone has either the genotype value aa or ab with equal pro
 :- use_module(library(mcintyre)).
 :- mc.
 :- begin_lpad.
-aa(X):0.5 ; ab(X):0.5.
+aa(_):0.5 ; ab(_):0.5.
 </div>
 
 <div class="nb-cell html" name="htm12">
 The following causal theory is made from four causal laws (on lines 1,2, 4 &amp; 5).
-It describes a set causal relationships between the SNP, the metabolite and having a high Body Mass Index (BMI).
-It states if a person has the aa genotype, this will cause them to have the metabolite with value e with probabilty 0.7 or the value of the metabolite of l with probabilty 0.3 (line 1).
-If they have the alternative genotype ab, this will instead cause them to have metabolite with value e with probabilty 0.2 or the value of the metabolite of l with probabilty 0.8 (line 2).
+It describes a set causal relationships between the SNP, the metabolite and having a high BMI.
+It states if a person has the <i>aa</i> genotype, this will cause them to have the metabolite with value <i>e</i> with probabilty 0.7 or the value of the metabolite of <i>l</i> with probabilty 0.3 (line 1).
+If they have the alternative genotype <i>ab</i>, this will instead cause them to have metabolite with value <i>e</i> with probabilty 0.2 or the value of the metabolite of <i>l</i> with probabilty 0.8 (line 2).
 
-Regardless of the value of the genotype, if a person has metabolite version e, then this will cause them to have a high bmi with a probabilty of 0.6 (line 4). Alternativly if they have the l version of the metabolite, this will cause them to have a high bmi with probabilty of 0.3 (line5).
+Regardless of the value of the genotype, if a person has metabolite version <i>e</i>, then this will cause them to have a high BMI with a probabilty of 0.6 (line 4). Alternativly if they have the <i>l</i> version of the metabolite, this will cause them to have a high BMI with probabilty of 0.3 (line5).
 </div>
 
 <div class="nb-cell program" data-background="true" name="p2">
@@ -105,6 +106,8 @@ mc_rejection_sample(bmi_high_v2(X),metabolite_v2(X,l),1000,P,[]).
 
 <div class="nb-cell html" name="htm9">
 In the next box we give a third causal theory. In this theory it can be clearly seen that there is no causal law effecting bmi from the metobolite.
+Instead, in line 1 we state that everyone eats cheese and that eating cheese causes a high bmi with probabilty 0.7 and cause metabolie l with probabilty 0.5.
+Eating cheese is an independent cause of metabolite l. Someone could have both metabolites according to this theory.
 </div>
 
 <div class="nb-cell program" name="p5">
@@ -114,15 +117,15 @@ metabolite_v3(X,e):0.6 ; metabolite_v3(X,l):0.3 :- aa(X).
 metabolite_v3(X,e):0.4 ; metabolite_v3(X,l):0.6 :- ab(X).
 
 bmi_high_v3(X):0.7 :- eats_cheese(X).
-metabolite_v3(X,l):0.5 :- eats_cheese(X).
+metabolite_v3(X,l):0.8 :- eats_cheese(X).
 </div>
 
 <div class="nb-cell html" name="htm10">
-However if we query for the association between metabolites and bmi we get a positive value. This is because they are both caused by eating cheese.  Making an intervention on the metabolite does not change a probabilty of getting high bmi.
+However if we query for the association between metabolites and bmi we get a positive value. This is because they are both caused by eating cheese.
 </div>
 
 <div class="nb-cell query" name="q7">
-mc_rejection_sample(bmi_high_v3(X),metabolite_v3(X,l),1000,P,[]).
+mc_rejection_sample(bmi_high_v3(X),metabolite_v3(X,e),1000,P1,[]), mc_rejection_sample(bmi_high_v3(X),metabolite_v3(X,l),1000,P2,[]), Risk is P1-P2.
 </div>
 
 <div class="nb-cell html" name="htm3">
@@ -167,6 +170,11 @@ And the query on the 3rd causal theory.
 
 <div class="nb-cell html" name="htm5">
 We can reason about our causals theories to calculate probabilities of interventions. This is analogous to pearls do operator. We remove the first two laws and replace with a law. If we do this to both causal theories then we can now see how the probabilities are now differnt in the tow modified theories.
+
+<p>
+  Making an intervention on the metabolite does not change a probabilty of getting high bmi.
+  In causal theory 3.
+</p>
 </div>
 
 <div class="nb-cell html" name="htm11">

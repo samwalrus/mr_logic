@@ -117,7 +117,7 @@ eats_cheese(_X).
 metabolite_v3(X,e):0.6 ; metabolite_v3(X,l):0.3 :- aa(X).
 metabolite_v3(X,e):0.4 ; metabolite_v3(X,l):0.6 :- ab(X).
 
-person_bmi_v2_v3(X,1):0.7 :- eats_cheese(X).
+person_bmi_v3(X,1):0.7 :- eats_cheese(X).
 metabolite_v3(X,l):0.8 :- eats_cheese(X).
 </div>
 

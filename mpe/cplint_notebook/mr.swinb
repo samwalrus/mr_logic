@@ -156,6 +156,10 @@ is identified and equals
 \[\frac{E [Y |Z= 1] − E [Y |Z = 0]}{E [A|Z = 1] − E [A|Z = 0]}\]
 </div>
 
+<div class="nb-cell query" name="q10">
+mc_rejection_expectation(:Query:atom,:Evidence:atom,+N:int,?Arg:var,-Exp:float) is det
+</div>
+
 <div class="nb-cell html" name="htm4">
 This is as expected giving us an estimate that is compatible with what was specified on causal theory 1.
 The same query on causal theory 2 however gives a different probability.

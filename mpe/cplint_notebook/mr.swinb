@@ -48,7 +48,7 @@ mc_prob(bmi_high(X),P).
 </div>
 
 <div class="nb-cell html" name="htm7">
-The next query uses the same causal theory and asks what is the probability of a person having high bmi given they have metabolite e.
+The next query uses the same causal theory and asks what is the probability of a person having high BMI given they have metabolite <i>e</i>.
 </div>
 
 <div class="nb-cell query" name="q1">
@@ -64,18 +64,15 @@ mc_rejection_sample(bmi_high(X),metabolite(X,l),1000,P,[]).
 </div>
 
 <div class="nb-cell html" name="htm2">
-The next box gives an alternative causal theory. Which has a differnt set of causal releanthips between the SNP, the metabolite and the state of having high bmi.
-In this theroy having the aa genotype causes a person to have the metabolite e with probabilty 0.6 or l with probabilty 0.3. However if they have the ab genotype this will cause them to have metabolite value e with probabilty 0.4 or metabolite value l with probabilty 0.6.
+The next box gives an alternative causal theory. Which has a differnt set of causal releanthips between the SNP, the metabolite and the state of having high BMI.
+In this theroy having the <i>aa</i> genotype causes a person to have the metabolite <i>e</i> with probabilty 0.6 or <i>l</i> with probabilty 0.3. 
+However if they have the <i>ab</i> genotype this will cause them to have metabolite value <i>e</i> with probabilty 0.4 or metabolite value <i>l</i> with probabilty 0.6.
 
-In contrast to the first causal theory, in this theory the state of having a high bmi is causaly effected by the relationship between the genotype and the value of the metabolite.
-Line 4, states that when a person has a metabolite e and genotype ab they will a high bmi with prob 0.
-Line 5, states that when a person has metabolite version e but the genotype aa this will cause them to have a high bmi with prob 0.6.
-Line 6, states that when a person has metabolite version l and the ab genotype this will cause them to have a high bmi with prob 0.4.
-Lastly, line 7 states that with l and aa, this will cause high bmi with prob 0.5
-
-<p>
-However asking the same question "what is the probabilty of someone having a high bmi?" we get the same probability.
-</p>
+In contrast to the first causal theory, in this theory the state of having a high BMI is causaly effected by the relationship between the genotype and the value of the metabolite.
+Line 4, states that when a person has a metabolite <i>e</i> and genotype <i>ab</i> they will a high BMI with probabilty 0.
+Line 5, states that when a person has metabolite version <i>e</i> but the genotype aa this will cause them to have a high BMI with probabilty 0.6.
+Line 6, states that when a person has metabolite version <i>l</i> and the <i>ab</i> genotype this will cause them to have a high BMI with probabilty 0.4.
+Lastly, line 7 states that with <i>l</i> and <i>aa</i>, this will cause high bmi with probabilty 0.5
 </div>
 
 <div class="nb-cell program" name="p4">
@@ -83,9 +80,13 @@ metabolite_v2(X,e):0.6 ; metabolite_v2(X,l):0.3 :- aa(X).
 metabolite_v2(X,e):0.4 ; metabolite_v2(X,l):0.6 :- ab(X).
 
 bmi_high_v2(X):0.3 :-metabolite_v2(X,e),ab(X).
-bmi_high_v2(X):0.6 :- metabolite_v2(X,e),aa(X).
+bmi_high_v2(X):0.6 :-metabolite_v2(X,e),aa(X).
 bmi_high_v2(X):0.4 :-metabolite_v2(X,l),ab(X).
-bmi_high_v2(X):0.5 :- metabolite_v2(X,l),aa(X).
+bmi_high_v2(X):0.5 :-metabolite_v2(X,l),aa(X).
+</div>
+
+<div class="nb-cell html" name="htm17">
+However asking the same question "what is the probabilty of someone having a high BMI?" we get the same probability.
 </div>
 
 <div class="nb-cell query" name="q2">

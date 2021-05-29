@@ -103,6 +103,28 @@ mc_rejection_sample(bmi_high_v2(X),metabolite_v2(X,e),1000,P,[]).
 mc_rejection_sample(bmi_high_v2(X),metabolite_v2(X,l),1000,P,[]).
 </div>
 
+<div class="nb-cell html" name="htm9">
+In the next box we give a third causal theory. In this theory it can be clearly seen that there is no causal law effecting bmi from the metobolite.
+</div>
+
+<div class="nb-cell program" name="p5">
+eats_cheese(_X).
+
+metabolite_v3(X,e):0.6 ; metabolite_v3(X,l):0.3 :- aa(X).
+metabolite_v3(X,e):0.4 ; metabolite_v3(X,l):0.6 :- ab(X).
+
+bmi_high_v3(X):0.7 :- eats_cheese(X).
+metabolite_v3(X,l):0.5 :- eats_cheese(X).
+</div>
+
+<div class="nb-cell html" name="htm10">
+However if we query for the association between metabolites and bmi we get a positive value. This is because they are both caused by eating cheese.  Making an intervention on the metabolite does not change a probabilty of getting high bmi.
+</div>
+
+<div class="nb-cell query" name="q7">
+mc_rejection_sample(bmi_high_v3(X),metabolite_v3(X,l),1000,P,[]).
+</div>
+
 <div class="nb-cell html" name="htm3">
 <script type="text/javascript">
 $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
@@ -139,30 +161,12 @@ The same query on causal theory 2 however gives a different probability.
 
 </div>
 
+<div class="nb-cell html" name="htm16">
+And the query on the 3rd causal theory.
+</div>
+
 <div class="nb-cell html" name="htm5">
-We can reason about causality with our theory to calculate probabilities of interventions. This is analogous to pearls do operator. We remove the first two laws and replace with a law. If we do this to both causal theories then we can now see how the probabilities are now differnt in the tow modified theories.
-</div>
-
-<div class="nb-cell html" name="htm9">
-In the next box we give a third causal theory. In this theory it can be clearly seen that there is no causal law effecting bmi from the metobolite.
-</div>
-
-<div class="nb-cell program" name="p5">
-eats_cheese(_X).
-
-metabolite_v3(X,e):0.6 ; metabolite_v3(X,l):0.3 :- aa(X).
-metabolite_v3(X,e):0.4 ; metabolite_v3(X,l):0.6 :- ab(X).
-
-bmi_high_v3(X):0.7 :- eats_cheese(X).
-metabolite_v3(X,l):0.5 :- eats_cheese(X).
-</div>
-
-<div class="nb-cell html" name="htm10">
-However if we query for the association between metabolites and bmi we get a positive value. This is because they are both caused by eating cheese.  Making an intervention on the metabolite does not change a probabilty of getting high bmi.
-</div>
-
-<div class="nb-cell query" name="q7">
-mc_rejection_sample(bmi_high_v3(X),metabolite_v3(X,l),1000,P,[]).
+We can reason about our causals theories to calculate probabilities of interventions. This is analogous to pearls do operator. We remove the first two laws and replace with a law. If we do this to both causal theories then we can now see how the probabilities are now differnt in the tow modified theories.
 </div>
 
 <div class="nb-cell html" name="htm11">

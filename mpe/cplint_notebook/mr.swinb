@@ -67,7 +67,14 @@ The next box gives an alternative causal theory. Which has a differnt set of cau
 In this theroy having the aa genotype causes a person to have the metabolite e with prob 0.6 or l with proabilty 0.3. However if they have the ab genotype this will cause them to have met value e with probabilty 0.4 or met value l with prob 0.6.
 
 in contrast to the first causal theory, in this theory the state of having a high bmi is causaly effected by the relationship between the genotype and the value of the metabolite.
+Line 4, states that when a person has a metabolite e and genotype ab they will a high bmi with prob 0.
+Line 5, states that when a person has metabolite version e but the genotype aa this will cause them to have a high bmi with prob 0.6.
+Line 6, states that when a person has metabolite version l and the ab genotype this will cause them to have a high bmi with prob 0.4.
+Lastly, line 7 states that with l and aa, this will cause high bmi with prob 0.5
+
+<p>
 However asking the same question we get the same probability.
+</p>
 </div>
 
 <div class="nb-cell program" name="p4">

@@ -5,11 +5,12 @@
 This interactive notebook demonstrates Mendelian Randomization as a Probabilistic Logic Program. We aim to demonstrate some examples of what can be achieved using this formalism first, and then give some background information on the formalism later. 
 
 Throughout this note book we will use a number of artificial running examples. In the first example we will define the relationships between a SNP, a metabolite (that can take on values e or l) and having a high Body Mass Index (BMI).
-
+<p>
 We first set up our program by importing the required libray and initialsing it (line 1 and 2). 
 We then state that the SNP can have value aa or ab (line 3 and 4).
 
 We then state that our probalistic program will begin (line 5).
+</p>
 </div>
 
 <div class="nb-cell program" data-background="true" name="p1">
@@ -62,7 +63,11 @@ mc_rejection_sample(bmi_high(X),metabolite(X,l),1000,P,[]).
 </div>
 
 <div class="nb-cell html" name="htm2">
-The next box gives an alternative causal theory. However asking the same question we get the same probability.
+The next box gives an alternative causal theory. Which has a differnt set of causal releanthips between the SNP, the metabolite and the state of having high bmi.
+In this theroy having the aa genotype causes a person to have the metabolite e with prob 0.6 or l with proabilty 0.3. However if they have the ab genotype this will cause them to have met value e with probabilty 0.4 or met value l with prob 0.6.
+
+in contrast to the first causal theory, in this theory the state of having a high bmi is causaly effected by the relationship between the genotype and the value of the metabolite.
+However asking the same question we get the same probability.
 </div>
 
 <div class="nb-cell program" name="p4">

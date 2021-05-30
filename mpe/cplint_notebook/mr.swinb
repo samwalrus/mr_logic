@@ -142,6 +142,21 @@ However if we query for the association between metabolites and bmi we get a pos
 mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,e),1000,P1,[]), mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,l),1000,P2,[]), Risk is P1-P2.
 </div>
 
+<div class="nb-cell html" name="htm21">
+<h4> Plan </h4>
+<ol>
+  <li> Describe the three causal theories with basic queries </li>
+  <li> Explain how we normally calculate the effect with the do operator </li>
+  <li> Explain the causal estimand of MR </li>
+  <li> Calculate this for the 3 theories </li>
+  <li> Explain how do is implemented in cp logic </li>
+  <li> Calculate this for the three theories </li>
+  <li> Talk about the structure of the three theories, valid, selection, valid but no effect </li><li>
+  </li><li> give more background on differnce between cp logic and causal bay networks
+  </li><li> Give a family example </li>
+</ol>
+</div>
+
 <div class="nb-cell html" name="htm3">
 <script type="text/javascript">
 $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+

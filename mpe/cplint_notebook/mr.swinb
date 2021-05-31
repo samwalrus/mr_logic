@@ -1,30 +1,31 @@
 <div class="notebook">
 
 <div class="nb-cell html" name="htm13">
-<h1>Mendelian Randomization as a set of Probabilistic Logic Programs </h1>
+<h1>Mendelian Randomization as a Probabilistic Logic Program </h1>
 This interactive notebook demonstrates Mendelian Randomization as a Probabilistic Logic Program. 
+The formalism used is Causal Probabilistic Logic (CP-Logic). 
 We aim to demonstrate some examples of using this formalism first, and then give some background information on the formalism later. 
 
 Throughout this note book we will use a number of artificial running examples.
 
 <h4> Plan </h4>
 <ol>
-  <li> Describe the three causal theories with basic queries </li>
-  <li> Explain how we normally calculate the effect with the do operator </li>
+  <li> Describe three causal theories with some basic probablisitic queries </li>
+  <li> Explain how we normally calculate the causal effect with the 'do' operator </li>
   <li> Explain the causal estimand of MR </li>
-  <li> Calculate this for the 3 theories </li>
-  <li> Explain how do is implemented in cp logic </li>
   <li> Calculate this for the three theories </li>
+  <li> Explain how the equivalent of the 'do' operator is manifested in CP-logic </li>
+  <li> We modify the three theories with the intervention in a analogous way to using the 'do' operator, and make some probabilistic queries</li>
   <li> Talk about the structure of the three theories, valid, selection, valid but no effect </li>
-  <li> Give more background on differnce between CP-Logic and Causal baysain networks.
+  <li> Give more background on difference between CP-Logic and Causal Bayesian networks.
   </li><li> Give a family example </li>
 </ol>
 
 In the first example we will define the relationships between a SNP, a metabolite (that can take on values 0 or 1) and having a high Body Mass Index (BMI).
 <p>
-We first set up our program by importing the required libray and initialsing it (line 1 and 2).
- In this note book we are using the approixmate algorithms provided by the mcantyre library [CITE]. 
-We then state that our probalistic program will begin (line 3) and on line 4 we state that someone has either the genotype value <i>aa</i> or <i>ab</i> with equal probabilty.
+We first set up our program by importing the required library and initializing it (line 1 and 2).
+ In this note book we are using the approximate algorithms provided by the mcantyre library [CITE]. 
+We then state that our probabilistic program will begin (line 3) and on line 4 we state that someone has either the genotype value <i>aa</i> or <i>ab</i> with equal probability.
 
 
 </p>
@@ -41,12 +42,12 @@ aa(_):0.5 ; ab(_):0.5.
 <div class="nb-cell html" name="htm12">
 The following causal theory is made from four causal laws (on lines 1,2, 4 &amp; 5).
 It describes a set causal relationships between the genotype, the metabolite and having a high BMI.
-It states if a person has the <i>aa</i> genotype, this will cause them to have the metabolite with value <i>1</i> with probabilty 0.7 or the value of the metabolite of <i>0</i> with probabilty 0.3 (line 1).
-If they have the alternative genotype <i>ab</i>, this will instead cause them to have metabolite with value <i>1</i> with probabilty 0.2 or the value of the metabolite of <i>1</i> with probabilty 0.8 (line 2).
+It states if a person has the <i>aa</i> genotype, this will cause them to have the metabolite with value <i>1</i> with probability 0.7 or the value of the metabolite of <i>0</i> with probability 0.3 (line 1).
+If they have the alternative genotype <i>ab</i>, this will instead cause them to have metabolite with value <i>1</i> with probability 0.2 or the value of the metabolite of <i>1</i> with probability 0.8 (line 2).
 
-Regardless of the value of the genotype, if a person has metabolite version <i>e</i>, then this will cause them to have a high BMI (Value 1) with a probabilty of 0.6 or low BMI (Value 0) with probabilty 0.4 (line 4).
-Alternativly if they have the <i>l</i> version of the metabolite, this will cause them to have a high BMI (Value 1) with probabilty of 0.3 or low BMI (Value 0) with probabilty 0.7 (line5). 
-<p> Note: The connective operator <i>:-</i> is standard logic programing syntax and is intended to represent an arrow for logical implication.</p>
+Regardless of the value of the genotype, if a person has metabolite version <i>e</i>, then this will cause them to have a high BMI (Value 1) with a probability of 0.6 or low BMI (Value 0) with probability 0.4 (line 4).
+Alternatively if they have the <i>l</i> version of the metabolite, this will cause them to have a high BMI (Value 1) with probability of 0.3 or low BMI (Value 0) with probability 0.7 (line5). 
+<p> Note: The connective operator <i>:-</i> is standard logic programming syntax and is intended to represent an arrow for logical implication.</p>
 </div>
 
 <div class="nb-cell html" name="htm18">
@@ -99,15 +100,15 @@ mc_rejection_sample(person_bmi(X,1),metabolite(X,0),1000,P,[]).
 </div>
 
 <div class="nb-cell html" name="htm2">
-The next box gives an alternative causal theory. Which has a differnt set of causal releanthips between the SNP, the metabolite and the state of having high BMI.
-In this theroy having the <i>aa</i> genotype causes a person to have the metabolite <i>1</i> with probabilty 0.6 or <i>0</i> with probabilty 0.3. 
-However if they have the <i>ab</i> genotype this will cause them to have metabolite value <i>1</i> with probabilty 0.4 or metabolite value <i>0</i> with probabilty 0.6.
+The next box gives an alternative causal theory. Which has a different set of causal relationships between the SNP, the metabolite and the state of having high BMI.
+In this theory having the <i>aa</i> genotype causes a person to have the metabolite <i>1</i> with probability 0.6 or <i>0</i> with probability 0.3. 
+However if they have the <i>ab</i> genotype this will cause them to have metabolite value <i>1</i> with probability 0.4 or metabolite value <i>0</i> with probability 0.6.
 
-In contrast to the first causal theory, in this theory the state of having a high BMI is causaly effected by the relationship between the genotype and the value of the metabolite.
-Line 4, states that when a person has a metabolite <i>1</i> and genotype <i>ab</i> they will a high BMI with probabilty 0.
-Line 5, states that when a person has metabolite version <i>1</i> but the genotype aa this will cause them to have a high BMI with probabilty 0.6.
-Line 6, states that when a person has metabolite version <i>0</i> and the <i>ab</i> genotype this will cause them to have a high BMI with probabilty 0.4.
-Lastly, line 7 states that with <i>0</i> and <i>aa</i>, this will cause high BMI with probabilty 0.5
+In contrast to the first causal theory, in this theory the state of having a high BMI is causally effected by the relationship between the genotype and the value of the metabolite.
+Line 4, states that when a person has a metabolite <i>1</i> and genotype <i>ab</i> they will a high BMI with probability 0.
+Line 5, states that when a person has metabolite version <i>1</i> but the genotype aa this will cause them to have a high BMI with probability 0.6.
+Line 6, states that when a person has metabolite version <i>0</i> and the <i>ab</i> genotype this will cause them to have a high BMI with probability 0.4.
+Lastly, line 7 states that with <i>0</i> and <i>aa</i>, this will cause high BMI with probability 0.5
 </div>
 
 <div class="nb-cell html" name="htm23">
@@ -125,7 +126,7 @@ person_bmi_v2(X,1):0.5 ; person_bmi_v2(X,0):0.5 :-metabolite_v2(X,0),aa(X).
 </div>
 
 <div class="nb-cell html" name="htm17">
-However asking the same question "what is the probabilty of someone having a high BMI?" we get the same probability.
+However asking the same question "what is the probability of someone having a high BMI?" we get the same probability.
 </div>
 
 <div class="nb-cell html" name="htm24">
@@ -137,7 +138,7 @@ mc_prob(person_bmi_v2(X,1),P).
 </div>
 
 <div class="nb-cell html" name="htm14">
-And then the conditional probabilites questions
+And then the conditional probabilities questions
 </div>
 
 <div class="nb-cell query" name="q8">
@@ -150,19 +151,19 @@ mc_rejection_sample(person_bmi_v2(X,1),metabolite_v2(X,0),1000,P,[]).
 
 <div class="nb-cell html" name="htm9">
 In the next box we give a third causal theory. 
-In this theory it can be clearly seen that there is no causal law effecting BMI from the metobolite value.
+In this theory it can be clearly seen that there is no causal law effecting BMI from the metabolite value.
 Instead, in line 1 we state that 50% of people eat cheese.
-Line 3 and line 4 give the intial value of the metabolite caused by the genotype.
+Line 3 and line 4 give the initial value of the metabolite caused by the genotype.
 
 Line 6 and gives the causal law that if someone does not eat cheese there met value stays the same.
 Line 7 states that if a person eats cheese, and there metabolic value caused by the genotype is 0, then there top up value of the metabolite is 1.
- and that eating cheese causes a high BMI with probabilty 0.7 (line 6) and causes metabolie 1 with probabilty 0.8 (line 7).
+ and that eating cheese causes a high BMI with probability 0.7 (line 6) and causes metabolite 1 with probability 0.8 (line 7).
 Eating cheese is an independent cause of metabolite 1. 
 Someone could have both metabolites according to this theory, because there genotype would allow them to have value 0 and there cheese consumption would allow them to have value 1.
 </div>
 
 <div class="nb-cell html" name="htm25">
-<h5> Causal Theroy 3 </h5>
+<h5> Causal Theory 3 </h5>
 </div>
 
 <div class="nb-cell program" name="p5">
@@ -190,7 +191,7 @@ mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3_topup(X,1),1000,P1,[]), mc_
 </div>
 
 <div class="nb-cell html" name="htm3">
-In the first theory there is no causal law where the genotype causes the high bmi directly, i.e. there is no horistoltal pleitropy.
+In the first theory there is no causal law where the genotype causes the high bmi directly, i.e. there is no horizontal pleiotropy.
 It therefore is compatible with MR and IV. 
 To determine the causal effect of the metabolite on the prob of high BMI.
 We want to calculate:
@@ -206,7 +207,7 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
 
 Which using the instrumental variable of the genotype is:
 
-\[\frac{E [BMI |genotype= aa] − E [BMI |genotype = ab]}{E [Metbolite|genotype = aa] − E [Metbolite|genotype = ab]}\]
+\[\frac{E [BMI |genotype= aa] − E [BMI |genotype = ab]}{E [Metabolite|genotype = aa] − E [Metabolite|genotype = ab]}\]
 </div>
 
 <div class="nb-cell html" name="htm26">
@@ -222,7 +223,7 @@ The risk difference.
 </div>
 
 <div class="nb-cell query" name="q3">
-mc_rejection_sample(metabolite(X,1),aa(X),1000,P1,[]), mc_rejection_sample(metabolite(X,1),ab(X),1000,P2,[]), Risk_differnce is P1 - P2.
+mc_rejection_sample(metabolite(X,1),aa(X),1000,P1,[]), mc_rejection_sample(metabolite(X,1),ab(X),1000,P2,[]), Risk_difference is P1 - P2.
 </div>
 
 <div class="nb-cell html" name="htm27">
@@ -249,18 +250,18 @@ And the query on the 3rd causal theory.
 </div>
 
 <div class="nb-cell html" name="htm5">
-We can reason about our causals theories to calculate probabilities of interventions. This is analogous to pearls do operator. We remove the first two laws and replace with a law. If we do this to both causal theories then we can now see how the probabilities are now differnt in the tow modified theories.
+We can reason about our causal theories to calculate probabilities of interventions. This is analogous to pearls do operator. We remove the first two laws and replace with a law. If we do this to both causal theories then we can now see how the probabilities are now different in the tow modified theories.
 
 <p>
-  Making an intervention on the metabolite does not change a probabilty of getting high bmi.
+  Making an intervention on the metabolite does not change a probability of getting high bmi.
   In causal theory 3.
 </p>
 </div>
 
 <div class="nb-cell html" name="htm11">
-But we can calcualte the MR estimate.
+But we can calculate the MR estimate.
 
-A non zero association is indicitive of a a causal relationship. (hernan and robins 2006)
+A non zero association is indicative of a a causal relationship. (hernan and robins 2006)
 </div>
 
 <div class="nb-cell program" data-background="true" data-singleline="true" name="p3">
@@ -268,7 +269,7 @@ A non zero association is indicitive of a a causal relationship. (hernan and rob
 </div>
 
 <div class="nb-cell html" name="htm6">
-CP-Logic is a differnt formalism to Causal Baysain Networks which are often used in MR. Some of the differnces are: 1.2.3.4.
+CP-Logic is a different formalism to Causal Bayesian Networks which are often used in MR. Some of the differnces are: 1.2.3.4.
 
 The full details of this formalism its capabilties and limitations are to detailed to fit in this poster and we refer the reader to the litrature. The aim of this poster/notebook is bring this formalism to the attention of MR researchers and to show that this alternative formalism brings differnt capabilites and expressivness to knowledge represention required of MR. This can be explored in further work.
 </div>

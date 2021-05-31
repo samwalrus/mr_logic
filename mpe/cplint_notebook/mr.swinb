@@ -140,20 +140,24 @@ Eating cheese is an independent cause of metabolite 1.
 Someone could have both metabolites according to this theory, because there genotype would allow them to have value 0 and there cheese consumption would allow them to have value 1.
 </div>
 
+<div class="nb-cell html" name="htm25">
+<h5> Causal Theroy 3 </h5>
+</div>
+
 <div class="nb-cell program" name="p5">
 person_cheeseConsumption(X,1):0.5 ; person_cheeseConsumption(X,0):0.5.
 
 metabolite_v3(X,1):0.6 ; metabolite_v3(X,0):0.3 :- aa(X).
 metabolite_v3(X,1):0.4 ; metabolite_v3(X,0):0.6 :- ab(X).
 
+metabolite_v3_topup(X,Y) :- person_cheeseConsumption(X,0), metabolite_v3(X,Y).
+metabolite_v3_topup(X,1):0.8 :- person_cheeseConsumption(X,1), metabolite_v3(X,MetValue), dif(Metvalue,1).
+
 person_bmi_v3(X,1):0.7 :- person_cheeseConsumption(X,1).
-metabolite_v3(X,1):0.8 :- person_cheeseConsumption(X,1).
-
-
 </div>
 
 <div class="nb-cell query" name="q11">
-mc_prob((metabolite_v3(X,1),metabolite_v3(X,0)),P).
+mc_prob((metabolite_v3_topup(X,1),metabolite_v3_topup(X,0)),P).
 </div>
 
 <div class="nb-cell html" name="htm10">
@@ -161,7 +165,7 @@ However if we query for the association between metabolites and bmi we get a pos
 </div>
 
 <div class="nb-cell query" name="q7">
-mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,1),1000,P1,[]), mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,0),1000,P2,[]), Risk is P1-P2.
+mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3_topup(X,1),1000,P1,[]), mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3_topup(X,0),1000,P2,[]), Risk is P1-P2.
 </div>
 
 <div class="nb-cell html" name="htm21">

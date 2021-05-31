@@ -141,11 +141,11 @@ Eating cheese is an independent cause of metabolite l. Someone could have both m
 <div class="nb-cell program" name="p5">
 eats_cheese(_X).
 
-metabolite_v3(X,e):0.6 ; metabolite_v3(X,l):0.3 :- aa(X).
-metabolite_v3(X,e):0.4 ; metabolite_v3(X,l):0.6 :- ab(X).
+metabolite_v3(X,1):0.6 ; metabolite_v3(X,0):0.3 :- aa(X).
+metabolite_v3(X,1):0.4 ; metabolite_v3(X,0):0.6 :- ab(X).
 
 person_bmi_v3(X,1):0.7 :- eats_cheese(X).
-metabolite_v3(X,l):0.8 :- eats_cheese(X).
+metabolite_v3(X,0):0.8 :- eats_cheese(X).
 </div>
 
 <div class="nb-cell html" name="htm10">
@@ -153,7 +153,7 @@ However if we query for the association between metabolites and bmi we get a pos
 </div>
 
 <div class="nb-cell query" name="q7">
-mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,e),1000,P1,[]), mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,l),1000,P2,[]), Risk is P1-P2.
+mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,1),1000,P1,[]), mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,0),1000,P2,[]), Risk is P1-P2.
 </div>
 
 <div class="nb-cell html" name="htm21">

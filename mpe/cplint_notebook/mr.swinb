@@ -18,6 +18,7 @@ We then state that our probalistic program will begin (line 3) and on line 4 we 
 <div class="nb-cell program" data-background="true" name="p1">
 :- use_module(library(mcintyre)).
 :- mc.
+
 :- begin_lpad.
 aa(_):0.5 ; ab(_):0.5.
 </div>
@@ -133,19 +134,26 @@ mc_rejection_sample(person_bmi_v2(X,1),metabolite_v2(X,0),1000,P,[]).
 </div>
 
 <div class="nb-cell html" name="htm9">
-In the next box we give a third causal theory. In this theory it can be clearly seen that there is no causal law effecting bmi from the metobolite.
-Instead, in line 1 we state that everyone eats cheese and that eating cheese causes a high bmi with probabilty 0.7 and cause metabolie l with probabilty 0.5.
-Eating cheese is an independent cause of metabolite l. Someone could have both metabolites according to this theory.
+In the next box we give a third causal theory. In this theory it can be clearly seen that there is no causal law effecting BMI from the metobolite.
+Instead, in line 1 we state that 50% of people eat cheese and that eating cheese causes a high BMI with probabilty 0.7 (line 6) and causes metabolie 1 with probabilty 0.8 (line 7).
+Eating cheese is an independent cause of metabolite 1. 
+Someone could have both metabolites according to this theory, because there genotype would allow them to have value 0 and there cheese consumption would allow them to have value 1.
 </div>
 
 <div class="nb-cell program" name="p5">
-eats_cheese(_X).
+person_cheeseConsumption(X,1):0.5 ; person_cheeseConsumption(X,0):0.5.
 
 metabolite_v3(X,1):0.6 ; metabolite_v3(X,0):0.3 :- aa(X).
 metabolite_v3(X,1):0.4 ; metabolite_v3(X,0):0.6 :- ab(X).
 
-person_bmi_v3(X,1):0.7 :- eats_cheese(X).
-metabolite_v3(X,0):0.8 :- eats_cheese(X).
+person_bmi_v3(X,1):0.7 :- person_cheeseConsumption(X,1).
+metabolite_v3(X,1):0.8 :- person_cheeseConsumption(X,1).
+
+
+</div>
+
+<div class="nb-cell query" name="q11">
+mc_prob((metabolite_v3(X,1),metabolite_v3(X,0)),P).
 </div>
 
 <div class="nb-cell html" name="htm10">
@@ -182,11 +190,11 @@ In the first theory there is no causal law where the genotype directly causes th
 We can verify that the value of the metabolite is associated with the value of genotype.
 
 The risk difference.
-\[Pr [metabolite = e|genotype = aa] − Pr [metabolite =e|genotype = ab] &gt;0.\]
+\[Pr [metabolite = 1|genotype = aa] − Pr [metabolite =1|genotype = ab] &gt;0.\]
 </div>
 
 <div class="nb-cell query" name="q3">
-mc_rejection_sample(metabolite(X,e),aa(X),1000,P1,[]), mc_rejection_sample(metabolite(X,e),ab(X),1000,P2,[]), Risk_differnce is P1 - P2.
+mc_rejection_sample(metabolite(X,1),aa(X),1000,P1,[]), mc_rejection_sample(metabolite(X,1),ab(X),1000,P2,[]), Risk_differnce is P1 - P2.
 </div>
 
 <div class="nb-cell html" name="htm15">

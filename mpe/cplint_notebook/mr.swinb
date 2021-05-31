@@ -190,12 +190,31 @@ mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3_topup(X,1),1000,P1,[]), mc_
 </div>
 
 <div class="nb-cell html" name="htm3">
+In the first theory there is no causal law where the genotype causes the high bmi, i.e. there is no horistoltal pleitropy.
+It therefore is compatible with MR and IV. 
+To determine the causal effect of the metabolite on the prob of high BMI.
+We can calculate
+</div>
+
+<div class="nb-cell html" name="htm15">
 <script type="text/javascript">
 $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
              "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
 </script>
 
-In the first theory there is no causal law where the genotype directly causes the. It therefore is compatible with MR and IV. To determine the causal effect of the allele on the prob of x. We can calculate q.
+next section holds, then the average causal effect of treatment on the additive
+scale \[E[BMI|do(Metabolite=1)] - E[BMI|do(metabolite=0)] \]
+
+is identified and equals
+
+\[\frac{E [BMI |genotype= aa] − E [BMI |genotype = ab]}{E [Metbolite|genotype = aa] − E [Metbolite|genotype = ab]}\]
+</div>
+
+<div class="nb-cell html" name="htm26">
+<script type="text/javascript">
+$.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
+             "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
+</script>
 
 We can verify that the value of the metabolite is associated with the value of genotype.
 
@@ -205,15 +224,6 @@ The risk difference.
 
 <div class="nb-cell query" name="q3">
 mc_rejection_sample(metabolite(X,1),aa(X),1000,P1,[]), mc_rejection_sample(metabolite(X,1),ab(X),1000,P2,[]), Risk_differnce is P1 - P2.
-</div>
-
-<div class="nb-cell html" name="htm15">
-next section holds, then the average causal effect of treatment on the additive
-scale \[E[Y|do(X=1)] - E[Y|do(X=0)] \]
-
-is identified and equals
-
-\[\frac{E [Y |Z= 1] − E [Y |Z = 0]}{E [A|Z = 1] − E [A|Z = 0]}\]
 </div>
 
 <div class="nb-cell query" name="q10">

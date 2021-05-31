@@ -134,8 +134,14 @@ mc_rejection_sample(person_bmi_v2(X,1),metabolite_v2(X,0),1000,P,[]).
 </div>
 
 <div class="nb-cell html" name="htm9">
-In the next box we give a third causal theory. In this theory it can be clearly seen that there is no causal law effecting BMI from the metobolite.
-Instead, in line 1 we state that 50% of people eat cheese and that eating cheese causes a high BMI with probabilty 0.7 (line 6) and causes metabolie 1 with probabilty 0.8 (line 7).
+In the next box we give a third causal theory. 
+In this theory it can be clearly seen that there is no causal law effecting BMI from the metobolite value.
+Instead, in line 1 we state that 50% of people eat cheese.
+Line 3 and line 4 give the intial value of the metabolite caused by the genotype.
+
+Line 6 and gives the causal law that if someone does not eat cheese there met value stays the same.
+Line 7 states that if a person eats cheese, and there metabolic value caused by the genotype is 0, then there top up value of the metabolite is 1.
+ and that eating cheese causes a high BMI with probabilty 0.7 (line 6) and causes metabolie 1 with probabilty 0.8 (line 7).
 Eating cheese is an independent cause of metabolite 1. 
 Someone could have both metabolites according to this theory, because there genotype would allow them to have value 0 and there cheese consumption would allow them to have value 1.
 </div>
@@ -151,7 +157,7 @@ metabolite_v3(X,1):0.6 ; metabolite_v3(X,0):0.3 :- aa(X).
 metabolite_v3(X,1):0.4 ; metabolite_v3(X,0):0.6 :- ab(X).
 
 metabolite_v3_topup(X,Y) :- person_cheeseConsumption(X,0), metabolite_v3(X,Y).
-metabolite_v3_topup(X,1):0.8 :- person_cheeseConsumption(X,1), metabolite_v3(X,MetValue), dif(Metvalue,1).
+metabolite_v3_topup(X,1):0.8 ; metabolite_v3_topup(X,0):0.2  :- person_cheeseConsumption(X,1), metabolite_v3(X,MetValue), dif(MetValue,1).
 
 person_bmi_v3(X,1):0.7 :- person_cheeseConsumption(X,1).
 </div>

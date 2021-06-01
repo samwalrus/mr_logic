@@ -384,6 +384,20 @@ h3 {text-align: center;}
 <div class="nb-cell html" name="htm45">
 When people are first introduced to programming in Logic they are often given the task of writing programs about familes. 
 This is because the relationships can be very naturaly represented and reasoned with.
+
+In this program we are merging the idea of reasoning about indivduals and groups.
+We have one family, but together with the probablistic causal relantioships these can be seen to represent groups.
+</div>
+
+<div class="nb-cell program" name="p6">
+ancestor(X,Y).
+parent
+cousin
+aunt
+uncle.
+sibling(X,Y).
+
+
 </div>
 
 <div class="nb-cell html" name="htm40">

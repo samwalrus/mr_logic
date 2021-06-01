@@ -2,23 +2,23 @@
 
 <div class="nb-cell html" name="htm13">
 <h1>Mendelian Randomization as a Probabilistic Logic Program </h1>
-This interactive notebook demonstrates Mendelian Randomization as a Probabilistic Logic Program. 
+This interactive notebook demonstrates Mendelian Randomization as a Probabilistic Logic Program, implemented on Cplint on SWISH. [CITE]. 
 The formalism used is Causal Probabilistic Logic (CP-Logic). 
 We aim to demonstrate some examples of using this formalism first, and then give some background information on the formalism later. 
 
 Throughout this note book we will use a number of artificial running examples.
 
-<h4> Plan </h4>
+<h4> The structure of the notebook is as follows: </h4>
 <ol>
-  <li> Describe three causal theories with some basic probablisitic queries </li>
-  <li> Explain how we normally calculate the causal effect with the 'do' operator </li>
-  <li> Explain the causal estimand of MR </li>
-  <li> Calculate this for the three theories </li>
-  <li> Explain how the equivalent of the 'do' operator is manifested in CP-logic </li>
-  <li> We modify the three theories with the intervention in a analogous way to using the 'do' operator, and make some probabilistic queries</li>
-  <li> Talk about the structure of the three theories, valid, selection, valid but no effect </li>
-  <li> Give more background on difference between CP-Logic and Causal Bayesian networks.
-  </li><li> Give a family example </li>
+  <li> We describe three causal theories with some basic probablisitic queries. </li>
+  <li> We xxplain how we normally calculate the causal effect with the 'do' operator. </li>
+  <li> We explain a causal estimand using MR of the causal effect. </li>
+  <li> We calculate this for the three theories. </li>
+  <li> We explain how the equivalent of the 'do' operator is manifested in CP-logic </li>
+  <li> We modify the three theories with the intervention in a analogous way to using the 'do' operator, and make some probabilistic queries. Comparing them to MR estimates.</li>
+  <li> We talk about the structure of the three theories, are they valid for MR? Is there selection bias, should we observe causal effects? </li>
+  <li> We give more background on difference between CP-Logic and Causal Bayesian networks.</li>
+  <li> We give a more complex example of family relationships with causal enivormental transmission from parents to offspring. We also show how to sample from the causal theory to generate data such as trios or sibling pairs. </li>
 </ol>
 
 In the first example we will define the relationships between a SNP, a metabolite (that can take on values 0 or 1) and having a high Body Mass Index (BMI).

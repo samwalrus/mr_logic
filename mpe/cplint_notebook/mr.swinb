@@ -6,7 +6,6 @@ This interactive notebook demonstrates Mendelian Randomization as a Probabilisti
 The formalism used is Causal Probabilistic Logic (CP-Logic). 
 We aim to demonstrate some examples of using this formalism first, and then give some background information on the formalism later. 
 The aim is to show how computational thinking can help us as MR researchers, by applying automatic reasoning techniques. We give a differnt presective to the typical cbn and dag approach.
-Throughout this note book we will use a number of artificial running examples.
 
 <h4> The structure of the notebook is as follows: </h4>
 <ol>
@@ -19,9 +18,9 @@ Throughout this note book we will use a number of artificial running examples.
   <li> We talk about the structure of the three theories, are they valid for MR? Is there selection bias, should we observe causal effects? </li>
   <li> We give more background on difference between CP-Logic and Causal Bayesian networks.</li>
   <li> We give a more complex example of family relationships with causal enivormental transmission from parents to offspring. We also show how to sample from the causal theory to generate data such as trios or sibling pairs. </li>
-  <li> Finally we describe some of the reasoning techniques availble to us that may be useful for thinking about MR.
+  <li> Finally we describe some of the reasoning techniques availble to us that may be useful for thinking about MR going forward.
 </li></ol>
-
+Throughout this note book we will use a number of artificial running examples.
 In the first example we will define the relationships between a SNP, a metabolite (that can take on values 0 or 1) and having a high Body Mass Index (BMI).
 <p>
 We first set up our program by importing the required library and initializing it (line 1 and 2).

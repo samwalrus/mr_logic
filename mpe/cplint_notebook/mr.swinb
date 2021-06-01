@@ -75,7 +75,7 @@ For example in the next box clicking the run query button you will ask what the 
 </div>
 
 <div class="nb-cell html" name="htm19">
-<h5> Query 1 </h5>
+<h5> Query 1 (On CT1)</h5>
 </div>
 
 <div class="nb-cell query" name="q4">
@@ -87,7 +87,7 @@ The next query uses the same causal theory (CT1) and asks what is the probabilit
 </div>
 
 <div class="nb-cell html" name="htm20">
-<h5> Query 2 </h5>
+<h5> Query 2 (On CT1)</h5>
 </div>
 
 <div class="nb-cell query" name="q1">
@@ -99,7 +99,7 @@ And the next query asks the alternative:
 </div>
 
 <div class="nb-cell html" name="htm22">
-<h5> Query 3 </h5>
+<h5> Query 3 (On CT1) </h5>
 </div>
 
 <div class="nb-cell query" name="q6">
@@ -145,7 +145,7 @@ However asking the same question "what is the probability of someone having a hi
 </div>
 
 <div class="nb-cell html" name="htm24">
-<h5> Query 4 </h5>
+<h5> Query 4 (On CT2)</h5>
 </div>
 
 <div class="nb-cell query" name="q2">
@@ -157,7 +157,7 @@ And then the conditional probabilities questions
 </div>
 
 <div class="nb-cell html" name="htm21">
-<h5> Query 5 </h5>
+<h5> Query 5 (On CT2)</h5>
 </div>
 
 <div class="nb-cell query" name="q8">
@@ -165,7 +165,7 @@ mc_rejection_sample(person_bmi_v2(X,1),metabolite_v2(X,1),1000,P,[]).
 </div>
 
 <div class="nb-cell html" name="htm28">
-<h5> Query 6 </h5>
+<h5> Query 6 (On CT2) </h5>
 </div>
 
 <div class="nb-cell query" name="q9">
@@ -207,6 +207,10 @@ mc_prob((metabolite_v3(X,1),metabolite_v3(X,0)),P).
 
 <div class="nb-cell html" name="htm10">
 However if we query for the association between metabolites and bmi we get a positive value. This is because they are both caused by eating cheese.
+</div>
+
+<div class="nb-cell html" name="htm44">
+<h5> Query (On CT3) </h5>
 </div>
 
 <div class="nb-cell query" name="q7">
@@ -377,11 +381,24 @@ h3 {text-align: center;}
 <h3> Part 9 : Family example and sampling data</h3>
 </div>
 
+<div class="nb-cell html" name="htm45">
+When people are first introduced to programming in Logic they are often given the task of writing programs about familes. 
+This is because the relationships can be very naturaly represented and reasoned with.
+</div>
+
 <div class="nb-cell html" name="htm40">
 <style>
 h3 {text-align: center;}
 </style>
 <h3> Part 10 : Further resoning techniques</h3>
+
+State of the art ILP can learn family relations.
+Predicate invention and object invention.
+Abduction and MPe
+Non monotonic reasoing.
+Algebraic problog
+
+Alphabet soup.
 </div>
 
 <div class="nb-cell html" name="htm11">

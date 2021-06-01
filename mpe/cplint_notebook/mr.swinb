@@ -44,7 +44,7 @@ aa(_):0.5 ; ab(_):0.5.
 <style>
 h3 {text-align: center;}
 </style>
-<h3>Part 1 </h3>
+<h3>Part 1 : Three Causal Theroies</h3>
 </div>
 
 <div class="nb-cell html" name="htm12">
@@ -218,7 +218,7 @@ mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,1),1000,P1,[]), mc_reject
 <style>
 h3 {text-align: center;}
 </style>
-<h3> Part 2 </h3>
+<h3> Part 2 : Causal effect, interventions and the 'do' operator</h3>
 </div>
 
 <div class="nb-cell html" name="htm3">
@@ -239,7 +239,7 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
 <style>
 h3 {text-align: center;}
 </style>
-<h3> Part 3 </h3>
+<h3> Part 3 : Instrumental variable MR estimates of causal effect</h3>
 </div>
 
 <div class="nb-cell html" name="htm15">
@@ -274,7 +274,7 @@ mc_rejection_sample(metabolite(X,1),aa(X),1000,P1,[]), mc_rejection_sample(metab
 <style>
 h3 {text-align: center;}
 </style>
-<h3> Part 4 </h3>
+<h3> Part 4 : MR applied to the three theroies</h3>
 </div>
 
 <div class="nb-cell html" name="htm27">
@@ -308,7 +308,7 @@ And the query on the 3rd causal theory.
 <style>
 h3 {text-align: center;}
 </style>
-<h3> Part 5 </h3>
+<h3> Part 5 : Interventions in CP Logic, analogus to 'do'</h3>
 </div>
 
 <div class="nb-cell html" name="htm5">
@@ -324,47 +324,47 @@ We can reason about our causal theories to calculate probabilities of interventi
 <style>
 h3 {text-align: center;}
 </style>
-<h3> Part 6 </h3>
+<h3> Part 6 : The three theroies with intervention</h3>
 </div>
 
 <div class="nb-cell html" name="htm37">
 <style>
 h3 {text-align: center;}
 </style>
-<h3> Part 7 </h3>
+<h3> Part 7 : The structure of the three theories, blah? </h3>
 </div>
 
 <div class="nb-cell html" name="htm38">
 <style>
 h3 {text-align: center;}
 </style>
-<h3> Part 8 </h3>
-</div>
-
-<div class="nb-cell html" name="htm39">
-<style>
-h3 {text-align: center;}
-</style>
-<h3> Part 9 </h3>
-</div>
-
-<div class="nb-cell html" name="htm40">
-<style>
-h3 {text-align: center;}
-</style>
-<h3> Part 10 </h3>
-</div>
-
-<div class="nb-cell html" name="htm11">
-But we can calculate the MR estimate.
-
-A non zero association is indicative of a a causal relationship. (hernan and robins 2006)
+<h3> Part 8 : CP logic compared to CBN</h3>
 </div>
 
 <div class="nb-cell html" name="htm6">
 CP-Logic is a different formalism to Causal Bayesian Networks which are often used in MR. Some of the differnces are: 1.2.3.4.
 
 The full details of this formalism its capabilties and limitations are to detailed to fit in this poster and we refer the reader to the litrature. The aim of this poster/notebook is bring this formalism to the attention of MR researchers and to show that this alternative formalism brings differnt capabilites and expressivness to knowledge represention required of MR. This can be explored in further work.
+</div>
+
+<div class="nb-cell html" name="htm39">
+<style>
+h3 {text-align: center;}
+</style>
+<h3> Part 9 : Family example and sampling data</h3>
+</div>
+
+<div class="nb-cell html" name="htm40">
+<style>
+h3 {text-align: center;}
+</style>
+<h3> Part 10 : Further resoning techniques</h3>
+</div>
+
+<div class="nb-cell html" name="htm11">
+But we can calculate the MR estimate.
+
+A non zero association is indicative of a a causal relationship. (hernan and robins 2006)
 </div>
 
 <div class="nb-cell program" data-background="true" data-singleline="true" name="p3">

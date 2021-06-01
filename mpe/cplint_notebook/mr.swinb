@@ -40,6 +40,13 @@ We then state that our probabilistic program will begin (line 3) and on line 4 w
 aa(_):0.5 ; ab(_):0.5.
 </div>
 
+<div class="nb-cell html" name="htm31">
+<style>
+h3 {text-align: center;}
+</style>
+<h3>Part 1 </h3>
+</div>
+
 <div class="nb-cell html" name="htm12">
 The following causal theory is made from four causal laws (on lines 1,2, 4 &amp; 5).
 It describes a set causal relationships between the genotype, the metabolite and having a high BMI.
@@ -124,8 +131,8 @@ Lastly, line 7 states that with metabolite <i>0</i> and <i>aa</i>, this will cau
 <h5> Causal theory 2 </h5>
 </div>
 
-<div class="nb-cell program" name="p4">
-metabolite_v2(X,1):0.6 ; metabolite_v2(X,0):0.3 :- aa(X).
+<div class="nb-cell program" data-background="true" name="p4">
+metabolite_v2(X,1):0.6 ; metabolite_v2(X,0):0.4 :- aa(X).
 metabolite_v2(X,1):0.4 ; metabolite_v2(X,0):0.6 :- ab(X).
 
 person_bmi_v2(X,1):0.3 ; person_bmi_v2(X,0):0.7 :-metabolite_v2(X,1),ab(X).
@@ -186,7 +193,7 @@ Someone could have both metabolites according to this theory, because there geno
 <div class="nb-cell program" name="p5">
 person_cheese(X,1):0.5 ; person_cheese(X,0):0.5.
 
-metabolite_initial(X,1):0.6 ; metabolite_initial(X,0):0.3 :- aa(X).
+metabolite_initial(X,1):0.6 ; metabolite_initial(X,0):0.4 :- aa(X).
 metabolite_intiial(X,1):0.4 ; metabolite_initial(X,0):0.6 :- ab(X).
 
 metabolite_v3(X,Y) :- person_cheese(X,0), metabolite_v3(X,Y).
@@ -207,11 +214,32 @@ However if we query for the association between metabolites and bmi we get a pos
 mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,1),1000,P1,[]), mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,0),1000,P2,[]), Risk is P1-P2.
 </div>
 
+<div class="nb-cell html" name="htm32">
+<style>
+h3 {text-align: center;}
+</style>
+<h3> Part 2 </h3>
+</div>
+
 <div class="nb-cell html" name="htm3">
 In the first theory there is no causal law where the genotype causes the high bmi directly, i.e. there is no horizontal pleiotropy.
 It therefore is compatible with MR and IV. 
 To determine the causal effect of the metabolite on the prob of high BMI.
 We want to calculate:
+
+<script type="text/javascript">
+$.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
+             "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
+</script>
+
+ \[E[BMI|do(Metabolite=1)] - E[BMI|do(metabolite=0)] \]
+</div>
+
+<div class="nb-cell html" name="htm33">
+<style>
+h3 {text-align: center;}
+</style>
+<h3> Part 3 </h3>
 </div>
 
 <div class="nb-cell html" name="htm15">
@@ -220,7 +248,6 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
              "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
 </script>
 
- \[E[BMI|do(Metabolite=1)] - E[BMI|do(metabolite=0)] \]
 
 Which using the instrumental variable of the genotype is:
 
@@ -243,6 +270,13 @@ The risk difference.
 mc_rejection_sample(metabolite(X,1),aa(X),1000,P1,[]), mc_rejection_sample(metabolite(X,1),ab(X),1000,P2,[]), Risk_difference is P1 - P2.
 </div>
 
+<div class="nb-cell html" name="htm34">
+<style>
+h3 {text-align: center;}
+</style>
+<h3> Part 4 </h3>
+</div>
+
 <div class="nb-cell html" name="htm27">
 So we then query for causal estimand on causal theory 1
 </div>
@@ -259,7 +293,7 @@ The same query on causal theory 2 however gives a different probability.
 </div>
 
 <div class="nb-cell query" name="q5">
-
+mc_rejection_expectation(person_bmi_v2(X,BMI),aa(X),1000,BMI,Ex_bmi_aa).
 </div>
 
 <div class="nb-cell html" name="htm16">
@@ -270,6 +304,13 @@ And the query on the 3rd causal theory.
 
 </div>
 
+<div class="nb-cell html" name="htm35">
+<style>
+h3 {text-align: center;}
+</style>
+<h3> Part 5 </h3>
+</div>
+
 <div class="nb-cell html" name="htm5">
 We can reason about our causal theories to calculate probabilities of interventions. This is analogous to pearls do operator. We remove the first two laws and replace with a law. If we do this to both causal theories then we can now see how the probabilities are now different in the tow modified theories.
 
@@ -277,6 +318,41 @@ We can reason about our causal theories to calculate probabilities of interventi
   Making an intervention on the metabolite does not change a probability of getting high bmi.
   In causal theory 3.
 </p>
+</div>
+
+<div class="nb-cell html" name="htm36">
+<style>
+h3 {text-align: center;}
+</style>
+<h3> Part 6 </h3>
+</div>
+
+<div class="nb-cell html" name="htm37">
+<style>
+h3 {text-align: center;}
+</style>
+<h3> Part 7 </h3>
+</div>
+
+<div class="nb-cell html" name="htm38">
+<style>
+h3 {text-align: center;}
+</style>
+<h3> Part 8 </h3>
+</div>
+
+<div class="nb-cell html" name="htm39">
+<style>
+h3 {text-align: center;}
+</style>
+<h3> Part 9 </h3>
+</div>
+
+<div class="nb-cell html" name="htm40">
+<style>
+h3 {text-align: center;}
+</style>
+<h3> Part 10 </h3>
 </div>
 
 <div class="nb-cell html" name="htm11">
@@ -293,6 +369,12 @@ The full details of this formalism its capabilties and limitations are to detail
 
 <div class="nb-cell program" data-background="true" data-singleline="true" name="p3">
 :- end_lpad.
+</div>
+
+<div class="nb-cell html" name="htm30">
+Refs:
+[1]
+[2]
 </div>
 
 </div>

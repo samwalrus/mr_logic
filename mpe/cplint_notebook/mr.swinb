@@ -5,7 +5,7 @@
 This interactive notebook demonstrates Mendelian Randomization as a Probabilistic Logic Program, implemented on Cplint on SWISH. [CITE]. 
 The formalism used is Causal Probabilistic Logic (CP-Logic). 
 We aim to demonstrate some examples of using this formalism first, and then give some background information on the formalism later. 
-
+The aim is to show how computational thinking can help us as MR researchers, by applying automatic reasoning techniques. We give a differnt presective to the typical cbn and dag approach.
 Throughout this note book we will use a number of artificial running examples.
 
 <h4> The structure of the notebook is as follows: </h4>
@@ -184,15 +184,15 @@ Someone could have both metabolites according to this theory, because there geno
 </div>
 
 <div class="nb-cell program" name="p5">
-person_cheeseConsumption(X,1):0.5 ; person_cheeseConsumption(X,0):0.5.
+person_cheese(X,1):0.5 ; person_cheese(X,0):0.5.
 
 metabolite_initial(X,1):0.6 ; metabolite_initial(X,0):0.3 :- aa(X).
 metabolite_intiial(X,1):0.4 ; metabolite_initial(X,0):0.6 :- ab(X).
 
-metabolite_v3(X,Y) :- person_cheeseConsumption(X,0), metabolite_v3(X,Y).
-metabolite_v3(X,1):0.8 ; metabolite_v3(X,0):0.2  :- person_cheeseConsumption(X,1), metabolite_initial(X,MetValue), dif(MetValue,1).
+metabolite_v3(X,Y) :- person_cheese(X,0), metabolite_v3(X,Y).
+metabolite_v3(X,1):0.8 ; metabolite_v3(X,0):0.2  :- person_cheese(X,1), metabolite_initial(X,MetValue), dif(MetValue,1).
 
-person_bmi_v3(X,1):0.7 :- person_cheeseConsumption(X,1).
+person_bmi_v3(X,1):0.7 :- person_cheese(X,1).
 </div>
 
 <div class="nb-cell query" name="q11">

@@ -339,7 +339,13 @@ CT 1 b
 </div>
 
 <div class="nb-cell program" name="p9">
+/*
+metabolite(X,1):0.7 ; metabolite(X,0):0.3 :- aa(X).
+metabolite(X,1):0.2 ; metabolite(X,0):0.8 :- ab(X).
 
+person_bmi(X,1):0.6 ; person_bmi(X,0):0.4 :- metabolite(X,1).
+person_bmi(X,1):0.3 ; person_bmi(X,0):0.7 :- metabolite(X,0).
+*/
 </div>
 
 <div class="nb-cell html" name="htm42">
@@ -347,7 +353,13 @@ CT 2 b
 </div>
 
 <div class="nb-cell program" name="p8">
+/*
+metabolite(X,1):0.7 ; metabolite(X,0):0.3 :- aa(X).
+metabolite(X,1):0.2 ; metabolite(X,0):0.8 :- ab(X).
 
+person_bmi(X,1):0.6 ; person_bmi(X,0):0.4 :- metabolite(X,1).
+person_bmi(X,1):0.3 ; person_bmi(X,0):0.7 :- metabolite(X,0).
+*/
 </div>
 
 <div class="nb-cell html" name="htm43">
@@ -356,6 +368,11 @@ CT 3 b
 
 <div class="nb-cell query" name="q14">
 
+/*metabolite(X,1):0.7 ; metabolite(X,0):0.3 :- aa(X).
+metabolite(X,1):0.2 ; metabolite(X,0):0.8 :- ab(X).
+
+person_bmi(X,1):0.6 ; person_bmi(X,0):0.4 :- metabolite(X,1).
+person_bmi(X,1):0.3 ; person_bmi(X,0):0.7 :- metabolite(X,0).*/
 </div>
 
 <div class="nb-cell html" name="htm37">
@@ -391,15 +408,33 @@ This is because the relationships can be very naturaly represented and reasoned 
 
 In this program we are merging the idea of reasoning about indivduals and groups.
 We have one family, but together with the probablistic causal relantioships these can be seen to represent groups.
+
+Cite[ Within family Mendelian randomization studies]
+cite [Avoiding dynastic, assortative mating, and population stratification biases in Mendelian randomization through within-family analyses]
 </div>
 
 <div class="nb-cell program" name="p6">
-ancestor(X,Y).
-parent
-cousin
-aunt
-uncle.
-sibling(X,Y).
+parent_child(X,Y):- mother_child(X,Y).
+parent_child(X,Y):- father_chid(X,Y).
+
+grandparent_child(X,Y):- parent_child(X,Z),parent_child(Z,Y).
+
+ancestor(X,Y) :- parent_child(X,Y).
+ancestor(X,Y) :- ancestor(X,Z),parent_child(Z,Y).
+
+sibling(X,Y) :- parent_child(P,X),parent_child(P,Y).
+
+cousin(X,Y):- parent_child(P1,X),sibling(P1,P2),parent_child(P2,Y).
+
+child_aunt(X,Y):- parent_child(P,X),sibling(P,Y), female(Y).
+child_uncle(X,Y):-parent_child(P,X),sibling(P,Y), male(Y).
+
+
+
+</div>
+
+<div class="nb-cell query" name="q15">
+
 </div>
 
 <div class="nb-cell html" name="htm40">

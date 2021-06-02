@@ -107,11 +107,15 @@ mc_rejection_sample(person_bmi(X,1),metabolite(X,0),1000,P,[]).
 </div>
 
 <div class="nb-cell html" name="htm29">
-The risk is therefore:
+The risk difference is therefore:
+</div>
+
+<div class="nb-cell html" name="htm46">
+<h5> Query 4 (On CT1) </h5>
 </div>
 
 <div class="nb-cell query" name="q12">
-mc_rejection_sample(person_bmi(X,1),metabolite(X,1),1000,P1,[]), mc_rejection_sample(person_bmi(X,1),metabolite(X,0),1000,P2,[]), Risk is P1-P2.
+mc_rejection_sample(person_bmi(X,1),metabolite(X,1),1000,P1,[]), mc_rejection_sample(person_bmi(X,1),metabolite(X,0),1000,P2,[]), RiskDiffernce is P1-P2.
 </div>
 
 <div class="nb-cell html" name="htm2">
@@ -120,7 +124,7 @@ In this theory having the <i>aa</i> genotype causes a person to have the metabol
 However if they have the <i>ab</i> genotype this will cause them to have metabolite value <i>1</i> with probability 0.4 or metabolite value <i>0</i> with probability 0.6.
 
 In contrast to the first causal theory, in this theory the state of having a high BMI is causally effected by the relationship between the genotype and the value of the metabolite.
-Line 4, states that when a person has a metabolite <i>1</i> and genotype <i>ab</i> they will a high BMI with probability 0.
+Line 4, states that when a person has a metabolite <i>1</i> and genotype <i>ab</i> they will a high BMI with probability 0.3.
 Line 5, states that when a person has metabolite version <i>1</i> but the genotype aa this will cause them to have a high BMI with probability 0.6.
 Line 6, states that when a person has metabolite version <i>0</i> and the <i>ab</i> genotype this will cause them to have a high BMI with probability 0.4.
 Lastly, line 7 states that with metabolite <i>0</i> and <i>aa</i>, this will cause high BMI with probability 0.5
@@ -131,7 +135,7 @@ Lastly, line 7 states that with metabolite <i>0</i> and <i>aa</i>, this will cau
 </div>
 
 <div class="nb-cell program" data-background="true" name="p4">
-metabolite_v2(X,1):0.6 ; metabolite_v2(X,0):0.4 :- aa(X).
+metabolite_v2(X,1):0.2 ; metabolite_v2(X,0):0.8 :- aa(X).
 metabolite_v2(X,1):0.4 ; metabolite_v2(X,0):0.6 :- ab(X).
 
 person_bmi_v2(X,1):0.3 ; person_bmi_v2(X,0):0.7 :-metabolite_v2(X,1),ab(X).
@@ -141,11 +145,11 @@ person_bmi_v2(X,1):0.5 ; person_bmi_v2(X,0):0.5 :-metabolite_v2(X,0),aa(X).
 </div>
 
 <div class="nb-cell html" name="htm17">
-However asking the same question "what is the probability of someone having a high BMI?" we get the same probability.
+However asking the same question "what is the probability of someone having a high BMI?" we get approximatly the same probability.
 </div>
 
 <div class="nb-cell html" name="htm24">
-<h5> Query 4 (On CT2)</h5>
+<h5> Query 5 (On CT2)</h5>
 </div>
 
 <div class="nb-cell query" name="q2">
@@ -157,7 +161,7 @@ And then the conditional probabilities questions
 </div>
 
 <div class="nb-cell html" name="htm21">
-<h5> Query 5 (On CT2)</h5>
+<h5> Query 6 (On CT2)</h5>
 </div>
 
 <div class="nb-cell query" name="q8">
@@ -165,11 +169,19 @@ mc_rejection_sample(person_bmi_v2(X,1),metabolite_v2(X,1),1000,P,[]).
 </div>
 
 <div class="nb-cell html" name="htm28">
-<h5> Query 6 (On CT2) </h5>
+<h5> Query 7 (On CT2) </h5>
 </div>
 
 <div class="nb-cell query" name="q9">
 mc_rejection_sample(person_bmi_v2(X,1),metabolite_v2(X,0),1000,P,[]).
+</div>
+
+<div class="nb-cell html" name="htm47">
+<h5> Query 8 (On CT2) </h5>
+</div>
+
+<div class="nb-cell query" name="q16">
+mc_rejection_sample(person_bmi_v2(X,1),metabolite_v2(X,1),1000,P1,[]), mc_rejection_sample(person_bmi_v2(X,1),metabolite_v2(X,0),1000,P2,[]), RiskDiffernce is P1-P2.
 </div>
 
 <div class="nb-cell html" name="htm9">
@@ -195,18 +207,14 @@ person_cheese(X,1):0.5 ; person_cheese(X,0):0.5.
 metabolite_initial(X,1):0.6 ; metabolite_initial(X,0):0.4 :- aa(X).
 metabolite_intiial(X,1):0.4 ; metabolite_initial(X,0):0.6 :- ab(X).
 
-metabolite_v3(X,Y) :- person_cheese(X,0), metabolite_v3(X,Y).
+metabolite_v3(X,Y) :- person_cheese(X,0), metabolite_initial(X,Y).
 metabolite_v3(X,1):0.8 ; metabolite_v3(X,0):0.2  :- person_cheese(X,1), metabolite_initial(X,MetValue), dif(MetValue,1).
 
 person_bmi_v3(X,1):0.7 ; person_bmi_v3(X,0):0.3 :- person_cheese(X,1).
 </div>
 
-<div class="nb-cell query" name="q11">
-mc_prob((metabolite_v3(X,1),metabolite_v3(X,0)),P).
-</div>
-
 <div class="nb-cell html" name="htm10">
-However if we query for the association between metabolites and bmi we get a positive value. This is because they are both caused by eating cheese.
+However if we query for the Risk differnce between metabolites values and BMI we get a positive value. This is because they are both caused by eating cheese.
 </div>
 
 <div class="nb-cell html" name="htm44">
@@ -214,7 +222,13 @@ However if we query for the association between metabolites and bmi we get a pos
 </div>
 
 <div class="nb-cell query" name="q7">
-mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,1),1000,P1,[]), mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,0),1000,P2,[]), Risk is P1-P2.
+mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,1),1000,P1,[]), mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,0),1000,P2,[]), RiskDiffernce is P1-P2.
+</div>
+
+<div class="nb-cell html" name="htm48">
+So in summary in CT1 the metbolite effects bmi and there is association. 
+In CT2 the metbolite with the genotype effect bmi but there is no association.
+In CT3 the metabolite does not effect BMI but there is an association.
 </div>
 
 <div class="nb-cell html" name="htm32">

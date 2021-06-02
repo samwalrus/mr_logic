@@ -431,6 +431,54 @@ of random variables (i.e., atoms) as Pearl does, but look instead at interventio
 that add and/or prevent CP-laws to/in a theory.
  CP-logic represents a causal system in a modular way as a set of causal laws
 
+According to shafer a Baysian network can be seen as a description of a class of probabilty trees.
+
+CP-Logic can represent a Baysian network.
+However it is also more expressive.
+In a process corresponding to a Bayesian network, the value of each random variable
+is determined by a single event.
+CP-logic, on the other hand, allows multiple events to affect the same property.
+
+In this example, there are two “causal mechanisms” that might lead to Death:
+one is the fact that pulling the trigger of the left gun might cause a bullet to hit the
+person’s left temple, and the other is the fact that pulling the trigger of the right gun
+might cause a bullet to hit the person’s right temple. They are independent in the
+following sense: once we know how many and which of these mechanisms are actually
+activated (i.e., which of the two triggers are pulled), then observing whether one of
+these possible causes actually results in the effect (i.e., whether one of the bullets is
+actually fired and kills the persons) provides no information about whether one of
+the other causes will cause the effect (i.e., whether one of the other bullets is also
+fired). Mathematically, this is of course saying nothing more than the probability
+of the effect occurring should be equal to the result of applying a noisy-or6
+to the
+multiset of the probabilities with which each of the causal mechanisms that are
+actually activated causes the effect, i.e., if both guns are fired, the probability of
+death should be 1 − (1 − 1/6)2
+. This independence is precisely the condition that
+is required in order to be able to represent each of these two causal mechanism by
+a separate CP-law, as in the above example. To succinctly describe this situation,
+we say that P ull trigger(Lef t gun) and P ull trigger(Right gun) are independent
+causes for Death.
+
+In the CP-theory, this independence
+is expressed by the structure of the theory, whereas in the Bayesian network, it is
+a numerical property of the probabilities in the conditional probability table for
+Death.
+
+Because of this, the CP-theory is more elaboration tolerant, since adding or
+removing an additional cause for Death simply corresponds to adding or removing
+a single CP-law. Moreover, its representation is also more compact, requiring, in
+general, only n probabilities for n independent causes, instead of the 2n entries that
+are needed in a Bayesian network table
+
+In CP-logic, the cause of an event can be represented in a qualitative way, by
+means of a first-order formula. Bayesian networks, on the other hand, encode such
+information in the probability tables.
+
+Cyclic causal relations
+
+
+
 <h6>Interventions</h6>
 
 Formal defintions of interventions allow us to remove human judgement on effects.
@@ -443,6 +491,11 @@ Some of the differnces are: 1.2.3.4.
   <li></li>
   <li></li>
 </ol>
+
+slightly more finegrained than that of Pearl, since we can
+consider interventions that prohibit a single causal law (as in the above example),
+whereas Pearl only considers interventions that prohibit all causal laws that affect
+the value of a certain random variables. 
 
 <ol>
   <li>Can handle cyclic causality. </li>

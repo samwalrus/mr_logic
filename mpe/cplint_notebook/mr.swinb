@@ -208,7 +208,8 @@ metabolite_initial(X,1):0.6 ; metabolite_initial(X,0):0.4 :- aa(X).
 metabolite_intiial(X,1):0.4 ; metabolite_initial(X,0):0.6 :- ab(X).
 
 metabolite_v3(X,Y) :- person_cheese(X,0), metabolite_initial(X,Y).
-metabolite_v3(X,1):0.8 ; metabolite_v3(X,0):0.2  :- person_cheese(X,1), metabolite_initial(X,MetValue), dif(MetValue,1).
+metabolite_v3(X,1):0.8 ; metabolite_v3(X,0):0.2  :- person_cheese(X,1), metabolite_initial(X,0).
+metabolite_v3(X,1) :- person_cheese(X,1), metabolite_initial(X,1).
 
 person_bmi_v3(X,1):0.7 ; person_bmi_v3(X,0):0.3 :- person_cheese(X,1).
 </div>

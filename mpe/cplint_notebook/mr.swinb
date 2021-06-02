@@ -333,12 +333,22 @@ h3 {text-align: center;}
 </div>
 
 <div class="nb-cell html" name="htm5">
+<script type="text/javascript">
+$.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
+             "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
+</script>
+
+
 We can reason about our causal theories to calculate probabilities of interventions. This is analogous to pearls do operator. We remove the first two laws and replace with a law. If we do this to both causal theories then we can now see how the probabilities are now different in the tow modified theories.
 
 <p>
   Making an intervention on the metabolite does not change a probability of getting high bmi.
   In causal theory 3.
 </p>
+
+Let C be a CP-theory. An intervention is a pair <i>(R, A)</i> with <i>R</i> a
+subset of <i>C</i> (a preemption) and <i>A</i> a set of laws not in <i>C</i> (an addition). The result
+of performing <i>(R, A)<i> on <i>C<i>, denoted <i>C↯(R, A)</i>, is the CP-theory <i>(C \ R) ∪ A</i>.</i></i></i></i>
 </div>
 
 <div class="nb-cell html" name="htm36">
@@ -400,12 +410,60 @@ h3 {text-align: center;}
 <style>
 h3 {text-align: center;}
 </style>
-<h3> Part 8 : CP logic compared to CBN</h3>
+<h3> Part 8 : CP logic compared to CBN and PCMS</h3>
 </div>
 
 <div class="nb-cell html" name="htm6">
-CP-Logic is a different formalism to Causal Bayesian Networks which are often used in MR. Some of the differnces are: 1.2.3.4.
+CP-Logic is a different formalism to Causal Bayesian Networks and Probablistic Causal Models which are often used in MR. 
 
+CP-Logic integrates the work of Perl on causaitly and probabilty with the work of shafer.
+In CP-Logic a random variable is something that gets assigned a certain value at a certain time.
+"In contrast to Perls probalistic causal models, represent the relations between RV as they hold in stable states of the domain"
+
+ His models,
+therefore, do not care about which event causes the value of an RV, or when
+this happens
+"CP Logic which offers a succinct
+syntax for describing classes of Shaferian probability trees."
+
+we will not consider interventions at the level
+of random variables (i.e., atoms) as Pearl does, but look instead at interventions
+that add and/or prevent CP-laws to/in a theory.
+ CP-logic represents a causal system in a modular way as a set of causal laws
+
+<h6>Interventions</h6>
+
+Formal defintions of interventions allow us to remove human judgement on effects.
+Instead we need to 1) Describe a causal model of our domain and 2)
+
+Some of the differnces are: 1.2.3.4.
+<ol>
+  <li>Perls interventions fix a value, they can not contain a probabilty distribution</li>
+  <li>Perls interventions can not introduce new relantionships between existing random variables</li>
+  <li></li>
+  <li></li>
+</ol>
+
+<ol>
+  <li>Can handle cyclic causality. </li>
+  <li>Can make differnt kinds of interventions with out tinkering with the model </li>
+</ol>
+
+Second, we also add a touch of clarity to the picture painted by Pearl. His
+book considers causal models in two different languages: Bayesian networks and
+PCMs. While they are formally very similar—every Bayesian network is easily
+transformed into a PCM—they embody views on the nature of causality that
+are ontologically quite different: Bayesian networks represent causal relations as
+inherently probabilistic, while PCMs express the Laplacian view that causal relations are completely deterministic and uncertainty stems solely from a lack of
+knowledge about their “inputs”. Pearl’s book adopts Bayesian networks throughout the chapters that first introduce the idea of interventions. When eventually
+the topic of counterfactuals arises, however, a switch is made to the Laplacian
+view of PCMs. It is peculiar that, on the one hand, interventions should be easiest to explain under the assumption that causal relations are inherently probabilistic, while on the other hand, their use for counterfactual reasoning requires
+the assumption that causal relations are deterministic. Our paper shows that
+CP-logic’s event-based view on causality reconciles these two views: whether a
+Humean event happens is deterministic (in any given state of the world), but its
+outcome can be probabilistic. In this way, CP-logic can match Bayesian networks
+as a natural representation for probabilistic causal relations, while also, as this
+paper has shown, surpassing PCMs as a counterfactual reasoning tool.
 The full details of this formalism its capabilties and limitations are to detailed to fit in this poster and we refer the reader to the litrature. The aim of this poster/notebook is bring this formalism to the attention of MR researchers and to show that this alternative formalism brings differnt capabilites and expressivness to knowledge represention required of MR. This can be explored in further work.
 </div>
 

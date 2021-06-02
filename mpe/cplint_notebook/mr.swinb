@@ -201,17 +201,18 @@ Someone could have both metabolites according to this theory, because there geno
 <h5> Causal Theory 3 </h5>
 </div>
 
-<div class="nb-cell program" name="p5">
+<div class="nb-cell program" data-background="true" name="p5">
 person_cheese(X,1):0.5 ; person_cheese(X,0):0.5.
 
 metabolite_initial(X,1):0.6 ; metabolite_initial(X,0):0.4 :- aa(X).
-metabolite_intiial(X,1):0.4 ; metabolite_initial(X,0):0.6 :- ab(X).
+metabolite_initial(X,1):0.4 ; metabolite_initial(X,0):0.6 :- ab(X).
 
 metabolite_v3(X,Y) :- person_cheese(X,0), metabolite_initial(X,Y).
 metabolite_v3(X,1):0.8 ; metabolite_v3(X,0):0.2  :- person_cheese(X,1), metabolite_initial(X,0).
 metabolite_v3(X,1) :- person_cheese(X,1), metabolite_initial(X,1).
 
 person_bmi_v3(X,1):0.7 ; person_bmi_v3(X,0):0.3 :- person_cheese(X,1).
+person_bmi_v3(X,1):0.1 ; person_bmi_v3(X,0):0.9 :- person_cheese(X,0).
 </div>
 
 <div class="nb-cell html" name="htm10">
@@ -300,9 +301,9 @@ So we then query for causal estimand on causal theory 1
 </div>
 
 <div class="nb-cell query" name="q10">
-mc_rejection_expectation(person_bmi(X,BMI),aa(X),1000,BMI,Ex_bmi_aa), mc_rejection_expectation(person_bmi(X,BMI),ab(X),1000,BMI,Ex_bmi_ab),
-mc_rejection_expectation(metabolite(X,Met),aa(X),1000,Met,Ex_met_aa),
-mc_rejection_expectation(metabolite(X,Met),ab(X),1000,Met,Ex_met_ab), Cause is (Ex_bmi_aa - Ex_bmi_ab)/(Ex_met_aa - Ex_met_ab).
+mc_rejection_expectation(person_bmi(X,BMI),aa(X),10000,BMI,Ex_bmi_aa), mc_rejection_expectation(person_bmi(X,BMI),ab(X),10000,BMI,Ex_bmi_ab),
+mc_rejection_expectation(metabolite(X,Met),aa(X),10000,Met,Ex_met_aa),
+mc_rejection_expectation(metabolite(X,Met),ab(X),10000,Met,Ex_met_ab), Cause is (Ex_bmi_aa - Ex_bmi_ab)/(Ex_met_aa - Ex_met_ab).
 </div>
 
 <div class="nb-cell html" name="htm4">
@@ -311,9 +312,9 @@ The same query on causal theory 2 however gives a different probability.
 </div>
 
 <div class="nb-cell query" name="q5">
-mc_rejection_expectation(person_bmi_v2(X,BMI),aa(X),1000,BMI,Ex_bmi_aa), mc_rejection_expectation(person_bmi_v2(X,BMI),ab(X),1000,BMI,Ex_bmi_ab),
-mc_rejection_expectation(metabolite_v2(X,Met),aa(X),1000,Met,Ex_met_aa),
-mc_rejection_expectation(metabolite_v2(X,Met),ab(X),1000,Met,Ex_met_ab), Cause is (Ex_bmi_aa - Ex_bmi_ab)/(Ex_met_aa - Ex_met_ab).
+mc_rejection_expectation(person_bmi_v2(X,BMI),aa(X),10000,BMI,Ex_bmi_aa), mc_rejection_expectation(person_bmi_v2(X,BMI),ab(X),10000,BMI,Ex_bmi_ab),
+mc_rejection_expectation(metabolite_v2(X,Met),aa(X),10000,Met,Ex_met_aa),
+mc_rejection_expectation(metabolite_v2(X,Met),ab(X),10000,Met,Ex_met_ab), Cause is (Ex_bmi_aa - Ex_bmi_ab)/(Ex_met_aa - Ex_met_ab).
 </div>
 
 <div class="nb-cell html" name="htm16">
@@ -321,9 +322,9 @@ And the query on the 3rd causal theory.
 </div>
 
 <div class="nb-cell query" name="q13">
-mc_rejection_expectation(person_bmi_v3(X,BMI),aa(X),1000,BMI,Ex_bmi_aa), mc_rejection_expectation(person_bmi_v3(X,BMI),ab(X),1000,BMI,Ex_bmi_ab),
-mc_rejection_expectation(metabolite_v3(X,Met),aa(X),1000,Met,Ex_met_aa),
-mc_rejection_expectation(metabolite_v3(X,Met),ab(X),1000,Met,Ex_met_ab), Cause is (Ex_bmi_aa - Ex_bmi_ab)/(Ex_met_aa - Ex_met_ab).
+mc_rejection_expectation(person_bmi_v3(X,BMI),aa(X),10000,BMI,Ex_bmi_aa), mc_rejection_expectation(person_bmi_v3(X,BMI),ab(X),10000,BMI,Ex_bmi_ab),
+mc_rejection_expectation(metabolite_v3(X,Met),aa(X),10000,Met,Ex_met_aa),
+mc_rejection_expectation(metabolite_v3(X,Met),ab(X),10000,Met,Ex_met_ab), Cause is (Ex_bmi_aa - Ex_bmi_ab)/(Ex_met_aa - Ex_met_ab).
 </div>
 
 <div class="nb-cell html" name="htm35">

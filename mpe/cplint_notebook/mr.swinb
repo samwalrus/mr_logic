@@ -250,7 +250,7 @@ We want to calculate:
 $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
              "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
 </script>
-
+<h5> Equation 1 </h5>
  \[E[BMI|do(Metabolite=1)] - E[BMI|do(metabolite=0)] \]
 </div>
 
@@ -269,7 +269,7 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
 
 
 Which using the instrumental variable of the genotype is:
-
+<h5> Equation 2 </h5>
 \[\frac{E [BMI |genotype= aa] − E [BMI |genotype = ab]}{E [Metabolite|genotype = aa] − E [Metabolite|genotype = ab]}\]
 </div>
 
@@ -282,6 +282,7 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
 We can verify that the value of the metabolite is associated with the value of genotype.
 
 The risk difference.
+<h5> Equation 3 </h5>
 \[Pr [metabolite = 1|genotype = aa] − Pr [metabolite =1|genotype = ab] &gt;0.\]
 </div>
 
@@ -290,7 +291,7 @@ mc_rejection_sample(metabolite(X,1),aa(X),1000,P1,[]), mc_rejection_sample(metab
 </div>
 
 <div class="nb-cell query" name="q11">
-mc_rejection_sample(metabolite_v2(X,1),aa(X),1000,P1,[]), mc_rejection_sample(metabolite_v2(X,1),ab(X),1000,P2,[]), Risk_difference is P1 - P2.
+mc_rejection_sample(metabolite_v2(X,1),ab(X),1000,P1,[]), mc_rejection_sample(metabolite_v2(X,1),aa(X),1000,P2,[]), Risk_difference is P1 - P2.
 </div>
 
 <div class="nb-cell query" name="q17">
@@ -569,7 +570,7 @@ child_uncle(X,Y):-parent_child(P,X),sibling(P,Y), male(Y).
 </div>
 
 <div class="nb-cell query" name="q15">
-
+%We can use the do operator with evidence of 
 </div>
 
 <div class="nb-cell html" name="htm40">
@@ -591,6 +592,14 @@ Alphabet soup.
 But we can calculate the MR estimate.
 
 A non zero association is indicative of a a causal relationship. (hernan and robins 2006)
+</div>
+
+<div class="nb-cell program" name="p7">
+%mpe inference.
+
+%highbmi:0.9 :- met(1).
+
+highbmi:0.9 :- cheese(1).
 </div>
 
 <div class="nb-cell program" data-background="true" data-singleline="true" name="p3">

@@ -228,8 +228,8 @@ mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,1),1000,P1,[]), mc_reject
 </div>
 
 <div class="nb-cell html" name="htm48">
-So in summary in CT1 the metbolite effects bmi and there is association. 
-In CT2 the metbolite with the genotype effect bmi but there is no association.
+So in summary in CT1 the metbolite effects BMI and there is association. 
+In CT2 the metbolite together with the genotype effect BMI but there is very little association.
 In CT3 the metabolite does not effect BMI but there is an association.
 </div>
 
@@ -287,6 +287,14 @@ The risk difference.
 
 <div class="nb-cell query" name="q3">
 mc_rejection_sample(metabolite(X,1),aa(X),1000,P1,[]), mc_rejection_sample(metabolite(X,1),ab(X),1000,P2,[]), Risk_difference is P1 - P2.
+</div>
+
+<div class="nb-cell query" name="q11">
+mc_rejection_sample(metabolite_v2(X,1),aa(X),1000,P1,[]), mc_rejection_sample(metabolite_v2(X,1),ab(X),1000,P2,[]), Risk_difference is P1 - P2.
+</div>
+
+<div class="nb-cell query" name="q17">
+mc_rejection_sample(metabolite_v3(X,1),aa(X),1000,P1,[]), mc_rejection_sample(metabolite_v3(X,1),ab(X),1000,P2,[]), Risk_difference is P1 - P2.
 </div>
 
 <div class="nb-cell html" name="htm34">

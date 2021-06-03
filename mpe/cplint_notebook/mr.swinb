@@ -253,7 +253,7 @@ As epidemiolgists we are of course intrested in identifying causal modifialble r
 
 Perl [2009] has established that when calculating proabilties taking into account causality we must distguish seeing from doing.
 
-We have shown three causal models in which some assoications are the same but underlying process for creating the data are differnt.
+We have shown three causal theories in which some assoications are the same but underlying process for creating the data are differnt.
 <p>
 
 
@@ -267,7 +267,7 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
 <h5> Equation 1 </h5>
  \[E[BMI|do(Metabolite=1)] - E[BMI|do(metabolite=0)] \]
 
-<p> i.e we want to know how the expected value of BMI would change if could modify the value of the metabolite.</p>
+<p> i.e we want to know how the expected value of BMI would change if we could modify the value of the metabolite.</p>
 </div>
 
 <div class="nb-cell html" name="htm33">
@@ -283,18 +283,14 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
              "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
 </script>
 
-If we imagine we were given incomplete observation data from these models but not the models themselves and we wanted try and estimate the causal effect of the metbolite on BMI we could attempt to apply the IV approach of MR.
+If we imagine we were given incomplete observation data from these theories but not the theroies themselves and we wanted try and estimate the causal effect of the metbolite on BMI we could attempt to apply the IV approach of MR.
 MR requires 3 things.
 <ol>
   <li></li>
   <li></li>
   <li></li>
 </ol>
-If we can at least verify the first requirment of MR that the value of the metabolite is associated with the value of genotype in the three models.
-
-Which using the instrumental variable of the genotype is:
-<h5> Equation 2 </h5>
-\[\frac{E [BMI |genotype= aa] − E [BMI |genotype = ab]}{E [Metabolite|genotype = aa] − E [Metabolite|genotype = ab]}\]
+We would be able to at least verify the first requirment of MR that the value of the metabolite is associated with the value of genotype in the three theories.
 </div>
 
 <div class="nb-cell html" name="htm26">
@@ -305,7 +301,7 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
 
 
 The risk difference.
-<h5> Equation 3 </h5>
+<h5> Equation 2 </h5>
 \[Pr [metabolite = 1|genotype = aa] − Pr [metabolite =1|genotype = ab] &gt;0.\]
 </div>
 
@@ -333,6 +329,10 @@ mc_rejection_sample(metabolite_v2(X,1),ab(X),1000,P1,[]), mc_rejection_sample(me
 mc_rejection_sample(metabolite_v3(X,1),aa(X),1000,P1,[]), mc_rejection_sample(metabolite_v3(X,1),ab(X),1000,P2,[]), Risk_difference is P1 - P2.
 </div>
 
+<div class="nb-cell html" name="htm52">
+
+</div>
+
 <div class="nb-cell html" name="htm34">
 <style>
 h3 {text-align: center;}
@@ -341,7 +341,14 @@ h3 {text-align: center;}
 </div>
 
 <div class="nb-cell html" name="htm27">
-So we then query for causal estimand on causal theory 1, the following queries implement equation 2
+<script type="text/javascript">
+$.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
+             "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
+</script>
+Then using the instrumental variable of the genotype we could estimate the causal effect with:
+<h5> Equation 3 </h5>
+\[\frac{E [BMI |genotype= aa] − E [BMI |genotype = ab]}{E [Metabolite|genotype = aa] − E [Metabolite|genotype = ab]}\]
+So we then query for causal estimand on causal theory 1, the following queries implement equation 3
 <h5> Query 13 (On CT1) </h5>
 </div>
 

@@ -391,7 +391,12 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
 </script>
 
 
-We can reason about our causal theories to calculate probabilities of interventions. This is analogous to pearls do operator. We remove the first two laws and replace with a law. If we do this to both causal theories then we can now see how the probabilities are now different in the tow modified theories.
+As in actual fact we are using artficial theroies we do have access to our causal theroies. 
+We can therefore reason about our causal theories to calculate probabilities of interventions. 
+This is analogous to pearls do operator. 
+We remove the first two laws and replace with a law. 
+If we do this to both causal theories then we can now see how the probabilities are now different in the modified theories.
+And compare these to the MR estimates in part 4 of this notebook.
 
 <p>
   Making an intervention on the metabolite does not change a probability of getting high bmi.
@@ -424,6 +429,10 @@ person_bmi(X,1):0.3 ; person_bmi(X,0):0.7 :- metabolite(X,0).
 */
 </div>
 
+<div class="nb-cell query" name="q18">
+
+</div>
+
 <div class="nb-cell html" name="htm42">
 CT 2 b
 </div>
@@ -438,6 +447,10 @@ person_bmi(X,1):0.3 ; person_bmi(X,0):0.7 :- metabolite(X,0).
 */
 </div>
 
+<div class="nb-cell query" name="q19">
+
+</div>
+
 <div class="nb-cell html" name="htm43">
 CT 3 b
 </div>
@@ -449,6 +462,10 @@ metabolite(X,1):0.2 ; metabolite(X,0):0.8 :- ab(X).
 
 person_bmi(X,1):0.6 ; person_bmi(X,0):0.4 :- metabolite(X,1).
 person_bmi(X,1):0.3 ; person_bmi(X,0):0.7 :- metabolite(X,0).*/
+</div>
+
+<div class="nb-cell query" name="q20">
+
 </div>
 
 <div class="nb-cell html" name="htm37">

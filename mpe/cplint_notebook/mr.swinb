@@ -283,7 +283,7 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
              "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
 </script>
 
-If we imagine we were given incomplete observation data from these theories but not the theroies themselves and we wanted try and estimate the causal effect of the metbolite on BMI we could attempt to apply the IV approach of MR.
+If we imagine we were given observation data from these theories but not the theroies themselves and we wanted try and estimate the causal effect of the metbolite on BMI we could attempt to apply the IV approach of MR.
 MR requires 3 things [Davey Smith 2003] [Hernán 2020].
 <ol>
   <li> The variant associates with the exposure.</li>
@@ -393,7 +393,36 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
 
 As in actual fact we are using artficial theroies we do have access to our causal theroies. 
 We can therefore reason about our causal theories to calculate probabilities of interventions. 
-This is analogous to pearls do operator. 
+Formal defintions of interventions allow us to remove human judgement on effects.
+Instead we need to 1) Describe a causal model of our domain and 2)
+
+<p>This is analogous to pearls do operator. </p>
+
+<h6>Interventions</h6>
+
+
+<p>
+Some of the differnces are: 
+we will not consider interventions at the level
+of random variables (i.e., atoms) as Pearl does, but look instead at interventions
+that add and/or prevent CP-laws to/in a theory.
+</p>
+<ol>
+  <li>Perls interventions fix a value, they can not contain a probabilty distribution</li>
+  <li>Perls interventions can not introduce new relantionships between existing random variables</li>
+  <li></li>
+  <li></li>
+</ol>
+
+slightly more finegrained than that of Pearl, since we can
+consider interventions that prohibit a single causal law (as in the above example),
+whereas Pearl only considers interventions that prohibit all causal laws that affect
+the value of a certain random variables. 
+
+<ol>
+  <li>Can handle cyclic causality. </li>
+  <li>Can make differnt kinds of interventions with out tinkering with the model </li>
+</ol>
 We remove the first two laws and replace with a law. 
 If we do this to both causal theories then we can now see how the probabilities are now different in the modified theories.
 And compare these to the MR estimates in part 4 of this notebook.
@@ -488,7 +517,7 @@ h3 {text-align: center;}
 
 <div class="nb-cell html" name="htm6">
 <p> So far we have tried an example driven but we have yet to really explain what CP-Logic is and how it differs from other formalisms.
-</p><p>CP-Logic is a different formalism to Causal Bayesian Networks and Probablistic Causal Models which are often used in MR. </p>
+</p><p>CP-Logic is a different formalism to Causal Bayesian Networks and Probablistic Causal Models which are often used in MR research. </p>
 <p>
 CP-Logic integrates the work of Perl on causaitly and probabilty with the work of shafer.
 In CP-Logic a random variable is something that gets assigned a certain value at a certain time.
@@ -500,9 +529,7 @@ this happens
 "CP Logic which offers a succinct
 syntax for describing classes of Shaferian probability trees."
 </p>
-we will not consider interventions at the level
-of random variables (i.e., atoms) as Pearl does, but look instead at interventions
-that add and/or prevent CP-laws to/in a theory.
+
  CP-logic represents a causal system in a modular way as a set of causal laws
 <p>
 According to shafer a Baysian network can be seen as a description of a class of probabilty trees.
@@ -562,28 +589,9 @@ Cyclic causal relations
   The goal of actual causation is to explain why things happened. [Vennekens 2011] </p>
 
 <p>An important part of reasoning about causilty is time, redundant causes etc. The mendelian meiosis being neccreily before the other events can be better modeled in CP-Logic.
-</p><h6>Interventions</h6>
 
-Formal defintions of interventions allow us to remove human judgement on effects.
-Instead we need to 1) Describe a causal model of our domain and 2)
+</p><p> Averege actual causation . Is the event that happens a distribution, i.e. why is the mean bmi higher in group a to group b</p>
 
-Some of the differnces are: 1.2.3.4.
-<ol>
-  <li>Perls interventions fix a value, they can not contain a probabilty distribution</li>
-  <li>Perls interventions can not introduce new relantionships between existing random variables</li>
-  <li></li>
-  <li></li>
-</ol>
-
-slightly more finegrained than that of Pearl, since we can
-consider interventions that prohibit a single causal law (as in the above example),
-whereas Pearl only considers interventions that prohibit all causal laws that affect
-the value of a certain random variables. 
-
-<ol>
-  <li>Can handle cyclic causality. </li>
-  <li>Can make differnt kinds of interventions with out tinkering with the model </li>
-</ol>
 <p>
 Second, we also add a touch of clarity to the picture painted by Pearl. His
 book considers causal models in two different languages: Bayesian networks and

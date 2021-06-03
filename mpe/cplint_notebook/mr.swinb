@@ -407,9 +407,9 @@ Instead we need to 1) Describe a causal model of our domain and 2)
 
 <p>
 Some of the differnces are: 
-we will not consider interventions at the level
-of random variables (i.e., atoms) as Pearl does, but look instead at interventions
-that add and/or prevent CP-laws to/in a theory.
+In CP-Logic interventions are not at the level
+of random variables (i.e., atoms) as Pearl does, but instead interventions
+add and/or prevent CP-laws to/in a theory.
 </p>
 <ol>
   <li>Perls interventions fix a value, they can not contain a probabilty distribution</li>
@@ -427,14 +427,17 @@ the value of a certain random variables.
   <li>Can handle cyclic causality. </li>
   <li>Can make differnt kinds of interventions with out tinkering with the model </li>
 </ol>
-
+<p>
+  Formaly: </p>
 Let C be a CP-theory. An intervention is a pair <i>(R, A)</i> with <i>R</i> a
 subset of <i>C</i> (a preemption) and <i>A</i> a set of laws not in <i>C</i> (an addition). The result
 of performing <i>(R, A)</i> on <i>C</i>, denoted <i>C↯(R, A)</i>, is the CP-theory <i>(C \ R) ∪ A</i>.
 
 <p>
+
+  We next present three further causal theroies which are modified versions of the original cts.
 We remove the first two laws and replace with a law. 
-If we do this to both causal theories then we can now see how the probabilities are now different in the modified theories.
+If we do this to the three causal theories then we can now see how the probabilities are now different in the modified theories.
 And compare these to the MR estimates in part 4 of this notebook.
 </p>
 <p>
@@ -626,7 +629,7 @@ h3 {text-align: center;}
 </div>
 
 <div class="nb-cell html" name="htm45">
-When people are first introduced to programming in Logic they are often given the task of writing programs about familes. 
+When people are first introduced to programming in logic they are often given the task of writing programs about familes. 
 This is because the relationships can be very naturaly represented and reasoned with.
 
 In this program we are merging the idea of reasoning about indivduals and groups.

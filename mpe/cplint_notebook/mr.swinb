@@ -2,7 +2,7 @@
 
 <div class="nb-cell html" name="htm13">
 <h1>Mendelian Randomization as a Probabilistic Logic Program </h1>
-This interactive notebook demonstrates Mendelian Randomization as a Probabilistic Logic Program, implemented on Cplint on SWISH [Alberti 2017]. 
+This interactive notebook demonstrates Mendelian Randomization as a Probabilistic Logic Program, implemented on Cplint on SWISH [Alberti 2017, Wielemaker 2015]. 
 The formalism used is Causal Probabilistic Logic (CP-Logic)[Vennekens 2009]. 
 We aim to demonstrate some examples of using this formalism first, and then give some background information on the formalism later. 
 The aim is to show how computational thinking can help us as MR researchers, by applying automatic reasoning techniques [Kowalski 2011] to augment our reasoning around MR.
@@ -256,9 +256,7 @@ Perl [2009] has established that when calculating proabilties taking into accoun
 We have shown three causal models in which some assoications are the same but underlying process for creating the data are differnt.
 <p>
 
-In the first theory there is no causal law where the genotype causes the high bmi directly, i.e. there is no horizontal pleiotropy.
-It therefore is compatible with MR and IV. 
-To determine the causal effect of the metabolite on the prob of high BMI.
+
 </p>
   We want to calculate:
 
@@ -446,6 +444,10 @@ person_bmi(X,1):0.3 ; person_bmi(X,0):0.7 :- metabolite(X,0).*/
 h3 {text-align: center;}
 </style>
 <h3> Part 7 : The structure of the three theories, blah? </h3>
+
+In the first theory there is no causal law where the genotype causes the high bmi directly, i.e. there is no horizontal pleiotropy.
+It therefore is compatible with MR and IV. 
+To determine the causal effect of the metabolite on the prob of high BMI.
 </div>
 
 <div class="nb-cell html" name="htm38">
@@ -651,7 +653,8 @@ highbmi:0.9 :- cheese(1).
 <p>Refs:</p>
 <ol>
 <li> Alberti, Marco, et al. "cplint on SWISH: Probabilistic logical inference with a web browser." Intelligenza Artificiale 11.1 (2017): 47-64. </li>
-<li> Vennekens, Joost, Marc Denecker, and Maurice Bruynooghe. "CP-logic: A language of causal probabilistic events and its relation to logic programming." arXiv preprint arXiv:0904.1672 (2009). </li>
+  <li> Wielemaker, Jan, Torbjörn Lager, and Fabrizio Riguzzi. "SWISH: SWI-Prolog for sharing." arXiv preprint arXiv:1511.00915 (2015).</li>
+  <li> Vennekens, Joost, Marc Denecker, and Maurice Bruynooghe. "CP-logic: A language of causal probabilistic events and its relation to logic programming." arXiv preprint arXiv:0904.1672 (2009). </li>
 <li>Kowalski, Robert. Computational logic and human thinking: how to be artificially intelligent. Cambridge University Press, 2011. </li>
 <li> Riguzzi, Fabrizio. "MCINTYRE: A Monte Carlo system for probabilistic logic programming." Fundamenta Informaticae 124.4 (2013): 521-541. </li>
   <li> Pearl, Judea. Causality. Cambridge university press, 2009. </li>  

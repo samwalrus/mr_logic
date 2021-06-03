@@ -228,7 +228,7 @@ However if we query for the Risk differnce between metabolites values and BMI we
 </div>
 
 <div class="nb-cell html" name="htm44">
-<h5> Query (On CT3) </h5>
+<h5> Query 9 (On CT3) </h5>
 </div>
 
 <div class="nb-cell query" name="q7">
@@ -251,15 +251,16 @@ h3 {text-align: center;}
 <div class="nb-cell html" name="htm3">
 As epidemiolgists we are of course intrested in identifying causal modifialble risk factors for disease.
 
-Perl has established that we must distguish seeing from doing.
+Perl [2009] has established that when calculating proabilties taking into account causality we must distguish seeing from doing.
 
-We have shown three causal models which some assoications are the same but underlying process for creating the data are differnt.
-
+We have shown three causal models in which some assoications are the same but underlying process for creating the data are differnt.
+<p>
 
 In the first theory there is no causal law where the genotype causes the high bmi directly, i.e. there is no horizontal pleiotropy.
 It therefore is compatible with MR and IV. 
 To determine the causal effect of the metabolite on the prob of high BMI.
-We want to calculate:
+</p>
+  We want to calculate:
 
 <script type="text/javascript">
 $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
@@ -294,19 +295,31 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
              "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
 </script>
 
-We can verify that the value of the metabolite is associated with the value of genotype.
+If we imagine we were given incomplete observation data from these models but not the models them selves we can at least verify the first requirment of MR that the value of the metabolite is associated with the value of genotype in the three models.
 
 The risk difference.
 <h5> Equation 3 </h5>
 \[Pr [metabolite = 1|genotype = aa] − Pr [metabolite =1|genotype = ab] &gt;0.\]
 </div>
 
+<div class="nb-cell html" name="htm49">
+<h5> Query 10 (On CT1) </h5>
+</div>
+
 <div class="nb-cell query" name="q3">
 mc_rejection_sample(metabolite(X,1),aa(X),1000,P1,[]), mc_rejection_sample(metabolite(X,1),ab(X),1000,P2,[]), Risk_difference is P1 - P2.
 </div>
 
+<div class="nb-cell html" name="htm50">
+<h5> Query 11 (On CT2) </h5>
+</div>
+
 <div class="nb-cell query" name="q11">
 mc_rejection_sample(metabolite_v2(X,1),ab(X),1000,P1,[]), mc_rejection_sample(metabolite_v2(X,1),aa(X),1000,P2,[]), Risk_difference is P1 - P2.
+</div>
+
+<div class="nb-cell html" name="htm51">
+<h5> Query 12 (On CT3) </h5>
 </div>
 
 <div class="nb-cell query" name="q17">
@@ -322,6 +335,7 @@ h3 {text-align: center;}
 
 <div class="nb-cell html" name="htm27">
 So we then query for causal estimand on causal theory 1
+<h5> Query 13 (On CT1) </h5>
 </div>
 
 <div class="nb-cell query" name="q10">
@@ -333,6 +347,7 @@ mc_rejection_expectation(metabolite(X,Met),ab(X),10000,Met,Ex_met_ab), Cause is 
 <div class="nb-cell html" name="htm4">
 This is as expected giving us an estimate that is compatible with what was specified on causal theory 1.
 The same query on causal theory 2 however gives a different probability.
+<h5> Query 14 (On CT2) </h5>
 </div>
 
 <div class="nb-cell query" name="q5">
@@ -343,6 +358,7 @@ mc_rejection_expectation(metabolite_v2(X,Met),ab(X),10000,Met,Ex_met_ab), Cause 
 
 <div class="nb-cell html" name="htm16">
 And the query on the 3rd causal theory.
+<h5> Query 15 (On CT3) </h5>
 </div>
 
 <div class="nb-cell query" name="q13">
@@ -638,6 +654,7 @@ highbmi:0.9 :- cheese(1).
 <li> Vennekens, Joost, Marc Denecker, and Maurice Bruynooghe. "CP-logic: A language of causal probabilistic events and its relation to logic programming." arXiv preprint arXiv:0904.1672 (2009). </li>
 <li>Kowalski, Robert. Computational logic and human thinking: how to be artificially intelligent. Cambridge University Press, 2011. </li>
 <li> Riguzzi, Fabrizio. "MCINTYRE: A Monte Carlo system for probabilistic logic programming." Fundamenta Informaticae 124.4 (2013): 521-541. </li>
+  <li> Pearl, Judea. Causality. Cambridge university press, 2009. </li>  
   <li> Vennekens, Joost. "Actual causation in cp-logic." arXiv preprint arXiv:1107.4865 (2011). </li>
 </ol>
 </div>

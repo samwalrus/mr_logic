@@ -266,6 +266,8 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
 </script>
 <h5> Equation 1 </h5>
  \[E[BMI|do(Metabolite=1)] - E[BMI|do(metabolite=0)] \]
+
+<p> i.e we want to know how the expected value of BMI would change if could modify the value of the metabolite.</p>
 </div>
 
 <div class="nb-cell html" name="htm33">
@@ -281,6 +283,14 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
              "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
 </script>
 
+If we imagine we were given incomplete observation data from these models but not the models themselves and we wanted try and estimate the causal effect of the metbolite on BMI we could attempt to apply the IV approach of MR.
+MR requires 3 things.
+<ol>
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+If we can at least verify the first requirment of MR that the value of the metabolite is associated with the value of genotype in the three models.
 
 Which using the instrumental variable of the genotype is:
 <h5> Equation 2 </h5>
@@ -293,7 +303,6 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
              "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
 </script>
 
-If we imagine we were given incomplete observation data from these models but not the models them selves we can at least verify the first requirment of MR that the value of the metabolite is associated with the value of genotype in the three models.
 
 The risk difference.
 <h5> Equation 3 </h5>
@@ -332,7 +341,7 @@ h3 {text-align: center;}
 </div>
 
 <div class="nb-cell html" name="htm27">
-So we then query for causal estimand on causal theory 1
+So we then query for causal estimand on causal theory 1, the following queries implement equation 2
 <h5> Query 13 (On CT1) </h5>
 </div>
 

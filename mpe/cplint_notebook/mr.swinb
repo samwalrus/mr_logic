@@ -251,7 +251,7 @@ h3 {text-align: center;}
 <div class="nb-cell html" name="htm3">
 As epidemiolgists we are of course intrested in identifying causal modifialble risk factors for disease.
 
-Perl [2009] has established that when calculating proabilties taking into account causality we must distguish seeing from doing.
+Perl [2009] has established that when calculating proabilties taking into account causality we must distguish 'seeing' from 'doing'.
 
 We have shown three causal theories in which some assoications are the same but underlying process for creating the data are differnt.
 <p>
@@ -327,6 +327,10 @@ mc_rejection_sample(metabolite_v2(X,1),ab(X),1000,P1,[]), mc_rejection_sample(me
 
 <div class="nb-cell query" name="q17">
 mc_rejection_sample(metabolite_v3(X,1),aa(X),1000,P1,[]), mc_rejection_sample(metabolite_v3(X,1),ab(X),1000,P2,[]), Risk_difference is P1 - P2.
+</div>
+
+<div class="nb-cell html" name="htm52">
+So we can see that in all three causal theroies there is a risk differnce/association.
 </div>
 
 <div class="nb-cell html" name="htm34">
@@ -414,7 +418,7 @@ that add and/or prevent CP-laws to/in a theory.
   <li></li>
 </ol>
 
-slightly more finegrained than that of Pearl, since we can
+Interventions in CP-Logic are therefore slightly more finegrained than that of Pearl version of the  'do' operator, since we can
 consider interventions that prohibit a single causal law (as in the above example),
 whereas Pearl only considers interventions that prohibit all causal laws that affect
 the value of a certain random variables. 
@@ -423,18 +427,20 @@ the value of a certain random variables.
   <li>Can handle cyclic causality. </li>
   <li>Can make differnt kinds of interventions with out tinkering with the model </li>
 </ol>
+
+Let C be a CP-theory. An intervention is a pair <i>(R, A)</i> with <i>R</i> a
+subset of <i>C</i> (a preemption) and <i>A</i> a set of laws not in <i>C</i> (an addition). The result
+of performing <i>(R, A)</i> on <i>C</i>, denoted <i>C↯(R, A)</i>, is the CP-theory <i>(C \ R) ∪ A</i>.
+
+<p>
 We remove the first two laws and replace with a law. 
 If we do this to both causal theories then we can now see how the probabilities are now different in the modified theories.
 And compare these to the MR estimates in part 4 of this notebook.
-
+</p>
 <p>
   Making an intervention on the metabolite does not change a probability of getting high bmi.
   In causal theory 3.
 </p>
-
-Let C be a CP-theory. An intervention is a pair <i>(R, A)</i> with <i>R</i> a
-subset of <i>C</i> (a preemption) and <i>A</i> a set of laws not in <i>C</i> (an addition). The result
-of performing <i>(R, A)<i> on <i>C<i>, denoted <i>C↯(R, A)</i>, is the CP-theory <i>(C \ R) ∪ A</i>.</i></i></i></i>
 </div>
 
 <div class="nb-cell html" name="htm36">

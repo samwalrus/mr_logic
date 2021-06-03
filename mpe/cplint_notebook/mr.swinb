@@ -187,14 +187,22 @@ mc_rejection_sample(person_bmi_v2(X,1),metabolite_v2(X,1),1000,P1,[]), mc_reject
 
 <div class="nb-cell html" name="htm9">
 In the next box we give a third causal theory (CT3). 
-In this theory we modify the example to also model how eating cheese effects someone having high BMI it can also be clearly seen that there is no causal law effecting BMI from the metabolite value.
+In this theory we modify the example to also model how eating cheese effects someone having high BMI. 
+
+<p>
 In line 1 we state that 50% of people eat cheese.
 Line 3 and line 4 give the initial value of the metabolite caused by the genotype.
-
+</p>
+<p>
 Line 6 gives the causal deterministic law that if someone does not eat cheese their metabolite value stays the same.
-Line 7 states that if a person eats cheese, and there metabolic value caused by the genotype is 0, then there top up value of the metabolite is 1.
- and that eating cheese causes a high BMI with probability 0.7 (line 6) and causes metabolite 1 with probability 0.8 (line 7).
-Eating cheese is an independent cause of metabolite 1.
+Line 7 states that if a person eats cheese, and there metabolic value caused by the genotype is 0, then there top up value of the metabolite is 1 with probabilty 0.8 or remains 0 with probabilty 0.2.
+Line 8 states and that if some one eats cheese and their metabolite value is 1 from there genotype then there metbolite value remains 1.
+</p>
+<p>
+Line 10 states that eating cheese causes a high BMI with probability 0.7.
+Line 11 states even that if someone does not eat cheese they may have a high bmi with probabilty 0.1.
+</p>
+It can be clearly seen that there is no causal law effecting BMI from the metabolite value.
 </div>
 
 <div class="nb-cell html" name="htm25">

@@ -48,7 +48,7 @@ h3 {text-align: center;}
 </div>
 
 <div class="nb-cell html" name="htm12">
-The following causal theory is made from four causal laws (on lines 1,2, 4 &amp; 5).
+The following causal theory (CT1) is made from four causal laws (on lines 1,2, 4 &amp; 5).
 It describes a set causal relationships between the genotype, the metabolite and having a high BMI.
 It states if a person has the <i>aa</i> genotype, this will cause them to have the metabolite with value <i>1</i> with probability 0.7 or the value of the metabolite of <i>0</i> with probability 0.3 (line 1).
 If they have the alternative genotype <i>ab</i>, this will instead cause them to have metabolite with value <i>1</i> with probability 0.2 or the value of the metabolite of <i>0</i> with probability 0.8 (line 2).
@@ -187,15 +187,14 @@ mc_rejection_sample(person_bmi_v2(X,1),metabolite_v2(X,1),1000,P1,[]), mc_reject
 
 <div class="nb-cell html" name="htm9">
 In the next box we give a third causal theory (CT3). 
-In this theory it can be clearly seen that there is no causal law effecting BMI from the metabolite value.
-Instead, in line 1 we state that 50% of people eat cheese.
+In this theory we modify the example to also model how eating cheese effects someone having high BMI it can also be clearly seen that there is no causal law effecting BMI from the metabolite value.
+In line 1 we state that 50% of people eat cheese.
 Line 3 and line 4 give the initial value of the metabolite caused by the genotype.
 
-Line 6 and gives the causal law that if someone does not eat cheese their metabolite value stays the same.
+Line 6 gives the causal deterministic law that if someone does not eat cheese their metabolite value stays the same.
 Line 7 states that if a person eats cheese, and there metabolic value caused by the genotype is 0, then there top up value of the metabolite is 1.
  and that eating cheese causes a high BMI with probability 0.7 (line 6) and causes metabolite 1 with probability 0.8 (line 7).
-Eating cheese is an independent cause of metabolite 1. 
-Someone could have both metabolites according to this theory, because there genotype would allow them to have value 0 and there cheese consumption would allow them to have value 1.
+Eating cheese is an independent cause of metabolite 1.
 </div>
 
 <div class="nb-cell html" name="htm25">
@@ -242,6 +241,13 @@ h3 {text-align: center;}
 </div>
 
 <div class="nb-cell html" name="htm3">
+As epidemiolgists we are of course intrested in identifying causal modifialble risk factors for disease.
+
+Perl has established that we must distguish seeing from doing.
+
+We have shown three causal models which some assoications are the same but underlying process for creating the data are differnt.
+
+
 In the first theory there is no causal law where the genotype causes the high bmi directly, i.e. there is no horizontal pleiotropy.
 It therefore is compatible with MR and IV. 
 To determine the causal effect of the metabolite on the prob of high BMI.
@@ -426,8 +432,8 @@ h3 {text-align: center;}
 </div>
 
 <div class="nb-cell html" name="htm6">
-CP-Logic is a different formalism to Causal Bayesian Networks and Probablistic Causal Models which are often used in MR. 
-
+<p>CP-Logic is a different formalism to Causal Bayesian Networks and Probablistic Causal Models which are often used in MR. </p>
+<p>
 CP-Logic integrates the work of Perl on causaitly and probabilty with the work of shafer.
 In CP-Logic a random variable is something that gets assigned a certain value at a certain time.
 "In contrast to Perls probalistic causal models, represent the relations between RV as they hold in stable states of the domain"
@@ -437,20 +443,22 @@ therefore, do not care about which event causes the value of an RV, or when
 this happens
 "CP Logic which offers a succinct
 syntax for describing classes of Shaferian probability trees."
-
+</p>
 we will not consider interventions at the level
 of random variables (i.e., atoms) as Pearl does, but look instead at interventions
 that add and/or prevent CP-laws to/in a theory.
  CP-logic represents a causal system in a modular way as a set of causal laws
-
+<p>
 According to shafer a Baysian network can be seen as a description of a class of probabilty trees.
-
+</p>
+<p>
 CP-Logic can represent a Baysian network.
 However it is also more expressive.
 In a process corresponding to a Bayesian network, the value of each random variable
 is determined by a single event.
 CP-logic, on the other hand, allows multiple events to affect the same property.
-
+</p>
+<p>
 In this example, there are two “causal mechanisms” that might lead to Death:
 one is the fact that pulling the trigger of the left gun might cause a bullet to hit the
 person’s left temple, and the other is the fact that pulling the trigger of the right gun
@@ -471,27 +479,34 @@ is required in order to be able to represent each of these two causal mechanism 
 a separate CP-law, as in the above example. To succinctly describe this situation,
 we say that P ull trigger(Lef t gun) and P ull trigger(Right gun) are independent
 causes for Death.
-
+</p>
+<p>
 In the CP-theory, this independence
 is expressed by the structure of the theory, whereas in the Bayesian network, it is
 a numerical property of the probabilities in the conditional probability table for
 Death.
-
+</p>
+<p>
 Because of this, the CP-theory is more elaboration tolerant, since adding or
 removing an additional cause for Death simply corresponds to adding or removing
 a single CP-law. Moreover, its representation is also more compact, requiring, in
 general, only n probabilities for n independent causes, instead of the 2n entries that
 are needed in a Bayesian network table
-
+</p>
+<p>
+  
 In CP-logic, the cause of an event can be represented in a qualitative way, by
 means of a first-order formula. Bayesian networks, on the other hand, encode such
 information in the probability tables.
-
+</p>
+<p>
 Cyclic causal relations
+</p>
+<p> Actual causation: The formal semantics of CP-Logic has events which are not fully represented in CBN and structual equations.  
+  The goal of actual causation is to explain why things happened. [Vennekens 2011] </p>
 
-
-
-<h6>Interventions</h6>
+<p>An important part of reasoning about causilty is time, redundant causes etc. The mendelian meiosis being neccreily before the other events can be better modeled in CP-Logic.
+</p><h6>Interventions</h6>
 
 Formal defintions of interventions allow us to remove human judgement on effects.
 Instead we need to 1) Describe a causal model of our domain and 2)
@@ -513,7 +528,7 @@ the value of a certain random variables.
   <li>Can handle cyclic causality. </li>
   <li>Can make differnt kinds of interventions with out tinkering with the model </li>
 </ol>
-
+<p>
 Second, we also add a touch of clarity to the picture painted by Pearl. His
 book considers causal models in two different languages: Bayesian networks and
 PCMs. While they are formally very similar—every Bayesian network is easily
@@ -530,6 +545,7 @@ outcome can be probabilistic. In this way, CP-logic can match Bayesian networks
 as a natural representation for probabilistic causal relations, while also, as this
 paper has shown, surpassing PCMs as a counterfactual reasoning tool.
 The full details of this formalism its capabilties and limitations are to detailed to fit in this poster and we refer the reader to the litrature. The aim of this poster/notebook is bring this formalism to the attention of MR researchers and to show that this alternative formalism brings differnt capabilites and expressivness to knowledge represention required of MR. This can be explored in further work.
+</p>
 </div>
 
 <div class="nb-cell html" name="htm39">
@@ -614,6 +630,7 @@ highbmi:0.9 :- cheese(1).
 <li> Vennekens, Joost, Marc Denecker, and Maurice Bruynooghe. "CP-logic: A language of causal probabilistic events and its relation to logic programming." arXiv preprint arXiv:0904.1672 (2009). </li>
 <li>Kowalski, Robert. Computational logic and human thinking: how to be artificially intelligent. Cambridge University Press, 2011. </li>
 <li> Riguzzi, Fabrizio. "MCINTYRE: A Monte Carlo system for probabilistic logic programming." Fundamenta Informaticae 124.4 (2013): 521-541. </li>
+  <li> Vennekens, Joost. "Actual causation in cp-logic." arXiv preprint arXiv:1107.4865 (2011). </li>
 </ol>
 </div>
 

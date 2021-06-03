@@ -2,10 +2,11 @@
 
 <div class="nb-cell html" name="htm13">
 <h1>Mendelian Randomization as a Probabilistic Logic Program </h1>
-This interactive notebook demonstrates Mendelian Randomization as a Probabilistic Logic Program, implemented on Cplint on SWISH. [CITE]. 
-The formalism used is Causal Probabilistic Logic (CP-Logic). 
+This interactive notebook demonstrates Mendelian Randomization as a Probabilistic Logic Program, implemented on Cplint on SWISH [Alberti 2017]. 
+The formalism used is Causal Probabilistic Logic (CP-Logic)[Vennekens 2009]. 
 We aim to demonstrate some examples of using this formalism first, and then give some background information on the formalism later. 
-The aim is to show how computational thinking can help us as MR researchers, by applying automatic reasoning techniques. We give a differnt presective to the typical cbn and dag approach.
+The aim is to show how computational thinking can help us as MR researchers, by applying automatic reasoning techniques [Kowalski 2011] to augment our reasoning around MR.
+We also give a differnt presective to the common causal baysain network with directed acylic graph approach which may widen our oppertunity to think about the properties of MR.
 
 <h4> The structure of the notebook is as follows: </h4>
 <ol>
@@ -21,10 +22,10 @@ The aim is to show how computational thinking can help us as MR researchers, by 
   <li> Finally we describe some of the reasoning techniques availble to us that may be useful for thinking about MR going forward.
 </li></ol>
 Throughout this note book we will use a number of artificial running examples.
-In the first example we will define the relationships between a SNP, a metabolite (that can take on values 0 or 1) and having a high Body Mass Index (BMI).
+In the first example we will define the relationships between a SNP (aa or ab), a metabolite (that can take on values 0 or 1) and having a high Body Mass Index (BMI).
 <p>
 We first set up our program by importing the required library and initializing it (line 1 and 2).
- In this note book we are using the approximate algorithms provided by the mcantyre library [CITE]. 
+ In this note book we are using the approximate algorithms provided by the Mcintyre library [Riguzzi 2013]. 
 We then state that our probabilistic program will begin (line 3) and on line 4 we state that someone has either the genotype value <i>aa</i> or <i>ab</i> with equal probability.
 
 
@@ -607,9 +608,13 @@ highbmi:0.9 :- cheese(1).
 </div>
 
 <div class="nb-cell html" name="htm30">
-Refs:
-[1]
-[2]
+<p>Refs:</p>
+<ol>
+<li> Alberti, Marco, et al. "cplint on SWISH: Probabilistic logical inference with a web browser." Intelligenza Artificiale 11.1 (2017): 47-64. </li>
+<li> Vennekens, Joost, Marc Denecker, and Maurice Bruynooghe. "CP-logic: A language of causal probabilistic events and its relation to logic programming." arXiv preprint arXiv:0904.1672 (2009). </li>
+<li>Kowalski, Robert. Computational logic and human thinking: how to be artificially intelligent. Cambridge University Press, 2011. </li>
+<li> Riguzzi, Fabrizio. "MCINTYRE: A Monte Carlo system for probabilistic logic programming." Fundamenta Informaticae 124.4 (2013): 521-541. </li>
+</ol>
 </div>
 
 </div>

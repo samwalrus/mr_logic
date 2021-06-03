@@ -646,7 +646,8 @@ cousin(X,Y):- parent_child(P1,X),sibling(P1,P2),parent_child(P2,Y).
 child_aunt(X,Y):- parent_child(P,X),sibling(P,Y), female(Y).
 child_uncle(X,Y):-parent_child(P,X),sibling(P,Y), male(Y).
 
-
+%Generation 1 fixed
+%Generation 2 probablistic
 
 </div>
 

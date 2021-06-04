@@ -606,12 +606,12 @@ as a natural representation for probabilistic causal relations, while also,  arg
 
 <h5>Summary</h5> TODO relate to MR
 <ol>
-<li> CP-logic explicitly represents time and events: An important part of reasoning about causality is time, redundant causes etc. The mendelian meiosis being necessarily before the other events can be better modeled in CP-Logic.  </li>
-<li> CPlogic is equivalent to practical probabilistic programming languages </li>
-<li> CP logic is modular and a greater set of interventions can be considered compared to CBN and PCMs </li>
-<li> CP -logic can explicitly model multiple causes for one event </li>
-<li> CP Logic is succinct </li>
-<li> CP logic </li>
+<li> CP Logic explicitly represents time and events: An important part of reasoning about causality is time, redundant causes etc. The mendelian meiosis being necessarily before the other events can be better modeled in CP-Logic.  </li>
+<li> CP Logic is equivalent to practical probabilistic programming languages </li>
+<li> CP Logic is modular and a greater set of interventions can be considered compared to CBN and PCMs </li>
+<li> CP Logic can explicitly model multiple causes for one event </li>
+<li> CP Logic is succinct, which can aid understanding and make machine learning of therioes potentially simpler  </li>
+<li> CP Logic is just differnt</li>
   </ol>
 </div>
 
@@ -664,13 +664,16 @@ h3 {text-align: center;}
 </style>
 <h3> Part 10 : Further resoning techniques</h3>
 
+A majour advantage to modeling MR approaches in a Probablistic Logic Program in that the representation enables us pose problems in which large number of reasoning techniques have been implemented.
+The number of languages, system algorithms etc can be a little overwhelming and it has been efered to as alpherbet soup.
+
+Cplint on Swish is a good place to start.
+Implementations of 
 State of the art ILP can learn family relations.
 Predicate invention and object invention.
 Abduction and MPe
 Non monotonic reasoing.
 Algebraic problog
-
-Alphabet soup.
 </div>
 
 <div class="nb-cell html" name="htm11">

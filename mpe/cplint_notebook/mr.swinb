@@ -423,10 +423,8 @@ consider interventions that prohibit a single causal law (as in the above exampl
 whereas Pearl only considers interventions that prohibit all causal laws that affect
 the value of a certain random variables. 
 
-<ol>
-  <li>Can handle cyclic causality. </li>
-  <li>Can make differnt kinds of interventions with out tinkering with the model </li>
-</ol>
+
+  
 <p>
   Formaly: </p>
 Let C be a CP-theory. An intervention is a pair <i>(R, A)</i> with <i>R</i> a
@@ -611,7 +609,8 @@ as a natural representation for probabilistic causal relations, while also,  arg
 <li> CP Logic is modular and a greater set of interventions can be considered compared to CBN and PCMs </li>
 <li> CP Logic can explicitly model multiple causes for one event </li>
 <li> CP Logic is succinct, which can aid understanding and make machine learning of therioes potentially simpler  </li>
-<li> CP Logic is just differnt</li>
+<li>Can make differnt kinds of interventions with out tinkering with the model </li>
+  <li> CP Logic is just differnt</li>
   </ol>
 </div>
 
@@ -674,12 +673,6 @@ Predicate invention and object invention.
 Abduction and MPe
 Non monotonic reasoing.
 Algebraic problog
-</div>
-
-<div class="nb-cell html" name="htm11">
-But we can calculate the MR estimate.
-
-A non zero association is indicative of a a causal relationship. (hernan and robins 2006)
 </div>
 
 <div class="nb-cell program" name="p7">

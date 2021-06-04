@@ -494,7 +494,6 @@ CT 3 b
 </div>
 
 <div class="nb-cell query" name="q14">
-
 /*metabolite(X,1):0.7 ; metabolite(X,0):0.3 :- aa(X).
 metabolite(X,1):0.2 ; metabolite(X,0):0.8 :- ab(X).
 
@@ -525,100 +524,95 @@ h3 {text-align: center;}
 </div>
 
 <div class="nb-cell html" name="htm6">
-<p> So far we have tried an example driven but we have yet to really explain what CP-Logic is and how it differs from other formalisms.
-</p><p>CP-Logic is a different formalism to Causal Bayesian Networks and Probablistic Causal Models which are often used in MR research. </p>
+<p> So far in this notebook we have tried to be example driven but we have yet to really explain what CP-Logic [Vennekens 2009] is and how it differs from other formalisms.
+</p><p>CP-Logic is a different formalism to Causal Bayesian Networks and Probabilistic Causal Models which are often used in MR research. The full details of this formalism, its capabilities and limitations are too detailed to fit in this poster and we refer the reader to the literature for the complete picture, but we will now try to give an overview of some of the properties and how they might be useful for MR research. (We also adapt some of the examples/ descriptions from Vennekens 2009).
+</p>
+
 <p>
-CP-Logic integrates the work of Perl on causaitly and probabilty with the work of shafer.
+CP-Logic integrates the work of both Perl [2009] and Shafer [1996] on causality and probability; it seeks to be a logical language that represents dynamic causal laws.
 In CP-Logic a random variable is something that gets assigned a certain value at a certain time.
-"In contrast to Perls probalistic causal models, represent the relations between RV as they hold in stable states of the domain"
-
- His models,
-therefore, do not care about which event causes the value of an RV, or when
-this happens
-"CP Logic which offers a succinct
-syntax for describing classes of Shaferian probability trees."
+This is in contrast to Perl’s probabilistic causal models which represent the relations between RVs as they hold in stable states of the domain. In a PCM we do not care about which event causes the value of an RV, or when it happens. In this way CP-Logic comes from the Shafer school of thought in which when considering probability or causality he thinks we need to consider the  context of a particular story and how the domain evolves, Shafer formalises this with probability trees. In a probability tree the domain starts out in one state, then an event happens which causes the domain to change to a new state. The new state is chosen probabilistically from a set of alternatives. This is then repeated, as different events happen the states changes probabilistically from the available alternatives of that state. This happens until no further events take place.
 </p>
 
- CP-logic represents a causal system in a modular way as a set of causal laws
 <p>
-According to shafer a Baysian network can be seen as a description of a class of probabilty trees.
+  CP Logic therefore offers a succinct syntax for describing classes of Shaferian probability trees, CP-logic has also been proven to be equivalent to the language  of Logic Programs with Annotated Disjunctions (LPADS)  which has the formal distribution semantics of Sato in which a logic programming rule has its head annotated with a probability and this  specifies a probability distribution over a set of possible world in terms of these individual probabilities on a rule head. This means it is also a <i>practical probabilistic programming language</i> as we have seen in this notebook. 
+</p>
+
+<p>
+According to Shafer [1996] a Baysian network can be seen as a description of a class of probability trees. CP-Logic can represent a Baysian network and as we have also seen CP-logic represents a causal system in a modular way as a set of causal laws. For this reason CP Logic
+is also more expressive. In a process corresponding to a Bayesian network, the value of each random variable is determined by a single event but CP-logic allows multiple events to affect the same property.
+
+Example, consider the results of a GWAS where two independent snps have been found to be associated with a high bmi:
+</p><p>
+  In cp logic:
+
+High_bmi :1/6&lt;- SNP1
+High_bmi :1/6  &lt;- SNP2
+
 </p>
 <p>
-CP-Logic can represent a Baysian network.
-However it is also more expressive.
-In a process corresponding to a Bayesian network, the value of each random variable
-is determined by a single event.
-CP-logic, on the other hand, allows multiple events to affect the same property.
+  There are two “causal mechanisms” that might lead to high BMI:
+ They are independent in the following sense: once we know how many and which of these mechanisms are actually activated (i.e., which versions of the two snp are inherited), then observing whether one of these possible causes actually results in the effect provides no information about whether one of the other causes will cause the effect. i.e., if both causal variants are inherited, then the probability of High BMI should be 1 − (1 − 1/6)^2. 
 </p>
 <p>
-In this example, there are two “causal mechanisms” that might lead to Death:
-one is the fact that pulling the trigger of the left gun might cause a bullet to hit the
-person’s left temple, and the other is the fact that pulling the trigger of the right gun
-might cause a bullet to hit the person’s right temple. They are independent in the
-following sense: once we know how many and which of these mechanisms are actually
-activated (i.e., which of the two triggers are pulled), then observing whether one of
-these possible causes actually results in the effect (i.e., whether one of the bullets is
-actually fired and kills the persons) provides no information about whether one of
-the other causes will cause the effect (i.e., whether one of the other bullets is also
-fired). Mathematically, this is of course saying nothing more than the probability
-of the effect occurring should be equal to the result of applying a noisy-or6
-to the
-multiset of the probabilities with which each of the causal mechanisms that are
-actually activated causes the effect, i.e., if both guns are fired, the probability of
-death should be 1 − (1 − 1/6)2
-. This independence is precisely the condition that
-is required in order to be able to represent each of these two causal mechanism by
-a separate CP-law, as in the above example. To succinctly describe this situation,
-we say that P ull trigger(Lef t gun) and P ull trigger(Right gun) are independent
-causes for Death.
+In the CP-theory, this independence is expressed by the structure of the theory, whereas in the Bayesian network, it is a numerical property of the probabilities in the conditional probability table for high BMI.
 </p>
-<p>
-In the CP-theory, this independence
-is expressed by the structure of the theory, whereas in the Bayesian network, it is
-a numerical property of the probabilities in the conditional probability table for
-Death.
-</p>
+<p></p>
 <p>
 Because of this, the CP-theory is more elaboration tolerant, since adding or
-removing an additional cause for Death simply corresponds to adding or removing
+removing an additional cause for high BMI simply corresponds to adding or removing
 a single CP-law. Moreover, its representation is also more compact, requiring, in
 general, only n probabilities for n independent causes, instead of the 2n entries that
-are needed in a Bayesian network table
+are needed in a Bayesian network table.
 </p>
 <p>
-  
-In CP-logic, the cause of an event can be represented in a qualitative way, by
-means of a first-order formula. Bayesian networks, on the other hand, encode such
-information in the probability tables.
+Another feature is that in CP-logic, the cause of an event can be represented in a qualitative way, by means of a first-order formula. Bayesian networks, on the other hand, encode such
+information in the probability tables. This means that it is possible to express very succinctly statements such as: <i> For all SNPS X, any SNP within LD that has genomic_feature, will cause Event with probability alpha. </i>, 
+
+Event(X):Alpha &lt;- within_ld(x,y),genomic_feature(y).
+
+For example lets say there were 4 SNPs that were in linkage disequilibrium with genomic features in a standard BN you would need 2^4 many rows to represent this as opposed to this single CP-Law.
 </p>
 <p>
-Cyclic causal relations
+A further feature of CP-Logic is the ability to handle cyclic causal relations.
+
+Consider:
+
+High_bmi:0.8 &lt;- lack of exercise.
+Lack_of_exercise:0.7 &lt;- high_bmi.
+
+This correctly behaves as follows if someone has neither a lack of exercise nor high bmi by an external cause then they will have neither. If they have a lack_of_exercise by an external cause, then with probability 0.8 he will also have high BMI.  If the person has high bmi by an external cause, then with probability 0.7 they will also have a lack of exercise.  If the person has both lack of exercise  and high bmi by an external cause, then they will obviously have both.
 </p>
-<p> Actual causation: The formal semantics of CP-Logic has events which are not fully represented in CBN and structual equations.  
-  The goal of actual causation is to explain why things happened. [Vennekens 2011] </p>
-
-<p>An important part of reasoning about causilty is time, redundant causes etc. The mendelian meiosis being neccreily before the other events can be better modeled in CP-Logic.
-
-</p><p> Averege actual causation . Is the event that happens a distribution, i.e. why is the mean bmi higher in group a to group b</p>
-
 <p>
-Second, we also add a touch of clarity to the picture painted by Pearl. His
-book considers causal models in two different languages: Bayesian networks and
-PCMs. While they are formally very similar—every Bayesian network is easily
-transformed into a PCM—they embody views on the nature of causality that
-are ontologically quite different: Bayesian networks represent causal relations as
-inherently probabilistic, while PCMs express the Laplacian view that causal relations are completely deterministic and uncertainty stems solely from a lack of
-knowledge about their “inputs”. Pearl’s book adopts Bayesian networks throughout the chapters that first introduce the idea of interventions. When eventually
-the topic of counterfactuals arises, however, a switch is made to the Laplacian
-view of PCMs. It is peculiar that, on the one hand, interventions should be easiest to explain under the assumption that causal relations are inherently probabilistic, while on the other hand, their use for counterfactual reasoning requires
-the assumption that causal relations are deterministic. Our paper shows that
-CP-logic’s event-based view on causality reconciles these two views: whether a
-Humean event happens is deterministic (in any given state of the world), but its
-outcome can be probabilistic. In this way, CP-logic can match Bayesian networks
-as a natural representation for probabilistic causal relations, while also, as this
-paper has shown, surpassing PCMs as a counterfactual reasoning tool.
-The full details of this formalism its capabilties and limitations are to detailed to fit in this poster and we refer the reader to the litrature. The aim of this poster/notebook is bring this formalism to the attention of MR researchers and to show that this alternative formalism brings differnt capabilites and expressivness to knowledge represention required of MR. This can be explored in further work.
+  In order to model this in a Bayesian network, you could introduce new, artificial random variables external(high bmi) and external(lack of exercise) to represent the possibility that high bmi and lack of exercise result from an external cause. But to encode a causal loop formed by n properties you would need to introduce n additional nodes.
 </p>
+<p>
+As Epidemiologists we are interested in identifying why something has happened, this kind of diagnostic reasoning is the goal of <i>actual causation </i> and again Vennekens has argued that the formal semantics of CP-Logic has events which are not fully representable in CBN and structural equations and that CP-Logic is a better representation for this kind of reasoning. We will talk a little more about this kind of reasoning in the next part of the notebook, but one nuance I think is worth pondering on, is that often accounts of ‘actual causation’ or diagnostic reasoning address reasons for events in individuals but I think epidemiologists in public health are more concerned in reasoning around a kind of  ‘Average actual causation’ . That is the event that is caused is a distribution and we are interested in e.g. why the parameters of that distribution in a population are what they are, and how could we change them. For example the mean BMI is higher in group a to group b, why did that happen? 
+</p>
+<p>
+
+Vennekens [2009] points out that Pearl uses two different languages when considering causal models, Bayesian networks and PCMS, (which are similar as every Bayesian network can be transformed into a PCM), but the different languages embody different  views on the nature of causality, bayesian networks represent causal relations as inherently probabilistic, while PCMs express the Laplacian view that causal relations are completely deterministic and uncertainty stems solely from a lack of knowledge about their “inputs”. Pearl’s book adopts Bayesian networks throughout the chapters that first introduce the idea of interventions. When addressing the topic of counterfactuals arises, a switch is made to the Laplacian view of PCMs.
+</p>
+<p>
+  Vennekens remarks that it is peculiar that, on the one hand, interventions should be easiest to explain under the assumption that causal relations are inherently probabilistic, while on the other hand, their use for counterfactual reasoning requires the assumption that causal relations are deterministic. 
+</p>
+<p>
+  Vennekens argues in his paper that CP-logic’s event-based view on causality reconciles these two views: whether a Humean event happens is deterministic (in any given state of the world), but its outcome can be probabilistic. And therefore CP-logic can match Bayesian networks
+as a natural representation for probabilistic causal relations, while also,  arguing that it surpasses PCMs as a counterfactual reasoning tool.
+</p>
+<p>
+  One of the aim of this poster/notebook is bring this formalism to the attention of MR researchers and to show that this alternative formalism brings different capabilities and expressiveness to knowledge representation required of MR. 
+</p>
+
+<h5>Summary</h5> TODO relate to MR
+<ol>
+<li> CP-logic explicitly represents time and events: An important part of reasoning about causality is time, redundant causes etc. The mendelian meiosis being necessarily before the other events can be better modeled in CP-Logic.  </li>
+<li> CPlogic is equivalent to practical probabilistic programming languages </li>
+<li> CP logic is modular and a greater set of interventions can be considered compared to CBN and PCMs </li>
+<li> CP -logic can explicitly model multiple causes for one event </li>
+<li> CP Logic is succinct </li>
+<li> CP logic </li>
+  </ol>
 </div>
 
 <div class="nb-cell html" name="htm39">
@@ -657,11 +651,10 @@ child_uncle(X,Y):-parent_child(P,X),sibling(P,Y), male(Y).
 
 %Generation 1 fixed
 %Generation 2 probablistic
-
 </div>
 
 <div class="nb-cell query" name="q15">
-%We can use the do operator with evidence of 
+%We can use the do operator with evidence of
 </div>
 
 <div class="nb-cell html" name="htm40">

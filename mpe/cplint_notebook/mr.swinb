@@ -5,8 +5,8 @@
 This interactive notebook demonstrates Mendelian Randomization as a Probabilistic Logic Program, implemented on Cplint on SWISH [Alberti 2017, Wielemaker 2015]. 
 The formalism used is Causal Probabilistic Logic (CP-Logic)[Vennekens 2009]. 
 We aim to demonstrate some examples of using this formalism first, and then give some background information on the formalism later. 
-The aim is to show how computational thinking can help us as MR researchers, by applying automatic reasoning techniques [Kowalski 2011] to augment our reasoning around MR.
-We also give a differnt presective to the common causal baysain network with directed acylic graph approach which may widen our oppertunity to think about the properties of MR.
+The aim is to show how computational thinking can help us as MR researchers by applying automatic reasoning techniques [Kowalski 2011] to augment our reasoning around MR.
+We also give a differnt persepective to the common causal baysain network with directed acylic graph approach which may widen our oppertunity to think about the properties of MR.
 
 <h4> The structure of the notebook is as follows: </h4>
 <ol>
@@ -601,7 +601,7 @@ Vennekens [2009] points out that Pearl uses two different languages when conside
 as a natural representation for probabilistic causal relations, while also,  arguing that it surpasses PCMs as a counterfactual reasoning tool.
 </p>
 <p>
-  One of the aim of this poster/notebook is bring this formalism to the attention of MR researchers and to show that this alternative formalism brings different capabilities and expressiveness to knowledge representation required of MR. 
+  One of the aim of this poster/notebook is bring this formalism to greater attention of MR researchers and to show that this alternative formalism brings different capabilities and expressiveness to knowledge representation required of MR. 
 </p>
 
 <h5>Summary</h5> TODO relate to MR
@@ -623,6 +623,7 @@ h3 {text-align: center;}
 </div>
 
 <div class="nb-cell html" name="htm45">
+We will now describe a more elaborate CT which is relevant to MR researchers thinking about within family studies.
 When people are first introduced to programming in logic they are often given the task of writing programs about familes. 
 This is because the relationships can be very naturaly represented and reasoned with.
 

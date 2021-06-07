@@ -517,11 +517,20 @@ person_bmi_v3_b(X,1):0.1 ; person_bmi_v3_b(X,0):0.9 :- person_cheese_b(X,0).
 <style>
 h3 {text-align: center;}
 </style>
-<h3> Part 7 : The structure of the three theories, blah? </h3>
+<h3> Part 7 : The structure of the three theories </h3>
 
 In the first theory there is no causal law where the genotype causes the high bmi directly, i.e. there is no horizontal pleiotropy.
-It therefore is compatible with MR and IV. 
-To determine the causal effect of the metabolite on the prob of high BMI.
+It therefore is compatible with the IV and MR rules.
+
+In the second theory there is horizontal pleiotropy, and so this explains why the query is incompatible with the calculation with the intervention.
+
+In the third theory, there is no causal effect.
+
+With a given causal theory the second and third rules of MR (). Are releated to the idea of Proof in logic programming. i.e. is there a proof of an event that uses events that would break the MR rules.
+This can be encoded as :
+
+Satisfiabilbty.
+Learning from proofs.
 </div>
 
 <div class="nb-cell html" name="htm38">
@@ -677,9 +686,6 @@ person_geno_pheno_gen(bob,geno(0-1,0-0,0-0,1-0),1.9,1).
 person_geno_pheno_gen(bob,geno(1-1,0-0,1-1,1-1),4.1,1).
 person_geno_pheno_gen(bob,geno(0-0,1-0,1-1,0-0),2.0,1).
 person_geno_pheno_gen(bob,geno(0-0,0-1,0-0,0-1),1.5,1).
-
-
-
 </div>
 
 <div class="nb-cell query" name="q15">

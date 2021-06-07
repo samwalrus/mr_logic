@@ -452,7 +452,7 @@ h3 {text-align: center;}
 </div>
 
 <div class="nb-cell html" name="htm41">
-CT 1 b
+<h5> Causal Theory 1 B </h5>
 </div>
 
 <div class="nb-cell program" name="p9">
@@ -468,33 +468,45 @@ person_bmi_ct1_b(X,1):0.3 ; person_bmi_ct1_b(X,0):0.7 :- metabolite_ct1_b(X,0).
 
 </div>
 
+<div class="nb-cell html" name="htm11">
+<h5> Query 16 (On CT1 B) </h5>
+</div>
+
 <div class="nb-cell query" name="q18">
 mc_rejection_expectation(person_bmi_ct1_b(X,BMI),metabolite_ct1_b(X,1),10000,BMI,Ex_bmi_met1), mc_rejection_expectation(person_bmi_ct1_b(X,BMI),metabolite_ct1_b(X,0),10000,BMI,Ex_bmi_met0),Effect is Ex_bmi_met1 - Ex_bmi_met0.
 
 </div>
 
 <div class="nb-cell html" name="htm42">
-CT 2 b
+<h5> Causal Theory 2 b </h5>
 </div>
 
 <div class="nb-cell program" name="p8">
 /*
+ * The following two laws are commented out from the original ct1.
 metabolite_v2_b(X,1):0.2 ; metabolite_v2_b(X,0):0.8 :- aa(X).
 metabolite_v2_b(X,1):0.4 ; metabolite_v2_b(X,0):0.6 :- ab(X).
+*/
+
+metabolite_v2_b(X,1):0.5 ; metabolite_v2_b(X,0):0.5. % added
 
 person_bmi_v2_b(X,1):0.3 ; person_bmi_v2_b(X,0):0.7 :-metabolite_v2_b(X,1),ab(X).
 person_bmi_v2_b(X,1):0.6 ; person_bmi_v2_b(X,0):0.4 :-metabolite_v2_b(X,1),aa(X).
 person_bmi_v2_b(X,1):0.4 ; person_bmi_v2_b(X,0):0.6 :-metabolite_v2_b(X,0),ab(X).
 person_bmi_v2_b(X,1):0.5 ; person_bmi_v2_b(X,0):0.5 :-metabolite_v2_b(X,0),aa(X).
-*/
+
+</div>
+
+<div class="nb-cell html" name="htm53">
+<h5> Query 17 (On CT2 B) </h5>
 </div>
 
 <div class="nb-cell query" name="q19">
-
+mc_rejection_expectation(person_bmi_v2_b(X,BMI),metabolite_v2_b(X,1),10000,BMI,Ex_bmi_met1), mc_rejection_expectation(person_bmi_v2_b(X,BMI),metabolite_v2_b(X,0),10000,BMI,Ex_bmi_met0),Effect is Ex_bmi_met1 - Ex_bmi_met0.
 </div>
 
 <div class="nb-cell html" name="htm43">
-CT 3 b
+<h5> Causal Theory 3 b </h5>
 </div>
 
 <div class="nb-cell query" name="q14">
@@ -545,6 +557,11 @@ h3 {text-align: center;}
 </div>
 
 <div class="nb-cell html" name="htm6">
+<script type="text/javascript">
+$.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
+             "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
+</script>
+
 <p> So far in this notebook we have tried to be example driven but we have yet to really explain what CP-Logic [Vennekens 2009] is and how it differs from other formalisms.
 </p><p>CP-Logic is a different formalism to Causal Bayesian Networks and Probabilistic Causal Models which are often used in MR research. The full details of this formalism, its capabilities and limitations are too detailed to fit in this poster and we refer the reader to the literature for the complete picture, but we will now try to give an overview of some of the properties and how they might be useful for MR research. (We also adapt some of the examples/ descriptions from Vennekens 2009).
 </p>
@@ -570,13 +587,13 @@ Example, consider the results of a GWAS where two independent snps have been fou
 </p><p>
   In cp logic:
 
-High_bmi :1/6&lt;- SNP1
-High_bmi :1/6  &lt;- SNP2
+\[High\_bmi :1/6:- SNP1\]
+\[High\_bmi :1/6:- SNP2\]
 
 </p>
 <p>
   There are two “causal mechanisms” that might lead to high BMI:
- They are independent in the following sense: once we know how many and which of these mechanisms are actually activated (i.e., which versions of the two snp are inherited), then observing whether one of these possible causes actually results in the effect provides no information about whether one of the other causes will cause the effect. i.e., if both causal variants are inherited, then the probability of High BMI should be 1 − (1 − 1/6)^2. 
+ They are independent in the following sense: once we know how many and which of these mechanisms are actually activated (i.e., which versions of the two snp are inherited), then observing whether one of these possible causes actually results in the effect provides no information about whether one of the other causes will cause the effect. i.e., if both causal variants are inherited, then the probability of High BMI should be \[1 − (1 − 1/6)^2. \]
 </p>
 <p>
 In the CP-theory, this independence is expressed by the structure of the theory, whereas in the Bayesian network, it is a numerical property of the probabilities in the conditional probability table for high BMI.
@@ -593,7 +610,7 @@ are needed in a Bayesian network table.
 Another feature is that in CP-logic, the cause of an event can be represented in a qualitative way, by means of a first-order formula. Bayesian networks, on the other hand, encode such
 information in the probability tables. This means that it is possible to express very succinctly statements such as: <i> For all SNPS X, any SNP within LD that has genomic_feature, will cause Event with probability alpha. </i>, 
 
-Event(X):Alpha &lt;- within_ld(x,y),genomic_feature(y).
+\[Event(X):Alpha :- within\_ld(x,y),genomic\_feature(y).\]
 
 For example lets say there were 4 SNPs that were in linkage disequilibrium with genomic features in a standard BN you would need 2^4 many rows to represent this as opposed to this single CP-Law.
 </p>
@@ -602,8 +619,8 @@ A further feature of CP-Logic is the ability to handle cyclic causal relations.
 
 Consider:
 
-High_bmi:0.8 &lt;- lack of exercise.
-Lack_of_exercise:0.7 &lt;- high_bmi.
+\[High\_bmi:0.8 :- lack of exercise.\]
+\[Lack\_of_exercise:0.7 :- high\_bmi.\]
 
 This correctly behaves as follows if someone has neither a lack of exercise nor high bmi by an external cause then they will have neither. If they have a lack_of_exercise by an external cause, then with probability 0.8 he will also have high BMI.  If the person has high bmi by an external cause, then with probability 0.7 they will also have a lack of exercise.  If the person has both lack of exercise  and high bmi by an external cause, then they will obviously have both.
 </p>

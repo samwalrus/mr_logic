@@ -460,8 +460,8 @@ CT 1 b
 metabolite(X,1):0.7 ; metabolite(X,0):0.3 :- aa(X).
 metabolite(X,1):0.2 ; metabolite(X,0):0.8 :- ab(X).
 
-person_bmi(X,1):0.6 ; person_bmi(X,0):0.4 :- metabolite(X,1).
-person_bmi(X,1):0.3 ; person_bmi(X,0):0.7 :- metabolite(X,0).
+person_bmi_ct1_b(X,1):0.6 ; person_bmi_ct1_b(X,0):0.4 :- metabolite_ct1_b(X,1).
+person_bmi_ct1_b(X,1):0.3 ; person_bmi_ct1_b(X,0):0.7 :- metabolite_ct1_b(X,0).
 */
 </div>
 
@@ -475,11 +475,13 @@ CT 2 b
 
 <div class="nb-cell program" name="p8">
 /*
-metabolite(X,1):0.7 ; metabolite(X,0):0.3 :- aa(X).
-metabolite(X,1):0.2 ; metabolite(X,0):0.8 :- ab(X).
+metabolite_v2_b(X,1):0.2 ; metabolite_v2_b(X,0):0.8 :- aa(X).
+metabolite_v2_b(X,1):0.4 ; metabolite_v2_b(X,0):0.6 :- ab(X).
 
-person_bmi(X,1):0.6 ; person_bmi(X,0):0.4 :- metabolite(X,1).
-person_bmi(X,1):0.3 ; person_bmi(X,0):0.7 :- metabolite(X,0).
+person_bmi_v2_b(X,1):0.3 ; person_bmi_v2_b(X,0):0.7 :-metabolite_v2_b(X,1),ab(X).
+person_bmi_v2_b(X,1):0.6 ; person_bmi_v2_b(X,0):0.4 :-metabolite_v2_b(X,1),aa(X).
+person_bmi_v2_b(X,1):0.4 ; person_bmi_v2_b(X,0):0.6 :-metabolite_v2_b(X,0),ab(X).
+person_bmi_v2_b(X,1):0.5 ; person_bmi_v2_b(X,0):0.5 :-metabolite_v2_b(X,0),aa(X).
 */
 </div>
 
@@ -492,11 +494,19 @@ CT 3 b
 </div>
 
 <div class="nb-cell query" name="q14">
-/*metabolite(X,1):0.7 ; metabolite(X,0):0.3 :- aa(X).
-metabolite(X,1):0.2 ; metabolite(X,0):0.8 :- ab(X).
+/*
+person_cheese_b(X,1):0.5 ; person_cheese_b(X,0):0.5.
 
-person_bmi(X,1):0.6 ; person_bmi(X,0):0.4 :- metabolite(X,1).
-person_bmi(X,1):0.3 ; person_bmi(X,0):0.7 :- metabolite(X,0).*/
+metabolite_initial_b(X,1):0.6 ; metabolite_initial_b(X,0):0.4 :- aa(X).
+metabolite_initial_b(X,1):0.4 ; metabolite_initial_b(X,0):0.6 :- ab(X).
+
+metabolite_v3_b(X,Y) :- person_cheese_b(X,0), metabolite_initial_b(X,Y).
+metabolite_v3_b(X,1):0.8 ; metabolite_v3_b(X,0):0.2  :- person_cheese_b(X,1), metabolite_initial_b(X,0).
+metabolite_v3_b(X,1) :- person_cheese_b(X,1), metabolite_initial_b(X,1).
+
+person_bmi_v3_b(X,1):0.7 ; person_bmi_v3_b(X,0):0.3 :- person_cheese_b(X,1).
+person_bmi_v3_b(X,1):0.1 ; person_bmi_v3_b(X,0):0.9 :- person_cheese_b(X,0).
+*/
 </div>
 
 <div class="nb-cell query" name="q20">

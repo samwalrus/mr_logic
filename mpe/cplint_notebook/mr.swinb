@@ -620,7 +620,7 @@ A further feature of CP-Logic is the ability to handle cyclic causal relations.
 Consider:
 
 \[High\_bmi:0.8 :- lack of exercise.\]
-\[Lack\_of_exercise:0.7 :- high\_bmi.\]
+\[Lack\_of\_exercise:0.7 :- high\_bmi.\]
 
 This correctly behaves as follows if someone has neither a lack of exercise nor high bmi by an external cause then they will have neither. If they have a lack_of_exercise by an external cause, then with probability 0.8 he will also have high BMI.  If the person has high bmi by an external cause, then with probability 0.7 they will also have a lack of exercise.  If the person has both lack of exercise  and high bmi by an external cause, then they will obviously have both.
 </p>
@@ -765,6 +765,8 @@ highbmi:0.9 :- cheese(1).
   <li> Cropper, Andrew, and Rolf Morel. "Learning programs by learning from failures." Machine Learning 110.4 (2021): 801-856. </li>
   <li> Cropper, Andrew, and Stephen H. Muggleton. "Learning higher-order logic programs through abstraction and invention." (2016). </li>
   <li> Flach, Peter. Simply logical: intelligent reasoning by example. John Wiley &amp; Sons, Inc., 1994. </li>
+  
+  A Causal Logic of Logic Programming 2003
 </ol>
 </div>
 

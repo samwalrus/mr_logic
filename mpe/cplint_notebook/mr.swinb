@@ -699,14 +699,18 @@ h3 {text-align: center;}
 <h3> Part 10 : Further resoning techniques</h3>
 
 A majour advantage to modeling MR approaches in a Probablistic Logic Program in that the representation enables us pose problems in which large number of reasoning techniques have been implemented.
-The number of languages, system algorithms etc can be a little overwhelming and it has been efered to as alpherbet soup.
+The number of languages, system algorithms etc can be a little overwhelming and it has been efered to as alpherbet soup [De Raedt 2008].
 
 Cplint on Swish is a good place to start.
 Implementations of 
 State of the art ILP can learn family relations.
 Predicate invention and object invention.
-Abduction and MPe
-Non monotonic reasoing.
+[Patsantzis 2021, Cropper 2021, Cropper 2016]
+
+Basic introduction to prolog and reasoning [Flach 1994]
+
+Abduction and MPE
+[Ray 2009] Non monotonic reasoing.
 Algebraic problog
 </div>
 
@@ -734,6 +738,12 @@ highbmi:0.9 :- cheese(1).
   <li> Davey Smith, George, and Shah Ebrahim. "‘Mendelian randomization’: can genetic epidemiology contribute to understanding environmental determinants of disease?." International journal of epidemiology 32.1 (2003): 1-22.</li>
   <li> Hernán, Miguel A., and James M. Robins. "Causal inference: what if." (2020): 69-80. </li>
   <li> Vennekens, Joost. "Actual causation in cp-logic." arXiv preprint arXiv:1107.4865 (2011). </li>
+  <li> De Raedt, Luc, et al. "Towards digesting the alphabet-soup of statistical relational learning." NIPS* 2008 Workshop Probabilistic Programming, Date: 2008/12/13-2008/12/13, Location: Whistler, Canada. 2008.</li>
+  <li> Patsantzis, Stassa, and Stephen H. Muggleton. "Top Program Construction and Reduction for polynomial time Meta-Interpretive Learning." arXiv preprint arXiv:2101.05050 (2021).</li>
+  <li> Ray, Oliver. "Nonmonotonic abductive inductive learning." Journal of Applied Logic 7.3 (2009): 329-340. </li>
+  <li> Cropper, Andrew, and Rolf Morel. "Learning programs by learning from failures." Machine Learning 110.4 (2021): 801-856. </li>
+  <li> Cropper, Andrew, and Stephen H. Muggleton. "Learning higher-order logic programs through abstraction and invention." (2016). </li>
+  <li> Flach, Peter. Simply logical: intelligent reasoning by example. John Wiley &amp; Sons, Inc., 1994. </li>
 </ol>
 </div>
 

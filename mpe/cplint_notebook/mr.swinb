@@ -253,7 +253,7 @@ As epidemiolgists we are of course intrested in identifying causal modifialble r
 
 Perl [2009] has established that when calculating proabilties taking into account causality we must distguish 'seeing' from 'doing'.
 
-We have shown three causal theories in which some assoications are the same but underlying process for creating the data are differnt.
+We have shown three causal theories in which some assoications are similar but the underlying process for creating the data are differnt.
 <p>
 
 
@@ -398,7 +398,7 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
 As in actual fact we are using artficial theroies we do have access to our causal theroies. 
 We can therefore reason about our causal theories to calculate probabilities of interventions. 
 Formal defintions of interventions allow us to remove human judgement on effects.
-Instead we need to 1) Describe a causal model of our domain and 2)
+Instead we need to 1) Describe a causal theory of our domain and 2) follow a fixed set of rules to reason about the theory.
 
 <p>This is analogous to pearls do operator. </p>
 
@@ -651,6 +651,22 @@ child_uncle(X,Y):-parent_child(P,X),sibling(P,Y), male(Y).
 
 %Generation 1 fixed
 %Generation 2 probablistic
+</div>
+
+<div class="nb-cell program" name="p10">
+person_geno_pheno_gen(bob,geno(0-0,1-1,0-1,1-1),1.8,1).
+person_geno_pheno_gen(bob,geno(0-1,0-1,0-1,1-1),3.5,1).
+person_geno_pheno_gen(bob,geno(0-0,1-1,1-1,0-0),2.3,1).
+person_geno_pheno_gen(bob,geno(1-0,1-0,1-0,0-0),1.5,1).
+person_geno_pheno_gen(bob,geno(0-0,0-1,1-0,0-1),5.7,1).
+person_geno_pheno_gen(bob,geno(0-0,0-1,1-1,1-0),2.8,1).
+person_geno_pheno_gen(bob,geno(0-1,0-0,0-0,1-0),1.9,1).
+person_geno_pheno_gen(bob,geno(1-1,0-0,1-1,1-1),4.1,1).
+person_geno_pheno_gen(bob,geno(0-0,1-0,1-1,0-0),2.0,1).
+person_geno_pheno_gen(bob,geno(0-0,0-1,0-0,0-1),1.5,1).
+
+
+
 </div>
 
 <div class="nb-cell query" name="q15">

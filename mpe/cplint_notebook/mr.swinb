@@ -457,15 +457,19 @@ CT 1 b
 
 <div class="nb-cell program" name="p9">
 /*
-metabolite(X,1):0.7 ; metabolite(X,0):0.3 :- aa(X).
-metabolite(X,1):0.2 ; metabolite(X,0):0.8 :- ab(X).
+ * The following two laws are commented out from the original ct1.
+metabolite_ct1_b(X,1):0.7 ; metabolite_ct1_b(X,0):0.3 :- aa(X).
+metabolite_ct1_b(X,1):0.2 ; metabolite_ct1_b(X,0):0.8 :- ab(X).
+*/
+metabolite_ct1_b(X,1):0.5 ; metabolite_ct1_b(X,0):0.5. %This is added.
 
 person_bmi_ct1_b(X,1):0.6 ; person_bmi_ct1_b(X,0):0.4 :- metabolite_ct1_b(X,1).
 person_bmi_ct1_b(X,1):0.3 ; person_bmi_ct1_b(X,0):0.7 :- metabolite_ct1_b(X,0).
-*/
+
 </div>
 
 <div class="nb-cell query" name="q18">
+mc_rejection_expectation(person_bmi_ct1_b(X,BMI),metabolite_ct1_b(X,1),10000,BMI,Ex_bmi_met1), mc_rejection_expectation(person_bmi_ct1_b(X,BMI),metabolite_ct1_b(X,0),10000,BMI,Ex_bmi_met0),Effect is Ex_bmi_met1 - Ex_bmi_met0.
 
 </div>
 

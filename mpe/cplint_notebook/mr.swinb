@@ -602,16 +602,16 @@ as a natural representation for probabilistic causal relations, while also,  arg
   One of the aim of this poster/notebook is bring this formalism to greater attention of MR researchers and to show that this alternative formalism brings different capabilities and expressiveness to knowledge representation required of MR. 
 </p>
 
-<h5>Summary</h5> TODO relate to MR
+<h5>Summary</h5>
 <ol>
-<li> CP Logic explicitly represents time and events: An important part of reasoning about causality is time, redundant causes etc. The mendelian meiosis being necessarily before the other events can be better modeled in CP-Logic.  </li>
-<li> CP Logic is equivalent to practical probabilistic programming languages </li>
-<li> CP Logic is modular and a greater set of interventions can be considered compared to CBN and PCMs </li>
-<li> CP Logic can explicitly model multiple causes for one event </li>
-<li> CP Logic is succinct, which can aid understanding and make machine learning of therioes potentially simpler  </li>
-<li>Can make differnt kinds of interventions with out tinkering with the model </li>
-  <li> CP Logic is just differnt</li>
-  </ol>
+<li> CP-Logic explicitly represents time and events: An important part of reasoning about causality is time. 
+ The fact that meiosis occurs necessarily before the other events can be modeled well in CP-Logic.  </li>
+<li> CP-Logic is equivalent to practical probabilistic programming languages </li>
+<li> CP-Logic is modular and a greater set of interventions can be considered compared to CBN and PCMs </li>
+<li> CP-Logic can explicitly model multiple causes for one event, it can handle redundant causes i.e when something would cause an event but the event has already happened so it can not cause it. </li>
+<li> CP-Logic is succinct, which can aid understanding and make machine learning of therioes potentially simpler  </li>
+<li> CP-Logic is just differnt a method which gives a differnt view on causality</li>
+</ol>
 </div>
 
 <div class="nb-cell html" name="htm39">

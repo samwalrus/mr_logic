@@ -534,6 +534,9 @@ This is in contrast to Perl’s probabilistic causal models which represent the 
 
 <p>
   CP Logic therefore offers a succinct syntax for describing classes of Shaferian probability trees, CP-logic has also been proven to be equivalent to the language  of Logic Programs with Annotated Disjunctions (LPADS)  which has the formal distribution semantics of Sato in which a logic programming rule has its head annotated with a probability and this  specifies a probability distribution over a set of possible world in terms of these individual probabilities on a rule head. This means it is also a <i>practical probabilistic programming language</i> as we have seen in this notebook. 
+  CP-Logic defines theories as sets of causal laws in the form 'Head ← Body'.  
+  The body can be any first order logic formula.
+  The head contains a disjunction of atoms annotated with a probabilty, which are the possible effects of the law.
 </p>
 
 <p>

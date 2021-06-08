@@ -544,7 +544,14 @@ In the third theory, there is no causal effect.
 
 With a given causal theory the second and third rules of MR (). Are releated to the idea of Proof in logic programming. i.e. is there a proof of an event that uses events that would break the MR rules.
 This can be encoded as :
-
+<h6> MR as a PLP </h6>
+<p>
+  The second and third rules of MR are normally given in the contexts of DAGS. 
+  The corresponding ideas in a probablistic logic program relate to proofs.
+  Can you prove a path in a hypergraph from one event to another?
+  A hyper graph is a generalisation of a graph where edges are sets of nodes rather than pairs.
+  The corrsponding graph ideas such as a path remain the same but using the generalised version of an edge.
+</p>
 Satisfiabilbty.
 Learning from proofs.
 </div>

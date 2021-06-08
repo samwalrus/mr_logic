@@ -725,8 +725,10 @@ person_geno_pheno_gen(bob,geno(0-0,0-1,0-0,0-1),1.5,1).
 h3 {text-align: center;}
 </style>
 <h3> Part 10 : Further resoning techniques</h3>
-
+As we see it the tool or logic programming especially in its probablistic versions is a useful and underused tool in Epidmeiolgocial research.
 A majour advantage to modeling MR approaches in a Probablistic Logic Program in that the representation enables us pose problems in which large number of reasoning techniques have been implemented.
+Of course epis have been using human logical reasoning for ever to try and understand, augmenting this reasoning with formal automatic reasoning is powerful.
+Number of efforts, for robot scientist, robot computer scientisit, robot epidemiolgist?
 
 As we have said [Kowalski 2011] advocates ..
 The number of languages, system algorithms etc can be a little overwhelming and it has been efered to as alpherbet soup [De Raedt 2008].
@@ -769,6 +771,10 @@ Predicate invention and object invention.
 [Patsantzis 2021, Cropper 2021, Cropper 2016]
 
 Basic introduction to prolog and reasoning [Flach 1994]
+
+Two promising avenues for thinking about MR in this context.
+1. Using the known rules of MR to inform the background knowledge of an ILP system.
+2. Using MR to justify abudctions, (maybe informing priors).
 
 Abduction and MPE
 [Ray 2009] Non monotonic reasoing.

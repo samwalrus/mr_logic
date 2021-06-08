@@ -727,9 +727,42 @@ h3 {text-align: center;}
 <h3> Part 10 : Further resoning techniques</h3>
 
 A majour advantage to modeling MR approaches in a Probablistic Logic Program in that the representation enables us pose problems in which large number of reasoning techniques have been implemented.
+
+As we have said [Kowalski 2011] advocates ..
 The number of languages, system algorithms etc can be a little overwhelming and it has been efered to as alpherbet soup [De Raedt 2008].
 
-Cplint on Swish is a good place to start.
+We hope to have shown in this poster/note book that Cplint on Swish is a good place to start.
+It is a mature system, with many built in reasoning tools. 
+There are a large number of examples that people wanting to learn more can explore.
+
+Piecre sylogisms.
+Deduction
+
+Abduction
+Induction
+
+
+Both abductiona and induction are so called amplicative reasoning.
+
+Non-monotonic reasoning, defaults and negation. 
+
+Reasons for abduction.
+
+<h6>Deduction.</h6>
+Rule: All the beans from this bag are white.<br>
+Case: These beans are from this bag.<br>
+{\displaystyle \therefore }\therefore  Result: These beans are white.<br>
+
+<h6>Induction.</h6>
+Case: These beans are [randomly selected] from this bag.<br>
+Result: These beans are white.<br>
+{\displaystyle \therefore }\therefore  Rule: All the beans from this bag are white.<br>
+
+<h6>Abduction.</h6>
+Rule: All the beans from this bag are white.<br>
+Result: These beans are white.<br>
+{\displaystyle \therefore }\therefore  Case: These beans are from this bag. <br>
+
 Implementations of 
 State of the art ILP can learn family relations.
 Predicate invention and object invention.

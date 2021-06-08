@@ -725,7 +725,10 @@ person_geno_pheno_gen(bob,geno(0-0,0-1,0-0,0-1),1.5,1).
 h3 {text-align: center;}
 </style>
 <h3> Part 10 : Further resoning techniques</h3>
+In this notebook we have shown a number of PLPs that peform some epideimoligcal reasoning around mr in artifical examples.
+We will now briefly discuss the wider field of ai, automatic reasoning and how differnt technniques might be useful for MR methods researchers.
 As we see it the tool or logic programming especially in its probablistic versions is a useful and underused tool in Epidmeiolgocial research.
+
 A majour advantage to modeling MR approaches in a Probablistic Logic Program in that the representation enables us pose problems in which large number of reasoning techniques have been implemented.
 Of course epis have been using human logical reasoning for ever to try and understand, augmenting this reasoning with formal automatic reasoning is powerful.
 Number of efforts, for robot scientist, robot computer scientisit, robot epidemiolgist?

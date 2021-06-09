@@ -751,11 +751,23 @@ These beans are white.<br>
 Therefore: These beans are from this bag. <br>
 <br>
 <p>
-Both abduction and induction are so-called ampliative reasoning. This means that they <i>add </i>to existing knowledge as opposed to bringing out what is already there, however what it takes to justify a piece of inductive or abductive reasoning is not something that has been philosophically worked out [Flach 2013].
+Both abduction and induction are so-called ampliative reasoning. 
+This means that they <i>add </i>to existing knowledge as opposed to bringing out what is already there, however what it takes to justify a piece of inductive or abductive reasoning is not something that has been philosophically worked out [Flach 2013].
 The corresponding research areas are inductive logic programming, and abductive logic programming. 
 </p>
 <p>
-Of course one of the most obvious tasks is try and automatically learning are programs and causal theories from real data. This can be divided into two setting, 1) Learning the structure of a program or 2) given a structure learning the probabilistic parameters. Cplint provides a number of algorithms for these tasks.  Lemur for learning parameters and Slipcover and PHILl for learning the structure of programs. Outside of Cplint,  state of the art non probabilistic ILP implementations have a number of useful features including predicate and object invention. In predicate invention new predicates are introduced to programs that do not have examples of these predicates. For example inventing the concept of mother or father as a female or male parent, when learning family relations. This can reduce the size of the program learnt [Patsantzis 2021, Cropper 2021, Cropper 2016]. Object invention refers to adding objects to a theory, for example, saying that two nodes are connected in a graph, to explain why a route query is successful.  In an MR context this could be introducing a postulated confounder for example. Two avenues for thinking about MR in this context are:
+Of course one of the most obvious tasks is try and automatically learning are programs and causal theories from real data. 
+ This can be divided into two setting, 1) Learning the structure of a program or 2) given a structure learning the probabilistic parameters. 
+  We could potentially learn paramters for a fixed set of causal theories such as with or with confounding elements and compare the results of the learning.
+ Cplint provides a number of algorithms for these tasks.  
+ Lemur [CITE] for learning parameters and Slipcover [CITE] and PHILl[CITE] for learning the structure of programs. 
+  Outside of Cplint,  state of the art non probabilistic ILP implementations have a number of useful features including predicate and object invention. 
+  In predicate invention new predicates are introduced to programs that do not have examples of these predicates. 
+  For example inventing the concept of mother or father as a female or male parent, when learning family relations. 
+  This can reduce the size of the program learnt [Patsantzis 2021, Cropper 2021, Cropper 2016]. 
+  Object invention refers to adding objects to a theory, for example, saying that two nodes are connected in a graph, to explain why a route query is successful.  
+  In an MR context this could be introducing a postulated confounder for example. 
+  Two avenues for thinking about MR in this context are:
 </p><ol>
   <li>Using the known rules of MR to inform the background knowledge of an ILP system.</li>
   <li>Using MR to justify abductions, (maybe informing priors). </li>

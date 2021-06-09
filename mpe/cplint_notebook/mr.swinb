@@ -465,7 +465,6 @@ metabolite_ct1_b(X,1):0.5 ; metabolite_ct1_b(X,0):0.5. %This is added.
 
 person_bmi_ct1_b(X,1):0.6 ; person_bmi_ct1_b(X,0):0.4 :- metabolite_ct1_b(X,1).
 person_bmi_ct1_b(X,1):0.3 ; person_bmi_ct1_b(X,0):0.7 :- metabolite_ct1_b(X,0).
-
 </div>
 
 <div class="nb-cell html" name="htm11">
@@ -474,7 +473,6 @@ person_bmi_ct1_b(X,1):0.3 ; person_bmi_ct1_b(X,0):0.7 :- metabolite_ct1_b(X,0).
 
 <div class="nb-cell query" name="q18">
 mc_rejection_expectation(person_bmi_ct1_b(X,BMI),metabolite_ct1_b(X,1),10000,BMI,Ex_bmi_met1), mc_rejection_expectation(person_bmi_ct1_b(X,BMI),metabolite_ct1_b(X,0),10000,BMI,Ex_bmi_met0),Effect is Ex_bmi_met1 - Ex_bmi_met0.
-
 </div>
 
 <div class="nb-cell html" name="htm42">
@@ -494,7 +492,6 @@ person_bmi_v2_b(X,1):0.3 ; person_bmi_v2_b(X,0):0.7 :-metabolite_v2_b(X,1),ab(X)
 person_bmi_v2_b(X,1):0.6 ; person_bmi_v2_b(X,0):0.4 :-metabolite_v2_b(X,1),aa(X).
 person_bmi_v2_b(X,1):0.4 ; person_bmi_v2_b(X,0):0.6 :-metabolite_v2_b(X,0),ab(X).
 person_bmi_v2_b(X,1):0.5 ; person_bmi_v2_b(X,0):0.5 :-metabolite_v2_b(X,0),aa(X).
-
 </div>
 
 <div class="nb-cell html" name="htm53">
@@ -724,64 +721,52 @@ person_geno_pheno_gen(bob,geno(0-0,0-1,0-0,0-1),1.5,1).
 <style>
 h3 {text-align: center;}
 </style>
-<h3> Part 10 : Further resoning techniques</h3>
-In this notebook we have shown a number of PLPs that peform some epideimoligcal reasoning around mr in artifical examples.
-We will now briefly discuss the wider field of ai, automatic reasoning and how differnt technniques might be useful for MR methods researchers.
-As we see it the tool or logic programming especially in its probablistic versions is a useful and underused tool in Epidmeiolgocial research.
-
-A majour advantage to modeling MR approaches in a Probablistic Logic Program in that the representation enables us pose problems in which large number of reasoning techniques have been implemented.
-Of course epis have been using human logical reasoning for ever to try and understand, augmenting this reasoning with formal automatic reasoning is powerful.
-Number of efforts, for robot scientist, robot computer scientisit, robot epidemiolgist?
-
-As we have said [Kowalski 2011] advocates ..
-The number of languages, system algorithms etc can be a little overwhelming and it has been efered to as alpherbet soup [De Raedt 2008].
-
-We hope to have shown in this poster/note book that Cplint on Swish is a good place to start.
-It is a mature system, with many built in reasoning tools. 
-There are a large number of examples that people wanting to learn more can explore.
-
-Piecre sylogisms.
-Deduction
-
-Abduction
-Induction
-
-
-Both abductiona and induction are so called amplicative reasoning.
-
-Non-monotonic reasoning, defaults and negation. 
-
-Reasons for abduction.
+<h3> Part 10 : Further reasoning techniques</h3>
+<p>
+In this notebook we have shown a number of PLPs that perform some epidemiological reasoning around MR in artificial examples.
+We will now briefly discuss the wider field of artificial intelligence, automatic reasoning and how different techniques might be useful for MR methods researchers.
+As we have seen, the tool of logic programming, especially in its probabilistic versions, is a useful and underused tool in epidemiological research.
+A major advantage to modeling MR approaches in a Probabilistic Logic Program is that the representation enables us to pose problems in which a large number of reasoning techniques have been implemented.
+Of course epidemiologists have been using human logical reasoning in their research to try and understand the phenomena of interest, however augmenting this reasoning with automatic reasoning is potentially powerful and fruitful area of research, indeed
+Recently there has been a number of efforts, in this vein in other fields for example the  robot scientist [Sparkes 2010], with which is able to form hypothesis and physically test them,  and the new research starting on the robot computer scientist (http://autocs.co.uk/index.html) . We could ask what is the scope for a robot epidemiologist?
+</p>
+<p>
+When considering what is practical to do now using existing implementations and ideas applied from this area of AI in epidemiology, the number of languages, system algorithms etc can be a little overwhelming and it has been referred to as alphabet soup of methods for some time [De Raedt 2008]. We hope to have shown in this poster/notebook that Cplint on Swish is a good place to start. It is a mature system, with many built in reasoning tools and there are a large number of examples and existing documentation and publications that people wanting to learn more can explore. We would also point out to the interested reader that basic introduction to programing in logic and ai reasoning techniques can be found in [Flach 1994].  One of the core ideas in this area is the automation of three reasoning techniques to make different types of inferences. These were laid out by the philosopher Charles Pierce.
+</p>
+<h7>Pierce’s syllogisms.</h7>
 
 <h6>Deduction.</h6>
-Rule: All the beans from this bag are white.<br>
-Case: These beans are from this bag.<br>
-{\displaystyle \therefore }\therefore  Result: These beans are white.<br>
+All the beans from this bag are white.<br>
+These beans are from this bag.<br>
+Therefore: These beans are white.<br>
 
 <h6>Induction.</h6>
-Case: These beans are [randomly selected] from this bag.<br>
-Result: These beans are white.<br>
-{\displaystyle \therefore }\therefore  Rule: All the beans from this bag are white.<br>
+These beans are [randomly selected] from this bag.<br>
+These beans are white.<br>
+Therefore: All the beans from this bag are white.<br>
 
 <h6>Abduction.</h6>
-Rule: All the beans from this bag are white.<br>
-Result: These beans are white.<br>
-{\displaystyle \therefore }\therefore  Case: These beans are from this bag. <br>
-
-Implementations of 
-State of the art ILP can learn family relations.
-Predicate invention and object invention.
-[Patsantzis 2021, Cropper 2021, Cropper 2016]
-
-Basic introduction to prolog and reasoning [Flach 1994]
-
-Two promising avenues for thinking about MR in this context.
-1. Using the known rules of MR to inform the background knowledge of an ILP system.
-2. Using MR to justify abudctions, (maybe informing priors).
-
-Abduction and MPE
-[Ray 2009] Non monotonic reasoing.
-Algebraic problog
+All the beans from this bag are white.<br>
+These beans are white.<br>
+Therefore: These beans are from this bag. <br>
+<br>
+<p>
+Both abduction and induction are so-called ampliative reasoning. This means that they <i>add </i>to existing knowledge as opposed to bringing out what is already there, however what it takes to justify a piece of inductive or abductive reasoning is not something that has been philosophically worked out [Flach 2013].
+The corresponding research areas are inductive logic programming, and abductive logic programming. 
+</p>
+<p>
+Of course one of the most obvious tasks is try and automatically learning are programs and causal theories from real data. This can be divided into two setting, 1) Learning the structure of a program or 2) given a structure learning the probabilistic parameters. Cplint provides a number of algorithms for these tasks.  Lemur for learning parameters and Slipcover and PHILl for learning the structure of programs. Outside of Cplint,  state of the art non probabilistic ILP implementations have a number of useful features including predicate and object invention. In predicate invention new predicates are introduced to programs that do not have examples of these predicates. For example inventing the concept of mother or father as a female or male parent, when learning family relations. This can reduce the size of the program learnt [Patsantzis 2021, Cropper 2021, Cropper 2016]. Object invention refers to adding objects to a theory, for example, saying that two nodes are connected in a graph, to explain why a route query is successful.  In an MR context this could be introducing a postulated confounder for example. Two avenues for thinking about MR in this context are:
+</p><ol>
+  <li>Using the known rules of MR to inform the background knowledge of an ILP system.</li>
+  <li>Using MR to justify abductions, (maybe informing priors). </li>
+</ol>
+<p>
+Another aspect of automatic reasoning that has received attention is non-monotonic reasoning (when adding to a program can make previous conclusions invalid), including defaults reasoning and negation, an example of a system that has been applied to revise metabolic networks is the XHAIL system [Ray 2009] . Incorporating genetic associations and MR concepts as background knowledge in a similar system might help inform the search for good solutions to pathway construction and revision tasks. 
+</p>
+<p>
+As we have said justifying one abduction over an another is a unsolved problem, sometimes many potential abductions could be made. One method to justify an abduction is the most probable explanation. This is implemented in cplint and we can see how ideas from MR could work with this example.
+This is also related to the ideas of actual causation mentioned in part z of this notebook.
+</p>
 </div>
 
 <div class="nb-cell program" name="p7">
@@ -790,6 +775,19 @@ Algebraic problog
 %highbmi:0.9 :- met(1).
 
 highbmi:0.9 :- cheese(1).
+</div>
+
+<div class="nb-cell html" name="htm54">
+<p>We have two causal laws that give alternative explanations. 
+Asking the MPE theory without including the evidence from a snp association gives this response.
+But with this evidence the abduction changes to z.
+</p>
+<p>
+Apart from Cplint we will also mention, another prominent PLP implementation: Problog. There is a variant of problog called algebraic problog which is able to implement MPE inference implemented and in particular methods for identifying constraints on confidence bounds which I think would be useful.
+</p>
+<p>
+In this poster we have demonstrated basic MR ideas implemented as a PLP, more advance MR methods ideas would be good to see. It is also noting that apart from the direct use of some of the algorithms [Kowalski 2011] advocates that some of the algorithms and ways of thinking that have come out of AI research are also useful tools for human thinking in and of themselves, and applying these ideas in the context of MR would likely be insightful. 
+</p>
 </div>
 
 <div class="nb-cell program" data-background="true" data-singleline="true" name="p3">

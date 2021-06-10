@@ -857,6 +857,7 @@ In this poster we have demonstrated basic MR ideas implemented as a PLP, more ad
   <li> Di Mauro, Nicola, Elena Bellodi, and Fabrizio Riguzzi. "Bandit-based Monte-Carlo structure learning of probabilistic logic programs." Machine Learning 100.1 (2015): 127-156. </li>
   <li> Fadja, Arnaud Nguembang, Evelina Lamma, and Fabrizio Riguzzi. "Deep Probabilistic Logic Programming." PLP@ ILP. 2017. </li>
   <li> De Raedt, Luc, Angelika Kimmig, and Hannu Toivonen. "ProbLog: A Probabilistic Prolog and Its Application in Link Discovery." IJCAI. Vol. 7. 2007. </li>
+  <li> Kimmig, Angelika, Guy Van den Broeck, and Luc De Raedt. "An algebraic Prolog for reasoning about possible worlds." Proceedings of the AAAI Conference on Artificial Intelligence. Vol. 25. No. 1. 2011. </li>
 </ol>
 </div>
 

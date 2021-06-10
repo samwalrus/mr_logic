@@ -702,6 +702,11 @@ child_uncle(X,Y):-parent_child(P,X),sibling(P,Y), male(Y).
 </div>
 
 <div class="nb-cell program" name="p10">
+%smoking
+%parents influence smoking
+%advertising influences smoking
+%gene influence smoking.
+
 person_geno_pheno_gen(bob,geno(0-0,1-1,0-1,1-1),1.8,1).
 person_geno_pheno_gen(bob,geno(0-1,0-1,0-1,1-1),3.5,1).
 person_geno_pheno_gen(bob,geno(0-0,1-1,1-1,0-0),2.3,1).

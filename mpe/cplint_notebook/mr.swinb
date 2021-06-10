@@ -807,13 +807,13 @@ The distngushment is between; a) what are the potential reasons for an event and
 :- pita.
 :- begin_lpad.
 
-high_bmi :- red, green.
-high_bmi :- blue, yellow.
+high_bmi :- likes_cheese, lives_near_cheese_shop.
+high_bmi :- sedetry_job, scared_of_gyms.
 
-map_query 0.4::red.
-map_query 0.9::green.
-map_query 0.5::blue.
-map_query 0.6::yellow.
+map_query 0.4::likes_cheese.
+map_query 0.9::lives_near_cheese_shop.
+map_query 0.5::sedetry_job.
+map_query 0.6::scared_of_gyms.
 </div>
 
 <div class="nb-cell query" name="q21">

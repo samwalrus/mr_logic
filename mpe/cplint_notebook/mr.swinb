@@ -822,10 +822,9 @@ map(high_bmi,P,Exp).
 
 <div class="nb-cell html" name="htm54">
 <p>We have two causal laws that give alternative explanations. 
-Asking the MPE theory without including the evidence from a snp association gives this response.
-But with this evidence the abduction changes to z.
-  <br>
-Mpe inference can help us have a single explanation for an event with independent causes in a single causal theory. At the object level. 
+Asking the MPE theory, given high_bmi what is the most probable explantion gives us an ansewer with a truth assignment to possible worlds.
+<br>
+Mpe inference can help us have a single explanation for an event with independent causes in a single causal theory at the object level. 
 <br>
 However we need to think about how we can reason to distguish explations at the theory rather than at the object level.
 We would also like to generate abductive causal theories at differnt levels of generality, for example with unbound variables to represent any potential confounder rather than a specific measure confounder, or where confounders are constrained.
@@ -833,7 +832,7 @@ This would require constriant logic programming [2006], Constraint handling rule
 </p>
 <p>
 Apart from Cplint we will also mention, another prominent PLP implementation: Problog [De Raedt 2007]. 
-  There is a variant of Problog called Algebraic Problog [Kimmig 2011] which is designed for reasoning across posible worlds including MPE inference and it is possible with its reasoning to identify constraints on confidence bounds which I think would be useful for many MR based tasks.
+There is a variant of Problog called Algebraic Problog [Kimmig 2011] which is designed for reasoning across posible worlds including MPE inference and it is possible with its reasoning to identify constraints on confidence bounds which I think would be useful for many MR based tasks.
 </p>
 <p>
 In this poster we have demonstrated basic MR ideas implemented as a PLP, the logic of more advance MR methods would be good to see. 

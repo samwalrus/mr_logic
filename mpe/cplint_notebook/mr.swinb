@@ -597,7 +597,8 @@ Example, consider the results of a GWAS where two independent snps have been fou
 </p>
 <p>
   There are two “causal mechanisms” that might lead to high BMI:
- They are independent in the following sense: once we know how many and which of these mechanisms are actually activated (i.e., which versions of the two snp are inherited), then observing whether one of these possible causes actually results in the effect provides no information about whether one of the other causes will cause the effect. i.e., if both causal variants are inherited, then the probability of High BMI should be \[1 − (1 − 1/6)^2. \]
+ They are independent in the following sense: once we know how many and which of these mechanisms are actually activated (i.e., which versions of the two snp are inherited), then observing whether one of these possible causes actually results in the effect provides no information about whether one of the other causes will cause the effect. 
+  i.e., if both causal variants are inherited, then the probability of High BMI should be \[1 − (1 − 1/6)^2. \] (noisy or).
 </p>
 <p>
 In the CP-theory, this independence is expressed by the structure of the theory, whereas in the Bayesian network, it is a numerical property of the probabilities in the conditional probability table for high BMI.

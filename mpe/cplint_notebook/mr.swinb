@@ -762,40 +762,47 @@ This means that they <i>add </i>to existing knowledge as opposed to bringing out
 The corresponding research areas are Inductive Logic Programming (ILP), and Abductive Logic Programming (ALP). 
 </p>
 <p>
-Of course one of the most obvious tasks is try and automatically learning are programs and causal theories from real data. 
- This can be divided into two setting, 1) Learning the structure of a program or 2) given a structure learning the probabilistic parameters. 
-  We could potentially learn paramters for a fixed set of causal theories such as with or with confounding elements and compare the results of the learning.
- Cplint provides a number of algorithms for these tasks.  
- Lemur [Di Mauro 2015] and Emblem [Bellodi 2013] for learning parameters and Slipcover [Bellodi 2015] and PHIL [Fadja 2017] for learning the structure of programs. 
-  Outside of Cplint,  state of the art non probabilistic ILP implementations have a number of useful features including predicate and object invention. 
-  In predicate invention new predicates are introduced to programs that do not have examples of these predicates. 
-  For example inventing the concept of mother or father as a female or male parent, when learning family relations. 
-  This can reduce the size of the program learnt [Patsantzis 2021, Cropper 2021, Cropper 2016]. 
-  Object invention refers to adding objects to a theory, for example, saying that two nodes are connected in a graph, to explain why a route query is successful.  
-  In an MR context this could be introducing a postulated confounder for example. 
-  Two avenues for thinking about MR in this context are:
-</p><ol>
-  <li>Using the known rules of MR to inform the background knowledge of an ILP system.</li>
-  <li>Using MR to justify abductions, (maybe informing priors). </li>
+Of course one of the most obvious tasks is to try and automatically learn our programs and causal theories from real observed data. 
+This can be divided into two tasks, 1) Learning the structure of a program or causal theory or 2) given a structure/program learning the probabilistic parameters. 
+We could potentially learn paramters for a fixed set of causal theories such as with or with confounding elements and compare the results of the learning.
+Cplint provides a number of algorithms for these tasks.  
+Lemur [Di Mauro 2015] and Emblem [Bellodi 2013] for learning parameters and Slipcover [Bellodi 2015] and PHIL [Fadja 2017] for learning the structure of programs. 
+Outside of Cplint,  state of the art non probabilistic ILP implementations have a number of useful features including predicate and object invention. 
+In predicate invention new predicates are introduced to programs that do not have examples of these predicates. 
+For example inventing the concept of mother or father as a female or male parent, when learning family relations. 
+This can reduce the size of the program learnt [Patsantzis 2021, Cropper 2021, Cropper 2016]. 
+Object invention refers to adding objects to a theory, for example, saying that two nodes are connected in a graph, to explain why a route query is successful.  
+In an MR context this could be introducing a postulated confounder for example. 
+Two avenues for thinking about MR in this context are:
+</p>
+
+<ol>
+  <li>Using the known rules of MR and causal constraints to inform the background knowledge and inductive bias of an ILP system.</li>
+  <li>Using MR to justify or chose an abductive explaintion. </li>
 </ol>
 <p>
-Another aspect of automatic reasoning that has received attention is non-monotonic reasoning (when adding to a program can make previous conclusions invalid), including default reasoning and negation, (both default reasoning and negation are potentially important for causal modeling as discussed in [VENNEKENS 2011]) an example of a system that has been applied to revise metabolic networks is the XHAIL system [Ray 2009] .
- Incorporating genetic associations and MR concepts as background knowledge in a similar system might help inform the search for good solutions to pathway construction and revision tasks. 
+Another aspect of automatic reasoning that has received attention is non-monotonic reasoning (when adding to a program can make previous conclusions invalid), including default reasoning and negation, (both default reasoning and negation are potentially important for causal modeling as discussed in [Vennekens 2011]) an example of a system that has been applied to revise metabolic networks is the XHAIL system [Ray 2009] .
+Incorporating genetic associations and MR concepts as background knowledge in a similar system might help inform the search for good solutions to pathway construction and revision tasks. 
 </p>
 <p>
 As we have said justifying one abduction over an another is a unsolved problem, sometimes many potential abductions could be made. 
- One method to choose a potential abductive explanation is the Most Probable Explanation (MPE).
- This is where of all possible worlds where the event is true, which world is the most probable and in that world what is the explanation for the event.
- This is implemented in Cplint and we can see how ideas from MR could work with this example.
-Abductive reasoning is related to the ideas of actual causation mentioned in part z of this notebook.
-The distngushment is between what are the potential reasons for an event and what actualy caused the event.
+We have also discussed a critical tasks in epidemiolgy that is to try and distguish between different causal theories for our observed data. I.e. is the true sitatuion ct1 or ct2, ct3 or a specilaistion or generalisation of these or another theory altogether.
+MR methods seek to help us do this, by reasoning about how an association could occur and if it would meet certain constraints.
+</p>
+<p>
+One method to choose a potential abductive explanation is the Most Probable Explanation (MPE) [Shterionov 2015].
+However this works with one causal theory with multiple potential causes for an event.
+This is where of all possible worlds where the event is true, which world is the most probable and in that world what is the explanation for the event.
+This is implemented in Cplint and we can see how ideas from MR could work with this example.
+Abductive reasoning is related to the ideas of actual causation mentioned in part 8 of this notebook.
+The distngushment is between; a) what are the potential reasons for an event and b) what actualy caused the event.
 </p>
 </div>
 
 <div class="nb-cell program" name="p7">
-%mpe inference.
 :- end_lpad.
 
+%mpe inference.
 :- use_module(library(pita)).
 :- pita.
 :- begin_lpad.
@@ -803,13 +810,11 @@ The distngushment is between what are the potential reasons for an event and wha
 map_query genotype:0.5.
 map_query cheese:0.5.
 
-map_query  met:0.5 :- cheese.
+map_query met:0.5   :- cheese.
 map_query met_b:0.5 :- genotype.
 
 high_bmi :0.5 :- cheese.
 high_bmi :0.5 :- met_b.
-
-
 </div>
 
 <div class="nb-cell query" name="q21">
@@ -820,6 +825,12 @@ map(high_bmi,P,Exp).
 <p>We have two causal laws that give alternative explanations. 
 Asking the MPE theory without including the evidence from a snp association gives this response.
 But with this evidence the abduction changes to z.
+  <br>
+Mpe inference can help us have a single explanation for an event with independent causes in a single causal theory. At the object level. 
+<br>
+However we need to think about how we can reason to distguish explations at the theory rather than at the object level.
+We would also like to generate abductive causal theories at differnt levels of generality, for example with unbound variables to represent any potential confounder rather than a specific measure confounder, or where confounders are constrained.
+This would require constriant logic programming, Constraint handling rules is a language design to implement custom contrait logics.
 </p>
 <p>
 Apart from Cplint we will also mention, another prominent PLP implementation: Problog [De Raedt 2007]. 
@@ -860,6 +871,7 @@ In this poster we have demonstrated basic MR ideas implemented as a PLP, more ad
   <li> Fadja, Arnaud Nguembang, Evelina Lamma, and Fabrizio Riguzzi. "Deep Probabilistic Logic Programming." PLP@ ILP. 2017. </li>
   <li> De Raedt, Luc, Angelika Kimmig, and Hannu Toivonen. "ProbLog: A Probabilistic Prolog and Its Application in Link Discovery." IJCAI. Vol. 7. 2007. </li>
   <li> Kimmig, Angelika, Guy Van den Broeck, and Luc De Raedt. "An algebraic Prolog for reasoning about possible worlds." Proceedings of the AAAI Conference on Artificial Intelligence. Vol. 25. No. 1. 2011. </li>
+  <li> Shterionov, Dimitar, et al. "The most probable explanation for probabilistic logic programs with annotated disjunctions." Inductive Logic Programming. Springer, Cham, 2015. 139-153. </li>
 </ol>
 </div>
 

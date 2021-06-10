@@ -2,7 +2,7 @@
 
 <div class="nb-cell html" name="htm13">
 <h1>Mendelian Randomization as a Probabilistic Logic Program </h1>
-This interactive notebook demonstrates Mendelian Randomization as a Probabilistic Logic Program, implemented on Cplint on SWISH [Alberti 2017, Wielemaker 2015]. 
+This interactive notebook demonstrates <a href="https://www.bristol.ac.uk/integrative-epidemiology/mendelian-randomization/"> Mendelian Randomization </a> as a Probabilistic Logic Program, implemented on Cplint on SWISH [Alberti 2017, Wielemaker 2015]. 
 The formalism used is Causal Probabilistic Logic (CP-Logic)[Vennekens 2009]. 
 We aim to demonstrate some examples of using this formalism first, and then give some background information on the formalism later. 
 The aim is to show how computational thinking can help us as MR researchers by applying automatic reasoning techniques [Kowalski 2011] to augment our reasoning around MR.

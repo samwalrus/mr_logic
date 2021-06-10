@@ -800,13 +800,13 @@ The distngushment is between what are the potential reasons for an event and wha
 :- pita.
 :- begin_lpad.
 
-cheese.
-genotype.
+map_query genotype:0.5.
+map_query cheese:0.5.
 
-map_query  met:0.9 :- cheese.
+map_query  met:0.5 :- cheese.
 map_query met_b:0.5 :- genotype.
 
-high_bmi :0.9 :- cheese.
+high_bmi :0.5 :- cheese.
 high_bmi :0.5 :- met_b.
 
 

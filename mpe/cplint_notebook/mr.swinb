@@ -830,14 +830,14 @@ Mpe inference can help us have a single explanation for an event with independen
 <br>
 However we need to think about how we can reason to distguish explations at the theory rather than at the object level.
 We would also like to generate abductive causal theories at differnt levels of generality, for example with unbound variables to represent any potential confounder rather than a specific measure confounder, or where confounders are constrained.
-This would require constriant logic programming, Constraint handling rules is a language design to implement custom contrait logics.
+This would require constriant logic programming [2006], Constraint handling rules [Frühwirth 1998] is a language design to implement custom contrait logics.
 </p>
 <p>
 Apart from Cplint we will also mention, another prominent PLP implementation: Problog [De Raedt 2007]. 
   There is a variant of Problog called Algebraic Problog [Kimmig 2011] which is designed for reasoning across posible worlds including MPE inference and it is possible with its reasoning to identify constraints on confidence bounds which I think would be useful for many MR based tasks.
 </p>
 <p>
-In this poster we have demonstrated basic MR ideas implemented as a PLP, more advance MR methods would be good to see. 
+In this poster we have demonstrated basic MR ideas implemented as a PLP, the logic of more advance MR methods would be good to see. 
  I also note that apart from the direct use of some of the algorithms Kowalski [2011] advocates that some of the algorithms and ways of thinking that have come out of AI research are also useful tools for human thinking in and of themselves, and applying these ideas in the context of MR would likely be insightful. 
 </p>
 </div>
@@ -872,6 +872,8 @@ In this poster we have demonstrated basic MR ideas implemented as a PLP, more ad
   <li> De Raedt, Luc, Angelika Kimmig, and Hannu Toivonen. "ProbLog: A Probabilistic Prolog and Its Application in Link Discovery." IJCAI. Vol. 7. 2007. </li>
   <li> Kimmig, Angelika, Guy Van den Broeck, and Luc De Raedt. "An algebraic Prolog for reasoning about possible worlds." Proceedings of the AAAI Conference on Artificial Intelligence. Vol. 25. No. 1. 2011. </li>
   <li> Shterionov, Dimitar, et al. "The most probable explanation for probabilistic logic programs with annotated disjunctions." Inductive Logic Programming. Springer, Cham, 2015. 139-153. </li>
+  <li> Frühwirth, Thom. "Theory and practice of constraint handling rules." The Journal of Logic Programming 37.1-3 (1998): 95-138. </li>
+  <li> Marriott, Kim, Peter J. Stuckey, and Mark Wallace. "Constraint logic programming." Foundations of Artificial Intelligence 2 (2006): 409-452. </li>
 </ol>
 </div>
 

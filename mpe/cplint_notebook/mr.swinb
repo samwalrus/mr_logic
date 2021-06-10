@@ -799,6 +799,15 @@ This reasoning is implemented in Cplint and we can see how ideas from MR could w
 Abductive reasoning is related to the ideas of actual causation mentioned in part 8 of this notebook.
 The distngushment is between; a) what are the potential reasons for an event and b) what actualy caused the event.
 </p>
+<p>
+  In this program, lines 2,3,4 and set up the program to use the PITA inference method.
+Then on lines 6 and 7 we have two causal laws that give alternative explanations for why a population might have high BMI.
+Lines 9-12 give the probabitlies that certain properties, which are causes of high BMI are true in the population.
+</p>
+</div>
+
+<div class="nb-cell html" name="htm55">
+<h5> Causal theory X </h5>
 </div>
 
 <div class="nb-cell program" name="p7">
@@ -816,19 +825,24 @@ map_query 0.5::sedetry_job.
 map_query 0.6::scared_of_gyms.
 </div>
 
+<div class="nb-cell html" name="htm57">
+<h5> Query Q on CTX </h5>
+</div>
+
 <div class="nb-cell query" name="q21">
 map(high_bmi,P,Exp).
 </div>
 
 <div class="nb-cell html" name="htm54">
-<p>We have two causal laws that give alternative explanations. 
-Asking the MPE theory, given high_bmi what is the most probable explantion gives us an ansewer with a truth assignment to possible worlds.
+<p>
+
+Asking the MPE theory in query Q, given high_bmi what is the most probable explantion gives us an answer with a truth assignment to possible worlds.
 <br>
 Mpe inference can help us have a single explanation for an event with independent causes in a single causal theory at the object level. 
 <br>
 However we need to think about how we can reason to distguish explations at the theory rather than at the object level.
-We would also like to generate abductive causal theories at differnt levels of generality, for example with unbound variables to represent any potential confounder rather than a specific measure confounder, or where confounders are constrained.
-This would require constriant logic programming [2006], Constraint handling rules [Frühwirth 1998] is a language design to implement custom contrait systems.
+We would also like to generate abductive causal theories at differnt levels of generality, for example with unbound variables to represent any potential confounder rather than a specific measure confounder, or where confounders or an effect are constrained to be in a certain set of values.
+This reasoing would require Constriant Logic Programming [2006], possibly with custom rules constraints. Constraint Handling Rules [Frühwirth 1998] is a language design to implement custom constraint systems.
 </p>
 <p>
 Apart from Cplint we will also mention, another prominent PLP implementation: Problog [De Raedt 2007]. 
@@ -836,7 +850,7 @@ There is a variant of Problog called Algebraic Problog [Kimmig 2011] which is de
 </p>
 <p>
 In this poster we have demonstrated basic MR ideas implemented as a PLP, the logic of more advance MR methods would be good to see. 
- I also note that apart from the direct use of some of the algorithms Kowalski [2011] advocates that some of the algorithms and ways of thinking that have come out of AI research are also useful tools for human thinking in and of themselves, and applying these ideas in the context of MR would likely be insightful. 
+We also note that apart from the direct use of some of the algorithms developed for automatic reasoning Kowalski [2011] advocates that some of these and ways of thinking that have come out of AI research are also useful tools for human thinking in and of themselves, and applying these ideas in the context of MR would likely be insightful. 
 </p>
 </div>
 

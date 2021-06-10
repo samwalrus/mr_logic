@@ -732,7 +732,12 @@ Of course epidemiologists have been using human logical reasoning in their resea
 Recently there has been a number of efforts, in this vein in other fields for example the  robot scientist [Sparkes 2010], with which is able to form hypothesis and physically test them,  and the new research starting on the robot computer scientist (http://autocs.co.uk/index.html) . We could ask what is the scope for a robot epidemiologist?
 </p>
 <p>
-When considering what is practical to do now using existing implementations and ideas applied from this area of AI in epidemiology, the number of languages, system algorithms etc can be a little overwhelming and it has been referred to as alphabet soup of methods for some time [De Raedt 2008]. We hope to have shown in this poster/notebook that Cplint on Swish is a good place to start. It is a mature system, with many built in reasoning tools and there are a large number of examples and existing documentation and publications that people wanting to learn more can explore. We would also point out to the interested reader that basic introduction to programing in logic and ai reasoning techniques can be found in [Flach 1994].  One of the core ideas in this area is the automation of three reasoning techniques to make different types of inferences. These were laid out by the philosopher Charles Pierce.
+When considering what is practical to do now using existing implementations and ideas applied from this area of AI in epidemiology, the number of languages, system algorithms etc can be a little overwhelming and it has been referred to as alphabet soup of methods for some time [De Raedt 2008]. 
+  We hope to have shown in this poster/notebook that Cplint on Swish is a good place to start. 
+  It is a mature system, with many built in reasoning tools and there are a large number of examples and existing documentation and publications that people wanting to learn more can explore. 
+  We would also point out to the interested reader that basic introduction to programing in logic and ai reasoning techniques can be found in [Flach 1994].  
+  One of the core ideas in this area is the automation of three reasoning techniques to make different types of inferences. 
+  These were laid out by the philosopher Charles Pierce.
 </p>
 <h7>Pierce’s syllogisms.</h7>
 
@@ -754,7 +759,7 @@ Therefore: These beans are from this bag. <br>
 <p>
 Both abduction and induction are so-called ampliative reasoning. 
 This means that they <i>add </i>to existing knowledge as opposed to bringing out what is already there, however what it takes to justify a piece of inductive or abductive reasoning is not something that has been philosophically worked out [Flach 2013].
-The corresponding research areas are inductive logic programming, and abductive logic programming. 
+The corresponding research areas are Inductive Logic Programming (ILP), and Abductive Logic Programming (ALP). 
 </p>
 <p>
 Of course one of the most obvious tasks is try and automatically learning are programs and causal theories from real data. 

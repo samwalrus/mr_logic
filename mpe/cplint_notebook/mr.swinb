@@ -794,10 +794,26 @@ The distngushment is between what are the potential reasons for an event and wha
 
 <div class="nb-cell program" name="p7">
 %mpe inference.
+:- end_lpad.
 
-%highbmi:0.9 :- met(1).
+:- use_module(library(pita)).
+:- pita.
+:- begin_lpad.
 
-highbmi:0.9 :- cheese(1).
+cheese.
+genotype.
+
+map_query  met:0.9 :- cheese.
+map_query met_b:0.5 :- genotype.
+
+high_bmi :0.9 :- cheese.
+high_bmi :0.5 :- met_b.
+
+
+</div>
+
+<div class="nb-cell query" name="q21">
+map(high_bmi,P,Exp).
 </div>
 
 <div class="nb-cell html" name="htm54">

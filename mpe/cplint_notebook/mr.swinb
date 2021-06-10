@@ -766,7 +766,7 @@ Of course one of the most obvious tasks is try and automatically learning are pr
  This can be divided into two setting, 1) Learning the structure of a program or 2) given a structure learning the probabilistic parameters. 
   We could potentially learn paramters for a fixed set of causal theories such as with or with confounding elements and compare the results of the learning.
  Cplint provides a number of algorithms for these tasks.  
- Lemur [CITE] for learning parameters and Slipcover [CITE] and PHILl[CITE] for learning the structure of programs. 
+ Lemur [Di Mauro 2015] and Emblem [Bellodi 2013] for learning parameters and Slipcover [Bellodi 2015] and PHIL [Fadja 2017] for learning the structure of programs. 
   Outside of Cplint,  state of the art non probabilistic ILP implementations have a number of useful features including predicate and object invention. 
   In predicate invention new predicates are introduced to programs that do not have examples of these predicates. 
   For example inventing the concept of mother or father as a female or male parent, when learning family relations. 

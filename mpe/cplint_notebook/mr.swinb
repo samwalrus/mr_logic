@@ -841,10 +841,12 @@ map(high_bmi,P,Exp).
 <div class="nb-cell html" name="htm54">
 <p>
 
-Asking the MPE theory in query Q, given high_bmi what is the most probable explantion gives us an answer with a truth assignment to possible worlds.
-<br>
+Asking the causal theory X in query Q, given high_bmi what is the most probable explantion? 
+ This gives us an answer with a truth assignment to possible worlds.
+  i.e. we see x,y,z is true. And therefore it is line 7 that gives us our explantion for our observation of high BMI.
+</p>
+<p>
 Mpe inference can help us have a single explanation for an event with independent causes in a single causal theory at the object level. 
-<br>
 However we need to think about how we can reason to distguish explations at the theory rather than at the object level.
 We would also like to generate abductive causal theories at differnt levels of generality, for example with unbound variables to represent any potential confounder rather than a specific measure confounder, or where confounders or an effect are constrained to be in a certain set of values.
 This reasoing would require Constriant Logic Programming [2006], possibly with custom rules constraints. Constraint Handling Rules [Frühwirth 1998] is a language design to implement custom constraint systems.

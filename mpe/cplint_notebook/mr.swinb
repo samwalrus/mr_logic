@@ -806,7 +806,7 @@ Asking the MPE theory without including the evidence from a snp association give
 But with this evidence the abduction changes to z.
 </p>
 <p>
-Apart from Cplint we will also mention, another prominent PLP implementation: Problog. There is a variant of problog called algebraic problog which is able to implement MPE inference implemented and in particular methods for identifying constraints on confidence bounds which I think would be useful.
+Apart from Cplint we will also mention, another prominent PLP implementation: Problog [De Raedt 2007]. There is a variant of problog called algebraic problog which is able to implement MPE inference implemented and in particular methods for identifying constraints on confidence bounds which I think would be useful.
 </p>
 <p>
 In this poster we have demonstrated basic MR ideas implemented as a PLP, more advance MR methods ideas would be good to see. It is also noting that apart from the direct use of some of the algorithms [Kowalski 2011] advocates that some of the algorithms and ways of thinking that have come out of AI research are also useful tools for human thinking in and of themselves, and applying these ideas in the context of MR would likely be insightful. 
@@ -835,9 +835,17 @@ In this poster we have demonstrated basic MR ideas implemented as a PLP, more ad
   <li> Cropper, Andrew, and Rolf Morel. "Learning programs by learning from failures." Machine Learning 110.4 (2021): 801-856. </li>
   <li> Cropper, Andrew, and Stephen H. Muggleton. "Learning higher-order logic programs through abstraction and invention." (2016). </li>
   <li> Flach, Peter. Simply logical: intelligent reasoning by example. John Wiley &amp; Sons, Inc., 1994. </li>
-  
+  <li> Bellodi, Elena, and Fabrizio Riguzzi. "Structure learning of probabilistic logic programs by searching the clause space." Theory and Practice of Logic Programming 15.2 (2015): 169-212. </li>
+  <li> Bellodi, Elena, and Fabrizio Riguzzi. "Expectation Maximization over binary decision diagrams for probabilistic logic programs." Intelligent Data Analysis 17.2 (2013): 343-363. </li>
   A Causal Logic of Logic Programming 2003
+  <li> Di Mauro, Nicola, Elena Bellodi, and Fabrizio Riguzzi. "Bandit-based Monte-Carlo structure learning of probabilistic logic programs." Machine Learning 100.1 (2015): 127-156. </li>
+  <li> Fadja, Arnaud Nguembang, Evelina Lamma, and Fabrizio Riguzzi. "Deep Probabilistic Logic Programming." PLP@ ILP. 2017. </li>
+  <li> De Raedt, Luc, Angelika Kimmig, and Hannu Toivonen. "ProbLog: A Probabilistic Prolog and Its Application in Link Discovery." IJCAI. Vol. 7. 2007. </li>
 </ol>
+</div>
+
+<div class="nb-cell html" name="htm56">
+
 </div>
 
 </div>

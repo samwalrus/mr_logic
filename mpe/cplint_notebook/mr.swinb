@@ -779,11 +779,16 @@ Of course one of the most obvious tasks is try and automatically learning are pr
   <li>Using MR to justify abductions, (maybe informing priors). </li>
 </ol>
 <p>
-Another aspect of automatic reasoning that has received attention is non-monotonic reasoning (when adding to a program can make previous conclusions invalid), including defaults reasoning and negation, an example of a system that has been applied to revise metabolic networks is the XHAIL system [Ray 2009] . Incorporating genetic associations and MR concepts as background knowledge in a similar system might help inform the search for good solutions to pathway construction and revision tasks. 
+Another aspect of automatic reasoning that has received attention is non-monotonic reasoning (when adding to a program can make previous conclusions invalid), including default reasoning and negation, (both default reasoning and negation are potentially important for causal modeling as discussed in [VENNEKENS 2011]) an example of a system that has been applied to revise metabolic networks is the XHAIL system [Ray 2009] .
+ Incorporating genetic associations and MR concepts as background knowledge in a similar system might help inform the search for good solutions to pathway construction and revision tasks. 
 </p>
 <p>
-As we have said justifying one abduction over an another is a unsolved problem, sometimes many potential abductions could be made. One method to justify an abduction is the most probable explanation. This is implemented in cplint and we can see how ideas from MR could work with this example.
-This is also related to the ideas of actual causation mentioned in part z of this notebook.
+As we have said justifying one abduction over an another is a unsolved problem, sometimes many potential abductions could be made. 
+ One method to choose a potential abductive explanation is the Most Probable Explanation (MPE).
+ This is where of all possible worlds where the event is true, which world is the most probable and in that world what is the explanation for the event.
+ This is implemented in Cplint and we can see how ideas from MR could work with this example.
+Abductive reasoning is related to the ideas of actual causation mentioned in part z of this notebook.
+The distngushment is between what are the potential reasons for an event and what actualy caused the event.
 </p>
 </div>
 

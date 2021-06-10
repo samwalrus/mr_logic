@@ -6,7 +6,7 @@ This interactive notebook demonstrates <a href="https://www.bristol.ac.uk/integr
 The formalism used is Causal Probabilistic Logic (CP-Logic)[Vennekens 2009]. 
 We aim to demonstrate some examples of using this formalism first, and then give some background information on the formalism later. 
 The aim is to show how computational thinking can help us as MR researchers by applying automatic reasoning techniques [Kowalski 2011] to augment our reasoning around MR.
-We also give a differnt persepective to the common causal baysain network with directed acylic graph approach which may widen our oppertunity to think about the properties of MR.
+We also give a different perspective to the common causal baysain network with directed acyclic graph approach which may widen our opportunity to think about the properties of MR.
 
 <h4> The structure of the notebook is as follows: </h4>
 <ol>
@@ -18,8 +18,8 @@ We also give a differnt persepective to the common causal baysain network with d
   <li> We modify the three theories with the intervention in a analogous way to using the 'do' operator, and make some probabilistic queries. Comparing them to MR estimates.</li>
   <li> We talk about the structure of the three theories, are they valid for MR? Is there selection bias, should we observe causal effects? </li>
   <li> We give more background on difference between CP-Logic and Causal Bayesian networks.</li>
-  <li> We give a more complex example of family relationships with causal enivormental transmission from parents to offspring. We also show how to sample from the causal theory to generate data such as trios or sibling pairs. </li>
-  <li> Finally we describe some of the reasoning techniques availble to us that may be useful for thinking about MR going forward.
+  <li> We give a more complex example of family relationships with causal environmental transmission from parents to offspring. We also show how to sample from the causal theory to generate data such as trios or sibling pairs. </li>
+  <li> Finally we describe some of the reasoning techniques available to us that may be useful for thinking about MR going forward.
 </li></ol>
 Throughout this note book we will use a number of artificial running examples.
 In the first example we will define the relationships between a SNP (aa or ab), a metabolite (that can take on values 0 or 1) and having a high Body Mass Index (BMI).
@@ -44,7 +44,7 @@ aa(_):0.5 ; ab(_):0.5.
 <style>
 h3 {text-align: center;}
 </style>
-<h3>Part 1 : Three Causal Theroies</h3>
+<h3>Part 1 : Three Causal Theories</h3>
 </div>
 
 <div class="nb-cell html" name="htm12">
@@ -146,7 +146,7 @@ person_bmi_v2(X,1):0.5 ; person_bmi_v2(X,0):0.5 :-metabolite_v2(X,0),aa(X).
 </div>
 
 <div class="nb-cell html" name="htm17">
-However asking the same question "what is the probability of someone having a high BMI?" we get approximatly the same probability.
+However asking the same question "what is the probability of someone having a high BMI?" we get approximately the same probability.
 </div>
 
 <div class="nb-cell html" name="htm24">
@@ -195,12 +195,12 @@ Line 3 and line 4 give the initial value of the metabolite caused by the genotyp
 </p>
 <p>
 Line 6 gives the causal deterministic law that if someone does not eat cheese their metabolite value stays the same.
-Line 7 states that if a person eats cheese, and there metabolic value caused by the genotype is 0, then there top up value of the metabolite is 1 with probabilty 0.8 or remains 0 with probabilty 0.2.
-Line 8 states and that if some one eats cheese and their metabolite value is 1 from there genotype then there metbolite value remains 1.
+Line 7 states that if a person eats cheese, and there metabolic value caused by the genotype is 0, then there top up value of the metabolite is 1 with probability 0.8 or remains 0 with probability 0.2.
+Line 8 states and that if some one eats cheese and their metabolite value is 1 from there genotype then there metabolite value remains 1.
 </p>
 <p>
 Line 10 states that eating cheese causes a high BMI with probability 0.7.
-Line 11 states even that if someone does not eat cheese they may have a high bmi with probabilty 0.1.
+Line 11 states even that if someone does not eat cheese they may have a high bmi with probability 0.1.
 </p>
 It can be clearly seen that there is no causal law effecting BMI from the metabolite value.
 </div>
@@ -224,7 +224,7 @@ person_bmi_v3(X,1):0.1 ; person_bmi_v3(X,0):0.9 :- person_cheese(X,0).
 </div>
 
 <div class="nb-cell html" name="htm10">
-However if we query for the Risk differnce between metabolites values and BMI we get a positive value. This is because they are both caused by eating cheese.
+However if we query for the Risk difference between metabolites values and BMI we get a positive value. This is because they are both caused by eating cheese.
 </div>
 
 <div class="nb-cell html" name="htm44">
@@ -236,8 +236,8 @@ mc_rejection_sample(person_bmi_v3(X,1),metabolite_v3(X,1),1000,P1,[]), mc_reject
 </div>
 
 <div class="nb-cell html" name="htm48">
-So in summary in CT1 the metbolite effects BMI and there is association. 
-In CT2 the metbolite together with the genotype effect BMI but there is very little association.
+So in summary in CT1 the metabolite effects BMI and there is association. 
+In CT2 the metabolite together with the genotype effect BMI but there is very little association.
 In CT3 the metabolite does not effect BMI but there is an association.
 </div>
 
@@ -249,11 +249,11 @@ h3 {text-align: center;}
 </div>
 
 <div class="nb-cell html" name="htm3">
-As epidemiolgists we are of course intrested in identifying causal modifialble risk factors for disease.
+As epidemiologists we are of course interested in identifying causal modifiable risk factors for disease.
 
-Perl [2009] has established that when calculating proabilties taking into account causality we must distguish 'seeing' from 'doing'.
+Perl [2009] has established that when calculating probabilities taking into account causality we must distinguish 'seeing' from 'doing'.
 
-We have shown three causal theories in which some assoications are similar but the underlying process for creating the data are differnt.
+We have shown three causal theories in which some associations are similar but the underlying process for creating the data are different.
 <p>
 
 
@@ -283,14 +283,14 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
              "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
 </script>
 
-If we imagine we were given observation data from these theories but not the theroies themselves and we wanted try and estimate the causal effect of the metbolite on BMI we could attempt to apply the IV approach of MR.
+If we imagine we were given observation data from these theories but not the theories themselves and we wanted try and estimate the causal effect of the metabolite on BMI we could attempt to apply the IV approach of MR.
 MR requires 3 things [Davey Smith 2003] [Hernán 2020].
 <ol>
   <li> The variant associates with the exposure.</li>
   <li> The variant does not associate with confounders.</li>
   <li> The variant is only associated with the outcome via the exposure.</li>
 </ol>
-We would be able to at least verify the first requirment of MR that the value of the metabolite is associated with the value of genotype in the three theories.
+We would be able to at least verify the first requirement of MR that the value of the metabolite is associated with the value of genotype in the three theories.
 </div>
 
 <div class="nb-cell html" name="htm26">
@@ -330,14 +330,14 @@ mc_rejection_sample(metabolite_v3(X,1),aa(X),1000,P1,[]), mc_rejection_sample(me
 </div>
 
 <div class="nb-cell html" name="htm52">
-So we can see that in all three causal theroies there is a risk differnce/association.
+So we can see that in all three causal theories there is a risk difference/association.
 </div>
 
 <div class="nb-cell html" name="htm34">
 <style>
 h3 {text-align: center;}
 </style>
-<h3> Part 4 : MR applied to the three theroies</h3>
+<h3> Part 4 : MR applied to the three theories</h3>
 </div>
 
 <div class="nb-cell html" name="htm27">
@@ -385,7 +385,7 @@ mc_rejection_expectation(metabolite_v3(X,Met),ab(X),10000,Met,Ex_met_ab), Cause 
 <style>
 h3 {text-align: center;}
 </style>
-<h3> Part 5 : Interventions in CP Logic, analogus to 'do'</h3>
+<h3> Part 5 : Interventions in CP Logic, analogous to 'do'</h3>
 </div>
 
 <div class="nb-cell html" name="htm5">
@@ -395,9 +395,9 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
 </script>
 
 
-As in actual fact we are using artficial theroies we do have access to our causal theroies. 
+As in actual fact we are using artificial theories we do have access to our causal theories. 
 We can therefore reason about our causal theories to calculate probabilities of interventions. 
-Formal defintions of interventions allow us to remove human judgement on effects.
+Formal definitions of interventions allow us to remove human judgment on effects.
 Instead we need to 1) Describe a causal theory of our domain and 2) follow a fixed set of rules to reason about the theory.
 
 <p>This is analogous to pearls do operator. </p>
@@ -406,19 +406,19 @@ Instead we need to 1) Describe a causal theory of our domain and 2) follow a fix
 
 
 <p>
-Some of the differnces are: 
+Some of the differences are: 
 In CP-Logic interventions are not at the level
 of random variables (i.e., atoms) as Pearl does, but instead interventions
 add and/or prevent CP-laws to/in a theory.
 </p>
 <ol>
-  <li>Perls interventions fix a value, they can not contain a probabilty distribution</li>
-  <li>Perls interventions can not introduce new relantionships between existing random variables</li>
+  <li>Perls interventions fix a value, they can not contain a probability distribution</li>
+  <li>Perls interventions can not introduce new relationships between existing random variables</li>
   <li></li>
   <li></li>
 </ol>
 
-Interventions in CP-Logic are therefore slightly more finegrained than that of Pearl version of the  'do' operator, since we can
+Interventions in CP-Logic are therefore slightly more fine grained than that of Pearl version of the  'do' operator, since we can
 consider interventions that prohibit a single causal law (as in the above example),
 whereas Pearl only considers interventions that prohibit all causal laws that affect
 the value of a certain random variables. 
@@ -426,14 +426,14 @@ the value of a certain random variables.
 
   
 <p>
-  Formaly: </p>
+  Formally: </p>
 Let C be a CP-theory. An intervention is a pair <i>(R, A)</i> with <i>R</i> a
 subset of <i>C</i> (a preemption) and <i>A</i> a set of laws not in <i>C</i> (an addition). The result
 of performing <i>(R, A)</i> on <i>C</i>, denoted <i>C↯(R, A)</i>, is the CP-theory <i>(C \ R) ∪ A</i>.
 
 <p>
 
-  We next present three further causal theroies which are modified versions of the original cts.
+  We next present three further causal theories which are modified versions of the original cts.
 We remove the first two laws and replace with a law. 
 If we do this to the three causal theories then we can now see how the probabilities are now different in the modified theories.
 And compare these to the MR estimates in part 4 of this notebook.
@@ -448,7 +448,7 @@ And compare these to the MR estimates in part 4 of this notebook.
 <style>
 h3 {text-align: center;}
 </style>
-<h3> Part 6 : The three theroies with intervention</h3>
+<h3> Part 6 : The three theories with intervention</h3>
 </div>
 
 <div class="nb-cell html" name="htm41">
@@ -539,17 +539,17 @@ In the second theory there is horizontal pleiotropy, and so this explains why th
 
 In the third theory, there is no causal effect.
 
-With a given causal theory the second and third rules of MR (). Are releated to the idea of Proof in logic programming. i.e. is there a proof of an event that uses events that would break the MR rules.
+With a given causal theory the second and third rules of MR (). Are related to the idea of Proof in logic programming. i.e. is there a proof of an event that uses events that would break the MR rules.
 This can be encoded as :
 <h6> MR as a PLP </h6>
 <p>
   The second and third rules of MR are normally given in the contexts of DAGS. 
-  The corresponding ideas in a probablistic logic program relate to proofs.
-  Can you prove a path in a hypergraph from one event to another?
+  The corresponding ideas in a probabilistic logic program relate to proofs.
+  Can you prove a path in a hyper-graph from one event to another?
   A hyper graph is a generalisation of a graph where edges are sets of nodes rather than pairs.
-  The corrsponding graph ideas such as a path remain the same but using the generalised version of an edge.
+  The corresponding graph ideas such as a path remain the same but using the generalized version of an edge.
 </p>
-Satisfiabilbty.
+Satisfiability.
 Learning from proofs.
 </div>
 
@@ -573,21 +573,21 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
 <p>
 CP-Logic integrates the work of both Perl [2009] and Shafer [1996] on causality and probability; it seeks to be a logical language that represents dynamic causal laws.
 In CP-Logic a random variable is something that gets assigned a certain value at a certain time.
-This is in contrast to Perl’s probabilistic causal models which represent the relations between RVs as they hold in stable states of the domain. In a PCM we do not care about which event causes the value of an RV, or when it happens. In this way CP-Logic comes from the Shafer school of thought in which when considering probability or causality he thinks we need to consider the  context of a particular story and how the domain evolves, Shafer formalises this with probability trees. In a probability tree the domain starts out in one state, then an event happens which causes the domain to change to a new state. The new state is chosen probabilistically from a set of alternatives. This is then repeated, as different events happen the states changes probabilistically from the available alternatives of that state. This happens until no further events take place.
+This is in contrast to Perl’s probabilistic causal models which represent the relations between RVs as they hold in stable states of the domain. In a PCM we do not care about which event causes the value of an RV, or when it happens. In this way CP-Logic comes from the Shafer school of thought in which when considering probability or causality he thinks we need to consider the  context of a particular story and how the domain evolves, Shafer formalizes this with probability trees. In a probability tree the domain starts out in one state, then an event happens which causes the domain to change to a new state. The new state is chosen probabilistically from a set of alternatives. This is then repeated, as different events happen the states changes probabilistically from the available alternatives of that state. This happens until no further events take place.
 </p>
 
 <p>
   CP Logic therefore offers a succinct syntax for describing classes of Shaferian probability trees, CP-logic has also been proven to be equivalent to the language  of Logic Programs with Annotated Disjunctions (LPADS)  which has the formal distribution semantics of Sato in which a logic programming rule has its head annotated with a probability and this  specifies a probability distribution over a set of possible world in terms of these individual probabilities on a rule head. This means it is also a <i>practical probabilistic programming language</i> as we have seen in this notebook. 
   CP-Logic defines theories as sets of causal laws in the form 'Head ← Body'.  
   The body can be any first order logic formula.
-  The head contains a disjunction of atoms annotated with a probabilty, which are the possible effects of the law.
+  The head contains a disjunction of atoms annotated with a probability, which are the possible effects of the law.
 </p>
 
 <p>
-According to Shafer [1996] a Baysian network can be seen as a description of a class of probability trees. CP-Logic can represent a Baysian network and as we have also seen CP-logic represents a causal system in a modular way as a set of causal laws. For this reason CP Logic
+According to Shafer [1996] a Bayesian network can be seen as a description of a class of probability trees. CP-Logic can represent a Bayesian network and as we have also seen CP-logic represents a causal system in a modular way as a set of causal laws. For this reason CP Logic
 is also more expressive. In a process corresponding to a Bayesian network, the value of each random variable is determined by a single event but CP-logic allows multiple events to affect the same property.
 
-Example, consider the results of a GWAS where two independent snps have been found to be associated with a high bmi:
+Example, consider the results of a GWAS where two independent SNPs have been found to be associated with a high bmi:
 </p><p>
   In cp logic:
 
@@ -597,7 +597,7 @@ Example, consider the results of a GWAS where two independent snps have been fou
 </p>
 <p>
   There are two “causal mechanisms” that might lead to high BMI:
- They are independent in the following sense: once we know how many and which of these mechanisms are actually activated (i.e., which versions of the two snp are inherited), then observing whether one of these possible causes actually results in the effect provides no information about whether one of the other causes will cause the effect. 
+ They are independent in the following sense: once we know how many and which of these mechanisms are actually activated (i.e., which versions of the two SNP are inherited), then observing whether one of these possible causes actually results in the effect provides no information about whether one of the other causes will cause the effect. 
   i.e., if both causal variants are inherited, then the probability of High BMI should be \[1 − (1 − 1/6)^2. \] (noisy or).
 </p>
 <p>
@@ -637,14 +637,14 @@ As Epidemiologists we are interested in identifying why something has happened, 
 </p>
 <p>
 
-Vennekens [2009] points out that Pearl uses two different languages when considering causal models, Bayesian networks and PCMS, (which are similar as every Bayesian network can be transformed into a PCM), but the different languages embody different  views on the nature of causality, bayesian networks represent causal relations as inherently probabilistic, while PCMs express the Laplacian view that causal relations are completely deterministic and uncertainty stems solely from a lack of knowledge about their “inputs”. Pearl’s book adopts Bayesian networks throughout the chapters that first introduce the idea of interventions. When addressing the topic of counterfactuals arises, a switch is made to the Laplacian view of PCMs.
+Vennekens [2009] points out that Pearl uses two different languages when considering causal models, Bayesian networks and PCMS, (which are similar as every Bayesian network can be transformed into a PCM), but the different languages embody different  views on the nature of causality, Bayesian networks represent causal relations as inherently probabilistic, while PCMs express the Laplacian view that causal relations are completely deterministic and uncertainty stems solely from a lack of knowledge about their “inputs”. Pearl’s book adopts Bayesian networks throughout the chapters that first introduce the idea of interventions. When addressing the topic of counter factuals arises, a switch is made to the Laplacian view of PCMs.
 </p>
 <p>
-  Vennekens remarks that it is peculiar that, on the one hand, interventions should be easiest to explain under the assumption that causal relations are inherently probabilistic, while on the other hand, their use for counterfactual reasoning requires the assumption that causal relations are deterministic. 
+  Vennekens remarks that it is peculiar that, on the one hand, interventions should be easiest to explain under the assumption that causal relations are inherently probabilistic, while on the other hand, their use for counter factual reasoning requires the assumption that causal relations are deterministic. 
 </p>
 <p>
   Vennekens argues in his paper that CP-logic’s event-based view on causality reconciles these two views: whether a Humean event happens is deterministic (in any given state of the world), but its outcome can be probabilistic. And therefore CP-logic can match Bayesian networks
-as a natural representation for probabilistic causal relations, while also,  arguing that it surpasses PCMs as a counterfactual reasoning tool.
+as a natural representation for probabilistic causal relations, while also,  arguing that it surpasses PCMs as a counter factual reasoning tool.
 </p>
 <p>
   One of the aim of this poster/notebook is bring this formalism to greater attention of MR researchers and to show that this alternative formalism brings different capabilities and expressiveness to knowledge representation and reasoning required of MR research. 
@@ -658,7 +658,7 @@ as a natural representation for probabilistic causal relations, while also,  arg
 <li> CP-Logic is modular and a greater set of interventions can be considered compared to CBN and PCMs </li>
 <li> CP-Logic can explicitly model multiple causes for one event, it can handle redundant causes i.e when something would cause an event but the event has already happened so it can not cause it. </li>
 <li> CP-Logic is succinct, which can aid understanding and make machine learning of therioes potentially simpler  </li>
-<li> CP-Logic is just differnt a method which gives a differnt view on causality</li>
+<li> CP-Logic is just different a method which gives a different view on causality</li>
 </ol>
 </div>
 
@@ -671,11 +671,11 @@ h3 {text-align: center;}
 
 <div class="nb-cell html" name="htm45">
 We will now describe a more elaborate CT which is relevant to MR researchers thinking about within family studies.
-When people are first introduced to programming in logic they are often given the task of writing programs about familes. 
-This is because the relationships can be very naturaly represented and reasoned with.
+When people are first introduced to programming in logic they are often given the task of writing programs about families. 
+This is because the relationships can be very naturally represented and reasoned with.
 
-In this program we are merging the idea of reasoning about indivduals and groups.
-We have one family, but together with the probablistic causal relantioships these can be seen to represent groups.
+In this program we are merging the idea of reasoning about individuals and groups.
+We have one family, but together with the probabilistic causal relationships these can be seen to represent groups.
 
 Cite[ Within family Mendelian randomization studies]
 cite [Avoiding dynastic, assortative mating, and population stratification biases in Mendelian randomization through within-family analyses]
@@ -683,7 +683,7 @@ cite [Avoiding dynastic, assortative mating, and population stratification biase
 
 <div class="nb-cell program" name="p6">
 parent_child(X,Y):- mother_child(X,Y).
-parent_child(X,Y):- father_chid(X,Y).
+parent_child(X,Y):- father_child(X,Y).
 
 grandparent_child(X,Y):- parent_child(X,Z),parent_child(Z,Y).
 
@@ -698,7 +698,7 @@ child_aunt(X,Y):- parent_child(P,X),sibling(P,Y), female(Y).
 child_uncle(X,Y):-parent_child(P,X),sibling(P,Y), male(Y).
 
 %Generation 1 fixed
-%Generation 2 probablistic
+%Generation 2 probabilistic
 </div>
 
 <div class="nb-cell program" name="p10">
@@ -728,16 +728,16 @@ h3 {text-align: center;}
 <p>
 In this notebook we have shown a number of PLPs that perform some epidemiological reasoning around MR in artificial examples.
 We will now briefly discuss the wider field of artificial intelligence, automatic reasoning and how different techniques might be useful for MR methods researchers.
-As we have seen, the tool of logic programming, especially in its probabilistic versions, is a useful and underused tool in epidemiological research.
+As we have seen, the tool of logic programming, especially in its probabilistic versions, is a useful and under-used tool in epidemiological research.
 A major advantage to modeling MR approaches in a Probabilistic Logic Program is that the representation enables us to pose problems in which a large number of reasoning techniques have been implemented.
 Of course epidemiologists have been using human logical reasoning in their research to try and understand the phenomena of interest, however augmenting this reasoning with automatic reasoning is potentially powerful and fruitful area of research, indeed recently there has been a number of efforts in other fields to apply these techniques for example the robot scientist [Sparkes 2010], which is able to form hypothesis and physically test them,  and the new research starting on the robot computer scientist (http://autocs.co.uk/index.html) . 
-We could ask what is the scope for a robot epidemiologist?
+We could ask what is the scope for a robot epidemiologists?
 </p>
 <p>
 When considering what is practical to do now using existing implementations and ideas applied from this area of AI in epidemiology, the number of languages, systems, algorithms etc can be a little overwhelming and it has been referred to as alphabet soup of methods for some time [De Raedt 2008]. 
 We hope to have shown in this poster/notebook that Cplint on Swish is a good place to start. 
 It is a mature system, with many built in reasoning tools and there are a large number of examples and existing documentation and publications that people wanting to learn more can explore. 
-We would also point out to the interested reader that basic introduction to programing in logic and artifical intelgent reasoning techniques can be found in [Flach 1994].  
+We would also point out to the interested reader that basic introduction to programming in logic and artificial intelligent reasoning techniques can be found in [Flach 1994].  
 One of the core ideas in this area is the automation of three reasoning techniques to make different types of inferences. 
 These were first laid out by the philosopher Charles Pierce.
 </p>

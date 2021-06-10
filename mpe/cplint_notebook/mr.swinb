@@ -822,10 +822,12 @@ Asking the MPE theory without including the evidence from a snp association give
 But with this evidence the abduction changes to z.
 </p>
 <p>
-Apart from Cplint we will also mention, another prominent PLP implementation: Problog [De Raedt 2007]. There is a variant of problog called algebraic problog which is able to implement MPE inference implemented and in particular methods for identifying constraints on confidence bounds which I think would be useful.
+Apart from Cplint we will also mention, another prominent PLP implementation: Problog [De Raedt 2007]. 
+  There is a variant of Problog called Algebraic Problog [Kimmig 2011] which is designed for reasoning across posible worlds including MPE inference and it is possible with its reasoning to identify constraints on confidence bounds which I think would be useful for many MR based tasks.
 </p>
 <p>
-In this poster we have demonstrated basic MR ideas implemented as a PLP, more advance MR methods ideas would be good to see. It is also noting that apart from the direct use of some of the algorithms [Kowalski 2011] advocates that some of the algorithms and ways of thinking that have come out of AI research are also useful tools for human thinking in and of themselves, and applying these ideas in the context of MR would likely be insightful. 
+In this poster we have demonstrated basic MR ideas implemented as a PLP, more advance MR methods would be good to see. 
+ I also note that apart from the direct use of some of the algorithms Kowalski [2011] advocates that some of the algorithms and ways of thinking that have come out of AI research are also useful tools for human thinking in and of themselves, and applying these ideas in the context of MR would likely be insightful. 
 </p>
 </div>
 

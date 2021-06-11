@@ -33,6 +33,7 @@ We then state that our probabilistic program will begin (line 3) and on line 4 w
 </div>
 
 <div class="nb-cell program" data-background="true" name="p1">
+:- use_module(library(clpfd)).
 :- use_module(library(mcintyre)).
 :- mc.
 
@@ -730,17 +731,17 @@ i_geno_pheno_gen_an(I,g(G1-G2,G3-G4),p(bmi(X),smoke(Smoke)),0,[]):-
 %gen x person.
 % need id var to stop getting the same values..
 i_geno_pheno_gen_an(I,g(G1-G2,G3-G4),p(bmi(BMI),smoke(yes)),Gen,parents(P1,P2)):-
-    Gen0 is Gen-1,
+    Gen0 #= Gen-1,
     i_geno_pheno_gen_an(m(I),g(P1_G1-P1_G2,P1_G3-P1_G4),p(bmi(P1_BMI),smoke(P1_Smoke)),Gen0,P1_Ancestors),
     P1 = i_geno_pheno_gen_an(m(I),g(P1_G1-P1_G2,P1_G3-P1_G4),p(bmi(P1_BMI),smoke(P1_Smoke)),Gen0,P1_Ancestors),
     i_geno_pheno_gen_an(f(I),g(P2_G1-P2_G2,P2_G3-P2_G4),p(bmi(P2_BMI),smoke(P2_Smoke)),Gen0,P2_Ancestors),
     P2 = i_geno_pheno_gen_an(f(I),g(P2_G1-P2_G2,P2_G3-P2_G4),p(bmi(P2_BMI),smoke(P2_Smoke)),Gen0, P2_Ancestors),                   
     meiosis(1,P1_G1-P1_G2, P2_G1-P2_G2, G1-G2),
     meiosis(2,P1_G3-P1_G4,P2_G3-P2_G4,G3-G4),
-    BMI_Mean is (P1_BMI+P2_BMI)/2,
-    G1_Dosage is (G1+G2),
-    G1_effect_on_bmi is G1_Dosage/10,
-    New_bmi_mean is BMI_Mean + G1_effect_on_bmi,
+    BMI_Mean #= (P1_BMI+P2_BMI)/2,
+    G1_Dosage #= (G1+G2),
+    G1_effect_on_bmi #= G1_Dosage/10,
+    New_bmi_mean #= BMI_Mean + G1_effect_on_bmi,
     bmi_mean_var(BMI,New_bmi_mean,3),
     true.
 

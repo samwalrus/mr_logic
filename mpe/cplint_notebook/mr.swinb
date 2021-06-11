@@ -707,25 +707,25 @@ child_uncle(X,Y):-parent_child(P,X),sibling(P,Y), male(Y).
 %advertising influences smoking
 %gene influence smoking.
 %:- use_module(library(clpr)).
-smoke(yes):0.5; smoke(no):0.5 .
+smoke(I,yes):0.5; smoke(I,no):0.5 .
 
 %smoke_p1_p2_gene(yes,P1,P2,G):X ; smoke_p1_p2_gene(no,P1,P2,G):Y: - true,X =2.
 
-snp(_,1):0.5 ; snp(_,0):0.5.
+snp(X,1):0.5 ; snp(X,0):0.5.
 
-bmi(X): gaussian(X,24,3). %Gausain mean 24, variance 3.
+bmi(I,X): gaussian(X,24,3). %Gausain mean 24, variance 3.
 bmi_mean_var(X,Mean,Var): gaussian(X,Mean,Var). %Gausain mean M, variance V.
 
 meiosis(_,C1-C2,C3-C4,C1-C3):0.25 ; meiosis(_,C1-C2,C3-C4,C1-C4):0.25 ;meiosis(_,C1-C2,C3-C4,C2-C3):0.25 ; meiosis(_,C1-C2,C3-C4,C2-C4):0.25.
 
 %gen0 person
 i_geno_pheno_gen_an(I,g(G1-G2,G3-G4),p(bmi(X),smoke(Smoke)),0,[]):-
-    snp(a-I,G1), %alleles not snps!
-    snp(b-I,G2),
-    snp(c-I,G3),
-    snp(d-I,G4),
-    smoke(Smoke),
-    bmi(X).
+    snp(1-I,G1), %alleles not snps!
+    snp(2-I,G2),
+    snp(3-I,G3),
+    snp(4-I,G4),
+    smoke(I,Smoke),
+    bmi(I,X).
 
 %gen x person.
 % need id var to stop getting the same values..
@@ -741,7 +741,7 @@ i_geno_pheno_gen_an(I,g(G1-G2,G3-G4),p(bmi(BMI),smoke(yes)),Gen,parents(P1,P2)):
     G1_Dosage is (G1+G2),
     G1_effect_on_bmi is G1_Dosage/10,
     New_bmi_mean is BMI_Mean + G1_effect_on_bmi,
-    bmi_mean_var(I,BMI,New_bmi_mean,3),
+    bmi_mean_var(BMI,New_bmi_mean,3),
     true.
 
 :- end_lpad.

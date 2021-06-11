@@ -708,6 +708,9 @@ child_uncle(X,Y):-parent_child(P,X),sibling(P,Y), male(Y).
 %gene influence smoking.
 %:- use_module(library(clpr)).
 smoke(yes):0.5; smoke(no):0.5 .
+
+smoke_p1_p2_gene(yes,P1,P2,G):X ; smoke_p1_p2_gene(no,P1,P2,G):Y: - true,X =2.
+
 snp1(1):0.5 ; snp1(0):0.5.
 snp2(1):0.5 ; snp2(0):0.5.
 snp3(1):0.5 ; snp3(0):0.5.

@@ -706,23 +706,47 @@ child_uncle(X,Y):-parent_child(P,X),sibling(P,Y), male(Y).
 %parents influence smoking
 %advertising influences smoking
 %gene influence smoking.
+%:- use_module(library(clpr)).
+smoke(yes):0.5; smoke(no):0.5 .
+snp1(1):0.5 ; snp1(0):0.5.
+snp2(1):0.5 ; snp2(0):0.5.
+snp3(1):0.5 ; snp3(0):0.5.
+snp4(1):0.5 ; snp4(0):0.5.
+snp5(1):0.5 ; snp5(0):0.5.
+snp6(1):0.5 ; snp6(0):0.5.
+snp7(1):0.5 ; snp7(0):0.5.
+snp8(1):0.5 ; snp8(0):0.5.
+bmi(X): gaussian(X,24,3). %Gausain mean 24, variance 3.
 
-person_geno_pheno_gen(bob,geno(0-0,1-1,0-1,1-1),1.8,1).
-person_geno_pheno_gen(bob,geno(0-1,0-1,0-1,1-1),3.5,1).
-person_geno_pheno_gen(bob,geno(0-0,1-1,1-1,0-0),2.3,1).
-person_geno_pheno_gen(bob,geno(1-0,1-0,1-0,0-0),1.5,1).
-person_geno_pheno_gen(bob,geno(0-0,0-1,1-0,0-1),5.7,1).
-person_geno_pheno_gen(bob,geno(0-0,0-1,1-1,1-0),2.8,1).
-person_geno_pheno_gen(bob,geno(0-1,0-0,0-0,1-0),1.9,1).
-person_geno_pheno_gen(bob,geno(1-1,0-0,1-1,1-1),4.1,1).
-person_geno_pheno_gen(bob,geno(0-0,1-0,1-1,0-0),2.0,1).
-person_geno_pheno_gen(bob,geno(0-0,0-1,0-0,0-1),1.5,1).
+%gen0 person
+geno_pheno_gen(g(G1-G2,G3-G4,G5-G6,G7-G8),p(bmi(X),smoke(Smoke)),0):-
+    snp1(G1),
+    snp2(G2),
+    snp3(G3),
+    snp4(G4),
+    snp5(G5),
+    snp6(G6),
+    snp7(G7),
+    snp8(G8),
+    smoke(Smoke),
+    bmi(X).
+
+geno_pheno_gen_ancestors(g(G1-G2,G3-G4,G5-G6,G7-G8),p(bmi(X),smoke(Smoke)),1):-
+    geno_pheno_gen(g(P1_G1-P1_G2,P1_G3-P1_G4,P1_G5-P1_G6,P1_G7-P1_G8),p(bmi(X),smoke(Smoke)),0),
+    geno_pheno_gen(g(P2_G1-P2_G2,P2_G3-P2_G4,P2_G5-P2_G6,P2_G7-P2_G8),p(bmi(X),smoke(Smoke)),0).
 
 :- end_lpad.
+
+%We can use the do operator with evidence of
 </div>
 
 <div class="nb-cell query" name="q15">
-%We can use the do operator with evidence of
+mc_sample_arg_first(geno_pheno_gen(Geno,Pheno,0),5,geno_pheno_gen(Geno,Pheno,0),Vs).
+
+</div>
+
+<div class="nb-cell query" name="q22">
+mc_sample_arg_first(bmi(S),50,S,Vs).
 </div>
 
 <div class="nb-cell html" name="htm40">

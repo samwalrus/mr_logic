@@ -839,7 +839,7 @@ Two avenues for thinking about MR in this context are:
 </ol>
 <p>
 Another aspect of automatic reasoning that has received attention is non-monotonic reasoning (when adding to a program can make previous conclusions invalid), including default reasoning and negation, (both default reasoning and negation are potentially important for causal modeling as discussed in [Vennekens 2011]) an example of a system that has been applied to revise metabolic networks is the XHAIL system [Ray 2009] .
-Incorporating genetic associations and MR concepts as background knowledge in a similar system might help inform the search for good solutions to pathway construction and revision tasks. 
+Incorporating genetic associations and MR concepts as background knowledge in a similar system might help inform the search for good solutions to metabolic pathway construction and revision tasks. 
 </p>
 <p>
 As we have said justifying one abduction over an another is a unsolved problem, sometimes many potential abductions could be made. 
@@ -907,7 +907,7 @@ Apart from Cplint we will also mention, another prominent PLP implementation: Pr
 There is a variant of Problog called Algebraic Problog [Kimmig 2011] which is designed for reasoning across posible worlds including MPE inference and it is possible with its reasoning to identify constraints on confidence bounds which I think would be useful for many MR based tasks.
 </p>
 <p>
-In this poster we have demonstrated basic MR ideas implemented as a PLP, the logic of more advance MR methods would be good to see. 
+In this poster/notebook we have demonstrated basic MR ideas implemented as a PLP, the logic of more advance MR methods would be good to see. 
 We also note that apart from the direct use of some of the algorithms developed for automatic reasoning Kowalski [2011] advocates that some of these and ways of thinking that have come out of AI research are also useful tools for human thinking in and of themselves, and applying these ideas in the context of MR would likely be insightful. 
 </p>
 </div>

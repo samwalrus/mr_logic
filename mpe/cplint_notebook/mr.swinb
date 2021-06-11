@@ -675,11 +675,17 @@ We will now describe a more elaborate CT which is relevant to MR researchers thi
 When people are first introduced to programming in logic they are often given the task of writing programs about families. 
 This is because the relationships can be very naturally represented and reasoned with.
 
-In this program we are merging the idea of reasoning about individuals and groups.
-We have one family, but together with the probabilistic causal relationships these can be seen to represent groups.
 
 Cite[ Within family Mendelian randomization studies]
 cite [Avoiding dynastic, assortative mating, and population stratification biases in Mendelian randomization through within-family analyses]
+
+In this CT we model mixed dynastic,genetic and enviromental effects on smoking and bmi.
+We have a base case causal law for generation 0.
+We then have a recursive causal law for further generations.
+This models the mendelian laws of inherentnce.
+
+BMI is a Gausain var.
+Smoking is binary.
 </div>
 
 <div class="nb-cell program" name="p6">
@@ -729,7 +735,6 @@ i_geno_pheno_gen_an(I,g(G1-G2,G3-G4),p(bmi(X),smoke(Smoke)),0,[]):-
     bmi(I,X).
 
 %gen x person.
-% need id var to stop getting the same values..
 i_geno_pheno_gen_an(I,g(G1-G2,G3-G4),p(bmi(BMI),smoke(yes)),Gen,parents(P1,P2)):-
     Gen0 #= Gen-1,
     i_geno_pheno_gen_an(m(I),g(P1_G1-P1_G2,P1_G3-P1_G4),p(bmi(P1_BMI),smoke(P1_Smoke)),Gen0,P1_Ancestors),

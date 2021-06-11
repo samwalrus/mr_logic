@@ -607,7 +607,7 @@ Example, consider the results of a GWAS where two independent SNPs have been fou
 <p>
   There are two “causal mechanisms” that might lead to high BMI:
  They are independent in the following sense: once we know how many and which of these mechanisms are actually activated (i.e., which versions of the two SNP are inherited), then observing whether one of these possible causes actually results in the effect provides no information about whether one of the other causes will cause the effect. 
-  i.e., if both causal variants are inherited, then the probability of High BMI should be \[Pr(high\_bmi) = 1 − (1 − 1/6)^2. \] (noisy or).
+  i.e., if both causal variants are inherited, then the probability of High BMI should be: \[Pr(high\_bmi) = 1 − (1 − 1/6)^2. \] (i.e. noisy or).
 </p>
 <p>
 In the CP-theory, this independence is expressed by the structure of the theory, whereas in the Bayesian network, it is a numerical property of the probabilities in the conditional probability table for high BMI.
@@ -633,8 +633,8 @@ A further feature of CP-Logic is the ability to handle cyclic causal relations.
 
 Consider:
 
-\[High\_bmi:0.8 :- lack of exercise.\]
-\[Lack\_of\_exercise:0.7 :- high\_bmi.\]
+\[high\_bmi:0.8 :- lack\_of\_exercise.\]
+\[lack\_of\_exercise:0.7 :- high\_bmi.\]
 
 This correctly behaves as follows if someone has neither a lack of exercise nor high bmi by an external cause then they will have neither. If they have a lack_of_exercise by an external cause, then with probability 0.8 he will also have high BMI.  If the person has high bmi by an external cause, then with probability 0.7 they will also have a lack of exercise.  If the person has both lack of exercise  and high bmi by an external cause, then they will obviously have both.
 </p>

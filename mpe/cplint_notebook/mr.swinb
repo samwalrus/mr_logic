@@ -778,7 +778,7 @@ In this notebook we have shown a number of PLPs that perform some epidemiologica
 We will now briefly discuss the wider field of artificial intelligence, automatic reasoning and how different techniques might be useful for MR methods researchers.
 As we have seen, the tool of logic programming, especially in its probabilistic versions, is a useful and under-used tool in epidemiological research.
 A major advantage to modeling MR approaches in a Probabilistic Logic Program is that the representation enables us to pose problems in which a large number of reasoning techniques have been implemented.
-Of course epidemiologists have been using human logical reasoning in their research to try and understand the phenomena of interest, however augmenting this reasoning with automatic reasoning is potentially powerful and fruitful area of research, indeed recently there has been a number of efforts in other fields to apply these techniques for example the robot scientist [Sparkes 2010], which is able to form hypothesis and physically test them,  and the new research starting on the robot computer scientist (http://autocs.co.uk/index.html) . 
+Of course epidemiologists have been using human logical reasoning in their research to try and understand the phenomena of interest, however augmenting this reasoning with automatic reasoning is potentially powerful and fruitful area of research, indeed recently there has been a number of efforts in other fields to apply these techniques for example the robot scientist [Sparkes 2010], which is able to form hypothesis and physically test them,  theory represenetation in pschology [Rohner 2021] and the new research starting on the robot computer scientist (http://autocs.co.uk/index.html) . 
 We could ask what is the scope for a robot epidemiologists?
 </p>
 <p>
@@ -971,6 +971,7 @@ gvtree(Term, digraph([rankdir='BT',size=5|Statements])) :-
   <li> Shterionov, Dimitar, et al. "The most probable explanation for probabilistic logic programs with annotated disjunctions." Inductive Logic Programming. Springer, Cham, 2015. 139-153. </li>
   <li> Frühwirth, Thom. "Theory and practice of constraint handling rules." The Journal of Logic Programming 37.1-3 (1998): 95-138. </li>
   <li> Marriott, Kim, Peter J. Stuckey, and Mark Wallace. "Constraint logic programming." Foundations of Artificial Intelligence 2 (2006): 409-452. </li>
+  <li> Rohner, Jean-Christophe, and Håkan Kjellerstrand. "Using logic programming for theory representation and scientific inference." New Ideas in Psychology 61 (2021): 100838.</li>
 </ol>
 </div>
 

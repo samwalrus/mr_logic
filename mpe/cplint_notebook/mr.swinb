@@ -5,8 +5,8 @@
 This interactive notebook demonstrates <a href="https://www.bristol.ac.uk/integrative-epidemiology/mendelian-randomization/"> Mendelian Randomization </a> as a Probabilistic Logic Program, implemented on Cplint on SWISH [Alberti 2017, Wielemaker 2015]. 
 The formalism used is Causal Probabilistic Logic (CP-Logic)[Vennekens 2009]. 
 We aim to demonstrate some examples of using this formalism first, and then give some background information on the formalism later. 
-The aim is to show how computational thinking can help us as MR researchers by applying automatic reasoning techniques [Kowalski 2011] to augment our reasoning around MR.
-We also give a different perspective to the common causal baysain network with directed acyclic graph approach which may widen our opportunity to think about the properties of MR.
+The aim is to show how computational thinking can help us as MR researchers by applying automatic reasoning techniques to augment our reasoning around MR [Kowalski 2011].
+We also give a different perspective to the common Causal Baysain Network (CBN) with Directed Acyclic Graph (DAG) and structured models approach which may widen our opportunity to think about the properties of MR.
 
 <h4> The structure of the notebook is as follows: </h4>
 <ol>
@@ -17,16 +17,16 @@ We also give a different perspective to the common causal baysain network with d
   <li> We explain how the equivalent of the 'do' operator is manifested in CP-logic. </li>
   <li> We modify the three theories with the intervention in a analogous way to using the 'do' operator, and make some probabilistic queries. Comparing them to MR estimates.</li>
   <li> We talk about the structure of the three theories, are they valid for MR? Is there selection bias, should we observe causal effects? </li>
-  <li> We give more background on difference between CP-Logic and Causal Bayesian networks.</li>
+  <li> We give more background on difference between CP-Logic and Causal Bayesian networks and structured models.</li>
   <li> We give a more complex example of family relationships with causal environmental transmission from parents to offspring. We also show how to sample from the causal theory to generate data such as trios or sibling pairs. </li>
-  <li> Finally we describe some of the reasoning techniques available to us that may be useful for thinking about MR going forward.
+  <li> Finally we describe some of the reasoning techniques available to us in various PLP implementations that may be useful for thinking about MR going forward.
 </li></ol>
 Throughout this note book we will use a number of artificial running examples.
 In the first example we will define the relationships between a SNP (aa or ab), a metabolite (that can take on values 0 or 1) and having a high Body Mass Index (BMI).
 <p>
-We first set up our program by importing the required library and initializing it (line 1 and 2).
+We first set up our program by importing the required library and initializing it (line 1,2 and 3).
  In this note book we are using the approximate algorithms provided by the Mcintyre library [Riguzzi 2013]. 
-We then state that our probabilistic program will begin (line 3) and on line 4 we state that someone has either the genotype value <i>aa</i> or <i>ab</i> with equal probability.
+We then state that our probabilistic program will begin (line 5) and on line 6 we state that someone has either the genotype value <i>aa</i> or <i>ab</i> with equal probability.
 
 
 </p>
@@ -126,9 +126,13 @@ In this theory having the <i>aa</i> genotype causes a person to have the metabol
 However if they have the <i>ab</i> genotype this will cause them to have metabolite value <i>1</i> with probability 0.4 or metabolite value <i>0</i> with probability 0.6.
 
 In contrast to the first causal theory, in this theory the state of having a high BMI is causally effected by the relationship between the genotype and the value of the metabolite.
+<br>
 Line 4, states that when a person has a metabolite <i>1</i> and genotype <i>ab</i> they will a high BMI with probability 0.3.
-Line 5, states that when a person has metabolite version <i>1</i> but the genotype aa this will cause them to have a high BMI with probability 0.6.
+<br>
+Line 5, states that when a person has metabolite version <i>1</i> but the genotype <i>aa</i> this will cause them to have a high BMI with probability 0.6.
+<br>
 Line 6, states that when a person has metabolite version <i>0</i> and the <i>ab</i> genotype this will cause them to have a high BMI with probability 0.4.
+<br>
 Lastly, line 7 states that with metabolite <i>0</i> and <i>aa</i>, this will cause high BMI with probability 0.5
 </div>
 
@@ -201,7 +205,7 @@ Line 8 states and that if some one eats cheese and their metabolite value is 1 f
 </p>
 <p>
 Line 10 states that eating cheese causes a high BMI with probability 0.7.
-Line 11 states even that if someone does not eat cheese they may have a high bmi with probability 0.1.
+Line 11 states even if someone does not eat cheese they may have a high BMI with probability 0.1.
 </p>
 It can be clearly seen that there is no causal law effecting BMI from the metabolite value.
 </div>
@@ -720,7 +724,7 @@ smoke(I,yes):0.5; smoke(I,no):0.5 .
 
 snp(X,1):0.5 ; snp(X,0):0.5.
 
-bmi(I,X): gaussian(X,24,3). %Gausain mean 24, variance 3.
+bmi(_,X): gaussian(X,24,3). %Gausain mean 24, variance 3.
 bmi_mean_var(X,Mean,Var): gaussian(X,Mean,Var). %Gausain mean M, variance V.
 
 meiosis(_,C1-C2,C3-C4,C1-C3):0.25 ; meiosis(_,C1-C2,C3-C4,C1-C4):0.25 ;meiosis(_,C1-C2,C3-C4,C2-C3):0.25 ; meiosis(_,C1-C2,C3-C4,C2-C4):0.25.

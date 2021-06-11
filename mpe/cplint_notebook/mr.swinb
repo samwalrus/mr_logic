@@ -353,7 +353,7 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
 Then using the instrumental variable of the genotype we could estimate the causal effect with the following equation [Hernán 2020]:
 <h5> Equation 3 </h5>
 \[Causal\_ effect =\frac{E [BMI |genotype= aa] − E [BMI |genotype = ab]}{E [Metabolite|genotype = aa] − E [Metabolite|genotype = ab]}\]
-So we then query for causal estimand on causal theory 1, the following queries implement equation 3
+The following three queries implement equation 3 on each CT.
 <h5> Query 13 (On CT1) </h5>
 </div>
 
@@ -571,8 +571,12 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
              "?config=TeX-MML-AM_CHTML",function() {MathJax.Hub.Queue(["Typeset",MathJax.Hub]);});
 </script>
 
-<p> So far in this notebook we have tried to be example driven but we have yet to really explain what CP-Logic [Vennekens 2009] is and how it differs from other formalisms.
-</p><p>CP-Logic is a different formalism to Causal Bayesian Networks and Probabilistic Causal Models which are often used in MR research. The full details of this formalism, its capabilities and limitations are too detailed to fit in this poster and we refer the reader to the literature for the complete picture, but we will now try to give an overview of some of the properties and how they might be useful for MR research. (We also adapt some of the examples/ descriptions from Vennekens 2009).
+<p> 
+So far in this notebook we have tried to be example driven but we have yet to really explain what CP-Logic [Vennekens 2009] is and how it differs from other formalisms.
+</p>
+<p>
+CP-Logic is a different formalism to Causal Bayesian Networks and Probabilistic Causal Models which are often used in MR research. 
+The full details of this formalism, its capabilities and limitations are too detailed to fit in this poster and we refer the reader to the literature for the complete picture, but we will now try to give an overview of some of the properties and how they might be useful for MR research. (We also adapt some of the examples/ descriptions from Vennekens 2009).
 </p>
 
 <p>
@@ -594,7 +598,7 @@ is also more expressive. In a process corresponding to a Bayesian network, the v
 
 Example, consider the results of a GWAS where two independent SNPs have been found to be associated with a high bmi:
 </p><p>
-  In cp logic:
+  In CP-Logic:
 
 \[High\_bmi :1/6:- SNP1\]
 \[High\_bmi :1/6:- SNP2\]
@@ -603,7 +607,7 @@ Example, consider the results of a GWAS where two independent SNPs have been fou
 <p>
   There are two “causal mechanisms” that might lead to high BMI:
  They are independent in the following sense: once we know how many and which of these mechanisms are actually activated (i.e., which versions of the two SNP are inherited), then observing whether one of these possible causes actually results in the effect provides no information about whether one of the other causes will cause the effect. 
-  i.e., if both causal variants are inherited, then the probability of High BMI should be \[1 − (1 − 1/6)^2. \] (noisy or).
+  i.e., if both causal variants are inherited, then the probability of High BMI should be \[Pr(high\_bmi) = 1 − (1 − 1/6)^2. \] (noisy or).
 </p>
 <p>
 In the CP-theory, this independence is expressed by the structure of the theory, whereas in the Bayesian network, it is a numerical property of the probabilities in the conditional probability table for high BMI.

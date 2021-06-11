@@ -717,10 +717,13 @@ snp6(1):0.5 ; snp6(0):0.5.
 snp7(1):0.5 ; snp7(0):0.5.
 snp8(1):0.5 ; snp8(0):0.5.
 bmi(X): gaussian(X,24,3). %Gausain mean 24, variance 3.
+bmi_mean_var(X,Mean,Var): gaussian(X,Mean,Var). %Gausain mean M, variance V.
+
+meiosis(_,C1-C2,C3-C4,C1-C3):0.25 ; meiosis(_,C1-C2,C3-C4,C1-C4):0.25 ;meiosis(_,C1-C2,C3-C4,C2-C3):0.25 ; meiosis(_,C1-C2,C3-C4,C2-C4):0.25.
 
 %gen0 person
 geno_pheno_gen(g(G1-G2,G3-G4,G5-G6,G7-G8),p(bmi(X),smoke(Smoke)),0):-
-    snp1(G1),
+    snp1(G1), %alleles not snps!
     snp2(G2),
     snp3(G3),
     snp4(G4),
@@ -731,9 +734,19 @@ geno_pheno_gen(g(G1-G2,G3-G4,G5-G6,G7-G8),p(bmi(X),smoke(Smoke)),0):-
     smoke(Smoke),
     bmi(X).
 
-geno_pheno_gen_ancestors(g(G1-G2,G3-G4,G5-G6,G7-G8),p(bmi(X),smoke(Smoke)),1):-
-    geno_pheno_gen(g(P1_G1-P1_G2,P1_G3-P1_G4,P1_G5-P1_G6,P1_G7-P1_G8),p(bmi(X),smoke(Smoke)),0),
-    geno_pheno_gen(g(P2_G1-P2_G2,P2_G3-P2_G4,P2_G5-P2_G6,P2_G7-P2_G8),p(bmi(X),smoke(Smoke)),0).
+%gen x person.
+geno_pheno_gen_ancestors(g(G1-G2,G3-G4,G5-G6,G7-G8),p(bmi(BMI),smoke(Smoke)),1):-
+    geno_pheno_gen(g(P1_G1-P1_G2,P1_G3-P1_G4,P1_G5-P1_G6,P1_G7-P1_G8),p(bmi(P1_BMI),smoke(P1_Smoke)),0),
+    geno_pheno_gen(g(P2_G1-P2_G2,P2_G3-P2_G4,P2_G5-P2_G6,P2_G7-P2_G8),p(bmi(P2_BMI),smoke(P2_Smoke)),0),
+    meiosis(1,P1_G1-P1_G2,P2_G1,P2_G2,G1-G2),
+    meiosis(2,P1_G3-P1_G4,P2_G3,P2_G4,G3-G4),
+    meiosis(3,P1_G5-P1_G6,P2_G5,P2_G6,G5-G6),
+    meiosis(4,P1_G7-P1_G8,P2_G7,P2_G8,G7-G8),
+    BMI_Mean is (P1_BMI+P2_BMI)/2,
+    G1_Dosage is  (G1+G2),
+    G1_effect_on_bmi is G1_Dossage/10,
+    New_bmi_mean is BMI_Mean + G1_effect_on_bmi,
+    bmi_mean_var(BMI,BMI_Mean,3).
 
 :- end_lpad.
 
@@ -746,7 +759,7 @@ mc_sample_arg_first(geno_pheno_gen(Geno,Pheno,0),5,geno_pheno_gen(Geno,Pheno,0),
 </div>
 
 <div class="nb-cell query" name="q22">
-mc_sample_arg_first(bmi(S),50,S,Vs).
+mc_sample_arg_first(bmi_mean_var(X,25,2),50,X,Vs).
 </div>
 
 <div class="nb-cell html" name="htm40">

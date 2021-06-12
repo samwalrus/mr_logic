@@ -579,7 +579,8 @@ The full details of this formalism, its capabilities and limitations are too det
 CP-Logic integrates the work of both Perl [2009] and Shafer [1996] on causality and probability; it seeks to be a logical language that represents dynamic causal laws.
 In CP-Logic a random variable is something that gets assigned a certain value at a certain time.
 This is in contrast to Perl’s probabilistic causal models which represent the relations between RVs as they hold in stable states of the domain. In a PCM we do not care about which event causes the value of an RV, or when it happens. In this way CP-Logic comes from the Shafer school of thought in which when considering probability or causality he thinks we need to consider the  context of a particular story and how the domain evolves, Shafer formalizes this with probability trees. In a probability tree the domain starts out in one state, then an event happens which causes the domain to change to a new state. The new state is chosen probabilistically from a set of alternatives. This is then repeated, as different events happen the states changes probabilistically from the available alternatives of that state. This happens until no further events take place.
-<img src="https://samwalrus.github.io/mr_logic/images/Prob_tree.png">
+<br>
+  <img src="https://samwalrus.github.io/mr_logic/images/Prob_tree.png">
 </p>
 
 <p>
@@ -602,9 +603,11 @@ In CP-Logic:
 \[High\_bmi :1/6:- SNP2\]
 
 </p>
+<br>
 As Causal Baysian Network:
+<br>
 <img src="https://samwalrus.github.io/mr_logic/images/Bayseian.png">
-
+<br>
 <style>
 table, th, td {
   border: 1px solid black;
@@ -613,6 +616,7 @@ table, th, td {
 </style>
 
 <table style="width:50%">
+  <caption>Probabilty table for CBN</caption>
   <tbody><tr>
     <td><b>High BMI</b></td>
     <td><b>AA</b></td>
@@ -629,7 +633,7 @@ table, th, td {
     <td>0</td>
   </tr>
 </tbody></table>
-
+<br>
 <p>
   There are two “causal mechanisms” that might lead to high BMI:
  They are independent in the following sense: once we know how many and which of these mechanisms are actually activated (i.e., which versions of the two SNP are inherited), then observing whether one of these possible causes actually results in the effect provides no information about whether one of the other causes will cause the effect. 

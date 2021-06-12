@@ -505,8 +505,7 @@ mc_rejection_expectation(person_bmi_v2_b(X,BMI),metabolite_v2_b(X,1),10000,BMI,E
 <h5> Causal Theory 3 b </h5>
 </div>
 
-<div class="nb-cell query" name="q14">
-
+<div class="nb-cell program" name="p12">
 person_cheese_b(X,1):0.5 ; person_cheese_b(X,0):0.5.
 
 %metabolite_initial_b(X,1):0.6 ; metabolite_initial_b(X,0):0.4 :- aa(X).
@@ -520,7 +519,6 @@ metabolite_v3_b(X,1):0.5 ; metabolite_v3_b(X,0):0.5. % added
 
 person_bmi_v3_b(X,1):0.7 ; person_bmi_v3_b(X,0):0.3 :- person_cheese_b(X,1).
 person_bmi_v3_b(X,1):0.1 ; person_bmi_v3_b(X,0):0.9 :- person_cheese_b(X,0).
-*/
 </div>
 
 <div class="nb-cell query" name="q20">

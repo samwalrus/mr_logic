@@ -530,6 +530,7 @@ The rules of MR are normally given as descriptions of paths in DAGS and/or found
   <li> The variant does not associate with confounders. </li>
   <li> The variant is only associated with the outcome via the exposure. </li>
 </ol>
+<img src="https://samwalrus.github.io/mr_logic/images/Diagram-of-instrumental-variable-assumptions-for-Mendelian-randomization-The-three.png" />
 <p>
 The second and third rules are the difficult ones to reason with in observed data without access to a correct causal theory. 
  However with our artificial causal theories we can do this. 

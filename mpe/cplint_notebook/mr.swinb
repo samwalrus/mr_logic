@@ -812,7 +812,7 @@ mc_sample_arg_first(bmi_mean_var(X,25,2),50,X,Vs).
 
 <div class="nb-cell html" name="htm58">
 In part x we demonstrated inteventions with manual changing of our CTs.
-In actual fact Cplint has some aspects of CP-logics interventions built in as described in [].
+In actual fact Cplint has some aspects of CP-logics interventions built in as described in [Riguzzi 2017].
 We can for example mark a law with 'action' as in line y.
 
 We can then calculate probabilties using 'do' notation (although as said in the previous section this is a bit differnt to do in a CBN.
@@ -1029,6 +1029,7 @@ gvtree(Term, digraph([rankdir='BT',size=5|Statements])) :-
   <li> Lifschitz, Vladimir. Answer set programming. Berlin: Springer, 2019. </li>
   <li> Cabalar, Pedro. "Causal logic programming." Correct Reasoning. Springer, Berlin, Heidelberg, 2012. 102-116. Describes a method in deterministic prolog programs where sets of facts and rules that have a label are kept track of in a proof. </li>
   <li> Brumpton, Ben, et al. "Avoiding dynastic, assortative mating, and population stratification biases in Mendelian randomization through within-family analyses." Nature communications 11.1 (2020): 1-13. </li>
+  <li> Riguzzi, Fabrizio, et al. "Causal inference in cplint." International Journal of Approximate Reasoning 91 (2017): 216-232. </li>
 </ol>
 </div>
 

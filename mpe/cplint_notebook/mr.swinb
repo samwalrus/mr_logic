@@ -722,12 +722,12 @@ This is because the relationships can be very naturally represented and reasoned
 In this CT we model mixed dynastic,genetic and enviromental effects on smoking and bmi.
 We have a base case causal law for generation 0.
 We then have a recursive causal law for further generations.
-This models the mendelian laws of inherentnce.
+This recursive case models the mendelian laws of inherentnce.
 
 BMI is a Gausain var.
 Smoking is binary.
-
-A straight forward use for a CT like this is for generatign symulated data.</p>
+  
+mesiosis is described with the causal law on line x.</p>
 </div>
 
 <div class="nb-cell program" data-singleline="true" name="p6">
@@ -800,6 +800,12 @@ i_geno_pheno_gen_an(I,g(G1-G2,G3-G4),p(bmi(BMI),smoke(yes)),Gen,parents(P1,P2)):
 
 <div class="nb-cell query" name="q15">
 mc_sample_arg_first(i_geno_pheno_gen_an(one,Geno,Pheno,0,A),5,i_geno_pheno_gen_an(one,Geno,Pheno,0,A),Vs).
+</div>
+
+<div class="nb-cell html" name="htm59">
+A straight forward use for a CT like this is for generatign symulated data.
+The following query generates 5 1st generation trios. 
+You can cycle through a visual representation of the term that represents a family for easier viewing by click next after running the query.
 </div>
 
 <div class="nb-cell query" name="q23">

@@ -726,7 +726,7 @@ We then have a recursive causal law for further generations.
 Each person has two genes, with two alleles represeted as a term e.g. 'g(0-0, 1-0)'.
 They also have a term to represent two phenotypes.
 
-In this CT we also demonstrate how we can say BMI is a Gausain var rather than a binary value as in the previous CTs.
+In this CT we also demonstrate how we can say BMI is a Gausain variable rather than a binary value as in the previous CTs.
 Smoking is a binary phenotype.
 e.g. p(bmi(23.17910608203032), smoke(yes))
   

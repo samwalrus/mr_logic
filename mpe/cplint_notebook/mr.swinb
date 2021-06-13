@@ -305,7 +305,7 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"+
 </script>
 
 
-To check the first requirment we can calculate the risk difference of the metabolite given the genotype.
+To check the first requirement we can calculate the risk difference of the metabolite given the genotype.
 <h5> Equation 2 </h5>
 \[Pr [metabolite = 1|genotype = aa] − Pr [metabolite =1|genotype = ab] &gt;0.\]
 </div>
@@ -405,10 +405,10 @@ We can therefore reason about our causal theories to calculate probabilities of 
 Formal definitions of interventions allow us to remove human judgment on effects.
 Instead we need to 1) Describe a causal theory of our domain and 2) follow a fixed set of rules to reason about the theory.
 
-Pearl has described how to make interventions in CBNs and Structured models and he introducted the 'do' notation to depict the corresponding operations.
+Pearl has described how to make interventions in CBNs and Structured models and he introduced the 'do' notation to depict the corresponding operations.
 <p>
-In CP-Logic we also have a procedure to modify a causal theory in order to for it to then model the intervention and for us to be able to reason about the 'do' probabilties. 
-This procedure is analogous to Pearls 'do' operations but there some differnces. </p>
+In CP-Logic we also have a procedure to modify a causal theory in order to for it to then model the intervention and for us to be able to reason about the 'do' probabilities. 
+This procedure is analogous to Pearls 'do' operations but there some differences. </p>
 
 <h6>CP-Logic interventions</h6>
 
@@ -545,7 +545,7 @@ In contrast In the second theory there is horizontal pleiotropy, which introduce
 In the third theory, there is no causal effect of the metabolite value on BMI, and the MR estimate finds no effect.
 </p>
 <p>
-We have demonstrated manually reasoning around our CTs with the MR rules, which is ok for these small examples. However if our examples are large or we need to reason about many potential clausal theories then this would not be practical.  In order to automate the MR rules we need to translate the MR rules into the context of Logic programs. The corresponding ideas of rules 2 and 3  in the context of logic programs relate to proofs rather than paths/associations.
+We have demonstrated manually reasoning around our CTs with the MR rules, which is OK for these small examples. However if our examples are large or we need to reason about many potential causal theories then this would not be practical.  In order to automate the MR rules we need to translate the MR rules into the context of Logic programs. The corresponding ideas of rules 2 and 3  in the context of logic programs relate to proofs rather than paths/associations.
 There a number of ideas in this area for instance Cabalar [2012] describes a method in deterministic prolog programs where sets of facts and rules are given a label which is then kept track of in a proof. This then shows the chain of reasoning that explains a derived fact/event. This allows  you to derive “A caused B” from rules saying that “A causes B.” If you then collect all the proofs of an event with the labels on the facts and rules, you can use the set of these proofs which each have a set of labels of used facts and rules  to reason about potential causes.  This is useful for when you need to explain a given derived atom, that is caused by joint interaction of multiple events.
 So if we were to specify the  second and third MR rules for a logic program in this way it would be along these lines:
 </p>
@@ -555,7 +555,7 @@ So if we were to specify the  second and third MR rules for a logic program in t
 </ol>
 <p>
 These rules could be implemented either using a prolog meta interpreter that collects proofs and labels or using answer set programming (ASP)  [Lifschitz 2019] for programs/theories that are compatible with ASP.
-This program would allow us to verify that a given causal theory is compatible with the MR rules in the same way as a path analysis would work on A DAG but we would be able to have joint causes (A and B) and rules with variables to describe generalisations i.e sets of answers.
+This program would allow us to verify that a given causal theory is compatible with the MR rules in the same way as a path analysis would work on A DAG but we would be able to have joint causes (A and B) and rules with variables to describe generalizations i.e sets of answers.
 </p>
 </div>
 
@@ -609,7 +609,7 @@ In CP-Logic:
 
 </p>
 <br>
-As Causal Baysian Network:
+As Causal Bayesian Network:
 <br>
 <img src="https://samwalrus.github.io/mr_logic/images/Bayseian.png">
 <br>
@@ -621,7 +621,7 @@ table, th, td {
 </style>
 
 <table style="width:50%">
-  <caption>Probabilty table for CBN</caption>
+  <caption>Probability table for CBN</caption>
   <tbody><tr>
     <td><b>High BMI</b></td>
     <td><b>AA</b></td>
@@ -701,7 +701,7 @@ as a natural representation for probabilistic causal relations, while also,  arg
 <li> CP-Logic is equivalent to practical probabilistic programming languages </li>
 <li> CP-Logic is modular and a greater set of interventions can be considered compared to CBN and PCMs </li>
 <li> CP-Logic can explicitly model multiple causes for one event, it can handle redundant causes i.e when something would cause an event but the event has already happened so it can not cause it. </li>
-<li> CP-Logic is succinct, which can aid understanding and make machine learning of therioes potentially simpler  </li>
+<li> CP-Logic is succinct, which can aid understanding and make machine learning of theories potentially simpler  </li>
 <li> CP-Logic is just different a method which gives a different view on causality</li>
 </ol>
 </div>
@@ -717,17 +717,17 @@ h3 {text-align: center;}
 <p>
   We will now describe a more elaborate CT which is relevant to MR researchers thinking about within family studies [Brumpton 2020].
 When people are first introduced to programming in logic they are often given the task of writing programs about families. 
-This is because the relationships can be very naturally represented and reasoned with and this holds true for when we want to represent probalistic causal laws around families.
+This is because the relationships can be very naturally represented and reasoned with and this holds true for when we want to represent probabilistic causal laws around families.
 </p>
 <p>
-In this CT we model mixed dynastic,genetic and enviromental effects on smoking and bmi.
+In this CT we model mixed dynastic,genetic and environmental effects on smoking and bmi.
 We have a base case causal law for generation 0.
 We then have a recursive causal law for further generations.
   
-Each person has two genes, with two alleles represeted as a term e.g. 'g(0-0, 1-0)'.
+Each person has two genes, with two alleles represented as a term e.g. 'g(0-0, 1-0)'.
 They also have a term to represent two phenotypes.
 
-In this CT we also demonstrate how we can say BMI is a Gausain variable rather than a binary value as in the previous CTs.
+In this CT we also demonstrate how we can say BMI is a Gaussian variable rather than a binary value as in the previous CTs.
 Smoking is a binary phenotype.
 e.g. p(bmi(23.17910608203032), smoke(yes))
   
@@ -735,8 +735,8 @@ Gen 0 genotype and phenotype are determined by the causal laws on line x through
   
 In contrast gen N values are determined by the causal law on line x to y.
 
-This recursive case models the mendelian laws of inherentnce.
-mesiosis is described with the causal law on line x.
+This recursive case models the Mendelian laws of inheritance.
+meiosis is described with the causal law on line x.
 
   
   In this CT each generation is likely to get a higher BMI than the previous generation.</p>
@@ -783,8 +783,8 @@ i_genNsmoke_g1_g2_p1smoke_p2smoke_t(yes).
 
 snp(X,1):0.5 ; snp(X,0):0.5.
 
-bmi(_,X): gaussian(X,24,3). %Gausain mean 24, variance 3.
-bmi_mean_var(X,Mean,Var): gaussian(X,Mean,Var). %Gausain mean M, variance V.
+bmi(_,X): gaussian(X,24,3). %Gaussian mean 24, variance 3.
+bmi_mean_var(X,Mean,Var): gaussian(X,Mean,Var). %Gaussian mean M, variance V.
 
 meiosis(_,C1-C2,C3-C4,C1-C3):0.25 ; meiosis(_,C1-C2,C3-C4,C1-C4):0.25 ;meiosis(_,C1-C2,C3-C4,C2-C3):0.25 ; meiosis(_,C1-C2,C3-C4,C2-C4):0.25.
 
@@ -822,7 +822,7 @@ mc_sample_arg_first(i_geno_pheno_gen_an(one,Geno,Pheno,0,A),5,i_geno_pheno_gen_a
 </div>
 
 <div class="nb-cell html" name="htm59">
-A straight forward use for a CT like this is for generatign symulated data.
+A straight forward use for a CT like this is for generating simulated data.
 The following query generates 5 first generation trios. 
 You can cycle through a visual representation of the term that represents a family for easier viewing by click next after running the query.
 </div>
@@ -836,11 +836,11 @@ mc_sample_arg_first(bmi_mean_var(X,25,2),50,X,Vs).
 </div>
 
 <div class="nb-cell html" name="htm58">
-In part 6 we demonstrated inteventions with manual changing of our CTs.
+In part 6 we demonstrated interventions with manual changing of our CTs.
 In actual fact Cplint has some aspects of CP-Logics interventions built in as described in [Riguzzi 2017].
 We can for example mark a law with 'action' as in line y.
 
-We can then calculate probabilties using 'do' notation (although as said in the previous section this is a bit differnt to 'do' in a CBN.
+We can then calculate probabilities using 'do' notation (although as said in the previous section this is a bit different to 'do' in a CBN.
 </div>
 
 <div class="nb-cell query" name="q14">
@@ -848,7 +848,7 @@ We can then calculate probabilties using 'do' notation (although as said in the 
 </div>
 
 <div class="nb-cell html" name="htm60">
-We encourge the reader to try other queries and explore this CT.
+We encourage the reader to try other queries and explore this CT.
 </div>
 
 <div class="nb-cell html" name="htm40">
@@ -861,7 +861,7 @@ In this notebook we have shown a number of PLPs that perform some epidemiologica
 We will now briefly discuss the wider field of artificial intelligence, automatic reasoning and how different techniques might be useful for MR methods researchers.
 As we have seen, the tool of logic programming, especially in its probabilistic versions, is a useful and under-used tool in epidemiological research.
 A major advantage to modeling MR approaches in a Probabilistic Logic Program is that the representation enables us to pose problems in which a large number of reasoning techniques have been implemented.
-Of course epidemiologists have been using human logical reasoning in their research to try and understand the phenomena of interest, however augmenting this reasoning with automatic reasoning is potentially powerful and fruitful area of research, indeed recently there has been a number of efforts in other fields to apply these techniques for example the robot scientist [Sparkes 2010], which is able to form hypothesis and physically test them,  theory represenetation in pschology [Rohner 2021] and the new research starting on the robot computer scientist (http://autocs.co.uk/index.html) . 
+Of course epidemiologists have been using human logical reasoning in their research to try and understand the phenomena of interest, however augmenting this reasoning with automatic reasoning is potentially powerful and fruitful area of research, indeed recently there has been a number of efforts in other fields to apply these techniques for example the robot scientist [Sparkes 2010], which is able to form hypothesis and physically test them,  theory representation in psychology [Rohner 2021] and the new research starting on the robot computer scientist (http://autocs.co.uk/index.html) . 
 We could ask what is the scope for a robot epidemiologists?
 </p>
 <p>
@@ -897,7 +897,7 @@ The corresponding research areas are Inductive Logic Programming (ILP), and Abdu
 <p>
 One of the most obvious tasks is to try and automatically learn our programs and causal theories from real observed data. 
 This can be divided into two tasks, 1) Learning the structure of a program or causal theory or 2) given a structure/program learning the probabilistic parameters. 
-We could potentially learn paramters for a fixed set of causal theories such as with or with out confounding elements and compare the results of the learning.
+We could potentially learn parameters for a fixed set of causal theories such as with or with out confounding elements and compare the results of the learning.
 Cplint provides a number of algorithms for these tasks.  
 Lemur [Di Mauro 2015] and Emblem [Bellodi 2013] are for learning parameters and Slipcover [Bellodi 2015] and PHIL [Fadja 2017] are for learning the structure of programs. 
 Outside of Cplint,  state of the art non probabilistic ILP implementations have a number of useful features including predicate and object invention. 
@@ -918,8 +918,8 @@ Incorporating genetic associations and MR concepts as background knowledge in a 
 </p>
 <p>
 As we have said justifying one abduction over an another is a unsolved problem, sometimes many potential abductions could be made. 
-We have also discussed a critical task in epidemiolgy - trying to distguish between different causal theories for our observed data.
-I.e. is the true sitatuion ct1 or ct2, ct3 or a specilaistion or generalisation of these or another theory altogether.
+We have also discussed a critical task in epidemiology - trying to distinguish between different causal theories for our observed data.
+I.e. is the true situation ct1 or ct2, ct3 or a specialization or generalisation of these or another theory altogether.
 MR methods seek to help us do this, by reasoning about how an association could occur and if it would meet certain constraints or what other consequences we might expect if an aspect of theory is true or false.
 </p>
 <p>
@@ -928,12 +928,12 @@ However this works with one causal theory with multiple potential causes for an 
 This is where we calculate the possible worlds where the event is true, and then look to see which world is the most probable, and in that world what is the explanation for the event.
 This reasoning is implemented in Cplint and we can see how ideas from MR could work with this example.
 Abductive reasoning is related to the ideas of actual causation mentioned in part 8 of this notebook.
-The distngushment is between; a) what are the potential reasons for an event and b) what actualy caused the event.
+The distinguishment is between; a) what are the potential reasons for an event and b) what actually caused the event.
 </p>
 <p>
   In this program, lines 2,3,4 and set up the program to use the PITA inference method.
 Then on lines 6 and 7 we have two causal laws that give alternative explanations for why a population might have high BMI.
-Lines 9-12 give the probabitlies that certain properties, which are causes of high BMI are true in the population.
+Lines 9-12 give the probabilities that certain properties, which are causes of high BMI are true in the population.
 </p>
 </div>
 
@@ -967,19 +967,19 @@ map(high_bmi,P,Exp).
 <div class="nb-cell html" name="htm54">
 <p>
 
-Asking the causal theory X in query Q, given high_bmi what is the most probable explantion? 
+Asking the causal theory X in query Q, given high_bmi what is the most probable explanation? 
  This gives us an answer with a truth assignment to possible worlds.
-  i.e. we see x,y,z is true. And therefore it is line 7 that gives us our explantion for our observation of high BMI.
+  i.e. we see x,y,z is true. And therefore it is line 7 that gives us our explanation for our observation of high BMI.
 </p>
 <p>
-Mpe inference can help us have a single explanation for an event with independent causes in a single causal theory at the object level. 
-However we need to think about how we can reason to distguish explations at the theory rather than at the object level.
-We would also like to generate abductive causal theories at differnt levels of generality, for example with unbound variables to represent any potential confounder rather than a specific measure confounder, or where confounders or an effect are constrained to be in a certain set of values.
-This reasoing would require Constriant Logic Programming [2006], possibly with custom rules constraints. Constraint Handling Rules [Frühwirth 1998] is a language design to implement custom constraint systems.
+MPE inference can help us have a single explanation for an event with independent causes in a single causal theory at the object level. 
+However we need to think about how we can reason to distinguish explanations at the theory rather than at the object level.
+We would also like to generate abductive causal theories at different levels of generality, for example with unbound variables to represent any potential confounder rather than a specific measure confounder, or where confounders or an effect are constrained to be in a certain set of values.
+This reasoning would require Constraint Logic Programming [2006], possibly with custom rules constraints. Constraint Handling Rules [Frühwirth 1998] is a language design to implement custom constraint systems.
 </p>
 <p>
 Apart from Cplint we will also mention, another prominent PLP implementation: Problog [De Raedt 2007]. 
-There is a variant of Problog called Algebraic Problog [Kimmig 2011] which is designed for reasoning across posible worlds including MPE inference and it is possible with its reasoning to identify constraints on confidence bounds which I think would be useful for many MR based tasks.
+There is a variant of Problog called Algebraic Problog [Kimmig 2011] which is designed for reasoning across possible worlds including MPE inference and it is possible with its reasoning to identify constraints on confidence bounds which I think would be useful for many MR based tasks.
 </p>
 <p>
 In this poster/notebook we have demonstrated basic MR ideas implemented as a PLP, the logic of more advance MR methods would be good to see. 

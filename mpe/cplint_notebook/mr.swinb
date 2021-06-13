@@ -713,14 +713,12 @@ h3 {text-align: center;}
 </div>
 
 <div class="nb-cell html" name="htm45">
-We will now describe a more elaborate CT which is relevant to MR researchers thinking about within family studies.
+<p>
+  We will now describe a more elaborate CT which is relevant to MR researchers thinking about within family studies [Brumpton 2020].
 When people are first introduced to programming in logic they are often given the task of writing programs about families. 
 This is because the relationships can be very naturally represented and reasoned with.
-
-
-Cite[ Within family Mendelian randomization studies]
-cite [Avoiding dynastic, assortative mating, and population stratification biases in Mendelian randomization through within-family analyses]
-
+</p>
+<p>
 In this CT we model mixed dynastic,genetic and enviromental effects on smoking and bmi.
 We have a base case causal law for generation 0.
 We then have a recursive causal law for further generations.
@@ -728,9 +726,11 @@ This models the mendelian laws of inherentnce.
 
 BMI is a Gausain var.
 Smoking is binary.
+
+A straight forward use for a CT like this is for generatign symulated data.</p>
 </div>
 
-<div class="nb-cell program" name="p6">
+<div class="nb-cell program" data-singleline="true" name="p6">
 parent_child(X,Y):- mother_child(X,Y).
 parent_child(X,Y):- father_child(X,Y).
 
@@ -808,6 +808,18 @@ Gen =1,mc_sample_arg_first(i_geno_pheno_gen_an(one,Geno,Pheno,Gen,A),5,i_geno_ph
 
 <div class="nb-cell query" name="q22">
 mc_sample_arg_first(bmi_mean_var(X,25,2),50,X,Vs).
+</div>
+
+<div class="nb-cell html" name="htm58">
+In part x we demonstrated inteventions with manual changing of our CTs.
+In actual fact Cplint has some aspects of CP-logics interventions built in as described in [].
+We can for example mark a law with 'action' as in line y.
+
+We can then calculate probabilties using 'do' notation (although as said in the previous section this is a bit differnt to do in a CBN.
+</div>
+
+<div class="nb-cell query" name="q14">
+
 </div>
 
 <div class="nb-cell html" name="htm40">
@@ -1016,6 +1028,7 @@ gvtree(Term, digraph([rankdir='BT',size=5|Statements])) :-
   <li> Rohner, Jean-Christophe, and Håkan Kjellerstrand. "Using logic programming for theory representation and scientific inference." New Ideas in Psychology 61 (2021): 100838.</li>
   <li> Lifschitz, Vladimir. Answer set programming. Berlin: Springer, 2019. </li>
   <li> Cabalar, Pedro. "Causal logic programming." Correct Reasoning. Springer, Berlin, Heidelberg, 2012. 102-116. Describes a method in deterministic prolog programs where sets of facts and rules that have a label are kept track of in a proof. </li>
+  <li> Brumpton, Ben, et al. "Avoiding dynastic, assortative mating, and population stratification biases in Mendelian randomization through within-family analyses." Nature communications 11.1 (2020): 1-13. </li>
 </ol>
 </div>
 

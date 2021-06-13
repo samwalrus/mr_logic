@@ -523,25 +523,39 @@ h3 {text-align: center;}
 </style>
 <h3> Part 7 : The structure of the three theories </h3>
 
-In the first theory there is no causal law where the genotype causes the high bmi directly, i.e. there is no horizontal pleiotropy.
-It therefore is compatible with the IV and MR rules.
-
-In the second theory there is horizontal pleiotropy, and so this explains why the query is incompatible with the calculation with the intervention.
-
-In the third theory, there is no causal effect.
-
-With a given causal theory the second and third rules of MR (). Are related to the idea of Proof in logic programming. i.e. is there a proof of an event that uses events that would break the MR rules.
-This can be encoded as :
-<h6> MR as a PLP </h6>
+<h5> MR Rules </h5>
+The rules of MR are normally given as descriptions of paths in DAGS and/or found associations. 
+<ol>
+  <li> The variant associates with the exposure. </li>
+  <li> The variant does not associate with confounders. </li>
+  <li> The variant is only associated with the outcome via the exposure. </li>
+</ol>
 <p>
-  The second and third rules of MR are normally given in the contexts of DAGS. 
-  The corresponding ideas in a probabilistic logic program relate to proofs.
-  Can you prove a path in a hyper-graph from one event to another?
-  A hyper graph is a generalisation of a graph where edges are sets of nodes rather than pairs.
-  The corresponding graph ideas such as a path remain the same but using the generalized version of an edge.
+The second and third rules are the difficult ones to reason with in observed data without access to a correct causal theory. 
+ However with our artificial causal theories we can do this. 
+In the first theory it is easy to inspect and see that there is no causal law where the genotype causes the high BMI directly, i.e. there is no direct horizontal pleiotropy (3rd rule of MR).
+It is also the case that second rule  of MR is true, i.e. the variant does not cause any confounder.
+This CT is therefore compatible with the IV and MR rules and explains why our MR estimate is similar to our intervention calculation.
 </p>
-Satisfiability.
-Learning from proofs.
+<p>
+In contrast In the second theory there is horizontal pleiotropy, which introduces a selection bias and so this explains why the MR estimate query is incompatible with the calculation with the intervention.
+</p>
+<p>
+In the third theory, there is no causal effect of the metabolite value on BMI, and the MR estimate finds no effect.
+</p>
+<p>
+We have demonstrated manually reasoning around our CTs with the MR rules, which is ok for these small examples. However if our examples are large or we need to reason about many potential clausal theories then this would not be practical.  In order to automate the MR rules we need to translate the MR rules into the context of Logic programs. The corresponding ideas of rules 2 and 3  in the context of logic programs relate to proofs rather than paths/associations.
+There a number of ideas in this area for instance Cabalar [2012] describes a method in deterministic prolog programs where sets of facts and rules are given a label which is then kept track of in a proof. This then shows the chain of reasoning that explains a derived fact/event. This allows  you to derive “A caused B” from rules saying that “A causes B.” If you then collect all the proofs of an event with the labels on the facts and rules, you can use the set of these proofs which each have a set of labels of used facts and rules  to reason about potential causes.  This is useful for when you need to explain a given derived atom, that is caused by joint interaction of multiple events.
+So if we were to specify the  second and third MR rules for a logic program in this way it would be along these lines:
+</p>
+<ol start="2">
+  <li> Any causal proof of a confounder can not have the variant as a cause.</li>
+  <li>Any casual proof of the outcome, must contain the exposure in the set of causes.</li>
+</ol>
+<p>
+These rules could be implemented either using a prolog meta interpreter that collects proofs and labels or using answer set programming (ASP)  [Lifschitz 2019] for programs/theories that are compatible with ASP.
+This program would allow us to verify that a given causal theory is compatible with the MR rules in the same way as a path analysis would work on A DAG but we would be able to have joint causes (A and B) and rules with variables to describe generalisations i.e sets of answers.
+</p>
 </div>
 
 <div class="nb-cell html" name="htm38">
@@ -1000,6 +1014,8 @@ gvtree(Term, digraph([rankdir='BT',size=5|Statements])) :-
   <li> Frühwirth, Thom. "Theory and practice of constraint handling rules." The Journal of Logic Programming 37.1-3 (1998): 95-138. </li>
   <li> Marriott, Kim, Peter J. Stuckey, and Mark Wallace. "Constraint logic programming." Foundations of Artificial Intelligence 2 (2006): 409-452. </li>
   <li> Rohner, Jean-Christophe, and Håkan Kjellerstrand. "Using logic programming for theory representation and scientific inference." New Ideas in Psychology 61 (2021): 100838.</li>
+  <li> Lifschitz, Vladimir. Answer set programming. Berlin: Springer, 2019. </li>
+  <li> Cabalar, Pedro. "Causal logic programming." Correct Reasoning. Springer, Berlin, Heidelberg, 2012. 102-116. Describes a method in deterministic prolog programs where sets of facts and rules that have a label are kept track of in a proof. </li>
 </ol>
 </div>
 

@@ -716,18 +716,26 @@ h3 {text-align: center;}
 <p>
   We will now describe a more elaborate CT which is relevant to MR researchers thinking about within family studies [Brumpton 2020].
 When people are first introduced to programming in logic they are often given the task of writing programs about families. 
-This is because the relationships can be very naturally represented and reasoned with.
+This is because the relationships can be very naturally represented and reasoned with and this holds true for when we want to represent probalistic causal laws around families.
 </p>
 <p>
 In this CT we model mixed dynastic,genetic and enviromental effects on smoking and bmi.
 We have a base case causal law for generation 0.
 We then have a recursive causal law for further generations.
-This recursive case models the mendelian laws of inherentnce.
-
-BMI is a Gausain var.
-Smoking is binary.
   
-mesiosis is described with the causal law on line x.</p>
+Each person has two genes, with two alleles represeted as a term e.g. 'g(0-0, 1-0)'.
+They also have a term to represent two phenotypes.
+
+In this CT we also demonstrate how we can say BMI is a Gausain var rather than a binary value as in the previous CTs.
+Smoking is a binary phenotype.
+e.g. p(bmi(23.17910608203032), smoke(yes))
+  
+
+  
+mesiosis is described with the causal law on line x.
+This recursive case models the mendelian laws of inherentnce.
+  
+  In this CT each generation is likely to get a higher BMI than the previous generation.</p>
 </div>
 
 <div class="nb-cell program" data-singleline="true" name="p6">
@@ -793,9 +801,6 @@ i_geno_pheno_gen_an(I,g(G1-G2,G3-G4),p(bmi(BMI),smoke(yes)),Gen,parents(P1,P2)):
     true.
 
 :- end_lpad.
-
-
-%We can use the do operator with evidence of
 </div>
 
 <div class="nb-cell query" name="q15">
@@ -804,7 +809,7 @@ mc_sample_arg_first(i_geno_pheno_gen_an(one,Geno,Pheno,0,A),5,i_geno_pheno_gen_a
 
 <div class="nb-cell html" name="htm59">
 A straight forward use for a CT like this is for generatign symulated data.
-The following query generates 5 1st generation trios. 
+The following query generates 5 first generation trios. 
 You can cycle through a visual representation of the term that represents a family for easier viewing by click next after running the query.
 </div>
 

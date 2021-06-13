@@ -412,14 +412,10 @@ This procedure is analogous to Pearls 'do' operations but there some differnces.
 
 <h6>CP-Logic interventions</h6>
 
-<p>
-In CP-Logic interventions are not at the level of random variables (i.e., atoms) as described in Pearls work, but instead interventions add and/or prevent CP-laws to/in a theory.
-</p>
 <ol>
-  <li>Perls interventions fix a value, they can not contain a probability distribution</li>
-  <li>Perls interventions can not introduce new relationships between existing random variables</li>
-  <li></li>
-  <li></li>
+  <li> In CP-Logic interventions are not at the level of random variables (i.e., atoms) as described in Pearls work, but instead interventions add and/or prevent CP-laws to/in a theory.</li>
+  <li> Perls interventions fix a value, they can not contain a probability distribution</li>
+  <li> Perls interventions can not introduce new relationships between existing random variables</li>
 </ol>
 
 Interventions in CP-Logic are therefore slightly more fine grained than that of Pearl version of the  'do' operator, since we can
@@ -436,10 +432,6 @@ We next present three further causal theories which are modified versions of the
 We remove the first two laws and replace with a law. 
 If we do this to the three causal theories then we can now see how the probabilities are now different in the modified theories.
 And compare these to the MR estimates in part 4 of this notebook.
-</p>
-<p>
-  Making an intervention on the metabolite does not change a probability of getting high bmi.
-  In causal theory 3.
 </p>
 </div>
 

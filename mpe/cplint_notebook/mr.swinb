@@ -730,10 +730,13 @@ In this CT we also demonstrate how we can say BMI is a Gausain var rather than a
 Smoking is a binary phenotype.
 e.g. p(bmi(23.17910608203032), smoke(yes))
   
-
+Gen 0 genotype and phenotype are determined by the causal laws on line x through to z.
   
-mesiosis is described with the causal law on line x.
+In contrast gen N values are determined by the causal law on line x to y.
+
 This recursive case models the mendelian laws of inherentnce.
+mesiosis is described with the causal law on line x.
+
   
   In this CT each generation is likely to get a higher BMI than the previous generation.</p>
 </div>
@@ -766,7 +769,16 @@ child_uncle(X,Y):-parent_child(P,X),sibling(P,Y), male(Y).
 %:- use_module(library(clpr)).
 smoke(I,yes):0.5; smoke(I,no):0.5 .
 
-%smoke_p1_p2_gene(yes,P1,P2,G):X ; smoke_p1_p2_gene(no,P1,P2,G):Y: - true,X =2.
+advertising(true):0.5; advertising(false):0.5.
+
+%if advertising and parents smoke and gen then distribution:
+i_genNsmoke_g1_g2_p1smoke_p2smoke_t(yes):X ; i_genNsmoke_g1_g2_p1smoke_p2smoke_t(no):Y :- advertising. 
+
+%if advertising and no parents smoke and gene then distribution.
+i_genNsmoke_g1_g2_p1smoke_p2smoke_t(yes):X ; i_genNsmoke_g1_g2_p1smoke_p2smoke_t(no):Y :-
+
+%else
+i_genNsmoke_g1_g2_p1smoke_p2smoke_t(yes).
 
 snp(X,1):0.5 ; snp(X,0):0.5.
 
@@ -800,6 +812,7 @@ i_geno_pheno_gen_an(I,g(G1-G2,G3-G4),p(bmi(BMI),smoke(yes)),Gen,parents(P1,P2)):
     bmi_mean_var(BMI,New_bmi_mean,3),
     true.
 
+%:- action i_geno_pheno_gen_an/5, advertising/1. 
 :- end_lpad.
 </div>
 
@@ -822,15 +835,19 @@ mc_sample_arg_first(bmi_mean_var(X,25,2),50,X,Vs).
 </div>
 
 <div class="nb-cell html" name="htm58">
-In part x we demonstrated inteventions with manual changing of our CTs.
-In actual fact Cplint has some aspects of CP-logics interventions built in as described in [Riguzzi 2017].
+In part 6 we demonstrated inteventions with manual changing of our CTs.
+In actual fact Cplint has some aspects of CP-Logics interventions built in as described in [Riguzzi 2017].
 We can for example mark a law with 'action' as in line y.
 
-We can then calculate probabilties using 'do' notation (although as said in the previous section this is a bit differnt to do in a CBN.
+We can then calculate probabilties using 'do' notation (although as said in the previous section this is a bit differnt to 'do' in a CBN.
 </div>
 
 <div class="nb-cell query" name="q14">
 
+</div>
+
+<div class="nb-cell html" name="htm60">
+We encourge the reader to try other queries and explore this CT.
 </div>
 
 <div class="nb-cell html" name="htm40">

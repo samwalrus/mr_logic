@@ -917,7 +917,7 @@ Lines 9-12 give the probabilities that certain properties, which are causes of h
 <h5> Causal Theory 5 </h5>
 </div>
 
-<div class="nb-cell program" name="p7">
+<div class="nb-cell program" data-background="true" name="p7">
 :- use_module(library(pita)).
 :- pita.
 :- begin_lpad.
@@ -935,8 +935,8 @@ color(X,white):1  :- cg(X,1,w), cg(X,2,w).
 
 map_query cake_advertising:0.9.
 
-map_query high_bmi(X):0.1 :- color(X,purple).
-map_query high_bmi(_):0.1 :- cake_advertising. 
+map_query ahigh_bmi(X):0.2 :- color(X,purple).
+map_query ahigh_bmi(_):0.1 :- cake_advertising. 
 
 :- end_lpad.
 
@@ -948,7 +948,7 @@ map_query high_bmi(_):0.1 :- cake_advertising.
 </div>
 
 <div class="nb-cell query" name="q21">
-map(high_bmi,P,Exp).
+map(ahigh_bmi,P,Exp).
 </div>
 
 <div class="nb-cell html" name="htm54">

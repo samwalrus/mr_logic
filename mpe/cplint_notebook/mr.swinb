@@ -38,6 +38,7 @@ We then state that our probabilistic program will begin (line 5) and on line 6 w
 :- mc.
 
 :- begin_lpad.
+
 aa(_):0.5 ; ab(_):0.5.
 </div>
 
@@ -517,6 +518,12 @@ person_bmi_v3_b(X,1):0.1 ; person_bmi_v3_b(X,0):0.9 :- person_cheese_b(X,0).
 mc_rejection_expectation(person_bmi_v3_b(X,BMI),metabolite_v3_b(X,1),10000,BMI,Ex_bmi_met1), mc_rejection_expectation(person_bmi_v3_b(X,BMI),metabolite_v3_b(X,0),10000,BMI,Ex_bmi_met0),Effect is Ex_bmi_met1 - Ex_bmi_met0.
 </div>
 
+<div class="nb-cell html" name="htm58">
+In this part we have demonstrated interventions with manual changing of our CTs for clarity of how this works in CP-Logic.
+In actual fact Cplint has some aspects of CP-Logics interventions built in as described in [Riguzzi 2017].
+Events can be marked as actions and then evidence queries can be adapted by enclosing the evidence in a 'do' term.
+</div>
+
 <div class="nb-cell html" name="htm37">
 <style>
 h3 {text-align: center;}
@@ -530,7 +537,7 @@ The rules of MR are normally given as descriptions of paths in DAGS and/or found
   <li> The variant does not associate with confounders. </li>
   <li> The variant is only associated with the outcome via the exposure. </li>
 </ol>
-<img src="https://samwalrus.github.io/mr_logic/images/Diagram-of-instrumental-variable-assumptions-for-Mendelian-randomization-The-three.png" />
+<img src="https://samwalrus.github.io/mr_logic/images/Diagram-of-instrumental-variable-assumptions-for-Mendelian-randomization-The-three.png">
 <p>
 The second and third rules are the difficult ones to reason with in observed data without access to a correct causal theory. 
  However with our artificial causal theories we can do this. 
@@ -720,7 +727,7 @@ When people are first introduced to programming in logic they are often given th
 This is because the relationships can be very naturally represented and reasoned with and this holds true for when we want to represent probabilistic causal laws around families.
 </p>
 <p>
-In this CT we model mixed dynastic,genetic and environmental effects on smoking and bmi.
+In this CT we model mixed dynastic,genetic and environmental effects on smoking and BMI.
 We have a base case causal law for generation 0.
 We then have a recursive causal law for further generations.
   
@@ -762,24 +769,18 @@ child_uncle(X,Y):-parent_child(P,X),sibling(P,Y), male(Y).
 %Generation 2 probabilistic
 </div>
 
-<div class="nb-cell program" name="p10">
-%smoking
-%parents influence smoking
-%advertising influences smoking
-%gene influence smoking.
-%:- use_module(library(clpr)).
+<div class="nb-cell program" name="p13">
 smoke(I,yes):0.5; smoke(I,no):0.5 .
-
 advertising(true):0.5; advertising(false):0.5.
 
-%if advertising and parents smoke and gen then distribution:
-i_genNsmoke_g1_g2_p1smoke_p2smoke_t(yes):X ; i_genNsmoke_g1_g2_p1smoke_p2smoke_t(no):Y :- advertising. 
-
-%if advertising and no parents smoke and gene then distribution.
-i_genNsmoke_g1_g2_p1smoke_p2smoke_t(yes):X ; i_genNsmoke_g1_g2_p1smoke_p2smoke_t(no):Y :-
-
-%else
-i_genNsmoke_g1_g2_p1smoke_p2smoke_t(yes).
+%if advertising and at least 1 parents smokes and then distribution:
+i_g1_g2_p1smoke_p2smoke_t(I,G1,G2,P1_Smoke,P2_Smoke,yes):X ; i_g1_g2_p1smoke_p2smoke_t(I,G1,G2,P1_Smoke,P2_Smoke,no):Y :- advertising(true), memberchk(yes,[P1_Smoke,P2_Smoke]), X is 0.7 + ((G1 +G2)/10), Y is 1-X.
+%if no advertising and at least 1 parents smokes and gene then distribution.
+i_g1_g2_p1smoke_p2smoke_t(I,G1,G2,P1_Smoke,P2_Smoke,yes):X ; i_g1_g2_p1smoke_p2smoke_t(I,G1,G2,P1_Smoke,P2_Smoke,no):Y :- advertising(false), memberchk(yes,[P1_Smoke,P2_Smoke]), X is 0.5 + ((G1 +G2)/10), Y is 1-X.
+%no parents smoke and adverts
+i_g1_g2_p1smoke_p2smoke_t(I,G1,G2,no,no,yes):X ; i_g1_g2_p1smoke_p2smoke_t(I,G1,G2,no,no,no):Y :- advertising(true), X is 0.5 + ((G1 +G2)/10), Y is 1-X.
+%no parents smoke and no adverts
+i_g1_g2_p1smoke_p2smoke_t(I,G1,G2,no,no,yes):X ; i_g1_g2_p1smoke_p2smoke_t(I,G1,G2,no,no,no):Y :- advertising(false), X is 0.3 + ((G1 +G2)/10), Y is 1-X.
 
 snp(X,1):0.5 ; snp(X,0):0.5.
 
@@ -797,8 +798,8 @@ i_geno_pheno_gen_an(I,g(G1-G2,G3-G4),p(bmi(X),smoke(Smoke)),0,[]):-
     smoke(I,Smoke),
     bmi(I,X).
 
-%gen x person.
-i_geno_pheno_gen_an(I,g(G1-G2,G3-G4),p(bmi(BMI),smoke(yes)),Gen,parents(P1,P2)):-
+%gen X person.
+i_geno_pheno_gen_an(I,g(G1-G2,G3-G4),p(bmi(BMI),smoke(Smoke)),Gen,parents(P1,P2)):-
     Gen0 #= Gen-1,
     i_geno_pheno_gen_an(m(I),g(P1_G1-P1_G2,P1_G3-P1_G4),p(bmi(P1_BMI),smoke(P1_Smoke)),Gen0,P1_Ancestors),
     P1 = i_geno_pheno_gen_an(m(I),g(P1_G1-P1_G2,P1_G3-P1_G4),p(bmi(P1_BMI),smoke(P1_Smoke)),Gen0,P1_Ancestors),
@@ -806,19 +807,14 @@ i_geno_pheno_gen_an(I,g(G1-G2,G3-G4),p(bmi(BMI),smoke(yes)),Gen,parents(P1,P2)):
     P2 = i_geno_pheno_gen_an(f(I),g(P2_G1-P2_G2,P2_G3-P2_G4),p(bmi(P2_BMI),smoke(P2_Smoke)),Gen0, P2_Ancestors),                   
     meiosis(1,P1_G1-P1_G2, P2_G1-P2_G2, G1-G2),
     meiosis(2,P1_G3-P1_G4,P2_G3-P2_G4,G3-G4),
-    BMI_Mean #= (P1_BMI+P2_BMI)/2,
-    G1_Dosage #= (G1+G2),
-    G1_effect_on_bmi #= G1_Dosage/10,
-    New_bmi_mean #= BMI_Mean + G1_effect_on_bmi,
+    BMI_Mean is (P1_BMI+P2_BMI)/2,
+    G1_Dosage is (G1+G2),
+    G1_effect_on_bmi is G1_Dosage/10,
+    New_bmi_mean is BMI_Mean + G1_effect_on_bmi,
     bmi_mean_var(BMI,New_bmi_mean,3),
-    true.
+    i_g1_g2_p1smoke_p2smoke_t(I,G1,G2,P1_Smoke,P2_Smoke,Smoke).
 
-%:- action i_geno_pheno_gen_an/5, advertising/1. 
 :- end_lpad.
-</div>
-
-<div class="nb-cell query" name="q15">
-mc_sample_arg_first(i_geno_pheno_gen_an(one,Geno,Pheno,0,A),5,i_geno_pheno_gen_an(one,Geno,Pheno,0,A),Vs).
 </div>
 
 <div class="nb-cell html" name="htm59">
@@ -828,27 +824,15 @@ You can cycle through a visual representation of the term that represents a fami
 </div>
 
 <div class="nb-cell query" name="q23">
-Gen =1,mc_sample_arg_first(i_geno_pheno_gen_an(one,Geno,Pheno,Gen,A),5,i_geno_pheno_gen_an(one,Geno,Pheno,Gen,A),Vs), member(M-N,Vs), gvtree(M, A_tree).
+Gen=1,mc_sample_arg_first(i_geno_pheno_gen_an(one,Geno,Pheno,Gen,A),5,i_geno_pheno_gen_an(one,Geno,Pheno,Gen,A),Vs), member(M-N,Vs), gvtree(M, A_tree).
 </div>
 
-<div class="nb-cell query" name="q22">
-mc_sample_arg_first(bmi_mean_var(X,25,2),50,X,Vs).
-</div>
-
-<div class="nb-cell html" name="htm58">
-In part 6 we demonstrated interventions with manual changing of our CTs.
-In actual fact Cplint has some aspects of CP-Logics interventions built in as described in [Riguzzi 2017].
-We can for example mark a law with 'action' as in line y.
-
-We can then calculate probabilities using 'do' notation (although as said in the previous section this is a bit different to 'do' in a CBN.
+<div class="nb-cell html" name="htm61">
+Or 3 generations. (Takes a few seconds to run).
 </div>
 
 <div class="nb-cell query" name="q14">
-
-</div>
-
-<div class="nb-cell html" name="htm60">
-We encourage the reader to try other queries and explore this CT.
+Gen=2,mc_sample_arg_first(i_geno_pheno_gen_an(one,Geno,Pheno,Gen,A),5,i_geno_pheno_gen_an(one,Geno,Pheno,Gen,A),Vs), member(M-N,Vs), gvtree(M, A_tree).
 </div>
 
 <div class="nb-cell html" name="htm40">

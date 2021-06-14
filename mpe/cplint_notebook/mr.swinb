@@ -806,9 +806,11 @@ i_geno_pheno_gen_an(I,g(G1-G2,G3-G4),p(bmi(BMI),smoke(Smoke)),Gen,parents(P1,P2)
 </div>
 
 <div class="nb-cell html" name="htm59">
-A straight forward use for a CT like this is for generating simulated data.
+A straight forward use for a CT like this is for generating simulated data [Lifschitz 2015].
 The following query generates 5 first generation trios. 
 You can cycle through a visual representation of the term that represents a family for easier viewing by click next after running the query.
+
+<h5> Query 19 (On CT4) </h5>
 </div>
 
 <div class="nb-cell query" name="q23">

@@ -753,24 +753,8 @@ meiosis is described with the causal law on line x.
   In this CT each generation is likely to get a higher BMI than the previous generation.</p>
 </div>
 
-<div class="nb-cell program" data-singleline="true" name="p6">
-parent_child(X,Y):- mother_child(X,Y).
-parent_child(X,Y):- father_child(X,Y).
-
-grandparent_child(X,Y):- parent_child(X,Z),parent_child(Z,Y).
-
-ancestor(X,Y) :- parent_child(X,Y).
-ancestor(X,Y) :- ancestor(X,Z),parent_child(Z,Y).
-
-sibling(X,Y) :- parent_child(P,X),parent_child(P,Y).
-
-cousin(X,Y):- parent_child(P1,X),sibling(P1,P2),parent_child(P2,Y).
-
-child_aunt(X,Y):- parent_child(P,X),sibling(P,Y), female(Y).
-child_uncle(X,Y):-parent_child(P,X),sibling(P,Y), male(Y).
-
-%Generation 1 fixed
-%Generation 2 probabilistic
+<div class="nb-cell html" name="htm62">
+<h5> Causal Theory 4 </h5>
 </div>
 
 <div class="nb-cell program" name="p13">

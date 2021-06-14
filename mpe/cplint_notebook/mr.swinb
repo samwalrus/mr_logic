@@ -1044,9 +1044,13 @@ gvtree(Term, digraph([rankdir='BT',size=5|Statements])) :-
   <li> Rohner, Jean-Christophe, and Håkan Kjellerstrand. "Using logic programming for theory representation and scientific inference." New Ideas in Psychology 61 (2021): 100838.</li>
   <li> Dries, Anton. "Declarative data generation with problog." Proceedings of the sixth international symposium on information and communication technology. 2015. </li>
   <li> Lifschitz, Vladimir. Answer set programming. Berlin: Springer, 2019. </li>
-  <li> Cabalar, Pedro. "Causal logic programming." Correct Reasoning. Springer, Berlin, Heidelberg, 2012. 102-116. Describes a method in deterministic prolog programs where sets of facts and rules that have a label are kept track of in a proof. </li>
+  <li> Cabalar, Pedro. "Causal logic programming." Correct Reasoning. Springer, Berlin, Heidelberg, 2012. 102-116. </li>
   <li> Brumpton, Ben, et al. "Avoiding dynastic, assortative mating, and population stratification biases in Mendelian randomization through within-family analyses." Nature communications 11.1 (2020): 1-13. </li>
   <li> Riguzzi, Fabrizio, et al. "Causal inference in cplint." International Journal of Approximate Reasoning 91 (2017): 216-232. </li>
+  <li> Bellodi, Elena, et al. "MAP Inference for Probabilistic Logic Programming." Theory and Practice of Logic Programming 20.5 (2020): 641-655. </li>
+  <li> Sato, T. 1995. A statistical learning method for logic programs with distribution semantics. In
+Logic Programming, Proceedings of the Twelfth International Conference on Logic Programming, Tokyo, Japan, June 13-16, 1995, L. Sterling, Ed. MIT Press, 715–729. </li>
+  <li> Fabrizio Riguzzi and Terrance Swift. Well-definedness and efficient inference for probabilistic logic programming under the distribution semantics. Theory and Practice of Logic Programming, 13(Special Issue 02 - 25th Annual GULP Conference):279-302, © Cambridge University Press, March 2013.  </li>
 </ol>
 </div>
 

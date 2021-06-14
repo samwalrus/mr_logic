@@ -25,7 +25,7 @@ Throughout this note book we will use a number of artificial running examples.
 In the first example we will define the relationships between a SNP (aa or ab), a metabolite (that can take on values 0 or 1) and having a high Body Mass Index (BMI).
 <p>
 We first set up our program by importing the required library and initializing it (line 1,2 and 3).
- In this note book we are using the approximate algorithms provided by the Mcintyre library [Riguzzi 2013]. 
+ In this note book we are using the approximate algorithms provided by the Mcintyre library [Riguzzi 2013] and PITA library [Riguzzi 2013b]. 
 We then state that our probabilistic program will begin (line 5) and on line 6 we state that someone has either the genotype value <i>aa</i> or <i>ab</i> with equal probability.
 
 
@@ -899,7 +899,7 @@ I.e. is the true situation ct1 or ct2, ct3 or a specialization or generalisation
 MR methods seek to help us do this, by reasoning about how an association could occur and if it would meet certain constraints or what other consequences we might expect if an aspect of theory is true or false.
 </p>
 <p>
-One method to choose a potential abductive explanation is the Most Probable Explanation (MPE) [Shterionov 2015].
+One method to choose a potential abductive explanation is the Most Probable Explanation (MPE) [Shterionov 2015, Bellodi 2020].
 However this works with one causal theory with multiple potential causes for an event.
 This is where we calculate the possible worlds where the event is true, and then look to see which world is the most probable, and in that world what is the explanation for the event.
 This reasoning is implemented in Cplint and we can see how ideas from MR could work with this example.

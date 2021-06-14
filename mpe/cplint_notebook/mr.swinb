@@ -819,6 +819,8 @@ Gen=1,mc_sample_arg_first(i_geno_pheno_gen_an(one,Geno,Pheno,Gen,A),5,i_geno_phe
 
 <div class="nb-cell html" name="htm61">
 Or 3 generations. (Takes a few seconds to run).
+
+<h5> Query 20 (On CT4) </h5>
 </div>
 
 <div class="nb-cell query" name="q14">
@@ -912,26 +914,37 @@ Lines 9-12 give the probabilities that certain properties, which are causes of h
 </div>
 
 <div class="nb-cell html" name="htm55">
-<h5> Causal theory X </h5>
+<h5> Causal Theory 5 </h5>
 </div>
 
 <div class="nb-cell program" name="p7">
-%MPE inference. Adapted from Shterionov 2015.
 :- use_module(library(pita)).
 :- pita.
 :- begin_lpad.
+mother(m,s).
+father(f,s).
+cg(m,1,p).
+cg(m,2,w).
+cg(f,1,w).
+cg(f,2,p).
+map_query cg(X,1,A):0.5 ; cg(X,1,B):0.5 :- mother(Y,X),cg(Y,1,A), cg(Y,2,B).
+map_query cg(X,2,A):0.5 ; cg(X,2,B):0.5 :- father(Y,X),cg(Y,1,A), cg(Y,2,B).
 
-high_bmi :- likes_cheese, lives_near_cheese_shop.
-high_bmi :- sedetry_job, scared_of_gyms.
+color(X,purple):1 :- cg(X,_,p).
+color(X,white):1  :- cg(X,1,w), cg(X,2,w).
 
-map_query 0.4::likes_cheese.
-map_query 0.9::lives_near_cheese_shop.
-map_query 0.5::sedetry_job.
-map_query 0.6::scared_of_gyms.
+map_query cake_advertising:0.9.
+
+map_query high_bmi(X):0.1 :- color(X,purple).
+map_query high_bmi(_):0.1 :- cake_advertising. 
+
+:- end_lpad.
+
+
 </div>
 
 <div class="nb-cell html" name="htm57">
-<h5> Query Q on CTX </h5>
+<h5> Query 21 on CT5 </h5>
 </div>
 
 <div class="nb-cell query" name="q21">
@@ -941,9 +954,9 @@ map(high_bmi,P,Exp).
 <div class="nb-cell html" name="htm54">
 <p>
 
-Asking the causal theory X in query Q, given high_bmi what is the most probable explanation? 
+Asking the causal theory 5 in query 21, given high_bmi what is the most probable explanation? 
  This gives us an answer with a truth assignment to possible worlds.
-  i.e. we see x,y,z is true. And therefore it is line 7 that gives us our explanation for our observation of high BMI.
+  i.e. we see that sedentary_job and gym_phobia are true. And therefore it is line 7 that gives us our explanation for our observation of high BMI.
 </p>
 <p>
 MPE inference can help us have a single explanation for an event with independent causes in a single causal theory at the object level. 

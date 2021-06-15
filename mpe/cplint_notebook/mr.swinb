@@ -430,7 +430,7 @@ of performing <i>(R, A)</i> on <i>C</i>, denoted <i>C↯(R, A)</i>, is the CP-th
 
 <p>
 We next present three further causal theories which are modified versions of the original cts.
-We remove the first two laws and replace with a law. 
+We remove the laws that cause a event and replace with a law that causes the event with equal probabilty.  
 If we do this to the three causal theories then we can now see how the probabilities are now different in the modified theories.
 And compare these to the MR estimates in part 4 of this notebook.
 </p>
@@ -732,25 +732,25 @@ This is because the relationships can be very naturally represented and reasoned
 </p>
 <p>
 In this CT we model mixed dynastic,genetic and environmental effects on smoking and BMI.
-We have a base case causal law for generation 0.
+We have a base case causal law for generation 0, lines 21 -27.
 We then have a recursive causal law for further generations.
   
 Each person has two genes, with two alleles represented as a term e.g. 'g(0-0, 1-0)'.
-They also have a term to represent two phenotypes.
+They also have a term to represent two phenotypes, BMI and Smoking status.
 
 In this CT we also demonstrate how we can say BMI is a Gaussian variable rather than a binary value as in the previous CTs.
 Smoking is a binary phenotype.
 e.g. p(bmi(23.17910608203032), smoke(yes))
   
-Gen 0 genotype and phenotype are determined by the causal laws on line x through to z.
+Gen 0 genotype and phenotype are determined by the causal laws on line 21 through to 27.
   
-In contrast gen N values are determined by the causal law on line x to y.
+In contrast gen N values are determined by the causal law on line 30 to 43.
 
-This recursive case models the Mendelian laws of inheritance.
-meiosis is described with the causal law on line x.
+This recursive case, models the Mendelian laws of inheritance and contain dynatic effects.
+Meiosis is described with the causal law on line 18.
 
   
-  In this CT each generation is likely to get a higher BMI than the previous generation.</p>
+In this CT each generation is likely to get a higher BMI than the previous generation, due to the accumlative dynastic effect</p>
 </div>
 
 <div class="nb-cell html" name="htm62">

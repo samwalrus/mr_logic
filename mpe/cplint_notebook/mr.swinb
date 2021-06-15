@@ -25,7 +25,7 @@ Throughout this note book we will use a number of artificial running examples.
 In the first example we will define the relationships between a SNP (aa or ab), a metabolite (that can take on values 0 or 1) and having a high Body Mass Index (BMI).
 <p>
 We first set up our program by importing the required library and initializing it (line 1,2 and 3).
- In this note book we are using the approximate algorithms provided by the Mcintyre library [Riguzzi 2013] and PITA library [Riguzzi 2013b]. 
+In the first few parts of this notebook we are using the approximate algorithms provided by the Mcintyre library [Riguzzi 2013].
 We then state that our probabilistic program will begin (line 5) and on line 6 we state that someone has either the genotype value <i>aa</i> or <i>ab</i> with equal probability.
 
 
@@ -600,7 +600,7 @@ This is in contrast to Perl’s probabilistic causal models which represent the 
 </p>
 
 <p>
-  CP Logic therefore offers a succinct syntax for describing classes of Shaferian probability trees, CP-logic has also been proven to be equivalent to the language  of Logic Programs with Annotated Disjunctions (LPADS)  which has the formal distribution semantics of Sato in which a logic programming rule has its head annotated with a probability and this  specifies a probability distribution over a set of possible world in terms of these individual probabilities on a rule head. This means it is also a <i>practical probabilistic programming language</i> as we have seen in this notebook. 
+  CP Logic therefore offers a succinct syntax for describing classes of Shaferian probability trees, CP-logic has also been proven to be equivalent to the language  of Logic Programs with Annotated Disjunctions (LPADS)  which has the formal distribution semantics of Sato [Sato 1995] in which a logic programming rule has its head annotated with a probability and this  specifies a probability distribution over a set of possible world in terms of these individual probabilities on a rule head. This means it is also a <i>practical probabilistic programming language</i> as we have seen in this notebook. 
   CP-Logic defines theories as sets of causal laws in the form 'Head ← Body'.  
   The body can be any first order logic formula.
   The head contains a disjunction of atoms annotated with a probability, which are the possible effects of the law.
@@ -907,9 +907,11 @@ Abductive reasoning is related to the ideas of actual causation mentioned in par
 The distinguishment is between; a) what are the potential reasons for an event and b) what actually caused the event.
 </p>
 <p>
-  In this program, lines 2,3,4 and set up the program to use the PITA inference method.
-Then on lines 6 and 7 we have two causal laws that give alternative explanations for why a population might have high BMI.
-Lines 9-12 give the probabilities that certain properties, which are causes of high BMI are true in the population.
+  In this program, lines 1-10 set up the program to use the exact PITA inference method [Riguzzi 2013b], and tell SWISH to render answers as a graph and table.
+  We then give a ground logic program (for simplicity) which details how high BMI can be caused either by 'cake advertising' or by having the phenotype purple.
+  The phenotype purple is caused by having a p allele with probabilty 0.9 or if both alleles that have been inherited are w, then the probabilty of purple phenotype is 0.1.
+  
+  Lines 19-22 are the meiosis rules, and lines 14 -17 show the prevlence of the alleles in mothers and fathers.
 </p>
 </div>
 
@@ -919,28 +921,43 @@ Lines 9-12 give the probabilities that certain properties, which are causes of h
 
 <div class="nb-cell program" data-background="true" name="p7">
 :- use_module(library(pita)).
+
+:- if(current_predicate(use_rendering/1)).
+:- use_rendering(c3).
+:- use_rendering(graphviz).
+:- use_rendering(table,[header(['Multivalued variable index','Rule index','Grounding substitution'])]).
+:- endif.
+
 :- pita.
 :- begin_lpad.
 mother(m,s).
 father(f,s).
-cg(m,1,p).
-cg(m,2,w).
-cg(f,1,w).
-cg(f,2,p).
-map_query cg(X,1,A):0.5 ; cg(X,1,B):0.5 :- mother(Y,X),cg(Y,1,A), cg(Y,2,B).
-map_query cg(X,2,A):0.5 ; cg(X,2,B):0.5 :- father(Y,X),cg(Y,1,A), cg(Y,2,B).
 
-color(X,purple):1 :- cg(X,_,p).
-color(X,white):1  :- cg(X,1,w), cg(X,2,w).
+map_query cg(m,1,p):0.7 ; cg(m,1,w):0.3. %0
+map_query cg(m,2,p):0.7 ; cg(m,2,w):0.3. %1
+map_query cg(f,1,p):0.3 ; cg(f,1,w):0.7. %2
+map_query cg(f,2,p):0.3 ; cg(f,2,w):0.7. %3
 
-map_query cake_advertising:0.9.
+map_query cg(s,1,p):1 ; cg(s,1,w):0 :- mother(m,s),cg(m,1,p), cg(m,2,p). %4
+map_query cg(s,1,p):0.5 ; cg(s,1,w):0.5 :- mother(m,s),cg(m,1,p), cg(m,2,w). %5
+map_query cg(s,1,p):0.5 ; cg(s,1,w):0.5 :- mother(m,s),cg(m,1,w), cg(m,2,p). %6
+map_query cg(s,1,p):0 ; cg(s,1,w):1 :- mother(m,s),cg(m,1,w), cg(m,2,w). %7
 
-map_query ahigh_bmi(X):0.2 :- color(X,purple).
-map_query ahigh_bmi(_):0.1 :- cake_advertising. 
+map_query cg(s,1,p):1 ; cg(s,1,w):0 :- father(m,s),cg(m,1,p), cg(m,2,p). %8
+map_query cg(s,1,p):0.5 ; cg(s,1,w):0.5 :- father(m,s),cg(m,1,p), cg(m,2,w). %9
+map_query cg(s,1,p):0.5 ; cg(s,1,w):0.5 :- father(m,s),cg(m,1,w), cg(m,2,p). %10
+map_query cg(s,1,p):0 ; cg(s,1,w):1 :- father(m,s),cg(m,1,w), cg(m,2,w). %11
+
+map_query color(s,purple):0.9 ; color(s,white):0.1:- cg(s,1,p). %12
+map_query color(s,purple):0.9 ; color(s,white):0.1:- cg(s,2,p). %13
+map_query color(s,purple):0.1 ; color(s,white):0.9 :- cg(s,1,w), cg(s,2,w). %14
+
+map_query cake_advertising:0.9. %15
+
+map_query high_bmi(s):0.5 :- color(s,purple). %16
+map_query high_bmi(s):0.1 :- cake_advertising. %17
 
 :- end_lpad.
-
-
 </div>
 
 <div class="nb-cell html" name="htm57">
@@ -948,7 +965,7 @@ map_query ahigh_bmi(_):0.1 :- cake_advertising.
 </div>
 
 <div class="nb-cell query" name="q21">
-map(ahigh_bmi,P,Exp).
+map(high_bmi(s),P,Exp),maplist(writeln,Exp).
 </div>
 
 <div class="nb-cell html" name="htm54">
@@ -956,9 +973,11 @@ map(ahigh_bmi,P,Exp).
 
 Asking the causal theory 5 in query 21, given high_bmi what is the most probable explanation? 
  This gives us an answer with a truth assignment to possible worlds.
-  i.e. we see that sedentary_job and gym_phobia are true. And therefore it is line 7 that gives us our explanation for our observation of high BMI.
+  i.e. we see that rule 16, rule 12, rule4, rule 0 and rule 1 gives us our explanation for our observation of high BMI. 
+  Which is that the most probable explanation for high BMI is that the person has the phenotype purple which was caused by have a 'p' allele which they inherited from their mother.
 </p>
-<p>
+<p> We can consider how differnt interventions on this theory would change the explanations, for example what if being advertised to was more effective at increasing BMI - modify line 36, or what if there was less advertising? Modify line 33.
+</p><p>
 MPE inference can help us have a single explanation for an event with independent causes in a single causal theory at the object level. 
 However we need to think about how we can reason to distinguish explanations at the theory rather than at the object level.
 We would also like to generate abductive causal theories at different levels of generality, for example with unbound variables to represent any potential confounder rather than a specific measure confounder, or where confounders or an effect are constrained to be in a certain set of values.

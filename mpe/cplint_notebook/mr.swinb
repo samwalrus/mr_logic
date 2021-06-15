@@ -909,9 +909,9 @@ The distinguishment is between; a) what are the potential reasons for an event a
 <p>
   In this program, lines 1-10 set up the program to use the exact PITA inference method [Riguzzi 2013b], and tell SWISH to render answers as a graph and table.
   We then give a ground logic program (for simplicity) which details how high BMI can be caused either by 'cake advertising' or by having the phenotype purple.
-  The phenotype purple is caused by having a p allele with probabilty 0.9 or if both alleles that have been inherited are w, then the probabilty of purple phenotype is 0.1.
+  The phenotype purple is caused by having a p allele with probability 0.9 or if both alleles that have been inherited are w, then the probability of purple phenotype is 0.1.
   
-  Lines 19-22 are the meiosis rules, and lines 14 -17 show the prevlence of the alleles in mothers and fathers.
+  Lines 19-22 are the meiosis rules, and lines 14 -17 show the prevalence of the alleles in mothers and fathers.
 </p>
 </div>
 
@@ -976,7 +976,7 @@ Asking the causal theory 5 in query 21, given high_bmi what is the most probable
   i.e. we see that rule 16, rule 12, rule4, rule 0 and rule 1 gives us our explanation for our observation of high BMI. 
   Which is that the most probable explanation for high BMI is that the person has the phenotype purple which was caused by have a 'p' allele which they inherited from their mother.
 </p>
-<p> We can consider how differnt interventions on this theory would change the explanations, for example what if being advertised to was more effective at increasing BMI - modify line 36, or what if there was less advertising? Modify line 33.
+<p> We can consider how different interventions on this theory would change the explanations, for example what if being advertised to was more effective at increasing BMI - modify line 36, or what if there was less advertising? Modify line 33.
 </p><p>
 MPE inference can help us have a single explanation for an event with independent causes in a single causal theory at the object level. 
 However we need to think about how we can reason to distinguish explanations at the theory rather than at the object level.

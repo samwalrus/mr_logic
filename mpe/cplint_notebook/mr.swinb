@@ -828,6 +828,27 @@ Or 3 generations. (Takes a few seconds to run).
 Gen=2,mc_sample_arg_first(i_geno_pheno_gen_an(one,Geno,Pheno,Gen,A),5,i_geno_pheno_gen_an(one,Geno,Pheno,Gen,A),Vs), member(M-N,Vs), gvtree(M, A_tree).
 </div>
 
+<div class="nb-cell html" name="htm63">
+Probablistic queries - what is the prob that someone in gen 0,1,2,3,4 smokes?
+</div>
+
+<div class="nb-cell query" name="q15">
+mc_prob(i_geno_pheno_gen_an(_,_,p(bmi(_),smoke(yes)),5,_),P).
+</div>
+
+<div class="nb-cell html" name="htm64">
+In order to ask questions with a continues value as evidence we need to use likihood weighting.
+For example what is the probabilty of someone smoking in gen 2 given that there grandparents has a bmi of 30?
+</div>
+
+<div class="nb-cell query" name="q22">
+mc_lw_sample(smoke_gen2,bmi_gen0,+Samples:int,-Prob:float)
+</div>
+
+<div class="nb-cell html" name="htm65">
+Then to ask the causal question, if we reduce a grandparents bmi does that cause a reduction in smoking in grandchildren?
+</div>
+
 <div class="nb-cell html" name="htm40">
 <style>
 h3 {text-align: center;}

@@ -788,6 +788,7 @@ i_geno_pheno_gen_an(I,g(G1-G2,G3-G4),p(bmi(X),smoke(Smoke)),0,[]):-
 
 %gen X person.
 i_geno_pheno_gen_an(I,g(G1-G2,G3-G4),p(bmi(BMI),smoke(Smoke)),Gen,parents(P1,P2)):-
+    Gen #&gt;0,
     Gen0 #= Gen-1,
     i_geno_pheno_gen_an(m(I),g(P1_G1-P1_G2,P1_G3-P1_G4),p(bmi(P1_BMI),smoke(P1_Smoke)),Gen0,P1_Ancestors),
     P1 = i_geno_pheno_gen_an(m(I),g(P1_G1-P1_G2,P1_G3-P1_G4),p(bmi(P1_BMI),smoke(P1_Smoke)),Gen0,P1_Ancestors),

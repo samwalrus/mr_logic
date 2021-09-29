@@ -108,6 +108,16 @@ prob(m1_bladder_cancer,do(m1_smoking(true)),P1),prob(m1_bladder_cancer,do(m1_smo
 prob(m2_bladder_cancer,do(m2_smoking(true)),P1),prob(m2_bladder_cancer,do(m2_smoking(false)),P2), RiskDiffernce is P1 - P2.
 </div>
 
+<div class="nb-cell html" name="htm6">
+If the universe only allowed one of these two cts to be true but we did not know which we could conduct an RCT where we interviend on smoking we would expect a risk differnce in the arms of the trial of 0.25 if smoking causeds bladder cancer and 0 if it did not.
+The RCT allows us to know which of two cts is true.
+</div>
+
+<div class="nb-cell html" name="htm7">
+However we might not be able to conduct such a trial, due to expense or ethical considerations. 
+But we can make use of our observations of the nat2 variant.
+</div>
+
 <div class="nb-cell program" data-background="true" data-singleline="true" name="p3">
 :- end_lpad.
 </div>

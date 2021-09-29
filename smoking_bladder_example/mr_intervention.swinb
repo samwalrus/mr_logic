@@ -116,6 +116,29 @@ The RCT allows us to know which of two cts is true.
 <div class="nb-cell html" name="htm7">
 However we might not be able to conduct such a trial, due to expense or ethical considerations. 
 But we can make use of our observations of the nat2 variant.
+
+Due to the fact that meios is random and nesscirly before an exposure.
+</div>
+
+<div class="nb-cell program" data-background="true" name="p6">
+:- action m1_nat2/1.
+:- action m2_nat2/1.
+</div>
+
+<div class="nb-cell query" name="q8">
+prob(m1_bladder_cancer,m1_nat2(aa),P1),prob(m1_bladder_cancer,m1_nat2(ab),P2), RiskDiffernce is P1 - P2.
+</div>
+
+<div class="nb-cell query" name="q7">
+prob(m1_bladder_cancer,do(m1_nat2(aa)),P1),prob(m1_bladder_cancer,do(m1_nat2(ab)),P2), RiskDiffernce is P1 - P2.
+</div>
+
+<div class="nb-cell query" name="q10">
+prob(m2_bladder_cancer,m2_nat2(aa),P1),prob(m2_bladder_cancer,m2_nat2(ab),P2), RiskDiffernce is P1 - P2.
+</div>
+
+<div class="nb-cell query" name="q9">
+prob(m2_bladder_cancer,do(m2_nat2(aa)),P1),prob(m2_bladder_cancer,do(m2_nat2(ab)),P2), RiskDiffernce is P1 - P2.
 </div>
 
 <div class="nb-cell program" data-background="true" data-singleline="true" name="p3">

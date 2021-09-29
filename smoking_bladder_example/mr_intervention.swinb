@@ -25,7 +25,7 @@ People have a 50% chance of smoking.
 :- begin_lpad.
 </div>
 
-<div class="nb-cell program" name="p2">
+<div class="nb-cell program" data-background="true" name="p2">
 m1_amines(0).
 
 m1_nat2(aa):0.5 ; m1_nat2(ab):0.5.
@@ -62,7 +62,7 @@ However if we observed this risk differnce in real data this would not be good e
 There could be a common cause of smoking and something else that causes amines.
 </div>
 
-<div class="nb-cell program" name="p4">
+<div class="nb-cell program" data-background="true" name="p4">
 m2_amines(0).
 
 m2_nat2(aa):0.5 ; m2_nat2(ab):0.5.
@@ -93,6 +93,19 @@ prob(m2_bladder_cancer,m2_smoking(true),P1),prob(m2_bladder_cancer,m2_smoking(fa
 <div class="nb-cell html" name="htm5">
 We can see that the risk differnce is the same 0.5.
 Now if we calculate the risk differnce but we make the intervention of smoking in the CTs we get differnt probabilties reflecting the differnt causal structures.
+</div>
+
+<div class="nb-cell program" name="p5">
+:- action m1_smoking/1.
+:- action m2_smoking/1.
+</div>
+
+<div class="nb-cell query" name="q5">
+prob(m1_bladder_cancer,do(m1_smoking(true)),P1),prob(m1_bladder_cancer,do(m1_smoking(false)),P2), RiskDiffernce is P1 - P2.
+</div>
+
+<div class="nb-cell query" name="q6">
+prob(m2_bladder_cancer,do(m2_smoking(true)),P1),prob(m2_bladder_cancer,do(m2_smoking(false)),P2), RiskDiffernce is P1 - P2.
 </div>
 
 <div class="nb-cell program" data-background="true" data-singleline="true" name="p3">

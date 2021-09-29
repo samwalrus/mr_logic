@@ -15,7 +15,6 @@ Specifically we state that Nat2 reduces ammines and smoking increase amines and 
 In model 1 the value of amines is intially 0, i.e there is no other external cause of amines.
 They can only be increased from 0 to 1 if someone smokes.
 People have a 50% chance of smoking.
-
 </div>
 
 <div class="nb-cell program" data-background="true" data-singleline="true" name="p1">
@@ -61,6 +60,39 @@ prob(m1_bladder_cancer,m1_smoking(true),P1),prob(m1_bladder_cancer,m1_smoking(fa
 We have calculated that the Riskdiffernce is a positive 0.5, which is expected for this CT as we have declared that the only cause of bladder_cancer is smoking.
 However if we observed this risk differnce in real data this would not be good evidence that smoking causes bladder cancer, i.e that intervening to reduce the rate of smoking would reduce the rate of bladder cancer because our CT maybe incorrect.
 There could be a common cause of smoking and something else that causes amines.
+</div>
+
+<div class="nb-cell program" name="p4">
+m2_amines(0).
+
+m2_nat2(aa):0.5 ; m2_nat2(ab):0.5.
+
+m2_x(true) :0.5 ; m2_x(false) :0.5.
+
+m2_smoking(T):-m2_x(T).
+
+m2_increases_amines(1) :- m2_x(true).
+m2_increases_amines(0) :- m2_x(false).
+m2_reduces_amines(0) :- m2_nat2(aa).
+m2_reduces_amines(-1) :- m2_nat2(ab).
+m2_bladder_cancer :- m2_amines(V1),m2_increases_amines(Y),m2_reduces_amines(Y2),X is V1+Y+Y2,X &gt;=1.
+</div>
+
+<div class="nb-cell html" name="htm4">
+In ct2 a unknown factor x causes smoking and causes an increase in amines.
+</div>
+
+<div class="nb-cell query" name="q3">
+prob(m2_bladder_cancer,P).
+</div>
+
+<div class="nb-cell query" name="q4">
+prob(m2_bladder_cancer,m2_smoking(true),P1),prob(m2_bladder_cancer,m2_smoking(false),P2), RiskDiffernce is P1 - P2.
+</div>
+
+<div class="nb-cell html" name="htm5">
+We can see that the risk differnce is the same 0.5.
+Now if we calculate the risk differnce but we make the intervention of smoking in the CTs we get differnt probabilties reflecting the differnt causal structures.
 </div>
 
 <div class="nb-cell program" data-background="true" data-singleline="true" name="p3">

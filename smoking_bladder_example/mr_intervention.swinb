@@ -26,7 +26,7 @@ People have a 50% chance of smoking.
 </div>
 
 <div class="nb-cell program" data-background="true" name="p2">
-m1_amines(0).
+m1_amines(1).
 
 m1_nat2(aa):0.5 ; m1_nat2(ab):0.5.
 
@@ -63,7 +63,7 @@ There could be a common cause of smoking and something else that causes amines.
 </div>
 
 <div class="nb-cell program" data-background="true" name="p4">
-m2_amines(0).
+m2_amines(1).
 
 m2_nat2(aa):0.5 ; m2_nat2(ab):0.5.
 
@@ -139,6 +139,22 @@ prob(m2_bladder_cancer,m2_nat2(aa),P1),prob(m2_bladder_cancer,m2_nat2(ab),P2), R
 
 <div class="nb-cell query" name="q9">
 prob(m2_bladder_cancer,do(m2_nat2(aa)),P1),prob(m2_bladder_cancer,do(m2_nat2(ab)),P2), RiskDiffernce is P1 - P2.
+</div>
+
+<div class="nb-cell query" name="q12">
+prob(m2_bladder_cancer,(m2_nat2(aa),m2_smoking(true)),P1),prob(m2_bladder_cancer,(m2_nat2(aa),m2_smoking(false)),P2), RiskDiffernce is P1 - P2.
+</div>
+
+<div class="nb-cell query" name="q11">
+prob(m2_bladder_cancer,(m2_nat2(ab),m2_smoking(true)),P1),prob(m2_bladder_cancer,(m2_nat2(ab),m2_smoking(false)),P2), RiskDiffernce is P1 - P2.
+</div>
+
+<div class="nb-cell query" name="q13">
+prob(m1_bladder_cancer,(m1_nat2(aa),m1_smoking(true)),P1),prob(m1_bladder_cancer,(m1_nat2(aa),m1_smoking(false)),P2), RiskDiffernce is P1 - P2.
+</div>
+
+<div class="nb-cell query" name="q14">
+prob(m1_bladder_cancer,(m1_nat2(ab),m1_smoking(true)),P1),prob(m1_bladder_cancer,(m1_nat2(ab),m1_smoking(false)),P2), RiskDiffernce is P1 - P2.
 </div>
 
 <div class="nb-cell program" data-background="true" data-singleline="true" name="p3">

@@ -1,0 +1,70 @@
+<div class="notebook">
+
+<div class="nb-cell markdown" name="md1">
+Mendilian Randomisation interaction logic
+
+We want to know if smoking causes bladder cancer. 
+To investigate this we are going to write a number of causal theories in CP-logic and ask probablistic queries of them.
+These theories declare our assumptions about our domain.
+We can then compare some of the properties of the results of these queries with observed data.
+
+In our first model there are two vairants of the nat2 gene (aa and ab) both with equal probabilty. 
+We state that Nat2 influences the path from smoking to bladder cancer.
+Specifically we state that Nat2 reduces ammines and smoking increase amines and amines cause bladder cancer.
+
+In model 1 the value of amines is intially 0, i.e there is no other external cause of amines.
+They can only be increased from 0 to 1 if someone smokes.
+People have a 50% chance of smoking.
+
+</div>
+
+<div class="nb-cell program" data-background="true" data-singleline="true" name="p1">
+:- use_module(library(pita)).
+
+:- pita.
+
+:- begin_lpad.
+</div>
+
+<div class="nb-cell program" name="p2">
+m1_amines(0).
+
+m1_nat2(aa):0.5 ; m1_nat2(ab):0.5.
+
+m1_smoking(true) :0.5 ; m1_smoking(false) :0.5.
+
+m1_increases_amines(1) :- m1_smoking(true).
+m1_increases_amines(0) :- m1_smoking(false).
+m1_reduces_amines(0) :- m1_nat2(aa).
+m1_reduces_amines(-1) :- m1_nat2(ab).
+m1_bladder_cancer :- m1_amines(V1),m1_increases_amines(Y),m1_reduces_amines(Y2),X is V1+Y+Y2,X &gt;=1.
+</div>
+
+<div class="nb-cell html" name="htm2">
+We can ask what is the prob of having bladder cancer according to this theory?
+</div>
+
+<div class="nb-cell query" name="q1">
+prob(m1_bladder_cancer,P).
+</div>
+
+<div class="nb-cell html" name="htm1">
+We can calulate the risk differnce of bladder cancer between people who smoke and those who dont. 
+By looking at the differnce in probabilites between people who smoke and don't smoke.
+</div>
+
+<div class="nb-cell query" name="q2">
+prob(m1_bladder_cancer,m1_smoking(true),P1),prob(m1_bladder_cancer,m1_smoking(false),P2), RiskDiffernce is P1 - P2.
+</div>
+
+<div class="nb-cell html" name="htm3">
+We have calculated that the Riskdiffernce is a positive 0.5, which is expected for this CT as we have declared that the only cause of bladder_cancer is smoking.
+However if we observed this risk differnce in real data this would not be good evidence that smoking causes bladder cancer, i.e that intervening to reduce the rate of smoking would reduce the rate of bladder cancer because our CT maybe incorrect.
+There could be a common cause of smoking and something else that causes amines.
+</div>
+
+<div class="nb-cell program" data-background="true" data-singleline="true" name="p3">
+:- end_lpad.
+</div>
+
+</div>

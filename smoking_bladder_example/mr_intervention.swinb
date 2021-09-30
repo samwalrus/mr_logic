@@ -26,17 +26,25 @@ People have a 50% chance of smoking.
 </div>
 
 <div class="nb-cell program" data-background="true" name="p2">
-m1_amines(1).
+m1_amines(1):0.5 ; m1_amines(0):0.5.
 
 m1_nat2(aa):0.5 ; m1_nat2(ab):0.5.
 
 m1_smoking(true) :0.5 ; m1_smoking(false) :0.5.
 
-m1_increases_amines(1) :- m1_smoking(true).
-m1_increases_amines(0) :- m1_smoking(false).
-m1_reduces_amines(0) :- m1_nat2(aa).
-m1_reduces_amines(-1) :- m1_nat2(ab).
-m1_bladder_cancer :- m1_amines(V1),m1_increases_amines(Y),m1_reduces_amines(Y2),X is V1+Y+Y2,X &gt;=1.
+
+m1_effect_on_amines(1):- m1_smoking(true), m1_nat2(aa).
+m1_effect_on_amines(0):- m1_smoking(true), m1_nat2(ab).
+m1_effect_on_amines(0):-m1_smoking(false),m1_nat2(aa).
+m1_effect_on_amines(-1):- m1_smoking(false),m1_nat2(ab).
+
+
+%m1_increases_amines(1) :- m1_smoking(true).
+%m1_increases_amines(0) :- m1_smoking(false).
+%m1_reduces_amines(0) :- m1_nat2(aa).
+%m1_reduces_amines(-1) :- m1_nat2(ab).
+%m1_bladder_cancer :- m1_amines(V1),m1_increases_amines(Y),m1_reduces_amines(Y2),X is V1+Y+Y2,X &gt;=1.
+m1_bladder_cancer :- m1_amines(V1),m1_effect_on_amines(V2),X is V1+V2,X &gt;=1.
 </div>
 
 <div class="nb-cell html" name="htm2">
@@ -60,10 +68,12 @@ prob(m1_bladder_cancer,m1_smoking(true),P1),prob(m1_bladder_cancer,m1_smoking(fa
 We have calculated that the Riskdiffernce is a positive 0.5, which is expected for this CT as we have declared that the only cause of bladder_cancer is smoking.
 However if we observed this risk differnce in real data this would not be good evidence that smoking causes bladder cancer, i.e that intervening to reduce the rate of smoking would reduce the rate of bladder cancer because our CT maybe incorrect.
 There could be a common cause of smoking and something else that causes amines.
+
+<b> We want a ct that contrasts the effect of smoking and nat where nat works because someone smokes, vs a model where nat does not work at reducing the effect.</b>
 </div>
 
 <div class="nb-cell program" data-background="true" name="p4">
-m2_amines(1).
+m2_amines(1):0.5 ; m2_amines(0):0.5.
 
 m2_nat2(aa):0.5 ; m2_nat2(ab):0.5.
 
@@ -71,11 +81,9 @@ m2_x(true) :0.5 ; m2_x(false) :0.5.
 
 m2_smoking(T):-m2_x(T).
 
-m2_increases_amines(1) :- m2_x(true).
-m2_increases_amines(0) :- m2_x(false).
-m2_reduces_amines(0) :- m2_nat2(aa).
-m2_reduces_amines(-1) :- m2_nat2(ab).
-m2_bladder_cancer :- m2_amines(V1),m2_increases_amines(Y),m2_reduces_amines(Y2),X is V1+Y+Y2,X &gt;=1.
+m2_effect_on_amines(1) :- m2_x(true).
+m2_effect_on_amines(0) :- m2_x(false).
+m2_bladder_cancer :- m2_amines(V1),m2_effect_on_amines(V2),X is V1+V2,X &gt;=1.
 </div>
 
 <div class="nb-cell html" name="htm4">
@@ -95,7 +103,7 @@ We can see that the risk differnce is the same 0.5.
 Now if we calculate the risk differnce but we make the intervention of smoking in the CTs we get differnt probabilties reflecting the differnt causal structures.
 </div>
 
-<div class="nb-cell program" name="p5">
+<div class="nb-cell program" data-background="true" name="p5">
 :- action m1_smoking/1.
 :- action m2_smoking/1.
 </div>

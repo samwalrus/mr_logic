@@ -30,13 +30,17 @@ m1_amines(1):0.5 ; m1_amines(0):0.5.
 
 m1_nat2(aa):0.5 ; m1_nat2(ab):0.5.
 
+m1_x(true) :0.5 ; m1_x(false) :0.5.
+
 m1_smoking(true) :0.5 ; m1_smoking(false) :0.5.
 
 
-m1_effect_on_amines(1):- m1_smoking(true), m1_nat2(aa).
-m1_effect_on_amines(0):- m1_smoking(true), m1_nat2(ab).
-m1_effect_on_amines(0):-m1_smoking(false),m1_nat2(aa).
-m1_effect_on_amines(-1):- m1_smoking(false),m1_nat2(ab).
+m1_smoke_effect_on_amines(1):- m1_smoking(true), m1_nat2(aa).
+m1_smoke_effect_on_amines(0):- m1_smoking(true), m1_nat2(ab).
+m1_smoke_effect_on_amines(0):-m1_smoking(false),m1_nat2(aa).
+m1_smoke_effect_on_amines(0):- m1_smoking(false),m1_nat2(ab).
+
+m1_x_on_amines(1) :- m1_x(true).
 
 
 %m1_increases_amines(1) :- m1_smoking(true).
@@ -44,7 +48,7 @@ m1_effect_on_amines(-1):- m1_smoking(false),m1_nat2(ab).
 %m1_reduces_amines(0) :- m1_nat2(aa).
 %m1_reduces_amines(-1) :- m1_nat2(ab).
 %m1_bladder_cancer :- m1_amines(V1),m1_increases_amines(Y),m1_reduces_amines(Y2),X is V1+Y+Y2,X &gt;=1.
-m1_bladder_cancer :- m1_amines(V1),m1_effect_on_amines(V2),X is V1+V2,X &gt;=1.
+m1_bladder_cancer :- m1_amines(V1),m1_smoke_effect_on_amines(V2),m1_x_on_amines(V3),X is V1+V2+V3,X &gt;=1.
 </div>
 
 <div class="nb-cell html" name="htm2">
@@ -81,9 +85,14 @@ m2_x(true) :0.5 ; m2_x(false) :0.5.
 
 m2_smoking(T):-m2_x(T).
 
-m2_effect_on_amines(1) :- m2_x(true).
-m2_effect_on_amines(0) :- m2_x(false).
-m2_bladder_cancer :- m2_amines(V1),m2_effect_on_amines(V2),X is V1+V2,X &gt;=1.
+m2_x_on_amines(0) :- m2_x(true).
+
+m2_smoke_effect_on_amines(0):- m2_smoking(X).
+
+m2_x_on_amines(1) :- m2_x(true).
+m2_x_on_amines(0) :- m2_x(false).
+
+m2_bladder_cancer :- m2_amines(V1),m2_smoke_effect_on_amines(V2),m2_x_on_amines(V3),X is V1+V2+V3,X &gt;=1.
 </div>
 
 <div class="nb-cell html" name="htm4">

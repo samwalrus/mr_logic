@@ -3,9 +3,14 @@
 <div class="nb-cell html" name="htm1">
 <h1> Abductive Reasoning and Mendilian Randomisation </h1>
 
-<p> This notebook gives a simplified account of the reasoning that smoking causes bladder cancer using evidence that a persons genetics </p><p>
-
-</p><p> </p><blockquote> Model B (Fig. 9) can also be illustrated by the influence of
+<p> This notebook gives a simplified account of the reasoning that smoking causes bladder cancer using evidence that a persons genetics exersbates the risk factor</p><p>
+</p><figure>
+  <img src="https://raw.githubusercontent.com/samwalrus/mr_logic/master/smoking_bladder_example/scasp/diagram.png">
+  <figcaption>Figure 1: Genotype-Phenotype Interaction [1].</figcaption>
+</figure>
+  
+  
+<p></p><p> </p><blockquote> Model B (Fig. 1) can also be illustrated by the influence of
 smoking tobacco on bladder cancer risk. Observational studies
 suggest an association, but clearly confounding and a variety of
 biases could generate such an association. The potential carcinogens in tobacco smoke relevant to bladder cancer risk include
@@ -23,7 +28,7 @@ difficult to reason why this situation should arise unless smoking
 is a causal factor with respect to bladder cancer. Thus, the presence of a sizable effect of genotype in the exposed group, but not
 in the unexposed group, provides evidence as to the causal nature
 of the environmentally modifiable risk factor—in this example,
-smoking.</blockquote> : Mendelian Randomization for
+smoking.</blockquote> [1] Mendelian Randomization for
 Strengthening Causal Inference in
 Observational Studies: Application
 to Gene  Environment Interactions <p></p>

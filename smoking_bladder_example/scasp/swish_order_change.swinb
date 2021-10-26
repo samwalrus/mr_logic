@@ -1,0 +1,77 @@
+<div class="notebook">
+
+<div class="nb-cell html" name="htm1">
+<h1> Abductive Reasoning and Mendilian Randomisation </h1>
+
+<p> This notebook gives a simplified account of the reasoning that smoking causes bladder cancer using evidence that a persons genetics </p><p>
+
+</p><p> </p><blockquote> Model B (Fig. 9) can also be illustrated by the influence of
+smoking tobacco on bladder cancer risk. Observational studies
+suggest an association, but clearly confounding and a variety of
+biases could generate such an association. The potential carcinogens in tobacco smoke relevant to bladder cancer risk include
+aromatic and heterocyclic amines, which are detoxified by
+N-acetyltransferase 2 (NAT2). Genetic variation in the NAT2
+gene leads to slower or faster acetylation states. If particular carcinogens in tobacco smoke do increase the risk of bladder cancer,
+then it would be expected that those with slow acetylate states,
+who have a reduced rate of detoxification of these carcinogens,
+would be at an increased risk of bladder cancer if they were smokers, whereas if they were not exposed to these carcinogens (the
+major exposure route for those outside of particular industries
+being through tobacco smoke) then an association of genotype
+  with bladder cancer risk would not be anticipated. The influence of the NAT2 slow acetylation genotype is only appreciable among those also exposed to
+smoking. As the genotype will be unrelated to confounders, it is
+difficult to reason why this situation should arise unless smoking
+is a causal factor with respect to bladder cancer. Thus, the presence of a sizable effect of genotype in the exposed group, but not
+in the unexposed group, provides evidence as to the causal nature
+of the environmentally modifiable risk factor—in this example,
+smoking.</blockquote> : Mendelian Randomization for
+Strengthening Causal Inference in
+Observational Studies: Application
+to Gene  Environment Interactions <p></p>
+</div>
+
+<div class="nb-cell program" data-background="true" name="p1">
+:- use_module(library(scasp)).
+</div>
+
+<div class="nb-cell program" data-background="true" name="p3">
+%The standard level of amines in a person
+amines_time(level(1),time(0)).  
+
+%If someone smokes then the level of amines is increased.
+amines_time(level(2),time(1)) :- amines_time(level(1),time(0)), smoking. 
+amines_time(level(1),time(1)) :- amines_time(level(1),time(0)), not smoking. 
+
+%If someone has the protective aa variant of nat2 which can reduce the level of amines.
+%If someone does not have the protective aa variant of nat2, then there amines remain at the same level
+amines_time(level(1),time(2)) :- amines_time(level(2),time(1)),nat2(aa). 
+amines_time(level(0),time(2)) :- amines_time(level(1),time(1)),nat2(aa).
+amines_time(level(X),time(2)) :- amines_time(level(X),time(1)),not nat2(aa). 
+
+%Someone will have blood cancer if they have level2 amines.
+bladder_cancer :- amines_time(level(2),time(2)).
+</div>
+
+<div class="nb-cell html" name="htm2">
+<p> The genotype of a person is either aa or aA in this simplifed example </p>
+<p> It is marked as an abducible predicate and can there be either true or not true in the logical model constructed when the programed is queried. </p>
+
+<p> Additionally smoking is marked as abducible </p>
+</div>
+
+<div class="nb-cell program" data-background="true" name="p2">
+nat2(aa) :- not nat2(aA).
+nat2(aA) :- not nat2(aa).
+
+smoking :- not notsmoking.
+notsmoking :- not smoking.
+</div>
+
+<div class="nb-cell query" name="q1">
+? bladder_cancer.
+</div>
+
+<div class="nb-cell query" name="q2">
+? not bladder_cancer.
+</div>
+
+</div>

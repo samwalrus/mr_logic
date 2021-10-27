@@ -27,9 +27,13 @@ at_least_1_hla_sib :-
     siblings_hlaCompatSiblings(_List-HLA_sibs),
     member(1,HLA_sibs).
 
-treatment:0.5 ; control:0.5. %People are randomly allocated to either treatment or control arms.
+treatment(1):0.5 ; treatment(0):0.5. %People are randomly allocated to either treatment or control arms.
 
-effective:0.5 ; defective 0.5. %The true hidden effectivness of the treatment.
+recover(1):0.5 ; recover(0):0.5. :- treatment(1).%The true hidden effectivness of the treatment.
+recover(1):0.2 ; recover(0):0.8. :- treatment(0).
+
+observation(1):- treatment(1),at_least_1_hla_sib,recover(1).
+observation(0):- not(observation(1)).
 
 
 
@@ -57,6 +61,10 @@ Prob of having at least one hla compat sibling
 
 <div class="nb-cell query" name="q3">
 mc_prob(at_least_1_hla_sib,P).
+</div>
+
+<div class="nb-cell query" name="q4">
+mc_prob(observation(1),P).
 </div>
 
 <div class="nb-cell program" data-background="true" data-singleline="true" name="p3">

@@ -71,12 +71,22 @@ smoking :- not notsmoking.
 notsmoking :- not smoking.
 </div>
 
+<div class="nb-cell html" name="htm4">
+<p> If we query bladder_cancer using s(CASP) and the click to view the logical model we see an explantion for bladder_cancer. 
+  In this program there is only one explantion. </p>
+</div>
+
 <div class="nb-cell query" name="q1">
 ? bladder_cancer.
 </div>
 
 <div class="nb-cell query" name="q2">
 ? not bladder_cancer.
+</div>
+
+<div class="nb-cell html" name="htm3">
+<p> Note this use of a genetic vairable is not the commonly used reasoning where the gentic variable is an instrument to the exposure </p>
+<p> However it might be seen as instrument for an interaction using the iDAG ideas </p>
 </div>
 
 </div>

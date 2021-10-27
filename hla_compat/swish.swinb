@@ -13,19 +13,23 @@ While MR generally uses genetic variation as the instrumental variable, MR is no
 :- begin_lpad.
 </div>
 
-<div class="nb-cell program" name="p2">
+<div class="nb-cell program" data-background="true" name="p2">
 hla_gene(_,1):0.5 ; hla_gene(_,0):0.5. %50% prob of hla compat with sib 1=true or 0 false
 
-number_of_siblings(X):poisson(X,1.5).
+number_of_siblings(X):poisson(X,1.5):-true.
 
-hla_compat_sibs(0,0).
-hla_compat_sibs(Sibs,HLA_compat_sibs):-
-    hla_gene(Sibs,Compat),
-    HLA_compat_sibs #= HLA_compat_sibs0 + Compat,
-    Sibs1 #=Sibs-1,
-    hla_compat_sibs(Sibs1,HLA_compat_sibs0).
-    
+siblings_hlaCompatSiblings(List-HLA_sibs):- 
+    number_of_siblings(X), 
+    numlist(1,X,List), %Ids for siblings
+    maplist(hla_gene,List,HLA_sibs).
 
+at_least_1_hla_sib :-
+    siblings_hlaCompatSiblings(_List-HLA_sibs),
+    member(1,HLA_sibs).
+
+treatment:0.5 ; control:0.5. %People are randomly allocated to either treatment or control arms.
+
+effective:0.5 ; defective 0.5. %The true hidden effectivness of the treatment.
 
 
 
@@ -40,11 +44,19 @@ mc_expectation(number_of_siblings(X),100,X,E).
 </div>
 
 <div class="nb-cell html" name="htm2">
-Expected number of hla compatablle siblings
+100 samples of siblings with alongside there hla_compat
 </div>
 
 <div class="nb-cell query" name="q2">
-mc_expectation((hla_compat_sibs(5,Y)),100,Y,E).
+mc_sample_arg(siblings_hlaCompatSiblings(X),100,X,Values,[]).
+</div>
+
+<div class="nb-cell html" name="htm3">
+Prob of having at least one hla compat sibling
+</div>
+
+<div class="nb-cell query" name="q3">
+mc_prob(at_least_1_hla_sib,P).
 </div>
 
 <div class="nb-cell program" data-background="true" data-singleline="true" name="p3">

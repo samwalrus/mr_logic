@@ -71,6 +71,14 @@ smoking :- not notsmoking.
 notsmoking :- not smoking.
 </div>
 
+<div class="nb-cell program" name="p4">
+#pred bladder_cancer :: 'The person has bladder cancer'.
+#pred nat2(aa) :: 'The person has nat2 aa variant'.
+#pred nat2(aA) :: 'The person has nat2 aA variant'.
+#pred amines_time(X,Y) :: 'The person has a level of amines of @(X) at @(Y)'.
+#pred smoking :: 'The person smokes'.
+</div>
+
 <div class="nb-cell html" name="htm4">
 <p> If we query bladder_cancer using s(CASP) and the click to view the logical model we see an explantion for bladder_cancer. 
   In this program there is only one explantion. </p>
@@ -87,6 +95,45 @@ notsmoking :- not smoking.
 <div class="nb-cell html" name="htm3">
 <p> Note this use of a genetic vairable is not the commonly used reasoning where the gentic variable is an instrument to the exposure </p>
 <p> However it might be seen as instrument for an interaction using the iDAG ideas </p>
+</div>
+
+<div class="nb-cell program" data-singleline="true" name="p5">
+:-op(600,xfx,'&lt;-').
+
+anti_unify(Term1,Term2,Term):-
+    anti_unify(Term1,Term2,Term,[],S1,[],S2).
+
+anti_unify(Term1,Term2,Term1,S1,S1,S2,S2):-
+    Term1 == Term2,!.
+anti_unify(Term1,Term2,V,S1,S1,S2,S2):-
+    subs_lookup(S1,S2,Term1,Term2,V),!.
+anti_unify(Term1,Term2,Term,S10,S1,S20,S2):-
+    nonvar(Term1),nonvar(Term2),
+    functor(Term1,F,N),functor(Term2,F,N),!,
+    functor(Term,F,N),
+    anti_unify_args(N,Term1,Term2,Term,S10,S1,S20,S2).
+anti_unify(T1,T2,V,S10,[T1&lt;-V|S10],S20,[T2&lt;-V|S20]).
+
+
+
+anti_unify_args(0,Term1,Term2,Term,S1,S1,S2,S2).
+anti_unify_args(N,Term1,Term2,Term,S10,S1,S20,S2):-
+    N&gt;0, N1 is N-1,
+    arg(N,Term1,Arg1),
+    arg(N,Term2,Arg2),
+    arg(N,Term,Arg),
+    anti_unify(Arg1,Arg2,Arg,S10,S11,S20,S21),
+    anti_unify_args(N1,Term1,Term2,Term,S11,S1,S21,S2).
+
+subs_lookup([T1&lt;-V|Subs1],[T2&lt;-V|Subs2],Term1,Term2,V):-
+    T1 ==Term1,
+    T2 ==Term2,!.
+subs_lookup([S1|Subs1],[S2|Subs2],Term1,Term2,V):-
+   subs_lookup(Subs1,Subs2,Term1,Term2,V).
+</div>
+
+<div class="nb-cell query" name="q3">
+scasp(cancer),scasp(not cancer),scasp_model(M1),scasp_model(M2), anti_unify(M1,M2).
 </div>
 
 </div>

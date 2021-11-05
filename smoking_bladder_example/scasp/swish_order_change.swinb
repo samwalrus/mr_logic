@@ -100,7 +100,7 @@ nat2(aA) :- not nat2(aa).
 <p> However it might be seen as instrument for an interaction using the iDAG ideas </p>
 </div>
 
-<div class="nb-cell program" data-singleline="true" name="p4">
+<div class="nb-cell program" data-background="true" data-singleline="true" name="p4">
 #pred bladder_cancer :: 'The person has bladder cancer'.
 #pred nat2(aa) :: 'The person has nat2 aa variant'.
 #pred nat2(aA) :: 'The person has nat2 aA variant'.

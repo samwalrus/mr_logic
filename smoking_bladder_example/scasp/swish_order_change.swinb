@@ -34,7 +34,7 @@ Observational Studies: Application
 to Gene  Environment Interactions <p></p>
 </div>
 
-<div class="nb-cell program" data-background="true" name="p1">
+<div class="nb-cell program" data-background="true" data-singleline="true" name="p1">
 :- use_module(library(scasp)).
 :- style_check(-discontiguous).
 :- style_check(-singleton).
@@ -76,17 +76,15 @@ nat2(aA) :- not nat2(aa).
 :-abducible smoking.
 </div>
 
-<div class="nb-cell program" name="p4">
-#pred bladder_cancer :: 'The person has bladder cancer'.
-#pred nat2(aa) :: 'The person has nat2 aa variant'.
-#pred nat2(aA) :: 'The person has nat2 aA variant'.
-#pred amines_time(X,Y) :: 'The person has a level of amines of @(X) at @(Y)'.
-#pred smoking :: 'The person smokes'.
-</div>
-
 <div class="nb-cell html" name="htm4">
 <p> If we query bladder_cancer using s(CASP) and the click to view the logical model we see an explantion for bladder_cancer. 
   In this program there is only one explantion. </p>
+
+<p> In contast the query 'not bladder_cancer' has two explanations </p>
+<ol> 
+  <li> There is no evidence that smoking holds </li>
+  <li> The protective variant of nat2 is present </li> 
+</ol>
 </div>
 
 <div class="nb-cell query" name="q1">
@@ -100,6 +98,14 @@ nat2(aA) :- not nat2(aa).
 <div class="nb-cell html" name="htm3">
 <p> Note this use of a genetic vairable is not the commonly used reasoning where the gentic variable is an instrument to the exposure </p>
 <p> However it might be seen as instrument for an interaction using the iDAG ideas </p>
+</div>
+
+<div class="nb-cell program" data-singleline="true" name="p4">
+#pred bladder_cancer :: 'The person has bladder cancer'.
+#pred nat2(aa) :: 'The person has nat2 aa variant'.
+#pred nat2(aA) :: 'The person has nat2 aA variant'.
+#pred amines_time(X,Y) :: 'The person has a level of amines of @(X) at @(Y)'.
+#pred smoking :: 'The person smokes'.
 </div>
 
 <div class="nb-cell program" data-singleline="true" name="p5">

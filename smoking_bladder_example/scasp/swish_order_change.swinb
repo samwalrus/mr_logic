@@ -36,6 +36,9 @@ to Gene  Environment Interactions <p></p>
 
 <div class="nb-cell program" data-background="true" name="p1">
 :- use_module(library(scasp)).
+:- style_check(-discontiguous).
+:- style_check(-singleton).
+:- set_prolog_flag(scasp_unknown, fail).
 </div>
 
 <div class="nb-cell program" data-background="true" name="p3">
@@ -50,7 +53,7 @@ amines_time(level(1),time(1)) :- amines_time(level(1),time(0)), not smoking.
 %If someone does not have the protective aa variant of nat2, then there amines remain at the same level
 amines_time(level(1),time(2)) :- amines_time(level(2),time(1)),nat2(aa). 
 amines_time(level(0),time(2)) :- amines_time(level(1),time(1)),nat2(aa).
-amines_time(level(X),time(2)) :- amines_time(level(X),time(1)),not nat2(aa). 
+amines_time(level(2),time(2)) :- amines_time(level(2),time(1)),not nat2(aa). 
 
 %Someone will have blood cancer if they have level2 amines.
 bladder_cancer :- amines_time(level(2),time(2)).
@@ -67,8 +70,10 @@ bladder_cancer :- amines_time(level(2),time(2)).
 nat2(aa) :- not nat2(aA).
 nat2(aA) :- not nat2(aa).
 
-smoking :- not notsmoking.
-notsmoking :- not smoking.
+%smoking :- not notsmoking.
+%notsmoking :- not smoking.
+
+:-abducible smoking.
 </div>
 
 <div class="nb-cell program" name="p4">
